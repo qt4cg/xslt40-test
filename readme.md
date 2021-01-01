@@ -1,13 +1,13 @@
-THIS IS THE XSLT 3.0 TEST SUITE
+THIS IS THE XSLT 4.0 TEST SUITE
 
-
-This text can also be viewed online in the Public, freely accessible mail archive:
-https://lists.w3.org/Archives/Public/public-xsl-wg/2016Feb/0001.html
+Forked from GitHub/w3c/xslt30-test
 
 
 ### GETTING THE REPO ###
 
-The current version of the XSLT 3.0 test suite is in GitHub at https://github.com/w3c/xslt30-test
+The current version of the XSLT 4.0 test suite is in GitHub at https://github.com/qt4cg/xslt40-test
+
+The rest of this readme is copied directly from the XSLT 3.0 tests suite...
 
 Prior to 31 March 2019 it was in a Mercurial (Hg) repository: https://dvcs.w3.org/hg/xslt30-test/
 
