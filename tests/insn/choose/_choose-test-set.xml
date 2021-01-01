@@ -2,7 +2,7 @@
 <test-set xmlns:xs="http://www.w3.org/2001/XMLSchema"
           xmlns="http://www.w3.org/2012/10/xslt-test-catalog"
           name="choose">
-   <description>Tests choose</description>
+   <description>Tests xsl:if and xsl:choose</description>
    <environment name="choose-01">
       <source role="." file="choose-01.xml"/>
    </environment>
@@ -975,6 +975,149 @@ Joe Smith
       </test>
       <result>
          <assert-xml><![CDATA[<out>true-false</out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="choose-4001">
+      <description>Simple test of xsl:if with then and else attributes</description>
+      <created by="Michael Kay" on="2019-12-16"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="choose-4001.xsl"/>
+      </test>
+      <result>
+         <assert>/out = 'Twenty-first'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="choose-4002">
+      <description>Simple test of xsl:if with else attribute and sequence constructor</description>
+      <created by="Michael Kay" on="2019-12-16"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="choose-4002.xsl"/>
+      </test>
+      <result>
+         <assert>/out = 'Twenty-first'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="choose-4003">
+      <description>Simple test of xsl:if with then attribute and no else</description>
+      <created by="Michael Kay" on="2019-12-16"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="choose-4003.xsl"/>
+      </test>
+      <result>
+         <assert>/out = 'Twenty-first'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="choose-4004">
+      <description>Error case of xsl:if with then attribute and sequence constructor</description>
+      <created by="Michael Kay" on="2019-12-16"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="choose-4004.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0010"/>
+      </result>
+   </test-case>
+   
+   <test-case name="choose-4101">
+      <description>Basic test of "otherwise" operator</description>
+      <created by="Michael Kay" on="2019-12-16"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="choose-4101.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a = '1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22'</assert>
+            <assert>out/b = '200'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="choose-4102">
+      <description>Precedence of "otherwise" operator: higher than arithmetic operators</description>
+      <created by="Michael Kay" on="2019-12-16"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="choose-4102.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '24'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="choose-4103">
+      <description>Precedence of "otherwise" operator: less than "union"</description>
+      <created by="Michael Kay" on="2019-12-16"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="choose-4103.xsl"/>
+      </test>
+      <result>
+         <assert>/out = 'n'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="choose-4501">
+      <description>Simple test of xsl:choose with select attributes on xsl:when and xsl:otherwise</description>
+      <created by="Michael Kay" on="2019-12-16"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="choose-4501.xsl"/>
+      </test>
+      <result>
+         <assert>/out = 'Twenty-first'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="choose-4502">
+      <description>If xsl:when/@select is present then element must be empty</description>
+      <created by="Michael Kay" on="2019-12-16"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="choose-4502.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0010"/>
+      </result>
+   </test-case>
+   
+   <test-case name="choose-4503">
+      <description>If xsl:otherwise/@select is present then element must be empty</description>
+      <created by="Michael Kay" on="2019-12-16"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="choose-4503.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0010"/>
       </result>
    </test-case>
 </test-set>
