@@ -849,12 +849,7 @@
                     <xs:attribute name="value">
                         <xs:simpleType>
                             <xs:restriction base="xs:string">
-                                <xs:enumeration value="XSLT10"/>
-                                <xs:enumeration value="XSLT10+"/>
-                                <xs:enumeration value="XSLT20"/>
-                                <xs:enumeration value="XSLT20+"/>
-                                <xs:enumeration value="XSLT10 XSLT20"/>
-                                <xs:enumeration value="XSLT30+"/>
+                                <xs:pattern value="((XSLT(10|20|30|40)\+?)\s?)+"/>
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:attribute>
