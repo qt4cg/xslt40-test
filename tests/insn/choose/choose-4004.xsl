@@ -2,10 +2,6 @@
 
 <xsl:stylesheet
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="4.0"
-   xmlns:saxon="http://saxon.sf.net/"
-   xmlns:array="http://www.w3.org/2005/xpath-functions/array"
-   extension-element-prefixes="saxon"
-   exclude-result-prefixes="#all"
 >
 
 <xsl:template name="xsl:initial-template">
