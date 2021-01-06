@@ -216,7 +216,8 @@
    <test-case name="si-on-empty-025">
       <description>Test of xsl:on-empty with multiple elements (some empty)</description>
       <created by="Michael Kay" on="2015-07-02"/>
-      <modified by="Michael Kay" on="2015-08-16" change="spec change, see bug 28888"/>    
+      <modified by="Michael Kay" on="2015-08-16" change="spec change, see bug 28888"/>
+      <modified by="Michael Kay" on="2021-01-06" change="avoid document-uri() on streamed documents"/>
       <environment ref="si-on-empty-A"/>  
       <test>
          <initial-template name="s-025"/>
@@ -229,7 +230,8 @@
    <test-case name="si-on-empty-026">
       <description>Test of xsl:on-empty with multiple elements (some empty)</description>
       <created by="Michael Kay" on="2015-07-02"/>
-      <modified by="Michael Kay" on="2015-08-16" change="spec change, see bug 28888"/>    
+      <modified by="Michael Kay" on="2015-08-16" change="spec change, see bug 28888"/>
+      <modified by="Michael Kay" on="2021-01-06" change="avoid document-uri() on streamed documents"/>
       <environment ref="si-on-empty-A"/>  
       <test>
          <initial-template name="s-026"/>

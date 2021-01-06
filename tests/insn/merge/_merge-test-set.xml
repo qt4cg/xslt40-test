@@ -1049,6 +1049,7 @@
       <description>xsl:merge test using accumulators.</description>
       <created by="Michael Kay" on="2015-08-12"/>
       <modified by="Michael Kay" on="2017-01-15" change="Streamable and non-streamable variants"/>
+      <modified by="Michael Kay" on="2021-01-05" change="Use base-uri rather than document-uri"/>
       <environment ref="merge002"/>
       <dependencies>
          <feature value="streaming"/>
@@ -1627,6 +1628,7 @@
    <test-case name="merge-098">
       <description>Saxon bug 4275. Merging two streamed selections from the same input document.</description>
       <created by="Michael Kay after Martin Honnen" on="2019-08-12"/>
+      <modified by="Michael Kay" on="2021-01-05" change="Use base-uri rather than document-uri"/>
       <environment>
          <source role="." file="merge098.xml" streaming="true"/>
       </environment>
