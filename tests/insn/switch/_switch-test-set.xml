@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          xmlns="http://www.w3.org/2012/10/xslt-test-catalog"
+          name="switch">
+   <description>Tests xsl:switch (new in XSLT 4.0)</description>
+ 
+
+   <test-case name="switch-001">
+      <description>Basic test of xsl:switch with select attributes</description>
+      <created by="Michael Kay" on="2021-01-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="switch-001.xsl"/>
+      </test>
+      <result>
+         <assert>/out = 'Twenty-first'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="switch-002">
+      <description>Basic test of xsl:switch with sequence constructors</description>
+      <created by="Michael Kay" on="2021-01-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="switch-002.xsl"/>
+      </test>
+      <result>
+         <assert>/out = 'Twenty-first'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="switch-003">
+      <description>xsl:switch with multiple values in one xsl:when</description>
+      <created by="Michael Kay" on="2021-01-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="switch-003.xsl"/>
+      </test>
+      <result>
+         <assert>/out = 'Twenty-first'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="switch-004">
+      <description>xsl:switch taking the xsl:otherwise path</description>
+      <created by="Michael Kay" on="2021-01-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="switch-004.xsl"/>
+      </test>
+      <result>
+         <assert>/out = 'Umpteenth'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="switch-005">
+      <description>xsl:switch omitting xsl:otherwise</description>
+      <created by="Michael Kay" on="2021-01-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="switch-005.xsl"/>
+      </test>
+      <result>
+         <assert>empty(/out/node())</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="switch-006">
+      <description>xsl:fallback is ignored</description>
+      <created by="Michael Kay" on="2021-01-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="switch-006.xsl"/>
+      </test>
+      <result>
+         <assert>empty(/out/node())</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="switch-007">
+      <description>xsl:fallback is ignored</description>
+      <created by="Michael Kay" on="2021-01-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="switch-007.xsl"/>
+      </test>
+      <result>
+         <assert>empty(/out/node())</assert>
+      </result>
+   </test-case>
+   
+   
+   <test-case name="switch-901">
+      <description>xsl:fallback must come last</description>
+      <created by="Michael Kay" on="2021-01-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="switch-901.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0010"/>
+      </result>
+   </test-case>
+
+</test-set>
