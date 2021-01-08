@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns:xs="http://www.w3.org/2001/XMLSchema"
+   xmlns="http://www.w3.org/2012/10/xslt-test-catalog" name="xsl-match">
+
+   <description>Tests XSLT 4.0 xsl:match instruction</description>
+
+ 
+   <dependencies>
+      <spec value="XSLT40+"/>  
+   </dependencies>
+
+   <test-case name="xsl-match-001">
+      <description>Basic test</description>
+      <created by="Michael Kay" on="2021-01-07"/>
+      <test>
+         <stylesheet file="xsl-match-001.xsl"/>
+         <initial-template name="t-001"></initial-template>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/one = 'true'</assert>
+            <assert>/out/two = 'false'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="xsl-match-002">
+      <description>Select empty sequence</description>
+      <created by="Michael Kay" on="2021-01-07"/>
+      <test>
+         <stylesheet file="xsl-match-001.xsl"/>
+         <initial-template name="t-002"></initial-template>
+      </test>
+      <result>
+         <assert>/out/one = 'true'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsl-match-003">
+      <description>Select multiple nodes</description>
+      <created by="Michael Kay" on="2021-01-07"/>
+      <test>
+         <stylesheet file="xsl-match-001.xsl"/>
+         <initial-template name="t-003"></initial-template>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/one = 'true'</assert>
+            <assert>/out/two = 'false'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="xsl-match-004">
+      <description>Default to context item</description>
+      <created by="Michael Kay" on="2021-01-07"/>
+      <test>
+         <stylesheet file="xsl-match-001.xsl"/>
+         <initial-template name="t-004"></initial-template>
+      </test>
+      <result>
+         <assert>/out = 'true false false'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsl-match-005">
+      <description>Pattern using current()</description>
+      <created by="Michael Kay" on="2021-01-07"/>
+      <test>
+         <stylesheet file="xsl-match-001.xsl"/>
+         <initial-template name="t-005"></initial-template>
+      </test>
+      <result>
+         <assert>/out = 'true false false'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xsl-match-006">
+      <description>RecordTest Pattern</description>
+      <created by="Michael Kay" on="2021-01-07"/>
+      <test>
+         <stylesheet file="xsl-match-001.xsl"/>
+         <initial-template name="t-006"></initial-template>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/one = 'true'</assert>
+            <assert>/out/two = 'false'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+ 
+   
+</test-set>

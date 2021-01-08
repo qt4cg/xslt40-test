@@ -111,9 +111,7 @@
       <test-set name="attribute" file="tests/insn/attribute/_attribute-test-set.xml"/>
       <test-set name="call-template" file="tests/insn/call-template/_call-template-test-set.xml"/>
       <test-set name="choose" file="tests/insn/choose/_choose-test-set.xml"/>
-      <test-set name="xsl-document" file="tests/insn/xsl-document/_xsl-document-test-set.xml"/>
       <test-set name="element" file="tests/insn/element/_element-test-set.xml"/>
-      <test-set name="where-populated" file="tests/insn/where-populated/_where-populated-test-set.xml"/>
       <test-set name="construct-node" file="tests/insn/construct-node/_construct-node-test-set.xml"/>         
       <test-set name="copy" file="tests/insn/copy/_copy-test-set.xml"/>
       <test-set name="evaluate" file="tests/insn/evaluate/_evaluate-test-set.xml"/>
@@ -132,6 +130,9 @@
       <test-set name="source-document" file="tests/insn/source-document/_source-document-test-set.xml"/>
       <test-set name="switch" file="tests/insn/switch/_switch-test-set.xml"/>
       <test-set name="try" file="tests/insn/try/_try-test-set.xml"/>
+      <test-set name="where-populated" file="tests/insn/where-populated/_where-populated-test-set.xml"/>
+      <test-set name="xsl-document" file="tests/insn/xsl-document/_xsl-document-test-set.xml"/>
+      <test-set name="xsl-match" file="tests/insn/xsl-match/_xsl-match-test-set.xml"/>
       
       <!-- Miscellaneous features -->
       
@@ -299,7 +300,9 @@
       <test-set name="namespace" file="tests/type/namespace/_namespace-test-set.xml"/>
       <test-set name="node" file="tests/type/node/_node-test-set.xml"/>
       <test-set name="notation" file="tests/type/notation/_notation-test-set.xml"/>
+      <test-set name="record" file="tests/type/record/_record-test-set.xml"/>
       <test-set name="string" file="tests/type/string/_string-test-set.xml"/>
       <test-set name="type" file="tests/type/type/_type-test-set.xml"/>
+      <test-set name="type-alias" file="tests/type/type-alias/_type-alias-test-set.xml"/>
           
    </catalog>

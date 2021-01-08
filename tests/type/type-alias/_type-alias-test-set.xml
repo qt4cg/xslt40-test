@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns:xs="http://www.w3.org/2001/XMLSchema"
+   xmlns="http://www.w3.org/2012/10/xslt-test-catalog"
+   name="type-alias">
+   <description>Tests xsl:item-type (proposed 4.0 extension)</description>
+   
+   <test-case name="type-alias-001">
+      <description>Basic use case for xsl:item-type</description>
+      <created by="Michael Kay" on="2016-09-07"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-001.xsl"/>
+      </test>
+      <result>
+         <assert>/result = "-1+-1i"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-001b">
+      <description>Basic use case for xsl:item-type, when not available</description>
+      <created by="Debbie Lockett" on="2020-03-10"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-001.xsl"/>
+      </test>
+      <result>
+         <error code="XPST0003"/>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-002">
+      <description>xsl:item-type referring to another type alias (forwards reference)</description>
+      <created by="Michael Kay" on="2016-09-07"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-002.xsl"/>
+      </test>
+      <result>
+         <assert>/result = "-1+-1i"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-003">
+      <description>xsl:item-type referring to another type alias (unresolved reference)</description>
+      <created by="Michael Kay" on="2016-09-07"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-003.xsl"/>
+      </test>
+      <result>
+         <error code="SXTA0001"/>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-004">
+      <description>xsl:item-type referring to another type alias (circular reference)</description>
+      <created by="Michael Kay" on="2016-09-07"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-004.xsl"/>
+      </test>
+      <result>
+         <error code="SXTA0001"/>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-005">
+      <description>xsl:item-type with tuple types</description>
+      <created by="Michael Kay" on="2016-09-07"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-005.xsl"/>
+      </test>
+      <result>
+         <assert>/result = "-1+-1i"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-006">
+      <description>xsl:item-type with instance-of testing against tuple types</description>
+      <created by="Michael Kay" on="2016-09-07"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-006.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a = 'true'</assert>
+            <assert>/out/b = 'false'</assert>
+            <assert>/out/c = 'false'</assert>
+            <assert>/out/d = 'true'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-007">
+      <description>Static type checking against tuple types</description>
+      <created by="Michael Kay" on="2016-09-07"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-007.xsl"/>
+      </test>
+      <result>
+         <error code="XPTY0004"/>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-008">
+      <description>Type alias as a match pattern</description>
+      <created by="Michael Kay" on="2017-11-13"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-008.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/x = '1+1.5i'</assert>
+            <assert>/out/y = '-2+0.5i'</assert>
+            <assert>/out/z = '2-2.5i'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-009">
+      <description>Tuple type as a match pattern (without using type alias)</description>
+      <created by="Michael Kay" on="2017-11-13"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-009.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/x = '1+1.5i'</assert>
+            <assert>/out/y = '-2+0.5i'</assert>
+            <assert>/out/z = '2-2.5i'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-010">
+      <description>Recursive descent template rules applied to JSON</description>
+      <created by="Michael Kay" on="2017-11-13"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-010.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><h1>humanities Faculty</h1><h2>English Course</h2><p>List of students:</p
+    ><table><thead><tr><th>Name</th><th>Email</th></tr></thead
+        ><tbody><tr><td>Ann Jones</td><td>ann_jones@gmail.com</td></tr><tr><td>Mary Smith</td><td>mary_smith@gmail.com</td></tr></tbody></table
+    ><h2>History Course</h2><p>List of students:</p><table><thead><tr><th>Name</th><th>Email</th></tr></thead
+        ><tbody><tr><td>Ann Jones</td><td>ann_jones@gmail.com</td></tr><tr><td>John Taylor</td><td>john_taylor@gmail.com</td></tr></tbody></table
+    ><h1>science Faculty</h1><h2>Physics Course</h2><p>List of students:</p><table><thead><tr><th>Name</th><th>Email</th></tr></thead
+        ><tbody><tr><td>Amisha Patel</td><td>amisha_patel@gmail.com</td></tr><tr><td>Anil Singh</td><td>anil_singh@gmail.com</td></tr></tbody></table
+    ><h2>Chemistry Course</h2><p>List of students:</p><table><thead><tr><th>Name</th><th>Email</th></tr></thead
+        ><tbody><tr><td>Anil Singh</td><td>anil_singh@gmail.com</td></tr><tr><td>John Taylor</td><td>john_taylor@gmail.com</td></tr></tbody></table></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-011">
+      <description>Type alias for a union type</description>
+      <created by="Michael Kay" on="2018-07-04"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-011.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/w = '20 9 2018'</assert>
+            <assert>/out/x = '20 9 2018'</assert>
+            <assert>/out/y = '12 30 15'</assert>
+            <assert>/out/z = '1 1 1900'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-012">
+      <description>Tuple type with optional fields</description>
+      <created by="Michael Kay" on="2018-09-20"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-012.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a = 'true'</assert>
+            <assert>/out/b = 'false'</assert>
+            <assert>/out/c = 'true'</assert>
+            <assert>/out/d = 'true'</assert>
+            <assert>/out/e = 'false'</assert>
+            <assert>/out/f = 'true'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-013">
+      <description>Tuple type with non-NCName field names</description>
+      <created by="Michael Kay" on="2020-01-19"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-013.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/person/name = 'Michael Kay'</assert>
+            <assert>/out/person/dob = '1951-10-11'</assert>
+            <assert>/out/person/pob = 'Hannover'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-014">
+      <description>Tuple type with duplicate field names</description>
+      <created by="Michael Kay" on="2020-01-19"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-014.xsl"/>
+      </test>
+      <result>
+         <error code="XPST0003"/>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-050">
+      <description>JSON inversion use case</description>
+      <created by="Michael Kay" on="2020-01-28"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-050.xsl"/>
+         <output tree="no"/>
+      </test>
+      <result>
+         <all-of>
+            <assert-type>array(map(*))</assert-type>
+            <assert>?1?email = "ann_jones@gmail.com"</assert>
+            <assert>deep-equal(?1?courses, ["English", "History"])</assert>
+            <assert>?2?email = "amisha_patel@gmail.com"</assert>
+            <assert>?3?email = "anil_singh@gmail.com"</assert>
+            <assert>?4?email = "mary_smith@gmail.com"</assert>
+            <assert>?5?email = "john_taylor@gmail.com"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="wildcard-type-001">
+      <description>element(x:*) as an item type</description>
+      <created by="Michael Kay" on="2020-01-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="wildcard-type-001.xsl"/>
+      </test>
+      <result>
+         <assert>/out='true'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="wildcard-type-002">
+      <description>element(*:x) as an item type</description>
+      <created by="Michael Kay" on="2020-01-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="wildcard-type-002.xsl"/>
+      </test>
+      <result>
+         <assert>/out='true'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="wildcard-type-003">
+      <description>attribute(x:*) as an item type</description>
+      <created by="Michael Kay" on="2020-01-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="wildcard-type-003.xsl"/>
+      </test>
+      <result>
+         <assert>/out='[en]'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="wildcard-type-004">
+      <description>attribute(*:lang) as an item type</description>
+      <created by="Michael Kay" on="2020-01-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="wildcard-type-004.xsl"/>
+      </test>
+      <result>
+         <assert>/out/@xml:lang='en'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="wildcard-type-005">
+      <description>priorities of element kind test patterns</description>
+      <created by="Michael Kay" on="2020-01-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="wildcard-type-005.xsl"/>
+      </test>
+      <result>
+         <assert>/out/P0.25/Q0.125/P0.125/Q0/P0/Q-0.25/P-0.25/P-0.5</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="wildcard-type-006">
+      <description>priorities of attribute kind test patterns</description>
+      <created by="Michael Kay" on="2020-01-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="wildcard-type-006.xsl"/>
+      </test>
+      <result>
+         <assert>/out/P0.25/Q0.125/P0.125/Q0/P0/Q-0.25/P-0.25/P-0.5</assert>
+      </result>
+   </test-case>
+   
+   
+   
+ 
+</test-set>
