@@ -4,6 +4,10 @@
    
    <!-- The descriptions of tests are retained from the streaming version, but are no longer relevant -->
    
+   <environment name="array-A">
+      <source role="." file="transactions.xml"/>
+   </environment>
+   
    <environment name="square-array-A">
      <stylesheet file="square-array-A.xsl"/>
    </environment>
@@ -790,6 +794,395 @@
       </result>
    </test-case>
    
+   <test-case name="arrays-001">
+      <description>Simple test of xsl:array with a sequence constructor</description>
+      <created by="Michael Kay" on="2016-12-19"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-001.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/@count = '10'</assert>
+            <assert>/out/@values = '1 2 3 4 5 6 7 8 9 10'</assert>
+            <assert>/out/@last = '10'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-001b">
+      <description>Simple test of xsl:array with a sequence constructor, when not available</description>
+      <created by="Debbie Lockett" on="2020-03-10"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-001.xsl"/>
+      </test>
+      <result>
+         <error code="XTDE1450"/>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-002">
+      <description>Simple test of xsl:array with a select attribute</description>
+      <created by="Michael Kay" on="2016-12-19"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-002.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/@count = '10'</assert>
+            <assert>/out/@values = '1 2 3 4 5 6 7 8 9 10'</assert>
+            <assert>/out/@last = '10'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-002b">
+      <description>Simple test of xsl:array with a select attribute, when not available</description>
+      <created by="Debbie Lockett" on="2020-03-10"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-002.xsl"/>
+      </test>
+      <result>
+         <error code="XTDE1450"/>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-003">
+      <description>Nested arrays</description>
+      <created by="Michael Kay" on="2016-12-19"/>
+      <environment ref="array-A"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-003.xsl"/>
+         <output serialize="yes" tree="no"/>
+      </test>
+      <result>
+         <assert-serialization>[["13.24","8.12"],["-15.00"],["6.00"],["0.50","2.33","4.44"],["-5.00"],["8.99"],["16.00"],["-2.33","5.60","4.32"],["6.78","12.20","-248.05"],["12.00","13.99"],["14.20"]]</assert-serialization>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-003b">
+      <description>Nested arrays, when not available</description>
+      <created by="Debbie Lockett" on="2020-03-10"/>
+      <environment ref="array-A"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-003.xsl"/>
+         <output serialize="yes" tree="no"/>
+      </test>
+      <result>
+         <error code="XTDE1450"/>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-004">
+      <description>Arrays containing sequences</description>
+      <created by="Michael Kay" on="2017-01-11"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-004.xsl"/>
+      </test>
+      <result>
+         <assert>/out[@ok="true"]</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-004b">
+      <description>Arrays containing sequences, when not available</description>
+      <created by="Debbie Lockett" on="2020-03-10"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-004.xsl"/>
+      </test>
+      <result>
+         <error code="XTDE1450"/>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-005">
+      <description>Arrays containing sequences</description>
+      <created by="Michael Kay" on="2017-01-11"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-005.xsl"/>        
+      </test>
+      <result>
+         <assert>/out[@ok="true"]</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-005b">
+      <description>Arrays containing sequences, when not available</description>
+      <created by="Debbie Lockett" on="2020-03-10"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-005.xsl"/>
+      </test>
+      <result>
+         <error code="XPST0017"/>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-006">
+      <description>Arrays containing sequences</description>
+      <created by="Michael Kay" on="2017-01-11"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-006.xsl"/>        
+      </test>
+      <result>
+         <assert>/out[@ok="true"]</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-006b">
+      <description>Arrays containing sequences, when not available</description>
+      <created by="Debbie Lockett" on="2020-03-10"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-006.xsl"/>
+      </test>
+      <result>
+         <error code="XPST0017"/>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-007">
+      <description>Streaming with arrays - Saxon bug 3599 - streaming on</description>
+      <created by="Michael Kay" on="2018-01-05"/>
+      <environment>
+         <source file="arrays-007.xml" role="." streaming="true"/>
+      </environment>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="streaming"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-007.xsl"/>
+         <param name="STREAMABLE" static="yes" select="true()"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>contains(/out, '"cities":["Milano","Venezia"]')</assert>
+            <assert>contains(/out, '"cities":["Paris","Lyon"]')</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-008">
+      <description>Streaming with arrays - Saxon bug 3599 - streaming off</description>
+      <created by="Michael Kay" on="2018-01-05"/>
+      <environment>
+         <source file="arrays-007.xml" role="." streaming="true"/>
+      </environment>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="streaming"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-007.xsl"/>
+         <param name="STREAMABLE" static="yes" select="false()"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>contains(/out, '"cities":["Milano","Venezia"]')</assert>
+            <assert>contains(/out, '"cities":["Paris","Lyon"]')</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-009">
+      <description>"for each member" extension</description>
+      <created by="Michael Kay" on="2019-04-03"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-009.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "2 3 4 5"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-009b">
+      <description>"for each member" extension, when not available</description>
+      <created by="Debbie Lockett" on="2020-03-10"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-009.xsl"/>
+      </test>
+      <result>
+         <error code="XPST0003"/>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-020">
+      <description>xsl:for-each-member extension</description>
+      <created by="Michael Kay" on="2019-04-03"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-020.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/in[1] = 1</assert>
+            <assert>/out/in[2] = 11</assert>
+            <assert>/out/in[3] = 10</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-020b">
+      <description>xsl:for-each-member extension, when not available</description>
+      <created by="Debbie Lockett" on="2020-03-10"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-020.xsl"/>
+      </test>
+      <result>
+         <error code="XTDE1450"/>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-021">
+      <description>xsl:for-each-member extension; type error, select must be an array</description>
+      <created by="Michael Kay" on="2019-04-03"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-021.xsl"/>
+      </test>
+      <result>
+         <error code="XPTY0004"/>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-022">
+      <description>xsl:for-each-member extension; JSON example</description>
+      <created by="Michael Kay" on="2019-04-03"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-022.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "RU"</assert>
+      </result>
+   </test-case>
+  
+  <test-case name="arrays-023">
+    <description>template matching array of atomic values</description>
+    <created by="Michael Kay" on="2020-01-30"/>
+    <dependencies>
+      <spec value="XSLT40+"/>
+    </dependencies>
+    <test>
+      <stylesheet file="arrays-023.xsl"/>
+    </test>
+    <result>
+      <assert>/out/L/I/D = '42'</assert>
+    </result>
+  </test-case>
+   
+   <test-case name="arrays-023b">
+      <description>template matching array of atomic values, when not available</description>
+      <created by="Debbie Lockett" on="2020-03-10"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-023.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0340"/>
+      </result>
+   </test-case>
+  
+  <test-case name="arrays-024">
+    <description>template matching array of maps (from JSON)</description>
+    <created by="Michael Kay" on="2020-01-30"/>
+    <dependencies>
+      <spec value="XSLT40+"/>
+    </dependencies>
+    <test>
+      <stylesheet file="arrays-024.xsl"/>
+    </test>
+    <result>
+      <all-of>
+        <assert>/out/AT/P[@first='Sue'][@last='Schreiber']</assert>
+        <assert>/out/AT/P[@first='Debbie'][@last='Lockett']</assert>
+      </all-of>
+    </result>
+  </test-case>
+   
+   <test-case name="arrays-024b">
+      <description>template matching array of maps (from JSON), when not available</description>
+      <created by="Debbie Lockett" on="2020-03-10"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-024.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0340"/>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-025">
+      <description>xsl:for-each processing array derived from JSON parsing</description>
+      <created by="Michael Kay" on="2021-01-12"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-025.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/city[1][@name="Berlin"][@latitude="52.52"]</assert>
+            <assert>/out/city[2][@name="London"][@latitude="51.5099"]</assert>
+            <assert>/out/city[3][@name="Paris"][@latitude="48.8647"]</assert>
+         </all-of>
+      </result>
+   </test-case>
+  
    <test-case name="arrays-301">
       <description>Built-in template rule for arrays (text-only copy)</description>
       <created by="Michael Kay" on="2017-11-13"/>
