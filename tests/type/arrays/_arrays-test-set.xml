@@ -1182,6 +1182,41 @@
          </all-of>
       </result>
    </test-case>
+   
+   <test-case name="arrays-026">
+      <description>xsl:iterate processing array derived from JSON parsing</description>
+      <created by="Michael Kay" on="2021-01-12"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-026.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/city[1][@name="London"][@latitude="51.5099"]</assert>
+            <assert>/out/city[2][@name="Paris"][@latitude="48.8647"]</assert>
+            <assert>/out/city[3][@name="Berlin"][@latitude="52.52"]</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="arrays-027">
+      <description>xsl:for-each-group processing an array</description>
+      <created by="Michael Kay" on="2021-01-12"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="arrays-027.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/@CD = '14'</assert>
+            <assert>/out/@DE = '32'</assert>
+         </all-of>
+      </result>
+   </test-case>
   
    <test-case name="arrays-301">
       <description>Built-in template rule for arrays (text-only copy)</description>
