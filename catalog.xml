@@ -110,6 +110,7 @@
       <test-set name="assert" file="tests/insn/assert/_assert-test-set.xml"/>
       <test-set name="attribute" file="tests/insn/attribute/_attribute-test-set.xml"/>
       <test-set name="call-template" file="tests/insn/call-template/_call-template-test-set.xml"/>
+      <test-set name="call-template-ext" file="tests/insn/call-template-ext/_call-template-ext-test-set.xml"/>  
       <test-set name="choose" file="tests/insn/choose/_choose-test-set.xml"/>
       <test-set name="element" file="tests/insn/element/_element-test-set.xml"/>
       <test-set name="construct-node" file="tests/insn/construct-node/_construct-node-test-set.xml"/>         

@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          xmlns="http://www.w3.org/2012/10/xslt-test-catalog"
+          name="call-template-ext">
+   <description>Tests calling of named templates using extension instructions</description>
+   <environment name="call-template-ext-01">
+      <source role=".">
+         <content><![CDATA[<doc/>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-02">
+      <source role="." select="/doc">
+         <content><![CDATA[<doc> abc </doc>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-04">
+      <source role=".">
+         <content><![CDATA[ 
+<doc>
+  <a>top-level-a</a>
+</doc>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-05">
+      <source role=".">
+         <content><![CDATA[ 
+<doc>
+	<a>test</a>
+</doc>
+]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-06">
+      <source role=".">
+         <content><![CDATA[ 
+<doc>
+  <a>top-level-a</a>
+    <doc>
+	  <a>sub-level-a</a>
+	</doc>
+</doc>
+]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-07">
+      <source role=".">
+         <content><![CDATA[ 
+<doc>
+ <a>
+  <b>
+   <c>
+	<d>
+	</d>
+   </c>
+  </b>
+ </a>
+</doc>
+]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-08">
+      <source role=".">
+         <content><![CDATA[<doc>
+</doc>
+]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-09">
+      <source role=".">
+         <content><![CDATA[<doc/>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-10">
+      <source role=".">
+         <content><![CDATA[<wrap><a>01234567890123456789</a></wrap>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-11">
+      <source role=".">
+         <content><![CDATA[ 
+<doc>
+	<a>test</a>
+</doc>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-12">
+      <source role=".">
+         <content><![CDATA[ 
+<doc>
+  <AAA repeat="3"/>
+  <BBB repeat="2"/>
+  <CCC repeat="5"/>
+</doc>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-13">
+      <source role=".">
+         <content><![CDATA[ 
+<doc>
+  <a>X</a>
+  <a>Y</a>
+  <a>Z</a>
+</doc>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-14">
+      <source role=".">
+         <content><![CDATA[<doc>
+  <LI>item1</LI>
+  <LI>item2</LI>
+  <OL>
+    <LI>subitem1</LI>
+    <LI>subitem2</LI>
+    <OL>
+      <LI>subsubitem</LI>
+    </OL>
+    <LI>subitem3</LI>
+  </OL>
+</doc>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-15">
+      <source role=".">
+         <content><![CDATA[ 
+<doc>
+  <bloc>top-bloc</bloc>
+    <doc>
+      <bloc>sub-bloc</bloc>
+    </doc>
+</doc>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-16">
+      <source role=".">
+         <content><![CDATA[ 
+<doc>
+  <a>test</a>
+</doc>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-17">
+      <source role=".">
+         <content><![CDATA[<doc>
+</doc>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-18">
+      <source role=".">
+         <content><![CDATA[<doc></doc>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-19">
+      <source role=".">
+         <content><![CDATA[<todo>
+  <action priority="high" context="y">HIGH</action>
+  <action priority="medium" context="x">MEDIUM</action>
+  <action priority="low" context="w">LOW</action>
+</todo>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-20">
+      <source role=".">
+         <content><![CDATA[ 
+<doc>
+  <a>found A</a>
+  <b>found B</b>
+</doc>]]></content>
+      </source>
+   </environment>
+   <environment name="call-template-ext-21">
+      <source role=".">
+         <content><![CDATA[ 
+<doc>
+	<a>test</a>
+</doc>]]></content>
+      </source>
+   </environment>
+
+   <dependencies>
+      <spec value="XSLT40+"/>
+   </dependencies>
+
+   <test-case name="call-template-ext-0107">
+      <description>Launched with initial template but there is no template of that name, where the name is a QName and a different prefix is used.</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-01"/>
+      <test>
+         <stylesheet file="call-template-ext-0107.xsl"/>
+         <initial-template xmlns:my="www.example.com/myTemp" name="my:temp"/>
+      </test>
+      <result>
+         <error code="XTDE0040"/>
+      </result>
+   </test-case>
+   
+   <test-case name="call-template-ext-0108">
+      <description>Test with declared return type</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-01"/>
+      <test>
+         <stylesheet file="call-template-ext-0108.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert>/out = "xxxxx"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="call-template-ext-0109">
+      <description>Use EQName in template names.</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-01"/>
+      <test>
+         <stylesheet file="call-template-ext-0109.xsl"/>
+         <initial-template name="temp"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>Do Nothing!</out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="call-template-ext-0110">
+      <description>Use constructs needing context item in a named template where there may or may not be a context item.</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <test>
+         <stylesheet file="call-template-ext-0110.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/getAtt[1]/@status = "caught"</assert>
+            <assert>/out/getAtt[2]/@status = "ok"</assert>
+            <assert>/out/getChild[1]/@status = "caught"</assert>
+            <assert>/out/getChild[2]/@status = "ok"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="call-template-ext-0402">
+      <description>FileName: namedtemplate06 Document: http://www.w3.org/TR/xslt DocVersion: 19991116 Section: 6</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-04"/>
+      <test>
+         <stylesheet file="call-template-ext-0402.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>top-level-a in ntmp1</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-0501">
+      <description>General test for xsl:call-template-ext. Should say "&lt;B&gt;Data from doc/a: test&lt;/B&gt;, Default text in pvar2"</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-05"/>
+      <test>
+         <stylesheet file="call-template-ext-0501.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>test,pvar2 default data</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-0601">
+      <description>Test for xsl:call-template-ext with both match and name. Also verifies that "xsl:call-template-ext does not change the current node or the current node list" resulting in 'top-level-a' being printed twice during the first instaintation of the named template.</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-06"/>
+      <test>
+         <stylesheet file="call-template-ext-0601.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>top-level-a,Default text in pvar2,top-level-a,top-level-a,Apply-templates,sub-level-a,</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-0701">
+      <description>Test for recursion with xsl:call-template-ext. &lt;xsl:param name="pvar2" select="'stylesheet-var'"/&gt;</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-07"/>
+      <test>
+         <stylesheet file="call-template-ext-0701.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>doc,def-text-2,doc,a,doc,b,doc,c,doc,d,</out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="call-template-ext-0702">
+      <description>Test for lexical QNames in call-template-ext parameter names</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-07"/>
+      <test>
+         <stylesheet file="call-template-ext-0702.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>doc,def-text-2,doc,a,doc,b,doc,c,doc,d,</out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="call-template-ext-0703">
+      <description>Test for EQNames in call-template-ext parameter names</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-07"/>
+      <test>
+         <stylesheet file="call-template-ext-0703.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>doc,def-text-2,doc,a,doc,b,doc,c,doc,d,</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-0801">
+      <description>DOCUMENT: http://www.w3.org/TR/xslt SECTION: 6 Named Templates Make sure qualified names work for named templates.</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-08"/>
+      <test>
+         <stylesheet file="call-template-ext-0801.xsl"/>
+      </test>
+      <result>
+         <assert>/out = 'ext:a'</assert>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-0802">
+      <description>DOCUMENT: http://www.w3.org/TR/xslt SECTION: 6 Named Templates Call named template with non-qualified name, but with qualified name in scope.</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-08"/>
+      <test>
+         <stylesheet file="call-template-ext-0802.xsl"/>
+      </test>
+      <result>
+         <assert>/out = 'a'</assert>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-0901">
+      <description>BUG Saxon 6.0.1/001 DESCRIPTION: Failure when a template is called recursively from within one of its own parameters</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-09"/>
+      <test>
+         <stylesheet file="call-template-ext-0901.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<doc>120</doc>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-1001">
+      <description>test deep recursion. This version is not tail-recursive; 1002 is a variant that is tail-recursive</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-10"/>
+      <test>
+         <stylesheet file="call-template-ext-1001.xsl"/>
+      </test>
+      <result>
+         <assert-xml file="call-template-ext-1001.out"/>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-1002">
+      <description>test deep recursion. This is a tail-recursive variant of 1001 this version is tail-recursive</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-10"/>
+      <test>
+         <stylesheet file="call-template-ext-1002.xsl"/>
+      </test>
+      <result>
+         <assert-xml file="call-template-ext-1002.out"/>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-1101">
+      <description>Named Templates</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-11"/>
+      <test>
+         <stylesheet file="call-template-ext-1101.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><in1>0<in2>1<in3>2<in4>3<in5>4<in6>5 - all the way in</in6></in5></in4></in3></in2></in1></out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-1102">
+      <description>Named Templates</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-11"/>
+      <test>
+         <stylesheet file="call-template-ext-1102.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>test</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-1201">
+      <description>Named Templates</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-12"/>
+      <test>
+         <stylesheet file="call-template-ext-1201.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>
+  <p>AAA AAA AAA </p>
+  <p>BBB BBB </p>
+  <p>CCC CCC CCC CCC CCC </p>
+</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-1301">
+      <description></description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-13"/>
+      <test>
+         <stylesheet file="call-template-ext-1301.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>This template got passed X Y Z</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-1401">
+      <description></description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-14"/>
+      <test>
+         <stylesheet file="call-template-ext-1401.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>
+  A. item1
+  B. item2
+  OL!
+    a. subitem1
+    b. subitem2
+    OL!
+      a. subsubitem
+    
+    c. subitem3
+  
+</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-1501">
+      <description></description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-15"/>
+      <test>
+         <stylesheet file="call-template-ext-1501.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>Looking for doc...X1=hasDocBelow
+Looking for croc...X1=noLowerNode
+Looking for bloc...X1=hasBlocBelow</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-1601">
+      <description>Named Templates</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-16"/>
+      <test>
+         <stylesheet file="call-template-ext-1601.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>test,pvar2 default data</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-1701">
+      <description>Named Templates</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-17"/>
+      <test>
+         <stylesheet file="call-template-ext-1701.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>
+  hoo:a
+</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-1801">
+      <description></description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-18"/>
+      <test>
+         <stylesheet file="call-template-ext-1801.xsl"/>
+         <stylesheet file="call-template-ext-18a.xsl" role="secondary"/>
+         <stylesheet file="call-template-ext-18b.xsl" role="secondary"/>
+         <stylesheet file="call-template-ext-18c.xsl" role="secondary"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>Template from 18b has been called.</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-1802">
+      <description></description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-18"/>
+      <test>
+         <stylesheet file="call-template-ext-1802.xsl"/>
+         <stylesheet file="call-template-ext-18a.xsl" role="secondary"/>
+         <stylesheet file="call-template-ext-18b.xsl" role="secondary"/>
+         <stylesheet file="call-template-ext-18c.xsl" role="secondary"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>Template from MAIN has been called.</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-1803">
+      <description></description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-18"/>
+      <test>
+         <stylesheet file="call-template-ext-1803.xsl"/>
+         <stylesheet file="call-template-ext-18a.xsl" role="secondary"/>
+         <stylesheet file="call-template-ext-18b.xsl" role="secondary"/>
+         <stylesheet file="call-template-ext-18c.xsl" role="secondary"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>Template from 18c has been called.</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-1901">
+      <description></description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-19"/>
+      <test>
+         <stylesheet file="call-template-ext-1901.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>
+
+  1.showstopper
+
+  1.high
+   2.high
+
+  1.medium
+   2.medium
+
+  1.low
+   2.low</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-2001">
+      <description>FileName: namedtemplate08 Document: http://www.w3.org/TR/xslt DocVersion: 19991116 Section: 6 Named Templates</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-20"/>
+      <test>
+         <stylesheet file="call-template-ext-2001.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>found A,555,found B,999,
+Back to template 2.
+Back to first template.</out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-2101">
+      <description>General test for xsl:call-template-ext. Error : failure to supply a required parameter</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-21"/>
+      <test>
+         <stylesheet file="call-template-ext-2101.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0690"/>
+      </result>
+   </test-case>
+
+   <test-case name="call-template-ext-2102">
+      <description>General test for xsl:call-template-ext. Error : supplied parameter is of wrong type. Should be detected statically</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-21"/>
+      <test>
+         <stylesheet file="call-template-ext-2102.xsl"/>
+      </test>
+      <result>
+         <error code="XTTE0590"/>
+      </result>
+   </test-case>
+   
+   <test-case name="call-template-ext-2103">
+      <description>Test using AVTs to supply values for miscellaneous atomic types</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-21"/>
+      <test>
+         <stylesheet file="call-template-ext-2103.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/values/@p1 = "2001-01-01"</assert>
+            <assert>/out/values/@p2 = "222"</assert>
+            <assert>/out/values/@p3 = "1.25"</assert>
+            <assert>/out/values/@p4 = "1200"</assert>
+            <assert>/out/values/@p5 = "-2"</assert>
+            <assert>every $a in /out/types/@* satisfies $a = "true"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="call-template-ext-2104">
+      <description>Test using AVTs to supply values for boolean parameters</description>
+      <created by="Michael Kay" on="2021-01-18"/>
+      <environment ref="call-template-ext-21"/>
+      <test>
+         <stylesheet file="call-template-ext-2104.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/@p1 = "true"</assert>
+            <assert>/out/@p2 = "true"</assert>
+            <assert>/out/@p3 = "true"</assert>
+            <assert>/out/@p4 = "false"</assert>
+            <assert>/out/@p5 = "false"</assert>
+            <assert>/out/@p6 = "false"</assert>
+         </all-of>
+      </result>
+   </test-case>
+</test-set>
