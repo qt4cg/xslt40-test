@@ -244,6 +244,41 @@
          </all-of>
       </result>
    </test-case>
+   
+   <test-case name="maps-018">
+      <description>xsl:iterate iterating over a map (4.0)</description>
+      <created by="Michael Kay" on="2021-01-12"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="maps-018.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/sale[1][@product="broiler"][@quantity="20"][@store_number="1"]</assert>
+            <assert>/out/sale[9][@product="shirt"][@quantity="10"][@store_number="3"]</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="maps-019">
+      <description>xsl:for-each-group iterating over a map (4.0)</description>
+      <created by="Michael Kay" on="2021-01-12"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="maps-019.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/Nairobi/@offset='+03:00'</assert>
+            <assert>/out/Anchorage/@offset="-09:00"</assert>
+            <assert>/out/Kolkata/@offset="+05:30"</assert>
+         </all-of>
+      </result>
+   </test-case>
       
    <test-case name="maps-901a">
       <description>map:new() (without args) should throw error (since Oct 2014 LCWD)</description>
