@@ -353,7 +353,7 @@
       </result>
    </test-case>
    
-   <test-case name="sx-gc-eq-100">
+   <test-case name="sx-gc-le-100">
       <description>General comparison over a streamed schema-aware document</description>
       <created by="Michael Kay" on="2021-03-28"/>
       <environment ref="transactions-with-schema"/>
@@ -368,7 +368,7 @@
       </result>
    </test-case>
    
-   <test-case name="sx-gc-eq-101">
+   <test-case name="sx-gc-le-101">
       <description>General comparison over a streamed schema-aware document</description>
       <created by="Michael Kay" on="2021-03-28"/>
       <environment ref="transactions-with-schema"/>
