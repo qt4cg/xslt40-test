@@ -2,16 +2,15 @@
 
 <xsl:stylesheet
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="4.0"
-   xmlns:saxon="http://saxon.sf.net/"
    xmlns:array="http://www.w3.org/2005/xpath-functions/array"
    exclude-result-prefixes="#all"
 >
 
 <xsl:template name="xsl:initial-template">
   <xsl:variable name="a" as="array(*)">
-    <xsl:array>
+    <xsl:array composite="yes">
       <xsl:for-each select="1 to 10">
-        <xsl:sequence select="saxon:array-member(. to .+1)"/>
+        <xsl:sequence select="parcel(. to .+1)"/>
       </xsl:for-each>
     </xsl:array>
   </xsl:variable>

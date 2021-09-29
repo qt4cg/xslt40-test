@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?> 
 
 <xsl:stylesheet
-   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="3.0"
+   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="4.0"
    xmlns:array="http://www.w3.org/2005/xpath-functions/array"
    exclude-result-prefixes="#all"
 >
 
 <xsl:template name="xsl:initial-template">
   <xsl:variable name="a" as="array(*)">
-    <xsl:array>
+    <xsl:array composite="true">
       <xsl:for-each select="1 to 10">
         <xsl:array-member select=". to .+1"/>
       </xsl:for-each>
