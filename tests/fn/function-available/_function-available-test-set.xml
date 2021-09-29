@@ -215,6 +215,7 @@
       <keywords>fn:function-available maps</keywords>
       <created by="Michael Kay" on="2016-03-21"/>
       <modified by="Michael Kay" on="2016-10-20" change="fix bug 29542"/>
+      <modified by="Michael Kay" on="2021-09-27" change="change example of non-existent function, as map:entries() is a proposed addition for 4.0"/>
       <environment ref="function-available-10"/>
       <dependencies>
          <spec value="XSLT30+"/>
