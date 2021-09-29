@@ -106,7 +106,8 @@
       
       <test-set name="analyze-string" file="tests/insn/analyze-string/_analyze-string-test-set.xml"/>
       <test-set name="apply-imports" file="tests/insn/apply-imports/_apply-imports-test-set.xml"/>
-      <test-set name="apply-templates" file="tests/insn/apply-templates/_apply-templates-test-set.xml"/> 
+      <test-set name="apply-templates" file="tests/insn/apply-templates/_apply-templates-test-set.xml"/>
+      <test-set name="array" file="tests/insn/array/_array-test-set.xml"/>
       <test-set name="assert" file="tests/insn/assert/_assert-test-set.xml"/>
       <test-set name="attribute" file="tests/insn/attribute/_attribute-test-set.xml"/>
       <test-set name="call-template" file="tests/insn/call-template/_call-template-test-set.xml"/>
@@ -116,6 +117,7 @@
       <test-set name="construct-node" file="tests/insn/construct-node/_construct-node-test-set.xml"/>         
       <test-set name="copy" file="tests/insn/copy/_copy-test-set.xml"/>
       <test-set name="evaluate" file="tests/insn/evaluate/_evaluate-test-set.xml"/>
+      <test-set name="for-each" file="tests/insn/for-each/_for-each-test-set.xml"/>
       <test-set name="for-each-group" file="tests/insn/for-each-group/_for-each-group-test-set.xml"/>
       <test-set name="iterate" file="tests/insn/iterate/_iterate-test-set.xml"/>
       <test-set name="lre" file="tests/insn/lre/_lre-test-set.xml"/>
