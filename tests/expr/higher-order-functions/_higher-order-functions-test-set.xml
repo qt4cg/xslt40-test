@@ -615,7 +615,7 @@
    </test-case>
 
    <test-case name="higher-order-functions-050">
-      <description>named function reference, unknown function</description>
+      <description>named function reference, unknown function concat#1</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <test>
          <stylesheet file="higher-order-functions-050.xsl"/>
@@ -627,14 +627,32 @@
    </test-case>
 
    <test-case name="higher-order-functions-051">
-      <description>named function reference, unknown function</description>
+      <description>named function reference, unknown function concat#1</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies>
       <test>
          <stylesheet file="higher-order-functions-051.xsl"/>
          <initial-template name="main"/>
       </test>
       <result>
          <error code="XPST0017"/>
+      </result>
+   </test-case>
+   
+   <test-case name="higher-order-functions-051a">
+      <description>named function reference, unknown function</description>
+      <created by="Michael Kay" on="2021-07-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="higher-order-functions-051.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert>/out = '2008-10-02'</assert>
       </result>
    </test-case>
 
@@ -972,6 +990,7 @@
          Function inlining (Saxon bug 2321)
       </description>
       <created by="Debbie Lockett" on="2019-03-14"/>
+      <modified by="Michael Kay" on="2021-08-20" change="Reformatted for legibility"/>
       <test>
          <stylesheet file="higher-order-functions-075.xsl"/>
          <initial-template name="ex1"/>

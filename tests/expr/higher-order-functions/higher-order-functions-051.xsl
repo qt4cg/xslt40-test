@@ -6,6 +6,7 @@
     version="3.0">
     
     <!-- Reference to undefined function in literal function item -->
+    <!-- Note: becomes legal in proposed XSLT 4.0 -->
     
     
     
