@@ -127,7 +127,7 @@
       </dependencies>
       <test>
          <stylesheet file="array-007.xsl"/>
-         <param name="STREAMABLE" static="true" select="true()"/>
+         <param name="STREAMABLE" static="yes" select="true()"/>
       </test>
       <result>
          <all-of>
@@ -148,7 +148,7 @@
       </dependencies>
       <test>
          <stylesheet file="array-007.xsl"/>
-         <param name="STREAMABLE" static="true" select="false()"/>
+         <param name="STREAMABLE" static="yes" select="false()"/>
       </test>
       <result>
          <all-of>
