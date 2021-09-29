@@ -10,13 +10,13 @@ xmlns:ext="http://extensions.com/" extension-element-prefixes="ext">
 <xsl:param name="two" select="'2'"/> 
  
 <xsl:template match="doc">
-   <out>
+
       <ext:template p1="{$two}001-01-01"
          p2="{$two}{$two}{$two}"
          p3="1.{$two}5"
          p4="1.{$two}e3"
          p5="-{$two}"/>
-   </out>
+   
 </xsl:template>
  
 <xsl:template name="ext:template">
