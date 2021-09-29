@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns:xs="http://www.w3.org/2001/XMLSchema"
+   xmlns="http://www.w3.org/2012/10/xslt-test-catalog"
+   name="for-each">
+   
+   <description>Tests the xsl:for-each instruction</description>
+   
+ 
+   <test-case name="for-each-array-001">
+      <description>Iterate over an array</description>
+      <created by="Michael Kay" on="2021-09-25"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="for-each-array-001.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "1 1 1 6"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="for-each-array-002">
+      <description>Iterate over an array with sorting</description>
+      <created by="Michael Kay" on="2021-09-25"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="for-each-array-002.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "-7 75 55"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="for-each-array-003">
+      <description>Iterate over an array using array:members</description>
+      <created by="Michael Kay" on="2021-09-25"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="for-each-array-003.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "1 1 1 6"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="for-each-map-001">
+      <description>Iterate over a map</description>
+      <created by="Michael Kay" on="2021-09-25"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="for-each-map-001.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "May"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="for-each-map-002">
+      <description>Iterate over a map with sorting</description>
+      <created by="Michael Kay" on="2021-09-25"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="for-each-map-002.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "4|8|12|2|1|7|6|3|5|11|10|9"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="for-each-map-003">
+      <description>Iterate over a map using map:entries</description>
+      <created by="Michael Kay" on="2021-09-25"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="for-each-map-003.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "May"</assert>
+      </result>
+   </test-case>
+  
+</test-set>
