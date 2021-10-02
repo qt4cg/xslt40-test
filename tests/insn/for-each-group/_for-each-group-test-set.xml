@@ -1556,4 +1556,37 @@ while you are in the cinema.</p></o>]]></assert-xml>
          <error code="XTDE1061"/>
       </result>
    </test-case>
+   
+   <test-case name="for-each-group-401">
+      <description>XSLT 4.0 break-when attribute using $group</description>
+      <created by="Michael Kay" on="2021-10-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="higher_order_functions"/>
+      </dependencies>
+      <test>
+         <stylesheet file="for-each-group-401.xsl"/>
+      </test>
+      <result>
+         <assert>deep-equal(/groups/group/@total ! xs:integer(.), (510, 535, 560, 585, 610, 506, 522, 538, 554, 570, 586, 602,
+                    618, 634, 650, 666, 510, 519, 528, 537, 546, 555, 564, 573, 582, 591, 399))</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="for-each-group-402">
+      <description>XSLT 4.0 break-when attribute using $group and $next</description>
+      <created by="Michael Kay" on="2021-10-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="higher_order_functions"/>
+      </dependencies>
+      <test>
+         <stylesheet file="for-each-group-402.xsl"/>
+      </test>
+      <result>
+         <assert>deep-equal(/groups/group/@total ! xs:integer(.), (615,651,687,600,625,650,675,700,578,594,610,626,642,658,
+            674,690,528,537,546,555,564,573,582,591,399))</assert>
+      </result>
+   </test-case>
+  
 </test-set>
