@@ -398,7 +398,7 @@ a:_underscore_
       <created by="Abel Braaksma" on="2014-10-31"/>
       <modified by="Debbie Lockett" on="2020-10-14" change="Use environment without schema"/>
       <environment ref="as-01b"/>
-      <dependencies>
+      <dependencies>     
          <spec value="XSLT20+"/>
          <year_component_values value="support year above 9999" satisfied="false"/>
          <year_component_values value="support negative year" satisfied="false"/>
