@@ -843,4 +843,34 @@
          <assert>/out = 'true'</assert>
       </result>
    </test-case>
+   
+   <test-case name="evaluate-401">
+      <description>xsl:evaluate using proposed XPath 4.0 syntax</description>
+      <created by="Michael Kay" on="2021-10-20"/>
+      <dependencies>
+         <feature value="dynamic_evaluation"/>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="evaluate-401.xsl"/>        
+      </test>
+      <result>
+         <assert>/out = '442'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="evaluate-402">
+      <description>xsl:evaluate using proposed XPath 4.0 functions</description>
+      <created by="Michael Kay" on="2021-10-20"/>
+      <dependencies>
+         <feature value="dynamic_evaluation"/>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="evaluate-402.xsl"/>        
+      </test>
+      <result>
+         <assert>/out = '5'</assert>
+      </result>
+   </test-case>
 </test-set>
