@@ -1038,7 +1038,7 @@ Joe Smith
       <description>Basic test of "otherwise" operator</description>
       <created by="Michael Kay" on="2019-12-16"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT40+"/>
       </dependencies>
       <test>
          <stylesheet file="choose-4101.xsl"/>
@@ -1055,7 +1055,7 @@ Joe Smith
       <description>Precedence of "otherwise" operator: higher than arithmetic operators</description>
       <created by="Michael Kay" on="2019-12-16"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT40+"/>
       </dependencies>
       <test>
          <stylesheet file="choose-4102.xsl"/>
@@ -1069,7 +1069,7 @@ Joe Smith
       <description>Precedence of "otherwise" operator: less than "union"</description>
       <created by="Michael Kay" on="2019-12-16"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT40+"/>
       </dependencies>
       <test>
          <stylesheet file="choose-4103.xsl"/>
