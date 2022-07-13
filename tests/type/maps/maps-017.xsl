@@ -1,34 +1,16 @@
-<xsl:stylesheet version="4.0" 
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:map="http://www.w3.org/2005/xpath-functions/map"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    exclude-result-prefixes="map xs">
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+    xpath-default-namespace="http://www.example.com">
     
-  <xsl:variable name="sales" as="map(*)*" select='
-    map{ "product" : "broiler", "store number" : 1, "quantity" : 20  },
-    map{ "product" : "toaster", "store number" : 2, "quantity" : 100 },
-    map{ "product" : "toaster", "store number" : 2, "quantity" : 50 },
-    map{ "product" : "toaster", "store number" : 3, "quantity" : 50 },
-    map{ "product" : "blender", "store number" : 3, "quantity" : 100 },
-    map{ "product" : "blender", "store number" : 3, "quantity" : 150 },
-    map{ "product" : "socks", "store number" : 1, "quantity" : 500 },
-    map{ "product" : "socks", "store number" : 2, "quantity" : 10 },
-    map{ "product" : "shirt", "store number" : 3, "quantity" : 10 }'/>
-
-    <xsl:template name="xsl:initial-template">
-      <out>
-        <xsl:for-each select="$sales">
-          <sale>
-            <xsl:for-each map=".">
-              <xsl:sort select="?key"/>
-              <xsl:attribute name="{translate(?key, ' ', '_')}" select="?value"/>
-            </xsl:for-each>
-          </sale>
-        </xsl:for-each>
-      </out>
+    <xsl:output method="json"/>
+    
+    <xsl:template match="/">
+        <xsl:variable name="v" as="map(*)">
+            <xsl:map-entry key="string(//bar)" select="'greeting'"/>
+        </xsl:variable>
+        <out>
+            <xsl:value-of select="serialize($v, map{'method':'json'})"/>
+        </out>
     </xsl:template>
-    
- 
-
     
 </xsl:stylesheet>

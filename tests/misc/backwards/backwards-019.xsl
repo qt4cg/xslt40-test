@@ -11,7 +11,6 @@
          instruction), then the default output method in this situation is xml. "-->
 
   <xsl:template name="main">
-    <xsl:result-document>
     <html xmlns="http://www.w3.org/1999/xhtml">
       <head>
         <title>In 1.0 mode this should be XML (not XHTML)</title>
@@ -19,8 +18,7 @@
       <body>
         <p>This link should therefore not be escaped: <a href="file:///My D&#xf8;cuments/page.html">click here</a></p>
       </body>
-    </html>
-    </xsl:result-document>  
+    </html>     
   </xsl:template>
 
 

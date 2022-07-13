@@ -10,6 +10,10 @@
      <stylesheet file="sx-union-B.xsl"/>
    </environment>
    
+   <environment name="sx-union-C">
+      <stylesheet file="sx-union-C.xsl"/>
+   </environment>
+   
    <dependencies>
       <spec value="XSLT30+"/>
       <feature value="streaming"/>

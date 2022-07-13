@@ -227,15 +227,33 @@
          <assert-xml><![CDATA[<out><contains>false</contains><get/></out>]]></assert-xml>
       </result>
    </test-case>
-   
+
    <test-case name="maps-017">
+      <description>xsl:map-entry with default namespace in @key - Saxon bug 5230</description>
+      <created by="Michael Kay" on="2022-01-25"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<foo:root xmlns:foo='http://www.example.com'>
+      <foo:bar>Hello world</foo:bar>
+</foo:root>]]></content>
+         </source>
+      </environment>
+      <test>
+         <stylesheet file="maps-017.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '{"Hello world":"greeting"}'</assert>
+      </result>
+   </test-case>
+
+   <test-case name="maps-117">
       <description>xsl:for-each iterating over a map (4.0)</description>
       <created by="Michael Kay" on="2021-01-12"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
       <test>
-         <stylesheet file="maps-017.xsl"/>
+         <stylesheet file="maps-117.xsl"/>
       </test>
       <result>
          <all-of>
@@ -245,14 +263,14 @@
       </result>
    </test-case>
    
-   <test-case name="maps-018">
+   <test-case name="maps-118">
       <description>xsl:iterate iterating over a map (4.0)</description>
       <created by="Michael Kay" on="2021-01-12"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
       <test>
-         <stylesheet file="maps-018.xsl"/>
+         <stylesheet file="maps-118.xsl"/>
       </test>
       <result>
          <all-of>
@@ -262,14 +280,14 @@
       </result>
    </test-case>
    
-   <test-case name="maps-019">
+   <test-case name="maps-119">
       <description>xsl:for-each-group iterating over a map (4.0)</description>
       <created by="Michael Kay" on="2021-01-12"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
       <test>
-         <stylesheet file="maps-019.xsl"/>
+         <stylesheet file="maps-119.xsl"/>
       </test>
       <result>
          <all-of>

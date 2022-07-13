@@ -1037,7 +1037,7 @@
          <initial-mode name="Y"/>
       </test>
       <result>
-         <error code="*"/>
+         <error code="XTDE3362"/>
       </result>
    </test-case>
    
@@ -1637,7 +1637,7 @@
          <all-of>
             <assert>starts-with(normalize-space(.), "The First Book of Moses, Called GENESIS.")</assert>
             <assert-message>
-               <assert-xml><![CDATA[** Expect no-matching-template warnings **]]></assert-xml>
+               <assert-string-value><![CDATA[** Expect no-matching-template warnings **]]></assert-string-value>
             </assert-message>
             <assert-warning/>
          </all-of>
@@ -1662,7 +1662,7 @@
          <all-of>
             <assert>starts-with(normalize-space(.), "The First Book of Moses, Called GENESIS.")</assert>
             <assert-message>
-               <assert-xml><![CDATA[** Expect no-matching-template warnings **]]></assert-xml>
+               <assert-string-value><![CDATA[** Expect no-matching-template warnings **]]></assert-string-value>
             </assert-message>
             <assert-warning/>
          </all-of>
@@ -1686,7 +1686,7 @@
          <all-of>
             <assert>starts-with(normalize-space(.), "The First Book of Moses, Called GENESIS.")</assert>
             <assert-message>
-               <assert-xml><![CDATA[** Expect NO no-matching-template warnings **]]></assert-xml>
+               <assert-string-value><![CDATA[** Expect NO no-matching-template warnings **]]></assert-string-value>
             </assert-message>
          </all-of>
       </result>
@@ -1710,7 +1710,7 @@
          <all-of>
             <assert>starts-with(normalize-space(.), "The First Book of Moses, Called GENESIS.")</assert>
             <assert-message>
-               <assert-xml><![CDATA[** Expect NO no-matching-template warnings **]]></assert-xml>
+               <assert-string-value><![CDATA[** Expect NO no-matching-template warnings **]]></assert-string-value>
             </assert-message>
          </all-of>
       </result>
@@ -1920,7 +1920,7 @@
          <all-of>
             <assert>starts-with(normalize-space(.), "The First Book of Moses, Called GENESIS.")</assert>
             <assert-message>
-               <assert-xml><![CDATA[** Expect no-matching-template warnings **]]></assert-xml>
+               <assert-string-value><![CDATA[** Expect no-matching-template warnings **]]></assert-string-value>
             </assert-message>
             <assert-warning/>
          </all-of>
@@ -1943,7 +1943,7 @@
          <all-of>
             <assert>starts-with(normalize-space(.), "The First Book of Moses, Called GENESIS.")</assert>
             <assert-message>
-               <assert-xml><![CDATA[** Expect NO no-matching-template warnings **]]></assert-xml>
+               <assert-string-value><![CDATA[** Expect NO no-matching-template warnings **]]></assert-string-value>
             </assert-message>
          </all-of>
       </result>
@@ -1965,7 +1965,7 @@
          <all-of>
             <assert>starts-with(normalize-space(.), "The First Book of Moses, Called GENESIS.")</assert>
             <assert-message>
-               <assert-xml><![CDATA[** Expect no-matching-template warnings **]]></assert-xml>
+               <assert-string-value><![CDATA[** Expect no-matching-template warnings **]]></assert-string-value>
             </assert-message>
             <assert-warning/>
          </all-of>
@@ -1988,7 +1988,7 @@
          <all-of>
             <assert>starts-with(normalize-space(.), "The First Book of Moses, Called GENESIS.")</assert>
             <assert-message>
-               <assert-xml><![CDATA[** Expect NO no-matching-template warnings **]]></assert-xml>
+               <assert-string-value><![CDATA[** Expect NO no-matching-template warnings **]]></assert-string-value>
             </assert-message>
          </all-of>
       </result>
@@ -3005,6 +3005,89 @@
          <assert>true()</assert> <!-- Stylesheet does nothing; we're only concerned that it doesn't fail -->
       </result>
    </test-case>
+  
+   
+<test-case name="mode-1901">
+      <description>Override on-no-match attribute</description>
+      <created by="Michael Kay" on="2021-10-17"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-1901.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <error code="XTDE0555"/>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-1902">
+      <description>Override visibility attribute</description>
+      <created by="Michael Kay" on="2021-10-17"/>
+      <environment ref="mode-11"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-1902.xsl"/>
+         <initial-mode name="X"/>
+      </test>
+      <result>
+         <error code="XTDE0045"/>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-1903">
+      <description>Two xsl:mode declarations, one specifies streamable="yes"</description>
+      <created by="Michael Kay" on="2021-10-17"/>
+      <modified by="Michael Kay" on="2022-07-13" change="add streaming dependency"/>
+      <environment ref="mode-11"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+         <feature value="streaming"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-1903.xsl"/>
+         <initial-mode name="X"/>
+      </test>
+      <result>
+         <error code="XTSE3430"/>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-1904">
+      <description>Two xsl:mode declarations, conflicting visibility attributes, resolved by another at higher precedence</description>
+      <created by="Michael Kay" on="2021-10-17"/>
+      <environment ref="mode-11"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-1904.xsl"/>
+         <initial-mode name="X"/>
+      </test>
+      <result>
+         <error code="XTSE0545"/>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-1905">
+      <description>Two xsl:mode declarations, conflicting visibility attributes, resolved by another at higher precedence</description>
+      <created by="Michael Kay" on="2021-10-17"/>
+      <environment ref="mode-11"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-1904a.xsl"/>
+         <initial-mode name="X"/>
+      </test>
+      <result>
+         <assert>exists(/scout)</assert>
+      </result>
+   </test-case>
+   
   
    
 </test-set>

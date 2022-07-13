@@ -323,6 +323,24 @@
     </result>
   </test-case>
    
+   <test-case name="record-023">
+      <description>Test matching of recursive record types</description>
+      <created by="Michael Kay" on="2022-03-09"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="record-023.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/person/@first="Michael"</assert>
+            <assert>/out/person/mother/person/@first="Alma"</assert>
+            <assert>/out/person/father/person/@first="Leslie"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
    <test-case name="record-100">
       <description>record type - subtype relationships</description>
       <created by="Michael Kay" on="2020-01-25"/>
