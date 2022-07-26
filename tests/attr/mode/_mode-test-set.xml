@@ -3088,6 +3088,65 @@
       </result>
    </test-case>
    
+   
+   <test-case name="mode-4001">
+      <description>on-no-match=shallow-copy-all, processing an array</description>
+      <created by="Michael Kay" on="2022-07-17"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4001.xsl"/>
+         <output tree="no" serialize="no"/>
+      </test>
+      <result>
+         <assert-deep-eq>[1, 3, [5]]</assert-deep-eq>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4002">
+      <description>on-no-match=shallow-copy-all, processing a map</description>
+      <created by="Michael Kay" on="2022-07-17"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4002.xsl"/>
+         <output tree="no" serialize="no"/>
+      </test>
+      <result>
+         <assert-deep-eq>map{"green":13,"orange":20,"lilac":21,"blue":25}</assert-deep-eq>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4003">
+      <description>on-no-match=shallow-skip-all, processing an array</description>
+      <created by="Michael Kay" on="2022-07-17"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4003.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><leaf val="1"/><leaf val="3"/><chunk><leaf val="5"/></chunk></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4004">
+      <description>on-no-match=shallow-skip-all, processing a map</description>
+      <created by="Michael Kay" on="2022-07-17"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4004.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><leaf val="1"/><leaf val="3"/><chunk><leaf val="5"/></chunk></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
   
    
 </test-set>
