@@ -3,7 +3,7 @@
 
   <xsl:template name="main">
     <out>
-      <xsl:future version="4.0">
+      <xsl:future version="8.0">
         <out>wrong</out>
         <xsl:fallback><in>ok1</in></xsl:fallback>
         <out>wrong</out>

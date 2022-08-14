@@ -3,7 +3,7 @@
 
   <xsl:template name="main">
     <out xsl:version="2">
-      <xsl:text enable-output-escaping="true" version="4">ok</xsl:text>
+      <xsl:text enable-output-escaping="true" version="8">ok</xsl:text>
     </out>
   </xsl:template>
   

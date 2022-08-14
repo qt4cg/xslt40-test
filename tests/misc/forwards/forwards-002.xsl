@@ -5,6 +5,6 @@
     <out>ok</out>
   </xsl:template>
   
-  <xsl:new-declaration version="4.0"/>
+  <xsl:new-declaration version="8.0"/>
    
 </xsl:stylesheet>

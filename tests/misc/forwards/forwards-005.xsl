@@ -5,6 +5,6 @@
     <out>ok</out>
   </xsl:template>
   
-  <xsl:value-of select="$x" version="4.0"/>
+  <xsl:value-of select="$x" version="8.0"/>
    
 </xsl:transform>

@@ -3,7 +3,7 @@
   
   <xsl:template name="main">
     <out>
-      <xsl:future version="4.0">
+      <xsl:future version="8.0">
         <xsl:transform/>
         <xsl:sort select="$donkey"/>
         <xsl:with-param no-name="x:y:z"/>

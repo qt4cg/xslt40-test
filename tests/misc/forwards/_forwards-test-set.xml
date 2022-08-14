@@ -15,6 +15,7 @@
          and XSLT 3.0 does not allow the element to appear as a child of the xsl:stylesheet element, 
          then the element and its content must be ignored.</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-001.xsl"/>
          <initial-template name="main"/>
@@ -29,6 +30,7 @@
          and XSLT 3.0 does not allow the element to appear as a child of the xsl:stylesheet element, 
          then the element and its content must be ignored.</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-002.xsl"/>
          <initial-template name="main"/>
@@ -41,6 +43,7 @@
    <test-case name="forwards-003">
       <description>Same as forwards-002 but using xsl:transform.</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-003.xsl"/>
          <initial-template name="main"/>
@@ -54,6 +57,7 @@
       <description>Same as forwards-002 but using xsl:package. (Extrapolates what the spec actually says)</description>
       <created by="Michael Kay" on="2017-06-19"/>
       <modified by="Michael Kay" on="2019-03-06" change="make entry point public"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-004.xsl"/>
          <initial-template name="main"/>
@@ -66,6 +70,7 @@
    <test-case name="forwards-005">
       <description>Instruction as child of xsl:transform</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-005.xsl"/>
          <initial-template name="main"/>
@@ -78,6 +83,7 @@
    <test-case name="forwards-006">
       <description>xsl:transform as child of xsl:transform</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-006.xsl"/>
          <initial-template name="main"/>
@@ -102,6 +108,7 @@
    <test-case name="forwards-008">
       <description>Bad XPath expression on use-when attribute of ignored element</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-008.xsl"/>
          <initial-template name="main"/>
@@ -114,6 +121,7 @@
    <test-case name="forwards-009">
       <description>Unknown shadow attribute in forwards compatibility mode</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-009.xsl"/>
          <initial-template name="main"/>
@@ -126,6 +134,7 @@
    <test-case name="forwards-010">
       <description>Unknown shadow attribute with invalid value in forwards compatibility mode</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-010.xsl"/>
          <initial-template name="main"/>
@@ -150,6 +159,7 @@
    <test-case name="forwards-101">
       <description>If the element has an attribute that XSLT 3.0 does not allow the element to have, then the attribute must be ignored.</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-101.xsl"/>
          <initial-template name="main"/>
@@ -162,6 +172,7 @@
    <test-case name="forwards-102">
       <description>If the element has an attribute that XSLT 3.0 does not allow the element to have, then the attribute must be ignored.</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-102.xsl"/>
          <initial-template name="main"/>
@@ -174,6 +185,7 @@
    <test-case name="forwards-103">
       <description>If the element has an attribute that XSLT 3.0 does not allow the element to have, then the attribute must be ignored.</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-103.xsl"/>
          <initial-template name="main"/>
@@ -186,6 +198,7 @@
    <test-case name="forwards-104">
       <description>If the element has an attribute that XSLT 3.0 does not allow the element to have, then the attribute must be ignored.</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-104.xsl"/>
          <initial-template name="main"/>
@@ -198,6 +211,7 @@
    <test-case name="forwards-105">
       <description>If the element has an attribute that XSLT 3.0 does not allow the element to have, then the attribute must be ignored.</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-105.xsl"/>
          <initial-template name="main"/>
@@ -210,6 +224,7 @@
    <test-case name="forwards-106">
       <description>If the element has an attribute that XSLT 3.0 does not allow the element to have, then the attribute must be ignored.</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-106.xsl"/>
          <initial-template name="main"/>
@@ -222,6 +237,7 @@
    <test-case name="forwards-107">
       <description>If the element has a shadow attribute that XSLT 3.0 does not allow the element to have, then the attribute must be ignored.</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-107.xsl"/>
          <initial-template name="main"/>
@@ -240,6 +256,7 @@
          of the sequences formed by evaluating the sequence constructors within its xsl:fallback children,
          in document order. </description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-201.xsl"/>
          <initial-template name="main"/>
@@ -259,6 +276,7 @@
          in document order. Siblings of the xsl:fallback elements are ignored, even if they are valid 
          XSLT 3.0 instructions.</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-202.xsl"/>
          <initial-template name="main"/>
@@ -275,6 +293,7 @@
       <description>Siblings of the xsl:fallback elements are ignored, even if they are valid 
          XSLT 3.0 instructions.</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-203.xsl"/>
          <initial-template name="main"/>
@@ -292,6 +311,7 @@
       <description>Siblings of the xsl:fallback elements are ignored, even if they are valid 
          XSLT 3.0 instructions.</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-204.xsl"/>
          <initial-template name="main"/>
@@ -309,6 +329,7 @@
       <description>Siblings of the xsl:fallback elements are ignored, even if they are valid 
          XSLT 3.0 instructions.</description>
       <created by="Michael Kay" on="2017-06-19"/>
+      <modified by="Michael Kay" on="2022-08-14" change="4.0 is no longer in the future"/>
       <test>
          <stylesheet file="forwards-205.xsl"/>
          <initial-template name="main"/>
