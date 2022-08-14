@@ -5,7 +5,7 @@
     exclude-result-prefixes="xs math"
     version="3.0">
     
-    <xsl:template name="xsl-initial-template">
+    <xsl:template name="xsl:initial-template">
        <out>
            <a>
                <xsl:where-populated>

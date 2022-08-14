@@ -338,17 +338,16 @@
       <created by="Michael Kay" on="2022-07-17"/>  
       <test>
          <stylesheet file="where-populated-103.xsl"/>
-         <initial-template name="main"/>
       </test>
       <result>
          <all-of>
-            <assert>/out/a/@count='0'</assert>
-            <assert>/out/b/@count='0'</assert>
-            <assert>/out/c/@count='0'</assert>
-            <assert>/out/d/@count='0'</assert>
-            <assert>/out/e/@count='0'</assert>
-            <assert>/out/f/@count='0'</assert>
-            <assert>/out/z/@count='1'</assert>
+            <assert>/out/a/count(node())=0</assert>
+            <assert>/out/b/count(node())=0</assert>
+            <assert>/out/c/count(node())=0</assert>
+            <assert>/out/d/count(node())=0</assert>
+            <assert>/out/e/count(node())=0</assert>
+            <assert>/out/f/count(node())=0</assert>
+            <assert>/out/z/count(node())=1</assert>
          </all-of>
       </result>
    </test-case>
