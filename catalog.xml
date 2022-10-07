@@ -135,7 +135,6 @@
       <test-set name="try" file="tests/insn/try/_try-test-set.xml"/>
       <test-set name="where-populated" file="tests/insn/where-populated/_where-populated-test-set.xml"/>
       <test-set name="xsl-document" file="tests/insn/xsl-document/_xsl-document-test-set.xml"/>
-      <test-set name="xsl-match" file="tests/insn/xsl-match/_xsl-match-test-set.xml"/>
       
       <!-- Miscellaneous features -->
       
