@@ -44,7 +44,7 @@
          <stylesheet file="for-each-array-003.xsl"/>
       </test>
       <result>
-         <assert>/out = "1 1 1 6"</assert>
+         <assert>/out = "1|1|1|6"</assert>
       </result>
    </test-case>
    

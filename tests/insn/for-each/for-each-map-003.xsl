@@ -8,7 +8,9 @@
          <xsl:variable name="inverse" as="map(*)">
             <xsl:map>
                <xsl:for-each select="map:entries($in)">
-                  <xsl:map-entry key="?value" select="?key"/>
+                  <xsl:variable name="key" select="map:keys(.)[1]"/>
+                  <xsl:variable name="value" select="$in($key)"/>
+                  <xsl:map-entry key="$value" select="$key"/>
                </xsl:for-each>
             </xsl:map>
          </xsl:variable>
