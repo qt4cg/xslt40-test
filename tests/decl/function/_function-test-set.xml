@@ -513,11 +513,12 @@
    </test-case>
    
    <test-case name="function-0120b">
-      <description>simple xsl:function, required='no' is disallowed in both 2.0 and 3.0</description>
+      <description>simple xsl:function, required='no' is disallowed in both 2.0 and 3.0 (but not 4.0)</description>
       <created by="Michael Kay" on="2015-08-30"/>
+      <modified by="Michael Kay" on="2022-10-23" change="Don't run this under 4.0, the result changes"/>
       <environment ref="function-01"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="function-0120.xsl"/>
@@ -1914,6 +1915,165 @@
       </test>
       <result>
          <assert-xml><![CDATA[<result><inverted-section name="section1" depth="1"/><inverted-section name="subSection1.1" depth="2"/><inverted-section name="section2" depth="1"/><inverted-section name="subSection2.1" depth="2"/><inverted-section name="subSection2.2" depth="2"/><inverted-section name="subSection2.3" depth="2"/></result>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-001">
+      <description>Function with default parameter.</description>
+      <created by="Michael Kay" on="2022-10-19"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-001.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='7'</assert>
+            <assert>/out/b='4'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-002">
+      <description>Function with optional parameter, defaulting to empty sequence</description>
+      <created by="Michael Kay" on="2022-10-19"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-002.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='7'</assert>
+            <assert>/out/b='7'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-003">
+      <description>Function with default parameter. Forwards reference.</description>
+      <created by="Michael Kay" on="2022-10-24"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-003.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='7'</assert>
+            <assert>/out/b='4'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-004">
+      <description>Non-overlapping variadic functions</description>
+      <created by="Michael Kay" on="2022-10-24"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-004.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='7'</assert>
+            <assert>/out/b='4'</assert>
+            <assert>/out/c='0'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-005">
+      <description>Function with default parameter, supplied using sequence constructor</description>
+      <created by="Michael Kay" on="2022-10-24"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-005.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='7'</assert>
+            <assert>/out/b='4'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-006">
+      <description>Function with default parameter, supplied using sequence constructor, forwards reference</description>
+      <created by="Michael Kay" on="2022-10-24"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-006.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='7'</assert>
+            <assert>/out/b='4'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-901">
+      <description>Two functions with overlapping arity range</description>
+      <created by="Michael Kay" on="2022-10-24"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-901.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0770"/>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-902">
+      <description>Duplicate parameter names</description>
+      <created by="Michael Kay" on="2022-10-24"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-902.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0580"/>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-903">
+      <description>Default value invalid for type</description>
+      <created by="Michael Kay" on="2022-10-24"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-903.xsl"/>
+      </test>
+      <result>
+         <error code="XTTE0600"/>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-904">
+      <description>Implicit default value invalid for type</description>
+      <created by="Michael Kay" on="2022-10-24"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-904.xsl"/>
+      </test>
+      <result>
+         <error code="XXXX8888"/>
       </result>
    </test-case>
 </test-set>

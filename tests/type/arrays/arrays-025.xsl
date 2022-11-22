@@ -15,12 +15,12 @@
 
   <xsl:template name="xsl:initial-template">
     <out>
-      <xsl:for-each array="parse-json($json)">
-        <xsl:sort select="?value?city"/>
+      <xsl:for-each select="parse-json($json)?*">
+        <xsl:sort select="?city"/>
         <city number="{position()}" 
-          name="{?value?city}" 
-          latitude="{?value?latitude}" 
-          longitude="{?value?longitude}"/>
+          name="{?city}" 
+          latitude="{?latitude}" 
+          longitude="{?longitude}"/>
       </xsl:for-each>
     </out>
   </xsl:template>

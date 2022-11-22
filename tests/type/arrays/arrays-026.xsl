@@ -15,11 +15,11 @@
 
   <xsl:template name="xsl:initial-template">
     <out>
-      <xsl:iterate array="parse-json($json)">
+      <xsl:iterate select="parse-json($json)?*">
         <city number="{position()}" 
-          name="{?value?city}" 
-          latitude="{?value?latitude}" 
-          longitude="{?value?longitude}"/>
+          name="{?city}" 
+          latitude="{?latitude}" 
+          longitude="{?longitude}"/>
       </xsl:iterate>
     </out>
   </xsl:template>

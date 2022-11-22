@@ -6,10 +6,10 @@
   
   <xsl:template name="xsl:initial-template">
     <xsl:variable name="cities" as="element(city)*">
-      <xsl:for-each array="json-doc('city_list.json')">
-         <city id="{?value?_id}">
-           <name>{?value?name}</name>
-           <country>{?value?country}</country>
+      <xsl:for-each select="json-doc('city_list.json')?*">
+         <city id="{?_id}">
+           <name>{?name}</name>
+           <country>{?country}</country>
          </city>
       </xsl:for-each>
     </xsl:variable>

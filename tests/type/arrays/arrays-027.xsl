@@ -6,7 +6,7 @@
   <xsl:template name="xsl:initial-template">
     <xsl:variable name="result" as="map(*)">
       <xsl:map>
-        <xsl:for-each-group array="json-doc('city_list.json')" group-by="?value?country">
+        <xsl:for-each-group select="json-doc('city_list.json')?*" group-by="?country">
           <xsl:map-entry key="current-grouping-key()">
              <xsl:sequence select="current-group()"/>
           </xsl:map-entry>

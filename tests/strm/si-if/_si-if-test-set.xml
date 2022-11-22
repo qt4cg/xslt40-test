@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          xmlns="http://www.w3.org/2012/10/xslt-test-catalog"
+          name="si-choose">
+   <description>xsl:if conditional expressions with streaming</description>
+   
+   <dependencies>
+      <spec value="XSLT40+"/>
+      <feature value="streaming"/>
+   </dependencies>
+   
+   <test-case name="si-if-001">
+      <description>Use xsl:choose within xsl:source-document, both branches do downward selection</description>
+      <created by="Michael Kay" on="2022-11-22"/>
+      <test>
+         <stylesheet file="si-if-001.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><chapter><head>Heading</head><p>One</p><p>Two</p><p>Three</p
+            ><bullet>point one</bullet><bullet>point two</bullet><bullet>point three</bullet
+            ><p>Four</p></chapter></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="si-if-002">
+      <description>Use xsl:choose within an LRE within xsl:source-document, both branches do downward selection</description>
+      <created by="Michael Kay" on="2022-11-22"/>
+      <test>
+         <stylesheet file="si-if-002.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><chapter><head>Heading</head><p>One</p><p>Two</p><p>Three</p
+            ><bullet>point one</bullet><bullet>point two</bullet><bullet>point three</bullet
+            ><p>Four</p></chapter></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="si-if-003">
+      <description>Use xsl:choose and LREs within xsl:source-document, both branches do downward selection</description>
+      <created by="Michael Kay" on="2022-11-22"/>
+      <test>
+         <stylesheet file="si-if-003.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><in/><chapter><head>Heading</head><p>One</p><p>Two</p><p>Three</p
+            ><bullet>point one</bullet><bullet>point two</bullet><bullet>point three</bullet
+            ><p>Four</p></chapter><in/></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="si-if-004">
+      <description>Use xsl:if and LREs within xsl:source-document, both branches do downward selection</description>
+      <created by="Michael Kay" on="2022-11-22"/>
+      <test>
+         <stylesheet file="si-if-004.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><in/><chapter><head>Heading</head><p>One</p><p>Two</p><p>Three</p
+            ><bullet>point one</bullet><bullet>point two</bullet><bullet>point three</bullet
+            ><p>Four</p></chapter><in/></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="si-if-005">
+      <description>Use xsl:if and LREs within xsl:source-document, only one branch doing downward selection</description>
+      <created by="Michael Kay" on="2022-11-22"/>
+      <test>
+         <stylesheet file="si-if-005.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><in/><chapter><head>Heading</head><p>One</p><p>Two</p><p>Three</p
+            ><bullet>point one</bullet><bullet>point two</bullet><bullet>point three</bullet
+            ><p>Four</p></chapter><in/></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="si-if-006">
+      <description>Streaming, xsl:if/@test does downward selection</description>
+      <created by="Michael Kay" on="2022-11-22"/>
+      <test>
+         <stylesheet file="si-if-006.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result early-exit-possible="true">
+         <assert>/out='magic'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="si-if-007">
+      <description>Streaming, xsl:choose does downward selection within the first condition, returns false</description>
+      <created by="Michael Kay" on="2022-11-22"/>
+      <test>
+         <stylesheet file="si-if-007.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert>/out = 'sorcery'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="si-if-008">
+      <description>Streaming, xsl:choose using a variety of motionless test conditions</description>
+      <created by="Michael Kay" on="2022-11-22"/>
+      <test>
+         <stylesheet file="si-if-008.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><head>Heading</head>egotistic egotistic egotistic<bullet>point one</bullet
+            ><bullet>point two</bullet><bullet>point three</bullet>egotistic</out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+
+   
+   <test-case name="si-if-010">
+      <description>Use xsl:choose within xsl:source-document, both branches are grounded and consuming</description>
+      <created by="Michael Kay" on="2022-11-22"/>
+      <test>
+         <stylesheet file="si-if-010.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert>/out = '10'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="si-if-011">
+      <description>Use xsl:choose within xsl:source-document, both branches are grounded and consuming</description>
+      <created by="Michael Kay" on="2022-11-22"/>
+      <test>
+         <stylesheet file="si-if-011.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert>/out = '[HeadingOneTwoThreepoint onepoint twopoint threeFourHeadingOneTwoThreepoint onepoint twopoint threeFour]'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="si-if-012">
+      <description>Use xsl:if within xsl:source-document, all branches do downward selection.</description>
+      <created by="Michael Kay" on="2022-11-22"/>
+      <test>
+         <stylesheet file="si-if-012.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><t amount="0.01"/><t amount="3.06"/><t>-</t><t>-</t><t>-</t><t>-</t><t>-</t><t>-</t><t>-</t><t>-</t></out>
+]]></assert-xml>
+      </result>
+   </test-case>
+
+</test-set>
