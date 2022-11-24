@@ -18,7 +18,7 @@
   
   <xsl:variable name="result" as="map(*)">
     <xsl:map>
-    <xsl:for-each-group map="parse-json($tz)" group-by="substring-before(?key, '/')">
+    <xsl:for-each-group select="parse-json($tz) => map:key-value-pairs()" group-by="substring-before(?key, '/')">
       <xsl:map-entry key="current-grouping-key()">
         <xsl:map>
           <xsl:for-each select="current-group()">
