@@ -677,6 +677,38 @@
       </result>
    </test-case>
    
+   <test-case name="override-f-916">
+      <description>A function call using xsl:original, not within xsl:override</description>
+      <created by="Michael Kay" on="2022-11-24"/>
+      <environment ref="override-f-A"/>
+      <dependencies>
+         <feature value="higher_order_functions"/>
+      </dependencies>
+      <test>
+         <package file="override-f-916.xsl" role="principal"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <error code="XPST0017"/>
+      </result>
+   </test-case>
+   
+   <test-case name="override-f-917">
+      <description>A function call using xsl:original, not within xsl:function</description>
+      <created by="Michael Kay" on="2022-11-24"/>
+      <environment ref="override-f-A"/>
+      <dependencies>
+         <feature value="higher_order_functions"/>
+      </dependencies>
+      <test>
+         <package file="override-f-917.xsl" role="principal"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <error code="XPST0017"/>
+      </result>
+   </test-case>
+   
    
    <test-case name="override-t-001">
       <description>Successful override of a named template, when called from overriding package</description>
