@@ -175,6 +175,7 @@
       <description>Test xsl:fallback for existing top-level element used instruction.</description>
       <keywords>forwards-compatibility-mode xsl:fallback</keywords>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2022-11-24" change="changed the version number to retain the intent of the test"/>
       <environment ref="ver01"/>
       <dependencies>
          <spec value="XSLT10+"/>
@@ -191,6 +192,7 @@
       <description>Test that in forwards compatibility mode, unknown top-level XSL elements are ignored.</description>
       <keywords>forwards-compatibility-mode</keywords>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2022-11-24" change="changed the version number to retain the intent of the test"/>
       <environment ref="ver01"/>
       <dependencies>
          <spec value="XSLT10+"/>
