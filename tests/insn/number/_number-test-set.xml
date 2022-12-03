@@ -3016,7 +3016,7 @@ footnote</footnote> and a <citation/></p>
 
    <test-case name="number-4701">
       <description>test xsl:number with level="any", from="/"</description>
-      <created by="Michael Kay" on="2012-11-07"/>
+      <created by="Michael Kay" on="2022-12-02"/>
       <environment>
          <source role="." file="number-47.xml"/>
       </environment>
@@ -3030,6 +3030,79 @@ footnote</footnote> and a <citation/></p>
          <all-of>
             <assert>deep-equal(/out/z/from-slash/number(), (1,2,3,4,5,6))</assert>
             <assert>deep-equal(/out/z/from-star/number(), (1,1,2,3,4,5))</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="number-4801">
+      <description>test xsl:number localization using ICU spellouts - English</description>
+      <created by="Michael Kay" on="2022-12-02"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+         <feature value="ICU_spellout"/>
+      </dependencies>
+      <test>
+         <stylesheet file="number-4801.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a="one hundred twentieth"</assert>
+            <assert>/out/b="one hundred and twentieth"</assert>
+            <assert>/out/c="one hundred twenty"</assert>
+            <assert>/out/d="one hundred and twenty"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="number-4802">
+      <description>test xsl:number localization using ICU spellouts - French</description>
+      <created by="Michael Kay" on="2022-12-02"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+         <feature value="ICU_spellout"/>
+         <languages_for_numbering value="fr"/>
+      </dependencies>
+      <test>
+         <stylesheet file="number-4802.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a="cent vingtième"</assert>
+            <assert>/out/b="cent vingtième"</assert>
+            <assert>/out/b2="cent vingtièmes"</assert>
+            <assert>/out/c="cent vingtième"</assert>
+            <assert>/out/c2="cent vingtièmes"</assert>
+            <assert>/out/d="cent vingt"</assert>
+            <assert>/out/e="cent vingt"</assert>
+            <assert>/out/f="cent vingt"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="number-4803">
+      <description>test xsl:number localization using ICU spellouts - German</description>
+      <created by="Michael Kay" on="2012-11-07"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+         <feature value="ICU_spellout"/>
+         <languages_for_numbering value="de"/>
+      </dependencies>
+      <test>
+         <stylesheet file="number-4803.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <!-- Note: there are soft hyphens here which may display differently using different tools -->
+            <assert>/out/o="ein­hundert­zwanzigste"</assert>
+            <assert>/out/os="ein­hundert­zwanzigstes"</assert>
+            <assert>/out/or="ein­hundert­zwanzigster"</assert>
+            <assert>/out/on="ein­hundert­zwanzigsten"</assert>
+            <assert>/out/c="ein­hundert­zwanzigste"</assert>
+            <assert>/out/cs="ein­hundert­zwanzig"</assert>
+            <assert>/out/cr="ein­hundert­zwanzig"</assert>
+            <assert>/out/cn="ein­hundert­zwanzig"</assert>
+            <assert>/out/e="ein­hundert­zwanzig"</assert>
+            <assert>/out/f="ein­hundert­zwanzig"</assert>
          </all-of>
       </result>
    </test-case>

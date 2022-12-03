@@ -878,6 +878,7 @@
                                 <xs:enumeration value="higher_order_functions"/>
                                 <xs:enumeration value="HTML4"/>
                                 <xs:enumeration value="HTML5"/>
+                                <xs:enumeration value="ICU_spellout"/>
                                 <xs:enumeration value="namespace_axis"/>
                                 <xs:enumeration value="schema_aware"/>
                                 <xs:enumeration value="built_in_derived_types"/>
