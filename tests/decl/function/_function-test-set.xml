@@ -2021,6 +2021,42 @@
       </result>
    </test-case>
    
+   <test-case name="function-40-007">
+      <description>Function with default parameter, overriding another using xsl:import</description>
+      <created by="Michael Kay" on="2022-11-29"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-007.xsl"/>
+         <stylesheet role="secondary" file="function-40-001.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='24'</assert>
+            <assert>/out/b='22'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-008">
+      <description>Function with default parameter, overriding another with lesser arity range using xsl:import</description>
+      <created by="Michael Kay" on="2022-11-29"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-008.xsl"/>
+         <stylesheet role="secondary" file="function-40-001.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='29'</assert>
+            <assert>/out/b='24'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
    <test-case name="function-40-901">
       <description>Two functions with overlapping arity range</description>
       <created by="Michael Kay" on="2022-10-24"/>
@@ -2073,7 +2109,120 @@
          <stylesheet file="function-40-904.xsl"/>
       </test>
       <result>
-         <error code="XXXX8888"/>
+         <error code="XPTY0004"/>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-905">
+      <description>Select attribute on implicitly required parameter</description>
+      <created by="Michael Kay" on="2022-11-28"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-905.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0760"/>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-906">
+      <description>Select attribute on explicitly required parameter</description>
+      <created by="Michael Kay" on="2022-11-28"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-906.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0760"/>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-907">
+      <description>Sequence constructor on implicitly required parameter</description>
+      <created by="Michael Kay" on="2022-11-28"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-907.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0760"/>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-908">
+      <description>Sequence constructor on explicitly required parameter</description>
+      <created by="Michael Kay" on="2022-11-28"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-908.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0760"/>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-909">
+      <description>Non-final parameter declared optional</description>
+      <created by="Michael Kay" on="2022-11-28"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-909.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0761"/>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-910">
+      <description>Default value expression accesses other parameters</description>
+      <created by="Michael Kay" on="2022-11-28"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-910.xsl"/>
+      </test>
+      <result>
+         <error code="XPST0008"/>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-911">
+      <description>Default value sequence constructor accesses other parameters</description>
+      <created by="Michael Kay" on="2022-11-28"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-911.xsl"/>
+      </test>
+      <result>
+         <error code="XPST0008"/>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-912">
+      <description>Function with default parameter, overriding another with overlapping arity range using xsl:import</description>
+      <created by="Michael Kay" on="2022-11-29"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-912.xsl"/>
+         <stylesheet role="secondary" file="function-40-001.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0770"/>
       </result>
    </test-case>
 </test-set>
