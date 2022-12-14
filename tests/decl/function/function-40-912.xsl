@@ -4,7 +4,7 @@
   <xsl:import href="function-40-001.xsl"/>
 
   <xsl:function name="f:add" as="xs:integer">
-    <xsl:param name="x" as="xs:integer"/>
+    <xsl:param name="x" as="xs:integer" required="no"/>
     <xsl:param name="y" as="xs:integer" required="yes"/>
     <xsl:param name="z" as="xs:integer" required="no" select="0"/>
     <xsl:sequence select="$x + $y + $z + 17"/>
