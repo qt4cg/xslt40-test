@@ -587,7 +587,7 @@
          <stylesheet file="call-template-1002a.xsl"/>
       </test>
       <result>
-         <assert>false()</assert>
+         <assert-xml file="call-template-1002.out"/>
       </result>
    </test-case>
 
