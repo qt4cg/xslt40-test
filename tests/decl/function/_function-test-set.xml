@@ -2212,8 +2212,9 @@
    </test-case>
    
    <test-case name="function-40-912">
-      <description>Function with default parameter, overriding another with overlapping arity range using xsl:import</description>
+      <description>Function with default parameter, overriding another with overlapping arity range using xsl:include</description>
       <created by="Michael Kay" on="2022-11-29"/>
+      <modified by="Michael Kay" on="2023-02-25" change="Use xsl:include so the test fails in the right way"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
