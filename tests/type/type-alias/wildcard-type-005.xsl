@@ -16,7 +16,7 @@
     <out><xsl:apply-templates select="$x"/></out>
   </xsl:template>
   
-  <xsl:mode warnings-on-no-match="no"/>
+  <xsl:mode warning-on-no-match="no"  warning-on-multiple-match="no"/>
 
   <xsl:template match="element(foo:bar, xs:untyped)">
     <P0.25><xsl:next-match/></P0.25>
