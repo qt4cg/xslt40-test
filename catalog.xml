@@ -39,6 +39,7 @@
       <test-set name="namespace-alias" file="tests/decl/namespace-alias/_namespace-alias-test-set.xml"/>
       <test-set name="output" file="tests/decl/output/_output-test-set.xml"/>        
       <test-set name="override" file="tests/decl/override/_override-test-set.xml"/>
+      <test-set name="note" file="tests/decl/note/_note-test-set.xml"/>
       <test-set name="package" file="tests/decl/package/_package-test-set.xml"/>
       <test-set name="param" file="tests/decl/param/_param-test-set.xml"/>
       <test-set name="strip-space" file="tests/decl/strip-space/_strip-space-test-set.xml"/>
