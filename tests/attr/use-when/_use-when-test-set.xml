@@ -1835,4 +1835,18 @@
          <assert-xml file="use-when-0501.out"/>
       </result>
    </test-case>
+   
+   <test-case name="use-when-4001">
+      <description>Test existence of a 4.0-defined function.</description>
+      <created by="Michael Kay" on="2023-01-17"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="use-when-4001.xsl"/>
+      </test>
+      <result>
+         <assert>/out/*:p = "The End"</assert>
+      </result>
+   </test-case>
 </test-set>
