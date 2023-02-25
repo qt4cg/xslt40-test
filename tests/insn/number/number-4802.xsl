@@ -11,7 +11,7 @@ version="3.0">
             <c><xsl:number value="120" format="w" lang="fr-FR" ordinal="%spellout-ordinal-feminine"/></c>
             <b2><xsl:number value="120" format="w" lang="fr-FR" ordinal="%spellout-ordinal-masculine-plural"/></b2>
             <c2><xsl:number value="120" format="w" lang="fr-FR" ordinal="%spellout-ordinal-feminine-plural"/></c2>
-            <d><xsl:number value="120" format="w" lang="fr-FR" ordinal="%spellout-cardinal"/></d>
+            <!--<d><xsl:number value="120" format="w" lang="fr-FR" ordinal="%spellout-cardinal"/></d>-->
             <e><xsl:number value="120" format="w" lang="fr-FR" ordinal="%spellout-cardinal-masculine"/></e>
             <f><xsl:number value="120" format="w" lang="fr-FR" ordinal="%spellout-cardinal-feminine"/></f>
         </out>
