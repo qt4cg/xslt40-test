@@ -3095,7 +3095,7 @@
       <description>on-no-match=shallow-copy-all, processing an array</description>
       <created by="Michael Kay" on="2022-07-17"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT40+"/>
       </dependencies>
       <test>
          <stylesheet file="mode-4001.xsl"/>
@@ -3110,7 +3110,7 @@
       <description>on-no-match=shallow-copy-all, processing a map</description>
       <created by="Michael Kay" on="2022-07-17"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT40+"/>
       </dependencies>
       <test>
          <stylesheet file="mode-4002.xsl"/>
@@ -3125,7 +3125,7 @@
       <description>on-no-match=shallow-skip-all, processing an array</description>
       <created by="Michael Kay" on="2022-07-17"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT40+"/>
       </dependencies>
       <test>
          <stylesheet file="mode-4003.xsl"/>
@@ -3139,7 +3139,7 @@
       <description>on-no-match=shallow-skip-all, processing a map</description>
       <created by="Michael Kay" on="2022-07-17"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT40+"/>
       </dependencies>
       <test>
          <stylesheet file="mode-4004.xsl"/>
@@ -3147,6 +3147,57 @@
       <result>
          <!-- TODO: not necessarily in the same order -->
          <assert-xml><![CDATA[<out><orange>20</orange><lilac>21</lilac><blue>25</blue></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4005">
+      <description>mode/@as (note: ignored in forwards compatibility mode, hence no 4.0 dependency)</description>
+      <created by="Michael Kay" on="2022-07-17"/>
+      <test>
+         <stylesheet file="mode-4005.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/orange='20'</assert>
+            <assert>/out/lilac='21'</assert>
+            <assert>/out/yellow='12'</assert>
+            <assert>/out/green='12'</assert>
+            <assert>/out/blue='25'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4006">
+      <description>mode/@as (note: ignored in forwards compatibility mode)</description>
+      <created by="Michael Kay" on="2022-07-17"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4006.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0090"/>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4007">
+      <description>mode/@as error because result not satisfied</description>
+      <created by="Michael Kay" on="2022-07-17"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4006.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/orange='20'</assert>
+            <assert>/out/lilac='21'</assert>
+            <assert>/out/yellow='12'</assert>
+            <assert>/out/green='12'</assert>
+            <assert>/out/blue='25'</assert>
+         </all-of>
       </result>
    </test-case>
    
