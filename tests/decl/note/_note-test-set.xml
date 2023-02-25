@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns:xs="http://www.w3.org/2001/XMLSchema"
+   xmlns="http://www.w3.org/2012/10/xslt-test-catalog" name="note">
+   <description>Tests xsl:note in XSLT 4.0</description>
+   
+
+   <dependencies>
+      <spec value="XSLT40+"/>
+   </dependencies>
+
+   <test-case name="note-001">
+      <description>Allowed at top level</description>
+      <created by="Michael Kay" on="2023-02-21"/>
+      <test>
+         <stylesheet file="note-001.xsl" role="principal"/>
+      </test>
+      <result>
+         <assert>/out</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="note-002">
+      <description>Allowed in sequence constructor</description>
+      <created by="Michael Kay" on="2023-02-21"/>
+      <test>
+         <stylesheet file="note-002.xsl" role="principal"/>
+      </test>
+      <result>
+         <assert>/out = ''</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="note-003">
+      <description>Surrounded by whitespace</description>
+      <created by="Michael Kay" on="2023-02-21"/>
+      <test>
+         <stylesheet file="note-003.xsl" role="principal"/>
+      </test>
+      <result>
+         <assert>/out = ''</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="note-004">
+      <description>Adjacent to text</description>
+      <created by="Michael Kay" on="2023-02-21"/>
+      <test>
+         <stylesheet file="note-004.xsl" role="principal"/>
+      </test>
+      <result>
+         <assert>/out = ' drama'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="note-005">
+      <description>Allows attributes</description>
+      <created by="Michael Kay" on="2023-02-21"/>
+      <test>
+         <stylesheet file="note-005.xsl" role="principal"/>
+      </test>
+      <result>
+         <assert>/out = ''</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="note-006">
+      <description>Allows content</description>
+      <created by="Michael Kay" on="2023-02-21"/>
+      <test>
+         <stylesheet file="note-006.xsl" role="principal"/>
+      </test>
+      <result>
+         <assert>/out = ''</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="note-007">
+      <description>Allowed child of xsl:strip-space</description>
+      <created by="Michael Kay" on="2023-02-21"/>
+      <test>
+         <stylesheet file="note-007.xsl" role="principal"/>
+      </test>
+      <result>
+         <assert>/out = ''</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="note-008">
+      <description>Allowed child of xsl:apply-templates</description>
+      <created by="Michael Kay" on="2023-02-21"/>
+      <test>
+         <stylesheet file="note-008.xsl" role="principal"/>
+      </test>
+      <result>
+         <assert>/out = '12'</assert>
+      </result>
+   </test-case>
+   
+ 
+   
+</test-set>
