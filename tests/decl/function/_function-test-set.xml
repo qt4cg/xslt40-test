@@ -2057,6 +2057,82 @@
       </result>
    </test-case>
    
+   <test-case name="function-40-009">
+      <description>Function with default parameter, defaulting to false()</description>
+      <created by="Michael Kay" on="2022-03-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-009.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='3'</assert>
+            <assert>/out/b='-3'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-010">
+      <description>Function with default parameter, defaulting to empty sequence</description>
+      <created by="Michael Kay" on="2022-03-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-010.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='3 4'</assert>
+            <assert>/out/b='3'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-011">
+      <description>Function with default parameter, defaulting to context item</description>
+      <created by="Michael Kay" on="2022-03-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-011.xsl"/>
+      </test>
+      <result>
+         <assert>/out = 'blue'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-012">
+      <description>Function with default parameter, defaulting to a function of global variables</description>
+      <created by="Michael Kay" on="2022-03-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-012.xsl"/>
+      </test>
+      <result>
+         <assert>/out = 'blue'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-013">
+      <description>Function with default parameter, defaulting to an expression referencing global variables</description>
+      <created by="Michael Kay" on="2022-03-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-013.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '%blue'</assert>
+      </result>
+   </test-case>
+   
    <test-case name="function-40-901">
       <description>Two functions with overlapping arity range</description>
       <created by="Michael Kay" on="2022-10-24"/>
