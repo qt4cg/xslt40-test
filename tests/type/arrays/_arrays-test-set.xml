@@ -1082,6 +1082,7 @@
    <test-case name="arrays-021">
       <description>xsl:for-each-member extension; type error, select must be an array</description>
       <created by="Michael Kay" on="2019-04-03"/>
+      <modified by="Michael Kay" on="2023-03-06" change="xsl:for-each/@array has been dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -1089,7 +1090,7 @@
          <stylesheet file="arrays-021.xsl"/>
       </test>
       <result>
-         <error code="XPTY0004"/>
+         <error code="XTSE0090"/>
       </result>
    </test-case>
    
