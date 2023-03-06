@@ -15,7 +15,7 @@
                        course as xs:string,
                        students as array(
                            record( first as xs:string, last as xs:string, email as xs:string )
-                       )
+                       ),
                        length as xs:integer
                     )
                  )
