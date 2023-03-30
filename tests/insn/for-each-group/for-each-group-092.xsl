@@ -4,12 +4,12 @@
   <xsl:template name="xsl:initial-template">
     <out>
       <xsl:for-each-group select="1 to 100" group-by=". mod 10">
-        <xsl:variable name="g" select="current-group#0"/>
+        <xsl:variable name="g" select="current-grouping-key#0"/>
         <xsl:for-each-group select="500 to 600" group-by=". mod 20">
-           <g><xsl:value-of select="$g()"/></g>
+          <g><xsl:value-of select="$g()"/></g>
         </xsl:for-each-group>
       </xsl:for-each-group>
     </out>
-   </xsl:template>
+  </xsl:template>
   
 </xsl:stylesheet>
