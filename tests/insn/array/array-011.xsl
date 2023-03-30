@@ -9,7 +9,8 @@
     <xsl:template name="xsl:initial-template">
       <xsl:array use=".()">
         <xsl:for-each-group select="0 to 19" group-adjacent=". idiv 4">
-          <xsl:sequence select="let $gp := current-group() return function(){$gp}"/>
+          <xsl:sequence select="current-group#0"/>
+          <!--<xsl:sequence select="let $gp := current-group() return function(){$gp}"/>-->
         </xsl:for-each-group>
       </xsl:array>  
     </xsl:template>
