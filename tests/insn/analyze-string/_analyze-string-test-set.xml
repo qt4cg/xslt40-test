@@ -1120,4 +1120,46 @@ world</E1><E2>*</E2></out>]]></assert-xml>
       </result>
    </test-case>
    
+   <test-case name="analyze-string-101">
+      <description>Test of regex-group() as named function reference</description>
+      <created by="Michael Kay" on="2023-03-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="analyze-string-101.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/@zero = "26 March 2023"</assert>
+            <assert>/out/@year = "2023"</assert>
+            <assert>/out/@month = "March"</assert>
+            <assert>/out/@day = "26"</assert>
+            <assert>/out/@other = "false"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="analyze-string-101a">
+      <description>Test of regex-group() as named function reference under 3.0</description>
+      <created by="Michael Kay" on="2023-03-26"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="analyze-string-101.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/@zero = "26 March 2023"</assert>
+            <assert>/out/@year = "2023"</assert>
+            <assert>/out/@month = "March"</assert>
+            <assert>/out/@day = "26"</assert>
+            <assert>/out/@other = "false"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
 </test-set>
