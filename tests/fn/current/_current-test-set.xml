@@ -16,5 +16,29 @@
         </result>
     </test-case>
     
+    <test-case name="current-401">
+        <description>Test of current#0 named function reference - OK in 4.0</description>
+        <created by="Michael Kay" on="2023-03-24"/>
+        <dependency type="spec" value="XT40+"/>
+        <test>
+            <stylesheet file="current-401.xsl"/>
+        </test>
+        <result>
+            <assert>/out/@val = '2'</assert>
+        </result>
+    </test-case>
+    
+    <test-case name="current-401a">
+        <description>Test of current#0 named function reference - fails in 3.0</description>
+        <created by="Michael Kay" on="2023-03-24"/>
+        <dependency type="spec" value="XT30"/>
+        <test>
+            <stylesheet file="current-401.xsl"/>
+        </test>
+        <result>
+            <error code="XTDE1360"/>
+        </result>
+    </test-case>
+    
 </test-set>
     
