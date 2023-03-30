@@ -168,7 +168,26 @@
             <error code="XTTE1020"/>
          </any-of>
       </result>
-   </test-case>   
+   </test-case>
+
+   <test-case name="current-output-uri-011">
+      <description>Variable initialised to current-output-uri must not be inlined</description>
+      <created by="Michael Kay" on="2023-03-25"/>      
+      <test>
+         <stylesheet file="current-output-uri-011.xsl"/>
+         <initial-template name="main"/>
+         <!-- sets the base output uri -->
+         <output file="results/current-output-uri-011.xml"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out = ""</assert>
+            <assert-result-document uri="second/current-output-uri-011.xml">
+               <assert>ends-with(/second/@uri, 'results/current-output-uri-011.xml')</assert>
+            </assert-result-document>
+         </all-of>
+      </result>
+   </test-case>
    
    <!-- TODO
    <test-case name="current-output-uri-011">
@@ -272,6 +291,42 @@
          <assert>/out = 'current-output-uri-is-empty=true'</assert>
       </result>
    </test-case>
+   
+   <test-case name="current-output-uri-401">
+      <description>Use function reference: Returns empty sequence in temporary output state</description>
+      <created by="Michael Kay" on="2023-03-24"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>      
+      <test>
+         <stylesheet file="current-output-uri-401.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert>/out/@uri = ""</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="current-output-uri-402">
+      <description>Use function reference: Initial value of current-output-uri is the same as the base output URI 
+         (regardless of whether the principal result is output to a different location)</description>
+      <created by="Michael Kay" on="2023-03-24"/>      
+      <test>
+         <stylesheet file="current-output-uri-402.xsl"/>
+         <initial-template name="main"/>
+         <!-- sets the base output uri -->
+         <output file="results/current-output-uri-402.xml"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out = ""</assert>
+            <assert-result-document uri="second/current-output-uri-402.xml">
+               <assert>ends-with(/second/@uri, 'results/current-output-uri-402.xml')</assert>
+            </assert-result-document>
+         </all-of>
+      </result>
+   </test-case>
+   
    
    <test-case name="current-output-uri-901">
       <description>Error scenario, function current-output-uri cannot be used in static expressions, here _href in xsl:result-document</description>
