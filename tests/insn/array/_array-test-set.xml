@@ -161,12 +161,8 @@
     <test-case name="array-009">
       <description>"for member" extension</description>
       <created by="Michael Kay" on="2019-04-03"/>
-      <environment>
-         <saxon:property name="http://saxon.sf.net/feature/allowSyntaxExtensions" value="true" xmlns:saxon="http://saxon.sf.net/"/>
-      </environment>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="Saxon-PE"/>
       </dependencies>
       <test>
          <stylesheet file="array-009.xsl"/>
@@ -179,12 +175,8 @@
    <test-case name="array-009b">
       <description>"for member" extension, when not available</description>
       <created by="Debbie Lockett" on="2020-03-10"/>
-      <environment>
-         <saxon:property name="http://saxon.sf.net/feature/allowSyntaxExtensions" value="true" xmlns:saxon="http://saxon.sf.net/"/>
-      </environment>
       <dependencies>
-         <spec value="XSLT40+"/>
-         <feature value="Saxon-PE" satisfied="false"/>
+         <spec value="XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="array-009.xsl"/>
@@ -290,7 +282,6 @@
       <modified by="Michael Kay" on="2023-03-23" change="reinstate with current syntax"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="Saxon-PE"/>
       </dependencies>
       <test>
          <stylesheet file="array-020.xsl"/>
@@ -309,8 +300,7 @@
       <created by="Debbie Lockett" on="2020-03-10"/>
       <modified by="Michael Kay" on="2023-03-23" change="reinstate with current syntax"/>
       <dependencies>
-         <spec value="XSLT30+"/>
-         <feature value="Saxon-PE" satisfied="false"/>
+         <spec value="XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="array-020.xsl"/>
@@ -326,7 +316,6 @@
       <modified by="Michael Kay" on="2023-03-23" change="reinstate with current syntax"/>
       <dependencies>
          <spec value="XSLT30+"/>
-         <feature value="Saxon-PE"/>
       </dependencies>
       <test>
          <stylesheet file="array-021.xsl"/>
@@ -340,12 +329,8 @@
       <description>Iteration over arrays; JSON example</description>
       <created by="Michael Kay" on="2019-04-03"/>
       <modified by="Michael Kay" on="2023-03-23" change="reinstate with current syntax"/>
-      <environment>
-         <saxon:property name="http://saxon.sf.net/feature/allowSyntaxExtensions" value="true" xmlns:saxon="http://saxon.sf.net/"/>
-      </environment>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="Saxon-PE"/>
       </dependencies>
       <test>
          <stylesheet file="array-022.xsl"/>
@@ -359,12 +344,8 @@
     <description>template matching array of atomic values</description>
     <created by="Michael Kay" on="2020-01-30"/>
     <modified by="Michael Kay" on="2023-03-23" change="reinstate with current syntax"/>
-    <environment>
-      <saxon:property name="http://saxon.sf.net/feature/allowSyntaxExtensions" value="true" xmlns:saxon="http://saxon.sf.net/"/>
-    </environment>
     <dependencies>
       <spec value="XSLT40+"/>
-      <feature value="Saxon-PE"/>
     </dependencies>
     <test>
       <stylesheet file="array-023.xsl"/>
@@ -377,12 +358,8 @@
    <test-case name="array-023b">
       <description>template matching array of atomic values, when not available</description>
       <created by="Debbie Lockett" on="2020-03-10"/>
-      <environment>
-         <saxon:property name="http://saxon.sf.net/feature/allowSyntaxExtensions" value="true" xmlns:saxon="http://saxon.sf.net/"/>
-      </environment>
       <dependencies>
-         <spec value="XSLT30+"/>
-         <feature value="Saxon-PE" satisfied="false"/>
+         <spec value="XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="array-023.xsl"/>
@@ -395,12 +372,8 @@
   <test-case name="array-024">
     <description>template matching array of maps (from JSON)</description>
     <created by="Michael Kay" on="2020-01-30"/>
-    <environment>
-      <saxon:property name="http://saxon.sf.net/feature/allowSyntaxExtensions" value="true" xmlns:saxon="http://saxon.sf.net/"/>
-    </environment>
     <dependencies>
       <spec value="XSLT30+"/>
-      <feature value="Saxon-PE"/>
     </dependencies>
     <test>
       <stylesheet file="array-024.xsl"/>
@@ -416,12 +389,8 @@
    <test-case name="array-024b">
       <description>template matching array of maps (from JSON), when not available</description>
       <created by="Debbie Lockett" on="2020-03-10"/>
-      <environment>
-         <saxon:property name="http://saxon.sf.net/feature/allowSyntaxExtensions" value="true" xmlns:saxon="http://saxon.sf.net/"/>
-      </environment>
       <dependencies>
-         <spec value="XSLT30+"/>
-         <feature value="Saxon-PE" satisfied="false"/>
+         <spec value="XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="array-024.xsl"/>
@@ -431,6 +400,6 @@
       </result>
    </test-case>
    
-   -->
+
    
 </test-set>

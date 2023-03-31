@@ -758,7 +758,7 @@ Example of apply-imports</div>
          <stylesheet file="next-match-403.xsl"/>
       </test>
       <result>
-         <assert>/out = "1:1t:2:2t:u:ut:3:3t:4:4t:5:5t:6:6t:1"</assert>
+         <assert>/out = "1:1t:2:2t:u:ut:3:3t:4:4t:5:5t:6:6t:17"</assert>
       </result>
    </test-case>
    

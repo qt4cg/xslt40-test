@@ -1145,7 +1145,7 @@ world</E1><E2>*</E2></out>]]></assert-xml>
       <description>Test of regex-group() as named function reference under 3.0</description>
       <created by="Michael Kay" on="2023-03-26"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="analyze-string-101.xsl"/>
@@ -1153,10 +1153,10 @@ world</E1><E2>*</E2></out>]]></assert-xml>
       </test>
       <result>
          <all-of>
-            <assert>/out/@zero = "26 March 2023"</assert>
-            <assert>/out/@year = "2023"</assert>
-            <assert>/out/@month = "March"</assert>
-            <assert>/out/@day = "26"</assert>
+            <assert>/out/@zero = ""</assert>
+            <assert>/out/@year = ""</assert>
+            <assert>/out/@month = ""</assert>
+            <assert>/out/@day = ""</assert>
             <assert>/out/@other = "false"</assert>
          </all-of>
       </result>

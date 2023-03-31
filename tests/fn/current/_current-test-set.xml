@@ -19,7 +19,9 @@
     <test-case name="current-401">
         <description>Test of current#0 named function reference - OK in 4.0</description>
         <created by="Michael Kay" on="2023-03-24"/>
-        <dependency type="spec" value="XT40+"/>
+        <dependencies>
+            <spec value="XSLT40+"/>
+        </dependencies>
         <test>
             <stylesheet file="current-401.xsl"/>
         </test>
@@ -31,7 +33,9 @@
     <test-case name="current-401a">
         <description>Test of current#0 named function reference - fails in 3.0</description>
         <created by="Michael Kay" on="2023-03-24"/>
-        <dependency type="spec" value="XT30"/>
+        <dependencies>
+            <spec value="XSLT30"/>
+        </dependencies>
         <test>
             <stylesheet file="current-401.xsl"/>
         </test>

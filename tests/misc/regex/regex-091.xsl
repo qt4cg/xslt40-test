@@ -5,14 +5,16 @@
   
   <xsl:template name="xsl:initial-template">
     <out>
-      <xsl:analyze-string select="'aaabbbccc'" regex="(a*)(b*)(c*)">
+      <xsl:analyze-string select="'aaabbbccc'" regex="(a+)(b+)(c+)">
         <xsl:matching-substring>
+          <m>
            <xsl:variable name="g" select="regex-group#1"/>
-           <xsl:analyze-string select="'111222333'" regex="(1*)(2*)(3*)">
+           <xsl:analyze-string select="'111222333'" regex="(1+)(2+)(3+)">
              <xsl:matching-substring>
-               <xsl:value-of select="$g(max((2, -string-length(.))))"/>
+               <i><xsl:value-of select="$g(max((2, -string-length(.))))"/></i>
              </xsl:matching-substring>
            </xsl:analyze-string>
+          </m>
         </xsl:matching-substring>
       </xsl:analyze-string>
     </out>
