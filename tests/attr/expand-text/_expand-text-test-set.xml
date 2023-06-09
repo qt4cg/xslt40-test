@@ -1001,6 +1001,20 @@
          <assert>/out = "Hello World!"</assert>
       </result>
    </test-case>
+   
+   <test-case name="cvt-049">
+      <description>CVT expression split by an XML comment</description>
+      <created by="Michael Kay" on="2023-06-08"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="cvt-049.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "((5))"</assert>
+      </result>
+   </test-case>
 
 
 
