@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns="http://www.w3.org/2012/10/xslt-test-catalog" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="mode.enclosing" covers-40="mode.enclosing">
+   <description>Tests enclosing modes, new in 4.0</description>
+   <environment name="template001">
+      <source role=".">
+         <content><![CDATA[<doc>
+<!-- This test executed properly.!!!!-->
+</doc>]]></content>
+      </source>
+   </environment>
+
+  
+
+   <test-case name="enclosing-001">
+      <description>Purpose: test a simple enclosing mode.</description>
+      <created by="Michael Kay" on="2023-05-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="enclosing-001.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/doc2/c/para = "One"</assert>
+            <assert>/out/doc2/c/para = "Two"</assert>
+            <assert>count(/out/doc2/c/para) = 2</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="enclosing-002">
+      <description>Purpose: test an enclosing mode with xsl:next-match.</description>
+      <created by="Michael Kay" on="2023-05-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="enclosing-002.xsl"/>
+      </test>
+      <result>
+         <assert>/out/doc/d/c/chapter/para</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="enclosing-003">
+      <description>Purpose: call out to another enclosed mode, and then back in.</description>
+      <created by="Michael Kay" on="2023-05-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="enclosing-003.xsl"/>
+      </test>
+      <result>
+         <assert>/out/d2/c2/para</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="enclosing-004">
+      <description>Purpose: enclosing mode doesn't participate in mode="#all".</description>
+      <created by="Michael Kay" on="2023-05-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="enclosing-004.xsl"/>
+      </test>
+      <result>
+         <assert>/out/d2/chapter/para</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="enclosing-901">
+      <description>[ERR XTSE4005] It is a static error if an xsl:mode declaration with one or more 
+         xsl:template children has no name attribute.
+      </description>
+      <keywords>xsl:apply-templates CommentTest matching-mode</keywords>
+      <created by="Michael Kay" on="2023-05-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="enclosing-901.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE4005"/>
+      </result>
+   </test-case>
+   
+   <test-case name="enclosing-902">
+      <description>[ERR XTSE4010] It is a static error if an xsl:mode declaration has 
+         a child xsl:template element with a name attribute....       
+      </description>
+      <keywords>xsl:apply-templates CommentTest matching-mode</keywords>
+      <created by="Michael Kay" on="2023-05-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="enclosing-902.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE4010"/>
+      </result>
+   </test-case>
+   
+   <test-case name="enclosing-903">
+      <description>[ERR XTSE4010] It is a static error if an xsl:mode declaration 
+         has a child xsl:template element with a ... a mode attribute ....</description>
+      <keywords>xsl:apply-templates CommentTest matching-mode</keywords>
+      <created by="Michael Kay" on="2023-05-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="enclosing-903.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE4010"/>
+      </result>
+   </test-case>
+   
+   <test-case name="enclosing-904">
+      <description>[ERR XTSE4010] It is a static error if an xsl:mode declaration 
+         has a child xsl:template element with ... no match attribute.</description>
+      <keywords>xsl:apply-templates CommentTest matching-mode</keywords>
+      <created by="Michael Kay" on="2023-05-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="enclosing-904.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE4010"/>
+      </result>
+   </test-case>
+   
+   <test-case name="enclosing-905">
+      <description>[ERR XTSE4015] It is a static error if an xsl:mode declaration having one or more child xsl:template 
+         elements has a default-mode attribute whose value differs from its name attribute,...
+      </description>
+      <keywords>xsl:apply-templates CommentTest matching-mode</keywords>
+      <created by="Michael Kay" on="2023-05-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="enclosing-905.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE4015"/>
+      </result>
+   </test-case>
+   
+   <test-case name="enclosing-906">
+      <description>[ERR XTSE4015] It is a static error if an xsl:mode declaration having one or more child xsl:template 
+         elements has ...,  or if any of those child xsl:template elements has a default-mode attribute that 
+         differs from the name attribute of the xsl:mode declaration.
+      </description>
+      <keywords>xsl:apply-templates CommentTest matching-mode</keywords>
+      <created by="Michael Kay" on="2023-05-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="enclosing-906.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE4015"/>
+      </result>
+   </test-case>
+   
+   <test-case name="enclosing-907">
+      <description>[ERR XTSE4020] It is a static error if a package contains both (a) an xsl:mode declaration 
+         having one or more child xsl:template elements, and (b) an xsl:template declaration that is not one 
+         of those children but that references the xsl:mode declaration in its mode attribute
+      </description>
+      <keywords>xsl:apply-templates CommentTest matching-mode</keywords>
+      <created by="Michael Kay" on="2023-05-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="enclosing-907.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE4020"/>
+      </result>
+   </test-case>
+   
+   <test-case name="enclosing-908">
+      <description>[ERR XTSE4025] It is a static error if a package contains (a) an xsl:mode declaration 
+         having one or more child xsl:template elements, and (b) a second xsl:mode declaration having 
+         the same name and the same import precedence.        
+      </description>
+      <keywords>xsl:apply-templates CommentTest matching-mode</keywords>
+      <created by="Michael Kay" on="2023-05-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="enclosing-908.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE4025"/>
+      </result>
+   </test-case>
+   
+   <test-case name="enclosing-909">
+      <description>[ERR XTSE4025] It is a static error if a package contains (a) an xsl:mode declaration 
+         having one or more child xsl:template elements, and (b) a second xsl:mode declaration having 
+         the same name and the same import precedence.        
+      </description>
+      <keywords>xsl:apply-templates CommentTest matching-mode</keywords>
+      <created by="Michael Kay" on="2023-05-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="enclosing-909.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE4025"/>
+      </result>
+   </test-case>
+   
+   <test-case name="enclosing-910">
+      <description>[ERR XTSE4025] It is a static error if a package contains (a) an xsl:mode declaration 
+         having one or more child xsl:template elements, and (b) a second xsl:mode declaration having 
+         the same name and the same import precedence.        
+      </description>
+      <keywords>xsl:apply-templates CommentTest matching-mode</keywords>
+      <created by="Michael Kay" on="2023-05-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="enclosing-910.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE4025"/>
+      </result>
+   </test-case>
+   
+   
+   
+ 
+</test-set>
