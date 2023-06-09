@@ -96,6 +96,39 @@
       </result>
    </test-case>
    
+   <test-case name="note-009">
+      <description>Text either side of xsl:note is merged</description>
+      <created by="Michael Kay" on="2023-06-08"/>
+      <test>
+         <stylesheet file="note-009.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>22  </out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="note-010">
+      <description>Text either side of xsl:note is merged</description>
+      <created by="Michael Kay" on="2023-06-08"/>
+      <test>
+         <stylesheet file="note-010.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>The answer is 42</out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="note-011">
+      <description>Text either side of xsl:note is merged</description>
+      <created by="Michael Kay" on="2023-06-08"/>
+      <test>
+         <stylesheet file="note-011.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>The answer is 5</out>]]></assert-xml>
+      </result>
+   </test-case>
+   
  
    
 </test-set>
