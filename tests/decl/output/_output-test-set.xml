@@ -5022,4 +5022,19 @@
          <serialization-matches><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>]]></serialization-matches>
       </result>
    </test-case>
+   
+   <test-case name="output-0727">
+      <description>JSON serialization with escape-solidus="no"</description>
+      <created by="Michael Kay" on="2023-05-31"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="output-0727.xsl"/>
+         <output serialize="yes" tree="no"/>
+      </test>
+      <result>
+         <serialization-matches>\{"23:00:00Z":"beta/gamma"\}</serialization-matches>
+      </result>
+   </test-case>
 </test-set>
