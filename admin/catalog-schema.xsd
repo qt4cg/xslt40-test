@@ -2607,10 +2607,17 @@
                         actually an xs:IDREFS value, because the identfiers are in a different XML
                         document, specifically the identifiers of changes appearing in the
                         changes.xml file.</p>
+                    <h3>covers-40</h3>
+                    <p> Equivalent for XSLT 4.0 tests. </p>
                 </div>
             </xs:documentation>
         </xs:annotation>
         <xs:attribute name="covers" use="optional">
+            <xs:simpleType>
+                <xs:list itemType="xs:NCName"/>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="covers-40" use="optional">
             <xs:simpleType>
                 <xs:list itemType="xs:NCName"/>
             </xs:simpleType>

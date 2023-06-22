@@ -22,7 +22,7 @@
       <schema role="source-reference" file="../../../admin/catalog-schema.xsd" xsd-version="1.1"/>
       <schema role="secondary" file="../../../admin/xml.xsd" xsd-version="1.1"/>
       <schema role="secondary" file="XMLSchema.xsd" xsd-version="1.1"/>
-      <schema role="source-reference" file="schema-for-xslt30.xsd" xsd-version="1.1"/>
+      <schema role="source-reference" file="schema-for-xslt40.xsd" xsd-version="1.1"/>
    </environment>
 
    <environment name="catalog010">
