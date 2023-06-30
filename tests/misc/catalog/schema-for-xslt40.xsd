@@ -9,7 +9,7 @@
 <!ENTITY % p "xs:">
 <!ENTITY % s ":xs">
 ]> *-->
-<?xml-stylesheet href="http://www.w3.org/2008/09/xsd.xsl" type="text/xsl"?>
+<!--<?xml-stylesheet href="http://www.w3.org/2008/09/xsd.xsl" type=" t e x t / x s l"?>-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
@@ -112,7 +112,94 @@ of problems processing the schema using various tools
     </xs:documentation>
   </xs:annotation>
   <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-
+  
+  <xs:defaultOpenContent appliesToEmpty="true" mode="interleave">
+    <!-- Allow xsl:note anywhere -->
+    <xs:any processContents="strict" 
+            namespace="##targetNamespace"
+            notQName="xsl:accept 
+                      xsl:accumulator 
+                      xsl:accumulator-rule 
+                      xsl:analyze-string 
+                      xsl:apply-imports 
+                      xsl:apply-templates 
+                      xsl:array 
+                      xsl:assert 
+                      xsl:attribute 
+                      xsl:attribute-set 
+                      xsl:break 
+                      xsl:call-template 
+                      xsl:catch 
+                      xsl:character-map 
+                      xsl:choose 
+                      xsl:comment 
+                      xsl:context-item 
+                      xsl:copy 
+                      xsl:copy-of 
+                      xsl:document 
+                      xsl:decimal-format 
+                      xsl:element 
+                      xsl:evaluate 
+                      xsl:expose 
+                      xsl:fallback 
+                      xsl:for-each 
+                      xsl:for-each-group 
+                      xsl:fork 
+                      xsl:function 
+                      xsl:global-context-item 
+                      xsl:if 
+                      xsl:import 
+                      xsl:import-schema 
+                      xsl:include 
+                      xsl:iterate 
+                      xsl:key 
+                      xsl:map 
+                      xsl:map-entry 
+                      xsl:matching-substring 
+                      xsl:merge 
+                      xsl:merge-action 
+                      xsl:merge-key 
+                      xsl:merge-source 
+                      xsl:message 
+                      xsl:mode 
+                      xsl:namespace 
+                      xsl:namespace-alias 
+                      xsl:next-iteration 
+                      xsl:next-match 
+                      xsl:non-matching-substring 
+                      xsl:number 
+                      xsl:on-completion 
+                      xsl:on-empty 
+                      xsl:on-non-empty 
+                      xsl:otherwise 
+                      xsl:output 
+                      xsl:output-character 
+                      xsl:override 
+                      xsl:package 
+                      xsl:param 
+                      xsl:perform-sort 
+                      xsl:preserve-space 
+                      xsl:processing-instruction 
+                      xsl:result-document 
+                      xsl:sequence 
+                      xsl:sort 
+                      xsl:source-document 
+                      xsl:strip-space 
+                      xsl:stylesheet 
+                      xsl:switch 
+                      xsl:template 
+                      xsl:text 
+                      xsl:transform 
+                      xsl:try 
+                      xsl:use-package 
+                      xsl:value-of 
+                      xsl:variable 
+                      xsl:when 
+                      xsl:where-populated 
+                      xsl:with-param
+            "/>
+  </xs:defaultOpenContent>
+  
   <xs:complexType name="generic-element-type" mixed="true">
     <xs:annotation>
       <xs:documentation>
@@ -369,7 +456,7 @@ of problems processing the schema using various tools
             <xs:element ref="xsl:with-param"/>
           </xs:choice>
           <xs:attribute name="select" type="xsl:expression" default="child::node()"/>
-          <xs:attribute name="separator" type="xsl:expression"/>
+          <xs:attribute name="separator" type="xsl:avt"/>
           <xs:attribute name="mode" type="xsl:mode"/>
           <xs:attribute name="_select" type="xs:string"/>
           <xs:attribute name="_separator" type="xs:string"/>
@@ -696,7 +783,7 @@ of problems processing the schema using various tools
 
   <xs:element name="evaluate" substitutionGroup="xsl:instruction">
     <xs:complexType>
-      <xs:complexContent mixed="true">
+      <xs:complexContent mixed="false">
         <xs:extension base="xsl:element-only-versioned-element-type">
           <xs:choice minOccurs="0" maxOccurs="unbounded">
             <xs:element ref="xsl:with-param"/>
@@ -759,7 +846,7 @@ of problems processing the schema using various tools
                       maxOccurs="unbounded"/>
           </xs:sequence>
           <xs:attribute name="select" type="xsl:expression"/>
-          <xs:attribute name="separator" type="xsl:expression"/>
+          <xs:attribute name="separator" type="xsl:avt"/>
           <xs:attribute name="_select" type="xs:string"/>
           <xs:attribute name="_separator" type="xs:string"/>
           <xs:assert test="every $e in subsequence(xsl:sort, 2) 
@@ -795,6 +882,7 @@ of problems processing the schema using various tools
           <xs:attribute name="group-adjacent" type="xsl:expression"/>
           <xs:attribute name="group-starting-with" type="xsl:pattern"/>
           <xs:attribute name="group-ending-with" type="xsl:pattern"/>
+          <xs:attribute name="break-when" type="xsl:expression"/>
           <xs:attribute name="composite" type="xsl:yes-or-no"/>
           <xs:attribute name="collation" type="xsl:avt"/>
           <xs:attribute name="_select" type="xs:string"/>
@@ -802,6 +890,7 @@ of problems processing the schema using various tools
           <xs:attribute name="_group-adjacent" type="xs:string"/>
           <xs:attribute name="_group-starting-with" type="xs:string"/>
           <xs:attribute name="_group-ending-with" type="xs:string"/>
+          <xs:attribute name="_break_when" type="xs:string"/>
           <xs:attribute name="_composite" type="xs:string"/>
           <xs:attribute name="_collation" type="xs:string"/>
           <xs:assert test="exists(@select | @_select)"/>
@@ -820,7 +909,8 @@ of problems processing the schema using various tools
           <xs:assert test="count(((@group-by|@_group-by)[1], 
                                   (@group-adjacent|@_group-adjacent)[1], 
                                   (@group-starting-with|@_group-starting-with)[1], 
-                                  (@group-ending-with|@_group-ending-with)[1])) = 1">
+                                  (@group-ending-with|@_group-ending-with)[1],
+                                  (@break-when|@_break-when)[1])) = 1">
             <xs:annotation>
               <xs:documentation>
                 <p>
@@ -1065,7 +1155,7 @@ of problems processing the schema using various tools
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="matching-substring" type="xsl:sequence-constructor"/>
+  <xs:element name="matching-substring" type="xsl:sequence-constructor-or-select"/>
 
   <xs:element name="merge" substitutionGroup="xsl:instruction">
     <xs:complexType>
@@ -1231,7 +1321,7 @@ of problems processing the schema using various tools
 
   <xs:element name="next-iteration" substitutionGroup="xsl:instruction">
     <xs:complexType>
-      <xs:complexContent mixed="true">
+      <xs:complexContent mixed="false">
         <xs:extension base="xsl:element-only-versioned-element-type">
           <xs:sequence>
             <xs:element ref="xsl:with-param" minOccurs="0" maxOccurs="unbounded"/>
@@ -1255,7 +1345,9 @@ of problems processing the schema using various tools
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="non-matching-substring" type="xsl:sequence-constructor"/>
+  <xs:element name="non-matching-substring" type="xsl:sequence-constructor-or-select"/>
+  
+  <xs:element name="note" type="xs:anyType"/>
 
   <xs:element name="number" substitutionGroup="xsl:instruction">
     <xs:complexType>
@@ -1674,6 +1766,7 @@ of problems processing the schema using various tools
           <xs:sequence>
             <xs:element ref="xsl:when" maxOccurs="unbounded"/>
             <xs:element ref="xsl:otherwise" minOccurs="0"/>
+            <xs:element ref="xsl:fallback" minOccurs="0" maxOccurs="unbounded"/>
           </xs:sequence>
           <xs:attribute name="select" type="xsl:expression"/>
           <xs:attribute name="_select" type="xsl:avt"/>
