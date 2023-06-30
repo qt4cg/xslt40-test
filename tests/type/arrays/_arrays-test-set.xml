@@ -890,62 +890,6 @@
       </result>
    </test-case>
    
-   <test-case name="arrays-004">
-      <description>Arrays containing sequences</description>
-      <created by="Michael Kay" on="2017-01-11"/>
-      <dependencies>
-         <spec value="XSLT40+"/>
-      </dependencies>
-      <test>
-         <stylesheet file="arrays-004.xsl"/>
-      </test>
-      <result>
-         <assert>/out[@ok="true"]</assert>
-      </result>
-   </test-case>
-   
-   <test-case name="arrays-004b">
-      <description>Arrays containing sequences, when not available</description>
-      <created by="Debbie Lockett" on="2020-03-10"/>
-      <dependencies>
-         <spec value="XSLT20 XSLT30"/>
-      </dependencies>
-      <test>
-         <stylesheet file="arrays-004.xsl"/>
-      </test>
-      <result>
-         <error code="XTDE1450"/>
-      </result>
-   </test-case>
-   
-   <test-case name="arrays-005">
-      <description>Arrays containing sequences</description>
-      <created by="Michael Kay" on="2017-01-11"/>
-      <dependencies>
-         <spec value="XSLT40+"/>
-      </dependencies>
-      <test>
-         <stylesheet file="arrays-005.xsl"/>        
-      </test>
-      <result>
-         <assert>/out[@ok="true"]</assert>
-      </result>
-   </test-case>
-   
-   <test-case name="arrays-005b">
-      <description>Arrays containing sequences, when not available</description>
-      <created by="Debbie Lockett" on="2020-03-10"/>
-      <dependencies>
-         <spec value="XSLT20 XSLT30"/>
-      </dependencies>
-      <test>
-         <stylesheet file="arrays-005.xsl"/>
-      </test>
-      <result>
-         <error code="XPST0017"/>
-      </result>
-   </test-case>
-   
    <test-case name="arrays-006">
       <description>Arrays containing sequences</description>
       <created by="Michael Kay" on="2017-01-11"/>
