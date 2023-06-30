@@ -13,15 +13,18 @@
 
   <xsl:template match="/">
       <xsl:variable name="results" as="element()*">
-        <xsl:for-each select="/*/cat:test-set/document(@file)//(cat:stylesheet|cat:package)[not(ancestor::cat:test-case//cat:error)]/@file">
+        <xsl:for-each select="/*/cat:test-set/document(@file)//(cat:stylesheet|cat:package)
+          [not(ancestor::cat:test-case[.//cat:error 
+                    or .//cat:feature/@value='xslt40-not-yet-agreed'])]/@file">
+          <!-- omit tests where an error is expected or a not-yet-agreed feature is used -->
           <!--<xsl:copy-of select="document(.)" validation="strict"/>-->
           <xsl:try>
             
             <xsl:variable name="doc" select="document(.)"/>
             <xsl:choose>
               <xsl:when test="not($doc/xsl:*) or 
-                             ($doc//@version/number() > 3) or
-                             ($doc//@xsl:version/number() > 3) or
+                             ($doc//@version/number() > 4) or
+                             ($doc//@xsl:version/number() > 4) or
                              ($doc//@use-when) or ($doc//@xsl:use-when) or
                              ($doc//@Q{http://www.w3.org/2001/XMLSchema-instance}type) or
                              $doc//xs:*[not(ancestor::xsl:import-schema)] or
