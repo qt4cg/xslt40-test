@@ -8,9 +8,9 @@
 
 <xsl:template name="xsl:initial-template">
   <xsl:variable name="a" as="array(*)">
-    <xsl:array composite="yes">
+    <xsl:array use="?value">
       <xsl:for-each select="1 to 10">
-        <xsl:array-member select=". to .+1"/>
+        <xsl:sequence select="map{'value':(. to .+1)}"/>
       </xsl:for-each>
     </xsl:array>
   </xsl:variable>
