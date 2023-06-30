@@ -9,6 +9,7 @@
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-001.xsl"/>
@@ -37,6 +38,7 @@
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-002.xsl"/>
@@ -51,6 +53,7 @@
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-003.xsl"/>
@@ -65,6 +68,7 @@
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-004.xsl"/>
@@ -79,6 +83,7 @@
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-005.xsl"/>
@@ -93,6 +98,7 @@
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-006.xsl"/>
@@ -112,6 +118,7 @@
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-007.xsl"/>
@@ -126,6 +133,7 @@
       <created by="Michael Kay" on="2017-11-13"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-008.xsl"/>
@@ -144,6 +152,7 @@
       <created by="Michael Kay" on="2017-11-13"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-009.xsl"/>
@@ -162,6 +171,7 @@
       <created by="Michael Kay" on="2017-11-13"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-010.xsl"/>
@@ -184,6 +194,7 @@
       <created by="Michael Kay" on="2018-07-04"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-011.xsl"/>
@@ -203,6 +214,7 @@
       <created by="Michael Kay" on="2018-09-20"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-012.xsl"/>
@@ -224,6 +236,7 @@
       <created by="Michael Kay" on="2020-01-19"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-013.xsl"/>
@@ -242,6 +255,7 @@
       <created by="Michael Kay" on="2020-01-19"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-014.xsl"/>
@@ -256,6 +270,7 @@
       <created by="Michael Kay" on="2020-01-28"/>
       <dependencies>
          <spec value="XSLT40+"/>
+         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-050.xsl"/>
