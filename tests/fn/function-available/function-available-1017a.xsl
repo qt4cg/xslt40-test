@@ -107,7 +107,7 @@
         <g><xsl:value-of select="function-available('Q{' || $ns || '}entry', 2)"/></g>
         <h><xsl:value-of select="function-available('Q{' || $ns || '}remove', 2)"/></h>
         <i><xsl:value-of select="function-available('Q{' || $ns || '}for-each', 2)"/></i>
-        <z><xsl:value-of select="function-available('Q{' || $ns || '}keys', 2)"/></z>
+        <z><xsl:value-of select="function-available('Q{' || $ns || '}keys', 3)"/></z>
       </ok-dynamic-eqn-arity>
     </out>
   </xsl:template>
