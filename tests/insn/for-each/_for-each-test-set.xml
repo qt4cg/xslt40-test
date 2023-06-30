@@ -9,6 +9,7 @@
    <test-case name="for-each-array-001">
       <description>Iterate over an array</description>
       <created by="Michael Kay" on="2021-09-25"/>
+      <modified by="Michael Kay" on="2023-06-30" change="separator attribute is an AVT"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -51,6 +52,7 @@
    <test-case name="for-each-map-001">
       <description>Iterate over a map</description>
       <created by="Michael Kay" on="2021-09-25"/>
+      <modified by="Michael Kay" on="2023-06-30" change="map:key-value-pairs is now map:pairs"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -65,6 +67,7 @@
    <test-case name="for-each-map-002">
       <description>Iterate over a map with sorting</description>
       <created by="Michael Kay" on="2021-09-25"/>
+      <modified by="Michael Kay" on="2023-06-30" change="map:key-value-pairs is now map:pairs"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>

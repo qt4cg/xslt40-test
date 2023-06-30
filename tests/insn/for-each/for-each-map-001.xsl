@@ -7,7 +7,7 @@
       <out>
          <xsl:variable name="inverse" as="map(*)">
             <xsl:map>
-               <xsl:for-each select="map:key-value-pairs($in)">
+               <xsl:for-each select="map:pairs($in)">
                   <xsl:map-entry key="?value" select="?key"/>
                </xsl:for-each>
             </xsl:map>
