@@ -19,7 +19,7 @@
       <out>
         <xsl:for-each select="$sales">
           <sale>
-            <xsl:for-each select="map:key-value-pairs(.)">
+            <xsl:for-each select="map:pairs(.)">
               <xsl:sort select="?key"/>
               <xsl:attribute name="{translate(?key, ' ', '_')}" select="?value"/>
             </xsl:for-each>
