@@ -335,15 +335,18 @@
    </test-case>
 
    <test-case name="merge-021">
-      <description>Test xsl:merge-input with keys that have different order attributes.</description>
+      <description>Test xsl:merge-input with input that is not properly sorted.</description>
       <created by="O'Neil Delpratt" on="2012-11-07"/>
       <modified by="Abel Braaksma" on="2018-12-22" change="XTDE2210 instead of XTSE2220, updated description, the order attributes are different."/>
+      <modified by="Michael Kay" on="2023-07-03" 
+         change="Revert to XTSE2220 as originally intended; the XSLT 4.0 spec clarifies that the two order 
+                 attributes have the same effective value."/>
       <environment ref="merge008"/>
       <test>
          <stylesheet file="merge-021.xsl"/>
       </test>
       <result>
-         <error code="XTDE2210"/>
+         <error code="XTDE2220"/>
       </result>
    </test-case>
 
