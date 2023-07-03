@@ -2,8 +2,7 @@
 
 <xsl:stylesheet
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="4.0"
-   xmlns:saxon="http://saxon.sf.net/"
-   xmlns:array="http://www.w3.org/2005/xpath-functions/array"
+   xmlns:map="http://www.w3.org/2005/xpath-functions/map"
    exclude-result-prefixes="#all"
 >
 

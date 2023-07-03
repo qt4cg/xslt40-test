@@ -97,6 +97,7 @@
    <test-case name="array-005">
       <description>Arrays containing sequences</description>
       <created by="Michael Kay" on="2017-01-11"/>
+      <modified by="Michael Kay" on="2023-07-03" change="fix undeclared namespace"/>
       <test>
          <stylesheet file="array-005.xsl"/>        
       </test>
