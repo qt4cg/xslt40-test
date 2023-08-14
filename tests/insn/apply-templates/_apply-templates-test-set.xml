@@ -968,6 +968,21 @@
          <assert-xml><![CDATA[<out>Match-booMatch-of-element-no-name:cooMatch-of-element-no-name:foo</out>]]></assert-xml>
       </result>
    </test-case>
+   
+   <test-case name="conflict-resolution-1901">
+      <description>Test that pattern "element()" gets a default priority of -0.5.</description>
+      <created by="Michael Kay" on="2023-08-10"/>
+      <environment ref="conflict-resolution-18"/>
+      <dependencies>
+         <spec value="XSLT20+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="conflict-resolution-1901.xsl"/>
+      </test>
+      <result>
+         <assert>/out/two</assert>
+      </result>
+   </test-case>
 
    
 </test-set>
