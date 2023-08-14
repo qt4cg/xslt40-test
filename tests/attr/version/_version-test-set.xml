@@ -697,4 +697,36 @@
          <error code="XTSE0010"/>
       </result>
    </test-case>
+   
+   <test-case name="version-037">
+      <description>Test xsl:fallback is not executed in forwards-compatible mode (XSLT 4.0 issue 649)</description>
+      <keywords>forwards-compatibility-mode xsl:fallback</keywords>
+      <created by="Michael Kay" on="2023-08-06"/>
+      <environment ref="ver01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="version-037.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0090"/>
+      </result>
+   </test-case>
+   
+   <test-case name="version-038">
+      <description>Test xsl:fallback is not executed in forwards-compatible mode (XSLT 4.0 issue 649)</description>
+      <keywords>forwards-compatibility-mode xsl:fallback</keywords>
+      <created by="Michael Kay" on="2023-08-06"/>
+      <environment ref="ver01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="version-038.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0010"/>
+      </result>
+   </test-case>
 </test-set>
