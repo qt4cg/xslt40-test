@@ -5177,6 +5177,21 @@
       </result>
    </test-case>
    
+   <test-case name="match-285">
+      <description>Purpose: Test of mode="#all" where the mode is named only in xsl:default-mode.</description>
+      <created by="Michael Kay" on="2023-08-14"/>
+      <environment ref="match1004"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="match-285.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><in>a</in><in>b</in><in>c</in><in>b</in><in>h</in></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
    <test-case name="match-401">
       <description>Pattern with UnionNodeTest</description>
       <created by="Michael Kay" on="2022-12-13"/>
