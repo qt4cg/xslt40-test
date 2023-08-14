@@ -7,7 +7,8 @@
 >
 
 <xsl:template name="xsl:initial-template">
-  <xsl:variable name="a" as="array(*)" select="array:of( parcel((1,2)), parcel((3,4)) )"/>
+  <xsl:variable name="parcel" select="function($v){map{'value':$v}}"/>
+  <xsl:variable name="a" as="array(*)" select="array:of-members(( $parcel((1,2)), $parcel((3,4)) ))"/>
   <out ok="{deep-equal($a, [(1,2), (3,4)])}"/>
 </xsl:template>
 
