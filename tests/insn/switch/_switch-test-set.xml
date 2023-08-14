@@ -103,6 +103,20 @@
       </result>
    </test-case>
    
+   <test-case name="switch-007a">
+      <description>xsl:fallback is invoked in 3.0 mode</description>
+      <created by="Michael Kay" on="2021-01-01"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="switch-007.xsl"/>
+      </test>
+      <result>
+         <assert>out = "NineteenthTwentieth"</assert>
+      </result>
+   </test-case>
+   
    
    <test-case name="switch-901">
       <description>xsl:fallback must come last</description>
@@ -112,6 +126,20 @@
       </dependencies>
       <test>
          <stylesheet file="switch-901.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0010"/>
+      </result>
+   </test-case>
+   
+   <test-case name="switch-902">
+      <description>Rejected by 3.0 processor if no fallback</description>
+      <created by="Michael Kay" on="2023-08-05"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="switch-902.xsl"/>
       </test>
       <result>
          <error code="XTSE0010"/>
