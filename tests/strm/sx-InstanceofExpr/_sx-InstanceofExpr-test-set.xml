@@ -297,7 +297,7 @@
       <test>
          <initial-template name="c-104a"/>
       </test>
-      <result>
+      <result early-exit-possible="true">
          <assert-xml><![CDATA[<out>false</out>]]></assert-xml>
       </result>
    </test-case> 
@@ -321,7 +321,7 @@
       <test>
          <initial-template name="c-105a"/>
       </test>
-      <result>
+      <result early-exit-possible="true">
          <assert-xml><![CDATA[<out>false</out>]]></assert-xml>
       </result>
    </test-case>
@@ -345,7 +345,7 @@
       <test>
          <initial-template name="c-106a"/>
       </test>
-      <result>
+      <result early-exit-possible="true">
          <assert-xml><![CDATA[<out>false</out>]]></assert-xml>
       </result>
    </test-case>
@@ -369,7 +369,7 @@
       <test>
          <initial-template name="c-107a"/>
       </test>
-      <result>
+      <result early-exit-possible="true">
          <assert-xml><![CDATA[<out>false</out>]]></assert-xml>
       </result>
    </test-case>
@@ -393,7 +393,7 @@
       <test>
          <initial-template name="c-108a"/>
       </test>
-      <result>
+      <result early-exit-possible="true">
          <assert-xml><![CDATA[<out>false</out>]]></assert-xml>
       </result>
    </test-case>
@@ -417,7 +417,7 @@
       <test>
          <initial-template name="c-109a"/>
       </test>
-      <result>
+      <result early-exit-possible="true">
          <assert-xml><![CDATA[<out>false</out>]]></assert-xml>
       </result>
    </test-case>
