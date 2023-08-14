@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:a="http://ns.example.com/sch002"
+   xmlns:a="http://www.schemainline.ibm.com/test"
                 xmlns:b="http://ns.example.com/sch004"
                 exclude-result-prefixes="a b"
                 version="2.0">
@@ -10,7 +10,7 @@
 				from both schemas can be used in both stylesheets.-->
 
    <xsl:import href="import-schema-186a.xsl"/>
-   <xsl:import-schema namespace="http://ns.example.com/sch002"
+   <xsl:import-schema namespace="http://www.schemainline.ibm.com/test"
                       schema-location="testSchemaInline.xsd"/>
 
 

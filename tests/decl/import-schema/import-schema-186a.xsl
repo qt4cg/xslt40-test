@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-				xmlns:one="http://ns.example.com/sch002"
+  xmlns:one="http://www.schemainline.ibm.com/test"
 				xmlns:two="http://ns.example.com/sch004"
 				exclude-result-prefixes="one two"
 				version="2.0">
