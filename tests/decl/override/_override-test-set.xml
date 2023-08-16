@@ -677,6 +677,23 @@
       </result>
    </test-case>
    
+   <test-case name="override-f-416">
+      <description>A function call using xsl:original with keywords. Variant of -016</description>
+      <created by="Michael Kay" on="2023-08-16"/>
+      <environment ref="override-f-A"/>
+      <dependencies>
+         <feature value="higher_order_functions"/>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <package file="override-f-416.xsl" role="principal"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert>/ok</assert>
+      </result>
+   </test-case>
+   
    <test-case name="override-f-916">
       <description>A function call using xsl:original, not within xsl:override</description>
       <created by="Michael Kay" on="2022-11-24"/>
