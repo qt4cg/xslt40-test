@@ -20,7 +20,7 @@
       <D><xsl:next-match/></D>
     </xsl:template>
     
-    <xsl:template match="array(tuple(first, last))">
+    <xsl:template match="array(record(first, last))">
       <AT/>
     </xsl:template> 
     
