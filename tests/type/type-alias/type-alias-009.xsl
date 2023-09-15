@@ -11,7 +11,7 @@
 
   <xsl:item-type name="cx:complex" as="record(r as xs:double, i as xs:double)"/>
   
-  <xsl:function name="cx:complex" as="type(cx:complex)">
+  <xsl:function name="cx:complex" as="cx:complex">
     <xsl:param name="r" as="xs:double"/>
     <xsl:param name="i" as="xs:double"/>
     <xsl:sequence select='map{"r":$r, "i":$i}'/>
@@ -22,9 +22,9 @@
   <xsl:template match="record(r as xs:double, i as xs:double)[?i=0]">{?r}</xsl:template>
   
   <xsl:template name="xsl:initial-template">
-    <xsl:variable name="x" as="type(cx:complex)" select="cx:complex(1.0, 1.5)"/>
-    <xsl:variable name="y" as="type(cx:complex)" select="cx:complex(-2.0, 0.5)"/>
-    <xsl:variable name="z" as="type(cx:complex)" select="cx:complex(2.0, -2.5)"/>
+    <xsl:variable name="x" as="cx:complex" select="cx:complex(1.0, 1.5)"/>
+    <xsl:variable name="y" as="cx:complex" select="cx:complex(-2.0, 0.5)"/>
+    <xsl:variable name="z" as="cx:complex" select="cx:complex(2.0, -2.5)"/>
     <out>
       <x><xsl:apply-templates select="$x"/></x>
       <y><xsl:apply-templates select="$y"/></y>

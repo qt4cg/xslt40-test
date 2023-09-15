@@ -15,7 +15,7 @@
     }
   </xsl:variable>
   
-  <xsl:item-type name="person" as="tuple('name', 'date of birth', 'place of birth')"/>
+  <xsl:item-type name="person" as="record('name', 'date of birth', 'place of birth')"/>
   
   <xsl:template match="type(person)">
     <person>

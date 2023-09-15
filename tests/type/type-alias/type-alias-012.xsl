@@ -3,9 +3,8 @@
 <xsl:stylesheet
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="4.0"
    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-   xmlns:saxon="http://saxon.sf.net/"
    xmlns:cx="http://saxon.sf.net/complex"
-   exclude-result-prefixes="xs saxon cx"
+   exclude-result-prefixes="xs cx"
    expand-text="yes"
 >
 

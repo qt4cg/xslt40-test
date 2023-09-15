@@ -21,13 +21,13 @@
   <xsl:item-type name="T" _as="{$T}"/>
   
   <xsl:function name="f:hof">
-    <xsl:param name="arg" as="function() as type(M)"/>
+    <xsl:param name="arg" as="function() as M"/>
     <xsl:sequence select="$arg()"/>
   </xsl:function>
  
   <xsl:template name="xsl:initial-template">
     <out>
-      <xsl:apply-templates select="f:hof(function() as type(T) {$V})"/>
+      <xsl:apply-templates select="f:hof(function() as T {$V})"/>
     </out>
   </xsl:template>
   

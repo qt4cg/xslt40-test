@@ -12,7 +12,7 @@
   <xsl:item-type name="dt:instant" as="union(xs:date, xs:time, xs:dateTime, xs:string)"/>
   
   <xsl:function name="dt:format" as="xs:string">
-    <xsl:param name="in" as="type(dt:instant)"/>
+    <xsl:param name="in" as="dt:instant"/>
     <xsl:param name="fmt" as="xs:string"/>
     <xsl:choose>
       <xsl:when test="$in instance of xs:date">

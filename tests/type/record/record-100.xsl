@@ -22,9 +22,9 @@
   <xsl:template name="xsl:initial-template">
     <out>{
       (: return true if T is a subtype of S :)
-      function($a as type(S)) as xs:integer {3}
+      function($a as S) as xs:integer {3}
         instance of
-      function(type(T)) as xs:integer  
+      function(T) as xs:integer  
     }</out>
   </xsl:template>
   
