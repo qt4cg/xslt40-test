@@ -2,7 +2,7 @@
 <test-set xmlns:xs="http://www.w3.org/2001/XMLSchema"
           xmlns="http://www.w3.org/2012/10/xslt-test-catalog"
           name="embedded-stylesheet">
-   <description>Tests embedded-stylesheet</description>
+   <description>Tests simplified stylesheets and embedded stylesheets</description>
    
    <dependencies>
       <!-- 
@@ -387,6 +387,51 @@
       </test>
       <result>
          <error code="XTSE0120"/>
+      </result>
+   </test-case>
+   
+   <test-case name="simplified-401">
+      <description>
+         In 4.0, no xsl:version attribute is needed if there are no XSLT instructions
+      </description>
+      <created by="Michael Kay" on="2023-09-12"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc fruit="banana"/>]]></content>
+         </source>
+      </environment>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="simplified-401.xsl"/>
+      </test>
+      <result>
+         <assert>//*:p = "Fruit: banana"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="simplified-402">
+      <description>
+         In 4.0, simplified embedded stylesheet
+      </description>
+      <created by="Michael Kay" on="2023-09-12"/>
+      <environment>
+         <source role="." defines-stylesheet="true" file="simplified-402.xsl"/>
+      </environment>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test/>
+      <result>
+         <assert-xml><![CDATA[
+<doc xml:id="doc">
+  <thing>one</thing>
+  <thing>two</thing>
+  <thing>three</thing>
+  <result id="style">3</result>
+</doc>  
+]]></assert-xml>
       </result>
    </test-case>
 </test-set>
