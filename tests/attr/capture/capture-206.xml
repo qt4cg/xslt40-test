@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<header-items>
+		<item>
+			<id>h1</id>
+			<cat>cat1</cat>
+		</item>
+		<item>
+			<id>h2</id>
+			<cat>cat2</cat>
+		</item>
+		<item>
+			<id>h3</id>
+			<cat>cat3</cat>
+		</item>
+	</header-items>
+	<data-items>
+		<foo>
+			<value>foo 1</value>
+			<cat>cat4</cat>
+		</foo>
+		<foo>
+			<value>foo 2</value>
+			<cat>cat2</cat>
+		</foo>
+	</data-items>
+</root>

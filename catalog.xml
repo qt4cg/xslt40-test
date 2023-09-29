@@ -6,6 +6,7 @@
 
       <test-set name="as" file="tests/attr/as/_as-test-set.xml"/>
       <test-set name="avt" file="tests/attr/avt/_avt-test-set.xml"/>
+      <test-set name="capture" file="tests/attr/capture/_capture-test-set.xml"/>
       <test-set name="declared-modes" file="tests/attr/declared-modes/_declared-modes-test-set.xml"/>
       <test-set name="disable-output-escaping" file="tests/attr/disable-output-escaping/_disable-output-escaping-test-set.xml"/>
       <test-set name="expand-text" file="tests/attr/expand-text/_expand-text-test-set.xml"/>

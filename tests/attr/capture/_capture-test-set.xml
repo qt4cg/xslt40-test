@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          xmlns="http://www.w3.org/2012/10/xslt-test-catalog"
+          name="stream" covers-4="capture">
+   <description>Tests xsl:accumulator-rule capture="yes</description>
+
+   
+   <test-case name="capture-201" >
+      <description>Test of xsl:accumulator capture="yes".</description>
+      <created by="Michael Kay" on="2018-03-27"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="streaming"/>
+      </dependencies>
+      <test>
+         <stylesheet file="capture-201.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out count="15"><average select="0.88"/></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="capture-202" >
+      <description>Test of xsl:accumulator capture="yes".</description>
+      <created by="Michael Kay" on="2018-03-27"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="streaming"/>
+      </dependencies>
+      <test>
+         <stylesheet file="capture-202.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/property[1]/LoanStatus[@version='2.1' and UnpaidPrincipalBalanceAmount='350000.0']</assert>
+            <assert>/out/property[2]/LoanStatus[@version='2.1' and UnpaidPrincipalBalanceAmount='350000.0']</assert>
+            <assert>/out/property[3]/LoanStatus[@version='2.1' and UnpaidPrincipalBalanceAmount='500000.0']</assert>
+            <assert>/out/property[4]/LoanStatus[@version='2.1' and UnpaidPrincipalBalanceAmount='750000.0' and @xml:lang='de']</assert>
+            <assert>/out/property[5]/LoanStatus[@version='2.1' and UnpaidPrincipalBalanceAmount='175000.0' and @xml:lang='en-GB']</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="capture-203" >
+      <description>Practical test of xsl:accumulator capture="yes" to create a glossary</description>
+      <created by="Michael Kay" on="2018-03-27"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="streaming"/>
+      </dependencies>
+      <test>
+         <stylesheet file="capture-203.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/div[1][@id="introduction"][@title="Introduction"]</assert>
+            <assert>/out/div[2][@id="concepts"][@title="Concepts"]</assert>
+            <assert>/out/div[17][@id="conformance"][@title="Conformance"]</assert>
+            <assert>/out/table/tbody/tr[1][td[1]="absent"][starts-with(td[2], "A component of the context")]</assert>
+            <assert>/out/table/tbody/tr[2][td[1]="applicable"][starts-with(td[2], "A template rule is applicable to one or more modes")]</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="capture-203a" >
+      <description>Practical test of xsl:accumulator capture="yes" to create a glossary; this time without streaming</description>
+      <created by="Michael Kay" on="2018-03-27"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="capture-203.xsl"/>
+         <param name="streamable" static="true" select="'no'"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/div[1][@id="introduction"][@title="Introduction"]</assert>
+            <assert>/out/div[2][@id="concepts"][@title="Concepts"]</assert>
+            <assert>/out/div[17][@id="conformance"][@title="Conformance"]</assert>
+            <assert>/out/table/tbody/tr[1][td[1]="absent"][starts-with(td[2], "A component of the context")]</assert>
+            <assert>/out/table/tbody/tr[2][td[1]="applicable"][starts-with(td[2], "A template rule is applicable to one or more modes")]</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="capture-204" >
+      <description>Test of xsl:accumulator capture="yes" accessing the accumulator within the end-element processing</description>
+      <created by="Michael Kay after Martin Honnen" on="2018-10-04"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="streaming"/>
+      </dependencies>
+      <environment>
+         <source file="capture-204.xml" role="." streaming="true"/>
+      </environment>
+      <test>
+         <stylesheet file="capture-204.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/items/itemOut[1][item/@id='i1'][details[@id="i1" and @count="1" and @value="i1"]]</assert>
+            <assert>/items/itemOut[2][item/@id='i2'][details[@id="i2" and @count="2" and @value="i1 i2"]]</assert>
+            <assert>/items/itemOut[3][item/@id='i3'][details[@id="i3" and @count="3" and @value="i1 i2 i3"]]</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="capture-205" >
+      <description>Test of xsl:accumulator capture="yes" - Saxon bug 5014</description>
+      <created by="Michael Kay after Martin Honnen" on="2021-06-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="streaming"/>
+      </dependencies>
+      <environment>
+         <source file="capture-205.xml" role="." streaming="true"/>
+      </environment>
+      <test>
+         <stylesheet file="capture-205.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE3430"/>
+      </result>
+   </test-case>
+   
+   <test-case name="capture-206" >
+      <description>Test of xsl:accumulator capture="yes" - Saxon bug 5013</description>
+      <created by="Michael Kay after Martin Honnen" on="2021-06-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="streaming"/>
+      </dependencies>
+      <environment>
+         <source file="capture-206.xml" role="." streaming="true"/>
+      </environment>
+      <test>
+         <stylesheet file="capture-206.xsl"/>
+      </test>
+      <result>
+         <assert>count(/out/foo) = 2</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="capture-207" >
+      <description>Test of xsl:accumulator capture="yes"; streamable even though expression is roaming</description>
+      <created by="Michael Kay" on="2023-09-29"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="streaming"/>
+      </dependencies>
+      <test>
+         <stylesheet file="capture-207.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out count="15"><average select="1.77"/></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="capture-208" >
+      <description>Wrongly specify capture="yes" without phase="end"</description>
+      <created by="Michael Kay" on="2023-09-29"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="streaming"/>
+      </dependencies>
+      <test>
+         <stylesheet file="capture-208.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <error code="XTSE3355"/>
+      </result>
+   </test-case>
+   
+
+</test-set>
