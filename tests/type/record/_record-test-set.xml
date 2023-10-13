@@ -343,6 +343,34 @@
       </result>
    </test-case>
    
+   <test-case name="record-024">
+      <description>Coercion where the expected type is a record type</description>
+      <created by="Michael Kay" on="2023-10-13"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="record-024.xsl"/>
+      </test>
+      <result>
+         <assert>/result = "-1+-1i"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="record-025">
+      <description>Coercion where the expected type is a record type</description>
+      <created by="Michael Kay" on="2023-10-13"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="record-025.xsl"/>
+      </test>
+      <result>
+         <assert>/result = "0+0i"</assert>
+      </result>
+   </test-case>
+   
    <test-case name="record-100">
       <description>record type - subtype relationships</description>
       <created by="Michael Kay" on="2020-01-25"/>
