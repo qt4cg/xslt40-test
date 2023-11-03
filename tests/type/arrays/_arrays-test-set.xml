@@ -835,7 +835,7 @@
       </dependencies>
       <test>
          <stylesheet file="arrays-001.xsl"/>
-         <param name="use-fallback" static="true" select="true()"/>
+         <param name="use-fallback" static="yes" select="true()"/>
       </test>
       <result>
          <all-of>
