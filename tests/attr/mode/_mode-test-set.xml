@@ -3216,7 +3216,10 @@
       </test>
       <result>
          <all-of>
-            <serialization-matches>xxx</serialization-matches>
+            <assert>/out/@ok0 = 'true'</assert>
+            <assert>/out/@ok1 = 'true'</assert>
+            <assert>/out/@ok2 = 'true'</assert>
+            <assert>/out/@ok3 = 'true'</assert>
          </all-of>
       </result>
    </test-case>
