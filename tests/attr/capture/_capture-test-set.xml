@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <test-set xmlns:xs="http://www.w3.org/2001/XMLSchema"
           xmlns="http://www.w3.org/2012/10/xslt-test-catalog"
-          name="stream" covers-4="capture">
+          name="capture" covers-40="capture">
    <description>Tests xsl:accumulator-rule capture="yes</description>
 
    
@@ -73,7 +73,7 @@
       </dependencies>
       <test>
          <stylesheet file="capture-203.xsl"/>
-         <param name="streamable" static="true" select="'no'"/>
+         <param name="streamable" static="yes" select="'no'"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -90,13 +90,13 @@
    <test-case name="capture-204" >
       <description>Test of xsl:accumulator capture="yes" accessing the accumulator within the end-element processing</description>
       <created by="Michael Kay after Martin Honnen" on="2018-10-04"/>
-      <dependencies>
-         <spec value="XSLT40+"/>
-         <feature value="streaming"/>
-      </dependencies>
       <environment>
          <source file="capture-204.xml" role="." streaming="true"/>
       </environment>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="streaming"/>
+      </dependencies>     
       <test>
          <stylesheet file="capture-204.xsl"/>
       </test>
@@ -112,13 +112,13 @@
    <test-case name="capture-205" >
       <description>Test of xsl:accumulator capture="yes" - Saxon bug 5014</description>
       <created by="Michael Kay after Martin Honnen" on="2021-06-01"/>
+      <environment>
+         <source file="capture-205.xml" role="." streaming="true"/>
+      </environment>
       <dependencies>
          <spec value="XSLT40+"/>
          <feature value="streaming"/>
       </dependencies>
-      <environment>
-         <source file="capture-205.xml" role="." streaming="true"/>
-      </environment>
       <test>
          <stylesheet file="capture-205.xsl"/>
       </test>
@@ -130,13 +130,13 @@
    <test-case name="capture-206" >
       <description>Test of xsl:accumulator capture="yes" - Saxon bug 5013</description>
       <created by="Michael Kay after Martin Honnen" on="2021-06-01"/>
+      <environment>
+         <source file="capture-206.xml" role="." streaming="true"/>
+      </environment>
       <dependencies>
          <spec value="XSLT40+"/>
          <feature value="streaming"/>
       </dependencies>
-      <environment>
-         <source file="capture-206.xml" role="." streaming="true"/>
-      </environment>
       <test>
          <stylesheet file="capture-206.xsl"/>
       </test>
