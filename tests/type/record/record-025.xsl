@@ -19,7 +19,7 @@
   
   <xsl:template name="xsl:initial-template">
     <xsl:variable name="zeroDoc">0.0e0</xsl:variable>
-    <result>{cx:toString(map{'r':$zeroDoc, 'i':$zeroDoc})</result>
+    <result>{cx:toString(map{'r':$zeroDoc, 'i':$zeroDoc})}</result>
   </xsl:template>  
 
 </xsl:stylesheet>
