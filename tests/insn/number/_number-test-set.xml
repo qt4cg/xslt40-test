@@ -3142,7 +3142,7 @@ footnote</footnote> and a <citation/></p>
             <assert>/out/b2="cent vingtièmes"</assert>
             <assert>/out/c="cent vingtième"</assert>
             <assert>/out/c2="cent vingtièmes"</assert>
-            <!--<assert>/out/d="cent vingt"</assert>-->
+            <assert>/out/d="cent vingt"</assert>
             <assert>/out/e="cent vingt"</assert>
             <assert>/out/f="cent vingt"</assert>
          </all-of>
@@ -3152,6 +3152,7 @@ footnote</footnote> and a <citation/></p>
    <test-case name="number-4803">
       <description>test xsl:number localization using ICU spellouts - German</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2023-11-10" change="Corrected results for /out/c - should be cardinal number"/>
       <dependencies>
          <spec value="XSLT30+"/>
          <feature value="ICU_spellout"/>
@@ -3167,7 +3168,7 @@ footnote</footnote> and a <citation/></p>
             <assert>/out/os="ein­hundert­zwanzigstes"</assert>
             <assert>/out/or="ein­hundert­zwanzigster"</assert>
             <assert>/out/on="ein­hundert­zwanzigsten"</assert>
-            <assert>/out/c="ein­hundert­zwanzigste"</assert>
+            <assert>/out/c="ein­hundert­zwanzig"</assert>
             <assert>/out/cs="ein­hundert­zwanzig"</assert>
             <assert>/out/cr="ein­hundert­zwanzig"</assert>
             <assert>/out/cn="ein­hundert­zwanzig"</assert>
