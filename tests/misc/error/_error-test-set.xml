@@ -2202,9 +2202,10 @@ It is a static error if the
          Was error-code-039.
       </description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2023-11-03" change="no longer invalid in XSLT 4.0"/>
       <environment ref="error001"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="error-0150a.xsl"/>
@@ -2260,14 +2261,15 @@ A literal result element
 
    <test-case name="error-0150d">
       <description>Generate error XTSE0150.
-Was error-code-213.
-A literal result element
-                     that is used as the outermost element of a simplified stylesheet module
-                        must have an xsl:version attribute.</description>
+                   Was error-code-213.
+                   A literal result element
+                   that is used as the outermost element of a simplified stylesheet module
+                   must have an xsl:version attribute.</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2023-11-03" change="no longer invalid in XSLT 4.0"/>
       <environment ref="error001"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="error-0150d.xsl"/>
