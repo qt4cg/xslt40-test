@@ -3412,6 +3412,8 @@
          Test where two different schemas with different namespaces are imported, one in the primary 
          and one in the imported stylesheet. Show that datatypes from both schemas can be used in both stylesheets.</description>
       <created by="Michael Kay" on="2012-10-30"/>
+      <modified by="Michael Kay" on="2023-10-30" 
+         change="Namespace requested by xsl:import-schema must match the actual namespace of the schema"/>
       <environment ref="import-schema-e04"/>
       <dependencies>
          <spec value="XSLT20+"/>
@@ -3423,13 +3425,13 @@
       </test>
       <result>
          <all-of>
-            <assert xmlns:a="http://ns.example.com/sch002">
+            <assert xmlns:a="http://www.schemainline.ibm.com/test">
                /out/primary1[text()[1] = "true * true * "][a:complexTest[@a:type="333"][subject="math"][size="50"]]
             </assert>
             <assert xmlns:b="http://ns.example.com/sch004">
                /out/primary2[text()[1] = "true * true * "][description = "Mr Peter has brown hair"][description/name = "Peter"]
             </assert>
-            <assert xmlns:one="http://ns.example.com/sch002">
+            <assert xmlns:one="http://www.schemainline.ibm.com/test">
                /out/imported1[text()[1] = "true * true * "][one:complexTest[@one:type="333"][subject="math"][size="50"]]
             </assert>
             <assert xmlns:two="http://ns.example.com/sch004">
@@ -3445,6 +3447,8 @@
          Show that datatypes from both schemas can be used in both stylesheets.
       </description>
       <created by="Michael Kay" on="2012-10-30"/>
+      <modified by="Michael Kay" on="2023-10-30" 
+         change="Namespace requested by xsl:import-schema must match the actual namespace of the schema"/>
       <environment ref="import-schema-e04"/>
       <dependencies>
          <spec value="XSLT20+"/>
@@ -3456,13 +3460,13 @@
       </test>
       <result>
          <all-of>
-            <assert xmlns:a="http://ns.example.com/sch002">
+            <assert xmlns:a="http://www.schemainline.ibm.com/test">
                /out/primary1[text()[1] = "true * true * "][a:complexTest[@a:type="333"][subject="math"][size="50"]]
             </assert>
             <assert xmlns:b="http://ns.example.com/sch004">
                /out/primary2[text()[1] = "true * true * "][description = "Mr Peter has brown hair"][description/name = "Peter"]
             </assert>
-            <assert xmlns:one="http://ns.example.com/sch002">
+            <assert xmlns:one="http://www.schemainline.ibm.com/test">
                /out/imported1[text()[1] = "true * true * "][one:complexTest[@one:type="333"][subject="math"][size="50"]]
             </assert>
             <assert xmlns:two="http://ns.example.com/sch004">
