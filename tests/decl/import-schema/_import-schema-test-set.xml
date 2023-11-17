@@ -3770,7 +3770,7 @@
          <stylesheet file="import-schema-203.xsl"/>
       </test>
       <result>
-         <error code="XXXX9999"/>
+         <error code="XTSE0220"/>
       </result>
    </test-case>
 </test-set>
