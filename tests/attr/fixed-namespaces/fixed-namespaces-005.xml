@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<my:doc xmlns:my="http://my.doc/ns" xmlns:your="http://your.doc/ns">
+    <your:aspidistra/>
+</my:doc>

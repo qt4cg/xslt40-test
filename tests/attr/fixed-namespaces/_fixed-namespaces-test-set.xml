@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns="http://www.w3.org/2012/10/xslt-test-catalog" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="fixed-namespaces">
+   <description>Tests the effect of the fixed-namespaces attribute on xsl:stylesheet</description>
+
+   <dependencies>
+     <spec value="XSLT40+"/>
+   </dependencies>
+   
+   <test-case name="fixed-namespaces-001">
+      <description>Prefixes used in template names, user-defined namespaces</description>
+      <created by="Michael Kay" on="2023-11-28"/>     
+      <test>
+         <stylesheet file="fixed-namespaces-001.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="fixed-namespaces-002">
+      <description>Prefixes used in function names, standard namespaces</description>
+      <created by="Michael Kay" on="2023-11-28"/>     
+      <test>
+         <stylesheet file="fixed-namespaces-002.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out value="3">1</out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="fixed-namespaces-003">
+      <description>Prefixes used in function names, standard namespaces declared using #standard</description>
+      <created by="Michael Kay" on="2023-11-28"/>     
+      <test>
+         <stylesheet file="fixed-namespaces-003.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out value="3">1</out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="fixed-namespaces-004">
+      <description>xsl prefix used in xsl:initial-template</description>
+      <created by="Michael Kay" on="2023-11-28"/>     
+      <test>
+         <stylesheet file="fixed-namespaces-004.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="fixed-namespaces-005">
+      <description>Pick up namespaces from source document</description>
+      <created by="Michael Kay" on="2023-11-28"/>
+      <environment>
+         <source role="." file="fixed-namespaces-005.xml"/>
+      </environment>
+      <test>
+         <stylesheet file="fixed-namespaces-005.xsl"/>       
+      </test>
+      <result>
+         <assert-xml><![CDATA[<your:aspidistra xmlns:my="http://my.doc/ns" xmlns:your="http://your.doc/ns"/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="fixed-namespaces-006">
+      <description>Namespaces in functions and parameter names</description>
+      <created by="Michael Kay" on="2023-11-28"/>     
+      <test>
+         <stylesheet file="fixed-namespaces-006.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>ab</out>]]></assert-xml>
+      </result>
+   </test-case>
+    
+   <test-case name="fixed-namespaces-007">
+      <description>Namespaces used in literal result elements</description>
+      <created by="Michael Kay" on="2023-11-28"/>     
+      <test>
+         <stylesheet file="fixed-namespaces-007.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<x:out xmlns:x="http://x.com/">ab</x:out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="fixed-namespaces-008">
+      <description>Additional Namespaces used in literal result elements</description>
+      <created by="Michael Kay" on="2023-11-28"/>     
+      <test>
+         <stylesheet file="fixed-namespaces-008.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<x:out xmlns:random="http://random.org/" 
+            xmlns:x="http://x.com/">ab</x:out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="fixed-namespaces-009">
+      <description>Additional Namespaces excluded in literal result elements</description>
+      <created by="Michael Kay" on="2023-11-28"/>     
+      <test>
+         <stylesheet file="fixed-namespaces-009.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<x:out 
+            xmlns:x="http://x.com/">ab</x:out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="fixed-namespaces-010">
+      <description>Namespaces used both in input and output; and in mode names</description>
+      <created by="Michael Kay" on="2023-11-28"/>     
+      <test>
+         <stylesheet file="fixed-namespaces-010.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>12</out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="fixed-namespaces-011">
+      <description>Duplicates: last one wins</description>
+      <created by="Michael Kay" on="2023-11-28"/>     
+      <test>
+         <stylesheet file="fixed-namespaces-011.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>ab</out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   
+   
+   
+   
+   <test-case name="fixed-namespaces-901">
+      <description>xsl prefix used in xsl:initial-template but not declared</description>
+      <created by="Michael Kay" on="2023-11-28"/>     
+      <test>
+         <stylesheet file="fixed-namespaces-901.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0280"/>
+      </result>
+   </test-case>
+   
+ 
+
+</test-set> 
