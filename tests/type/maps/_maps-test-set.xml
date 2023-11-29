@@ -300,6 +300,61 @@
          </all-of>
       </result>
    </test-case>
+   
+   <test-case name="maps-401">
+      <description>xsl:map with on-duplicates (select first)</description>
+      <created by="Michael Kay" on="2023-11-28"/>
+      <test>
+         <stylesheet file="maps-401.xsl"/>
+      </test>
+      <result>
+         <assert>/out/@result = '1'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="maps-402">
+      <description>xsl:map with on-duplicates (select last)</description>
+      <created by="Michael Kay" on="2023-11-28"/>
+      <test>
+         <stylesheet file="maps-402.xsl"/>
+      </test>
+      <result>
+         <assert>/out/@result = '5'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="maps-403">
+      <description>xsl:map with on-duplicates (select sequence concatenation)</description>
+      <created by="Michael Kay" on="2023-11-28"/>
+      <test>
+         <stylesheet file="maps-403.xsl"/>
+      </test>
+      <result>
+         <assert>/out/@result = '1 4 5'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="maps-404">
+      <description>xsl:map with on-duplicates (select string-join)</description>
+      <created by="Michael Kay" on="2023-11-28"/>
+      <test>
+         <stylesheet file="maps-404.xsl"/>
+      </test>
+      <result>
+         <assert>/out/@result = '1-4-5'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="maps-405">
+      <description>xsl:map with on-duplicates (select error())</description>
+      <created by="Michael Kay" on="2023-11-28"/>
+      <test>
+         <stylesheet file="maps-405.xsl"/>
+      </test>
+      <result>
+         <error code="Q{http://example.com/}dupe"/>
+      </result>
+   </test-case>
       
    <test-case name="maps-901a">
       <description>map:new() (without args) should throw error (since Oct 2014 LCWD)</description>
