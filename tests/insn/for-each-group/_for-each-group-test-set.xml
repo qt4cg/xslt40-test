@@ -1115,13 +1115,28 @@ while you are in the cinema.</p></o>]]></assert-xml>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="group038"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="for-each-group-068.xsl"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out><one>2</one><one>2</one><one>1</one></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="for-each-group-068a">
+      <description>Example of non-Transitivity from Erratum E25; problem fixed in 4.0</description>
+      <created by="Michael Kay" on="2023-12-08"/>
+      <environment ref="group038"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="for-each-group-068.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><one>3</one><one>3</one><one>3</one></out>]]></assert-xml>
       </result>
    </test-case>
 
