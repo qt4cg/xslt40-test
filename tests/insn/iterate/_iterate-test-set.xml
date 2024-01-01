@@ -397,6 +397,7 @@
     <description>processing using xsl:iterate - group adjacent transactions by date. Same as serial017 but not streamed</description>
     <created by="Michael Kay" on="2012-11-07"/>
     <modified by="Michael Kay" on="2014-01-31" change="reorder xsl:on-completion, see bug 24179"/>
+    <modified by="Michael Kay" on="2023-12-08" change="use xs:decimal comparison of results, not xs:double"/>
     <environment>
       <source file="transactions.xml" uri="transactions.xml"/>
     </environment>
@@ -406,17 +407,17 @@
     </test>
     <result>
       <all-of>
-        <assert>deep-equal(/account/daily-transactions[1]/*/@value/number(), (13.24, 8.12))</assert>
-        <assert>deep-equal(/account/daily-transactions[2]/*/@value/number(), (-15.00))</assert>
-        <assert>deep-equal(/account/daily-transactions[3]/*/@value/number(), (6.00))</assert>
-        <assert>deep-equal(/account/daily-transactions[4]/*/@value/number(), (0.50, 2.33, 4.44))</assert>
-        <assert>deep-equal(/account/daily-transactions[5]/*/@value/number(), (-5.00))</assert>
-        <assert>deep-equal(/account/daily-transactions[6]/*/@value/number(), (8.99))</assert>
-        <assert>deep-equal(/account/daily-transactions[7]/*/@value/number(), (16.00))</assert>
-        <assert>deep-equal(/account/daily-transactions[8]/*/@value/number(), (-2.33, 5.60, 4.32))</assert>
-        <assert>deep-equal(/account/daily-transactions[9]/*/@value/number(), (6.78, 12.20, -248.05))</assert>
-        <assert>deep-equal(/account/daily-transactions[10]/*/@value/number(), (12.00, 13.99))</assert>
-        <assert>deep-equal(/account/final-daily-transactions/*/@value/number(), (14.20))</assert>
+        <assert>deep-equal(/account/daily-transactions[1]/*/@value/xs:decimal(.), (13.24, 8.12))</assert>
+        <assert>deep-equal(/account/daily-transactions[2]/*/@value/xs:decimal(.), (-15.00))</assert>
+        <assert>deep-equal(/account/daily-transactions[3]/*/@value/xs:decimal(.), (6.00))</assert>
+        <assert>deep-equal(/account/daily-transactions[4]/*/@value/xs:decimal(.), (0.50, 2.33, 4.44))</assert>
+        <assert>deep-equal(/account/daily-transactions[5]/*/@value/xs:decimal(.), (-5.00))</assert>
+        <assert>deep-equal(/account/daily-transactions[6]/*/@value/xs:decimal(.), (8.99))</assert>
+        <assert>deep-equal(/account/daily-transactions[7]/*/@value/xs:decimal(.), (16.00))</assert>
+        <assert>deep-equal(/account/daily-transactions[8]/*/@value/xs:decimal(.), (-2.33, 5.60, 4.32))</assert>
+        <assert>deep-equal(/account/daily-transactions[9]/*/@value/xs:decimal(.), (6.78, 12.20, -248.05))</assert>
+        <assert>deep-equal(/account/daily-transactions[10]/*/@value/xs:decimal(.), (12.00, 13.99))</assert>
+        <assert>deep-equal(/account/final-daily-transactions/*/@value/xs:decimal(.), (14.20))</assert>
       </all-of>
     </result>
   </test-case>
@@ -621,6 +622,36 @@
     </test>
     <result>
       <assert>/section = '29'</assert>
+    </result>
+  </test-case>
+  
+  <test-case name="iterate-401">
+    <description>Test of xsl:iterate instruction, xsl:break within xsl:switch branch.</description>
+    <created by="Michael Kay" on="2024-01-01"/>
+    <environment ref="iterate005"/>
+    <dependencies>
+      <spec value="XSLT40+"/>
+    </dependencies>
+    <test>
+      <stylesheet file="iterate-401.xsl"/>
+    </test>
+    <result>
+      <assert>count(/out/p) = 10</assert>
+    </result>
+  </test-case>
+  
+  <test-case name="iterate-402">
+    <description>Test of xsl:iterate instruction, xsl:next-iteration within xsl:switch branch.</description>
+    <created by="Michael Kay" on="2024-01-01"/>
+    <environment ref="iterate005"/>
+    <dependencies>
+      <spec value="XSLT40+"/>
+    </dependencies>
+    <test>
+      <stylesheet file="iterate-402.xsl"/>
+    </test>
+    <result>
+      <assert>count(/out/p) = 10</assert>
     </result>
   </test-case>
 
