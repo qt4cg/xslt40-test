@@ -683,12 +683,30 @@
    <test-case name="higher-order-functions-054">
       <description>apply deep-equal() to a function item</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies>
       <test>
          <stylesheet file="higher-order-functions-054.xsl"/>
          <initial-template name="main"/>
       </test>
       <result>
          <error code="FOTY0015"/>
+      </result>
+   </test-case>
+   
+   <test-case name="higher-order-functions-054a">
+      <description>apply deep-equal() to a function item - changes in 4.0</description>
+      <created by="Michael Kay" on="2023-12-08"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="higher-order-functions-054.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert>out='true'</assert>
       </result>
    </test-case>
 
@@ -1018,6 +1036,110 @@
             <assert>/root/paragraph[1]/b[.='Nulla facilisi']</assert>
             <assert>/root/paragraph[2]/i[.='Nulla facilisi']</assert>
          </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="higher-order-functions-077">
+      <description>
+         function-lookup examples including context-dependency
+      </description>
+      <created by="Michael Kay" on="2023-12-13"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies> 
+      <test>
+         <stylesheet file="higher-order-functions-077.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='3'</assert>
+            <assert>/out/b='0'</assert>
+            <assert>/out/c='42'</assert>
+            <assert>/out/d='43'</assert>
+            <assert>/out/p='e'</assert>
+            <assert>/out/q='22'</assert>
+            <assert>/out/r='23'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="higher-order-functions-078">
+      <description>
+         named function references including context-dependency
+      </description>
+      <created by="Michael Kay" on="2023-12-13"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies> 
+      <test>
+         <stylesheet file="higher-order-functions-078.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='3'</assert>
+            <assert>/out/b='0'</assert>
+            <assert>/out/c='42'</assert>
+            <assert>/out/d='43'</assert>
+            <assert>/out/p='e'</assert>
+            <assert>/out/q='22'</assert>
+            <assert>/out/r='23'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="higher-order-functions-079">
+      <description>
+         partial application including context-dependency
+      </description>
+      <created by="Michael Kay" on="2023-12-13"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies> 
+      <test>
+         <stylesheet file="higher-order-functions-079.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='3'</assert>
+            <assert>/out/b='0'</assert>
+            <assert>/out/c='42'</assert>
+            <assert>/out/d='43'</assert>
+            <assert>/out/e='43'</assert>
+            <assert>/out/p='e'</assert>
+            <assert>/out/r='23'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="higher-order-functions-080">
+      <description>
+         partial application using keywords to reverse argument order
+      </description>
+      <created by="Michael Kay" on="2023-12-13"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies> 
+      <test>
+         <stylesheet file="higher-order-functions-080.xsl"/>
+      </test>
+      <result>
+         <assert>/out='7'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="higher-order-functions-081">
+      <description>
+         partial application of user function with defaulted params
+      </description>
+      <created by="Michael Kay" on="2023-12-13"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies> 
+      <test>
+         <stylesheet file="higher-order-functions-081.xsl"/>
+      </test>
+      <result>
+         <assert>/out='4'</assert>
       </result>
    </test-case>
 </test-set>
