@@ -3175,22 +3175,9 @@
    <test-case name="mode-4006">
       <description>mode/@as (note: ignored in forwards compatibility mode)</description>
       <created by="Michael Kay" on="2022-07-17"/>
+      <modified by="Michael Kay" on="2024-01-25" change="expect no error, @as is ignored"/>
       <dependencies>
          <spec value="XSLT20 XSLT30"/>
-      </dependencies>
-      <test>
-         <stylesheet file="mode-4006.xsl"/>
-      </test>
-      <result>
-         <error code="XTSE0090"/>
-      </result>
-   </test-case>
-   
-   <test-case name="mode-4007">
-      <description>mode/@as error because result not satisfied</description>
-      <created by="Michael Kay" on="2022-07-17"/>
-      <dependencies>
-         <spec value="XSLT40+"/>
       </dependencies>
       <test>
          <stylesheet file="mode-4006.xsl"/>
@@ -3203,6 +3190,21 @@
             <assert>/out/green='12'</assert>
             <assert>/out/blue='25'</assert>
          </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4007">
+      <description>mode/@as error because result not satisfied</description>
+      <created by="Michael Kay" on="2022-07-17"/>
+      <modified by="Michael Kay" on="2024-01-25" change="expect a type error"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4006.xsl"/>
+      </test>
+      <result>
+         <error code="XPTY0004"/><!-- error code TBA? -->
       </result>
    </test-case>
    
