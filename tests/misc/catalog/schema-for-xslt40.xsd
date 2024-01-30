@@ -1517,11 +1517,13 @@ of problems processing the schema using various tools
             </xs:choice>
           </xs:sequence>
           <xs:attribute name="declared-modes" type="xsl:yes-or-no"/>
+          <xs:attribute name="fixed-namespaces" type="xs:string"/>
           <xs:attribute name="id" type="xs:ID"/>
           <xs:attribute name="name" type="xs:anyURI"/>
           <xs:attribute name="package-version" type="xs:string"/>
           <xs:attribute name="input-type-annotations" type="xsl:input-type-annotations-type"/>
           <xs:attribute name="_declared-modes" type="xs:string"/>
+          <xs:attribute name="_fixed-namespaces" type="xs:string"/>
           <xs:attribute name="_id" type="xs:string"/>
           <xs:attribute name="_name" type="xs:string"/>
           <xs:attribute name="_package-version" type="xs:string"/>
@@ -1927,10 +1929,14 @@ of problems processing the schema using various tools
               <!-- weaker than XSLT 1.0 -->
             </xs:choice>
           </xs:sequence>
+          <xs:attribute name="fixed-namespaces"
+            type="xs:string"/>
           <xs:attribute name="id" type="xs:ID"/>
           <xs:attribute name="input-type-annotations"
                         type="xsl:input-type-annotations-type"
                         default="unspecified"/>
+          <xs:attribute name="_fixed-namespaces"
+            type="xs:string"/>
           <xs:attribute name="_id" type="xs:string"/>
           <xs:attribute name="_input-type-annotations" type="xs:string"/>
           <!--* The 'static' attribute may be used on 'param' and 'variable'
@@ -2603,9 +2609,20 @@ of problems processing the schema using various tools
            name will be validated as an NCName and will therefore not be treated as
            having the semantics of an unprefixed xs:QName.
         </p>
+        <p>
+          Furthermore, in XSLT 4.0, the prefix of a QName can be defined using the
+          <code>fixed-namespaces</code> attribute rather than through a conventional
+          namespace declaration. This means that a prefixed name is not required to
+          validate as an <code>xs:QName</code>.
+        </p>
       </xs:documentation>
     </xs:annotation>
-    <xs:union memberTypes="xs:NCName xs:QName">
+    <xs:union memberTypes="xs:NCName">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:pattern value="[\i-[:]][\c-[:]]*:[\i-[:]][\c-[:]]*"/>
+        </xs:restriction>
+      </xs:simpleType>
       <xs:simpleType>
         <xs:restriction base="xs:token">
           <xs:pattern value="Q\{[^{}]*\}[\i-[:]][\c-[:]]*"/>
