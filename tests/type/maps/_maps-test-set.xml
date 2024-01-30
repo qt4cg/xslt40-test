@@ -304,6 +304,9 @@
    <test-case name="maps-401">
       <description>xsl:map with on-duplicates (select first)</description>
       <created by="Michael Kay" on="2023-11-28"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
       <test>
          <stylesheet file="maps-401.xsl"/>
       </test>
@@ -315,6 +318,9 @@
    <test-case name="maps-402">
       <description>xsl:map with on-duplicates (select last)</description>
       <created by="Michael Kay" on="2023-11-28"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
       <test>
          <stylesheet file="maps-402.xsl"/>
       </test>
@@ -326,6 +332,9 @@
    <test-case name="maps-403">
       <description>xsl:map with on-duplicates (select sequence concatenation)</description>
       <created by="Michael Kay" on="2023-11-28"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
       <test>
          <stylesheet file="maps-403.xsl"/>
       </test>
@@ -337,6 +346,9 @@
    <test-case name="maps-404">
       <description>xsl:map with on-duplicates (select string-join)</description>
       <created by="Michael Kay" on="2023-11-28"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
       <test>
          <stylesheet file="maps-404.xsl"/>
       </test>
@@ -348,6 +360,9 @@
    <test-case name="maps-405">
       <description>xsl:map with on-duplicates (select error())</description>
       <created by="Michael Kay" on="2023-11-28"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
       <test>
          <stylesheet file="maps-405.xsl"/>
       </test>
