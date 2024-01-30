@@ -1121,7 +1121,10 @@ world</E1><E2>*</E2></out>]]></assert-xml>
    </test-case>
    
    <test-case name="analyze-string-101">
-      <description>Test of regex-group() as named function reference</description>
+      <description>
+         Test of regex-group() as named function reference.
+         Anticipates resolution of issue #407.
+      </description>
       <created by="Michael Kay" on="2023-03-26"/>
       <dependencies>
          <spec value="XSLT40+"/>
@@ -1189,6 +1192,21 @@ world</E1><E2>*</E2></out>]]></assert-xml>
       </test>
       <result>
          <error code="XTSE3185"/>
+      </result>
+   </test-case>
+   
+   <test-case name="analyze-string-403">
+      <description>4.0 - use regex-group#1</description>
+      <created by="Michael Kay" on="2024-01-29"/>
+      <environment ref="regex001"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="analyze-string-403.xsl"/>
+      </test>
+      <result>
+         <assert>/out='cx'</assert>
       </result>
    </test-case>
    
