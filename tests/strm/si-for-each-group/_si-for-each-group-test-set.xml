@@ -26,23 +26,24 @@
       <description>Streamed grouping - group-adjacent - with xsl:sequence</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <modified by="Michael Kay" on="2014-04-07" change="drop use of group binding variables"/>
+      <modified by="Michael Kay" on="2024-01-30" change="avoid decimal to double comparison"/>
       <test>
          <stylesheet file="si-group-001.xsl"/>
          <initial-template name="main"/>
       </test>
       <result>
          <all-of>
-            <assert>deep-equal(/out/batch[1]/transaction/@value/number(), (13.24, 8.12))</assert>
-            <assert>deep-equal(/out/batch[2]/transaction/@value/number(), (-15.00))</assert>
-            <assert>deep-equal(/out/batch[3]/transaction/@value/number(), (6.00))</assert>
-            <assert>deep-equal(/out/batch[4]/transaction/@value/number(), (0.50, 2.33, 4.44))</assert>
-            <assert>deep-equal(/out/batch[5]/transaction/@value/number(), (-5.00))</assert>
-            <assert>deep-equal(/out/batch[6]/transaction/@value/number(), (8.99))</assert>
-            <assert>deep-equal(/out/batch[7]/transaction/@value/number(), (16.00))</assert>
-            <assert>deep-equal(/out/batch[8]/transaction/@value/number(), (-2.33, 5.60, 4.32))</assert>
-            <assert>deep-equal(/out/batch[9]/transaction/@value/number(), (6.78, 12.20, -248.05))</assert>
-            <assert>deep-equal(/out/batch[10]/transaction/@value/number(), (12.00, 13.99))</assert>
-            <assert>deep-equal(/out/batch[11]/transaction/@value/number(), (14.20))</assert>
+            <assert>deep-equal(/out/batch[1]/transaction/@value/xs:decimal(.), (13.24, 8.12))</assert>
+            <assert>deep-equal(/out/batch[2]/transaction/@value/xs:decimal(.), (-15.00))</assert>
+            <assert>deep-equal(/out/batch[3]/transaction/@value/xs:decimal(.), (6.00))</assert>
+            <assert>deep-equal(/out/batch[4]/transaction/@value/xs:decimal(.), (0.50, 2.33, 4.44))</assert>
+            <assert>deep-equal(/out/batch[5]/transaction/@value/xs:decimal(.), (-5.00))</assert>
+            <assert>deep-equal(/out/batch[6]/transaction/@value/xs:decimal(.), (8.99))</assert>
+            <assert>deep-equal(/out/batch[7]/transaction/@value/xs:decimal(.), (16.00))</assert>
+            <assert>deep-equal(/out/batch[8]/transaction/@value/xs:decimal(.), (-2.33, 5.60, 4.32))</assert>
+            <assert>deep-equal(/out/batch[9]/transaction/@value/xs:decimal(.), (6.78, 12.20, -248.05))</assert>
+            <assert>deep-equal(/out/batch[10]/transaction/@value/xs:decimal(.), (12.00, 13.99))</assert>
+            <assert>deep-equal(/out/batch[11]/transaction/@value/xs:decimal(.), (14.20))</assert>
             <assert>count(/out/batch) = 11</assert>
          </all-of>
       </result>
@@ -52,23 +53,24 @@
       <description>Streamed grouping - group-adjacent - with xsl:copy-of</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <modified by="Michael Kay" on="2014-04-07" change="drop use of group binding variables"/>
+      <modified by="Michael Kay" on="2024-01-30" change="avoid decimal to double comparison"/>
       <test>
          <stylesheet file="si-group-002.xsl"/>
          <initial-template name="main"/>
       </test>
       <result>
          <all-of>
-            <assert>deep-equal(/out/batch[1]/transaction/@value/number(), (13.24, 8.12))</assert>
-            <assert>deep-equal(/out/batch[2]/transaction/@value/number(), (-15.00))</assert>
-            <assert>deep-equal(/out/batch[3]/transaction/@value/number(), (6.00))</assert>
-            <assert>deep-equal(/out/batch[4]/transaction/@value/number(), (0.50, 2.33, 4.44))</assert>
-            <assert>deep-equal(/out/batch[5]/transaction/@value/number(), (-5.00))</assert>
-            <assert>deep-equal(/out/batch[6]/transaction/@value/number(), (8.99))</assert>
-            <assert>deep-equal(/out/batch[7]/transaction/@value/number(), (16.00))</assert>
-            <assert>deep-equal(/out/batch[8]/transaction/@value/number(), (-2.33, 5.60, 4.32))</assert>
-            <assert>deep-equal(/out/batch[9]/transaction/@value/number(), (6.78, 12.20, -248.05))</assert>
-            <assert>deep-equal(/out/batch[10]/transaction/@value/number(), (12.00, 13.99))</assert>
-            <assert>deep-equal(/out/batch[11]/transaction/@value/number(), (14.20))</assert>
+            <assert>deep-equal(/out/batch[1]/transaction/@value/xs:decimal(.), (13.24, 8.12))</assert>
+            <assert>deep-equal(/out/batch[2]/transaction/@value/xs:decimal(.), (-15.00))</assert>
+            <assert>deep-equal(/out/batch[3]/transaction/@value/xs:decimal(.), (6.00))</assert>
+            <assert>deep-equal(/out/batch[4]/transaction/@value/xs:decimal(.), (0.50, 2.33, 4.44))</assert>
+            <assert>deep-equal(/out/batch[5]/transaction/@value/xs:decimal(.), (-5.00))</assert>
+            <assert>deep-equal(/out/batch[6]/transaction/@value/xs:decimal(.), (8.99))</assert>
+            <assert>deep-equal(/out/batch[7]/transaction/@value/xs:decimal(.), (16.00))</assert>
+            <assert>deep-equal(/out/batch[8]/transaction/@value/xs:decimal(.), (-2.33, 5.60, 4.32))</assert>
+            <assert>deep-equal(/out/batch[9]/transaction/@value/xs:decimal(.), (6.78, 12.20, -248.05))</assert>
+            <assert>deep-equal(/out/batch[10]/transaction/@value/xs:decimal(.), (12.00, 13.99))</assert>
+            <assert>deep-equal(/out/batch[11]/transaction/@value/xs:decimal(.), (14.20))</assert>
             <assert>count(/out/batch) = 11</assert>
          </all-of>
       </result>
@@ -318,23 +320,24 @@
         using only the first item in every group</description>
       <created by="Michael Kay" on="2013-03-29"/>
       <modified by="Michael Kay" on="2014-04-07" change="drop use of group binding variables"/>
+      <modified by="Michael Kay" on="2024-01-30" change="avoid decimal to double comparison"/>
       <test>
          <stylesheet file="si-group-015.xsl"/>
          <initial-template name="main"/>
       </test>
       <result>
          <all-of>
-            <assert>deep-equal(/out/first[1]/transaction/@value/number(), (13.24))</assert>
-            <assert>deep-equal(/out/first[2]/transaction/@value/number(), (-15.00))</assert>
-            <assert>deep-equal(/out/first[3]/transaction/@value/number(), (6.00))</assert>
-            <assert>deep-equal(/out/first[4]/transaction/@value/number(), (0.50))</assert>
-            <assert>deep-equal(/out/first[5]/transaction/@value/number(), (-5.00))</assert>
-            <assert>deep-equal(/out/first[6]/transaction/@value/number(), (8.99))</assert>
-            <assert>deep-equal(/out/first[7]/transaction/@value/number(), (16.00))</assert>
-            <assert>deep-equal(/out/first[8]/transaction/@value/number(), (-2.33))</assert>
-            <assert>deep-equal(/out/first[9]/transaction/@value/number(), (6.78))</assert>
-            <assert>deep-equal(/out/first[10]/transaction/@value/number(), (12.00))</assert>
-            <assert>deep-equal(/out/first[11]/transaction/@value/number(), (14.20))</assert>
+            <assert>deep-equal(/out/first[1]/transaction/@value/xs:decimal(.), (13.24))</assert>
+            <assert>deep-equal(/out/first[2]/transaction/@value/xs:decimal(.), (-15.00))</assert>
+            <assert>deep-equal(/out/first[3]/transaction/@value/xs:decimal(.), (6.00))</assert>
+            <assert>deep-equal(/out/first[4]/transaction/@value/xs:decimal(.), (0.50))</assert>
+            <assert>deep-equal(/out/first[5]/transaction/@value/xs:decimal(.), (-5.00))</assert>
+            <assert>deep-equal(/out/first[6]/transaction/@value/xs:decimal(.), (8.99))</assert>
+            <assert>deep-equal(/out/first[7]/transaction/@value/xs:decimal(.), (16.00))</assert>
+            <assert>deep-equal(/out/first[8]/transaction/@value/xs:decimal(.), (-2.33))</assert>
+            <assert>deep-equal(/out/first[9]/transaction/@value/xs:decimal(.), (6.78))</assert>
+            <assert>deep-equal(/out/first[10]/transaction/@value/xs:decimal(.), (12.00))</assert>
+            <assert>deep-equal(/out/first[11]/transaction/@value/xs:decimal(.), (14.20))</assert>
             <assert>count(/out/first) = 11</assert>
          </all-of>
       </result>
@@ -346,23 +349,24 @@
          to use "." in place of current-group()[1]
       </description>
       <created by="Michael Kay" on="2016-10-10"/>
+      <modified by="Michael Kay" on="2024-01-30" change="avoid decimal to double comparison"/>
       <test>
          <stylesheet file="si-group-015a.xsl"/>
          <initial-template name="main"/>
       </test>
       <result>
          <all-of>
-            <assert>deep-equal(/out/first[1]/transaction/@value/number(), (13.24))</assert>
-            <assert>deep-equal(/out/first[2]/transaction/@value/number(), (-15.00))</assert>
-            <assert>deep-equal(/out/first[3]/transaction/@value/number(), (6.00))</assert>
-            <assert>deep-equal(/out/first[4]/transaction/@value/number(), (0.50))</assert>
-            <assert>deep-equal(/out/first[5]/transaction/@value/number(), (-5.00))</assert>
-            <assert>deep-equal(/out/first[6]/transaction/@value/number(), (8.99))</assert>
-            <assert>deep-equal(/out/first[7]/transaction/@value/number(), (16.00))</assert>
-            <assert>deep-equal(/out/first[8]/transaction/@value/number(), (-2.33))</assert>
-            <assert>deep-equal(/out/first[9]/transaction/@value/number(), (6.78))</assert>
-            <assert>deep-equal(/out/first[10]/transaction/@value/number(), (12.00))</assert>
-            <assert>deep-equal(/out/first[11]/transaction/@value/number(), (14.20))</assert>
+            <assert>deep-equal(/out/first[1]/transaction/@value/xs:decimal(.), (13.24))</assert>
+            <assert>deep-equal(/out/first[2]/transaction/@value/xs:decimal(.), (-15.00))</assert>
+            <assert>deep-equal(/out/first[3]/transaction/@value/xs:decimal(.), (6.00))</assert>
+            <assert>deep-equal(/out/first[4]/transaction/@value/xs:decimal(.), (0.50))</assert>
+            <assert>deep-equal(/out/first[5]/transaction/@value/xs:decimal(.), (-5.00))</assert>
+            <assert>deep-equal(/out/first[6]/transaction/@value/xs:decimal(.), (8.99))</assert>
+            <assert>deep-equal(/out/first[7]/transaction/@value/xs:decimal(.), (16.00))</assert>
+            <assert>deep-equal(/out/first[8]/transaction/@value/xs:decimal(.), (-2.33))</assert>
+            <assert>deep-equal(/out/first[9]/transaction/@value/xs:decimal(.), (6.78))</assert>
+            <assert>deep-equal(/out/first[10]/transaction/@value/xs:decimal(.), (12.00))</assert>
+            <assert>deep-equal(/out/first[11]/transaction/@value/xs:decimal(.), (14.20))</assert>
             <assert>count(/out/first) = 11</assert>
          </all-of>
       </result>
@@ -373,23 +377,24 @@
         using only the first item in every group</description>
       <created by="Michael Kay" on="2013-03-29"/>
       <modified by="Michael Kay" on="2014-04-07" change="drop use of group binding variables"/>
+      <modified by="Michael Kay" on="2024-01-30" change="avoid decimal to double comparison"/>
       <test>
          <stylesheet file="si-group-016.xsl"/>
          <initial-template name="main"/>
       </test>
       <result>
          <all-of>
-            <assert>deep-equal(/out/first[1]/transaction/@value/number(), (13.24))</assert>
-            <assert>deep-equal(/out/first[2]/transaction/@value/number(), (-15.00))</assert>
-            <assert>deep-equal(/out/first[3]/transaction/@value/number(), (6.00))</assert>
-            <assert>deep-equal(/out/first[4]/transaction/@value/number(), (0.50))</assert>
-            <assert>deep-equal(/out/first[5]/transaction/@value/number(), (-5.00))</assert>
-            <assert>deep-equal(/out/first[6]/transaction/@value/number(), (8.99))</assert>
-            <assert>deep-equal(/out/first[7]/transaction/@value/number(), (16.00))</assert>
-            <assert>deep-equal(/out/first[8]/transaction/@value/number(), (-2.33))</assert>
-            <assert>deep-equal(/out/first[9]/transaction/@value/number(), (6.78))</assert>
-            <assert>deep-equal(/out/first[10]/transaction/@value/number(), (12.00))</assert>
-            <assert>deep-equal(/out/first[11]/transaction/@value/number(), (14.20))</assert>
+            <assert>deep-equal(/out/first[1]/transaction/@value/xs:decimal(.), (13.24))</assert>
+            <assert>deep-equal(/out/first[2]/transaction/@value/xs:decimal(.), (-15.00))</assert>
+            <assert>deep-equal(/out/first[3]/transaction/@value/xs:decimal(.), (6.00))</assert>
+            <assert>deep-equal(/out/first[4]/transaction/@value/xs:decimal(.), (0.50))</assert>
+            <assert>deep-equal(/out/first[5]/transaction/@value/xs:decimal(.), (-5.00))</assert>
+            <assert>deep-equal(/out/first[6]/transaction/@value/xs:decimal(.), (8.99))</assert>
+            <assert>deep-equal(/out/first[7]/transaction/@value/xs:decimal(.), (16.00))</assert>
+            <assert>deep-equal(/out/first[8]/transaction/@value/xs:decimal(.), (-2.33))</assert>
+            <assert>deep-equal(/out/first[9]/transaction/@value/xs:decimal(.), (6.78))</assert>
+            <assert>deep-equal(/out/first[10]/transaction/@value/xs:decimal(.), (12.00))</assert>
+            <assert>deep-equal(/out/first[11]/transaction/@value/xs:decimal(.), (14.20))</assert>
             <assert>count(/out/first) = 11</assert>
          </all-of>
       </result>
@@ -488,16 +493,17 @@
         using only the second item in every group</description>
       <created by="Michael Kay" on="2014-01-27"/>
       <modified by="Michael Kay" on="2014-04-07" change="drop use of group binding variables"/>
+      <modified by="Michael Kay" on="2024-01-30" change="avoid decimal to double comparison"/>
       <test>
          <stylesheet file="si-group-022.xsl"/>
          <initial-template name="main"/>
       </test>
       <result>
          <all-of>
-            <assert>deep-equal(/out/second[1]/transaction/@value/number(), (8.12))</assert>
+            <assert>deep-equal(/out/second[1]/transaction/@value/xs:decimal(.), (8.12))</assert>
             <assert>deep-equal(/out/second[2]/transaction, ())</assert>
             <assert>deep-equal(/out/second[3]/transaction, ())</assert>
-            <assert>deep-equal(/out/second[4]/transaction/@value/number(), (2.33))</assert>
+            <assert>deep-equal(/out/second[4]/transaction/@value/xs:decimal(.), (2.33))</assert>
             <assert>count(/out/second) = 11</assert>
             <assert>count(/out/second/transaction) = 5</assert>
          </all-of>
@@ -509,16 +515,17 @@
         using only the positive items in every group</description>
       <created by="Michael Kay" on="2014-01-27"/>
       <modified by="Michael Kay" on="2014-04-07" change="drop use of group binding variables"/>
+      <modified by="Michael Kay" on="2024-01-30" change="avoid decimal to double comparison"/>
       <test>
          <stylesheet file="si-group-023.xsl"/>
          <initial-template name="main"/>
       </test>
       <result>
          <all-of>
-            <assert>deep-equal(/out/credits[1]/transaction[1]/@value/number(), (13.24))</assert>
-            <assert>deep-equal(/out/credits[1]/transaction[2]/@value/number(), (8.12))</assert>
+            <assert>deep-equal(/out/credits[1]/transaction[1]/@value/xs:decimal(.), (13.24))</assert>
+            <assert>deep-equal(/out/credits[1]/transaction[2]/@value/xs:decimal(.), (8.12))</assert>
             <assert>empty(/out/credits[2]/transaction)</assert>
-            <assert>empty(/out/credits/transaction[number(@value) lt 0])</assert>
+            <assert>empty(/out/credits/transaction[xs:decimal(@value) lt 0])</assert>
          </all-of>
       </result>
    </test-case>
