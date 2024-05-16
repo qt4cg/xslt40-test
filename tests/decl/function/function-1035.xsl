@@ -19,7 +19,7 @@ exclude-result-prefixes="xs f"
     as="xs:integer">
     <xsl:param name="n" as="xs:integer"/>
     <xsl:sequence
-      select="f:tail-recursive-fib($n, 0, 1) * 1"/>
+      select="f:tail-recursive-fib($n, 0, 1)"/>
   </xsl:function>
   
   <xsl:function name="f:tail-recursive-fib"
