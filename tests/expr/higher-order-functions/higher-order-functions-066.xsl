@@ -9,6 +9,8 @@
         an error - the function item function($x as xs:float){$x+1} doesn't satisfy the required type
         (function(xs:double) as xs:double) because it doesn't accept a double as an argument. -->
     
+    <!-- Allowed in 4.0, double can now be supplied where float is required -->
+    
 
     <xsl:function name="local:round" as="xs:double">
         <xsl:param name="x" as="xs:double"/>

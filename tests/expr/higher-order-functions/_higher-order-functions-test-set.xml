@@ -880,11 +880,30 @@
       <description>failure in numeric promotion</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <modified by="Abel Braaksma" on="2015-03-29" change="Bug 28364, undeclared namespace prefix in test (fn:floor) and variable bound to non-existing function"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies> 
       <test>
          <stylesheet file="higher-order-functions-066.xsl"/>
       </test>
       <result>
          <error code="XPTY0004"/>
+      </result>
+   </test-case>
+   
+   <test-case name="higher-order-functions-066a">
+      <description>double to float promotion allowed in 4.0</description>
+      <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Abel Braaksma" on="2015-03-29" change="Bug 28364, undeclared namespace prefix in test (fn:floor) and variable bound to non-existing function"/>
+      <modified by="Michael Kay" on="2024-04-19" change="Double to Float promotion allowed in 4.0"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="higher-order-functions-066.xsl"/>
+      </test>
+      <result>
+         <assert>/out</assert>
       </result>
    </test-case>
 
