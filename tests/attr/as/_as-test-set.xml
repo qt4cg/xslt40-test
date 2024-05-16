@@ -2341,6 +2341,7 @@ a:_underscore_
       <description>Test with global xsl:variable that has @as="document(element(*, xs:untyped?))+" and @select contains a sequence of document, or mixed nodes from input file.</description>
       <keywords>DocumentTest ElementNameOrWildcard xs:untyped OccurrenceIndicator</keywords>
       <created by="Abel Braaksma" on="2019-02-06"/>
+      <modified by="Michael Kay" on="2024-04-19" change="Modified to pass 4.0 plausibility checking"/>
       <environment ref="as-13"/>
       <dependencies>
          <spec value="XSLT20+"/>

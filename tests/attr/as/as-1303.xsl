@@ -25,7 +25,9 @@
    </xslt:variable>
 
    <xslt:variable name="var3" as="document-node(element(elem, xs:untyped))*">
-      <xslt:copy-of select="/doc/nothing"/>
+      <xslt:if test="name(*) = 'unknown'">
+         <xslt:document><xslt:copy-of select="/doc/nothing/elem"/></xslt:document>
+      </xslt:if>
    </xslt:variable>
 
    <xslt:variable name="var4" as="document-node(element(elem, xs:untyped))*">
