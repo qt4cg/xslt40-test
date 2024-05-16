@@ -1096,6 +1096,7 @@
          xsl:import-schema</keywords>
       <created by="Michael Kay" on="2012-11-07"/>
       <modified by="Michael Kay" on="2018-01-15" change="add xsl:source-document/@validation = 'strict': bug 30145"/>
+      <modified by="Michael Kay" on="2024-01-30" change="avoid decimal-to-double comparison in test assertions"/>
       <environment ref="grouped-transactions-e"/>
       <dependencies>
          <feature value="schema_aware"/>
@@ -1107,9 +1108,9 @@
       </test>
       <result>
          <all-of xmlns:g="http://www.w3.org/xsl-tests/grouped-transactions-e">
-            <assert>deep-equal(//g:sum/number(), (21.36, -15.00, 6.00, 7.27, -5.00, 8.99, 16.00,
+            <assert>deep-equal(//g:sum/xs:decimal(.), (21.36, -15.00, 6.00, 7.27, -5.00, 8.99, 16.00,
                7.59, -229.07, 25.99, 14.20))</assert>
-            <assert>deep-equal(//g:avg/number(), (10.68, -15.00, 6.00, 2.42, -5.00, 8.99, 16.00,
+            <assert>deep-equal(//g:avg/xs:decimal(.), (10.68, -15.00, 6.00, 2.42, -5.00, 8.99, 16.00,
                2.53, -76.36, 13.00, 14.20))</assert>
          </all-of>
       </result>
@@ -1255,6 +1256,7 @@
          xsl:import-schema</keywords>
       <created by="Michael Kay" on="2012-11-07"/>
       <modified by="Michael Kay" on="2018-01-15" change="add xsl:source-document/@validation = 'strict': bug 30145"/>
+      <modified by="Michael Kay" on="2024-01-30" change="avoid decimal-to-double comparison in test assertions"/>
       <environment ref="grouped-transactions-e"/>
       <dependencies>
          <feature value="schema_aware"/>
@@ -1266,7 +1268,7 @@
       </test>
       <result>
          <assert xmlns:g="http://www.w3.org/xsl-tests/grouped-transactions-e">
-            deep-equal(//g:min/number(),
+            deep-equal(//g:min/xs:decimal(.),
             (8.12,-15.00,6.00,0.50,-5.00,8.99,16.00,-2.33,-248.05,12.00,14.20)) </assert>
       </result>
    </test-case>
@@ -1316,6 +1318,7 @@
       <keywords>fn:max avt climbing-childless motionless-pattern xsl:import-schema</keywords>
       <created by="Michael Kay" on="2012-11-07"/>
       <modified by="Michael Kay" on="2018-01-15" change="add xsl:source-document/@validation = 'strict': bug 30145"/>
+      <modified by="Michael Kay" on="2024-01-30" change="avoid decimal-to-double comparison in test assertions"/>
       <environment ref="grouped-transactions"/>
       <dependencies>
          <feature value="schema_aware"/>
@@ -1327,7 +1330,7 @@
       </test>
       <result>
          <assert xmlns:g="http://www.w3.org/xsl-tests/grouped-transactions">
-            deep-equal(//g:max/number(), (8.99, 11.00, 5.60, 12.10, 13.99, 14.20)) </assert>
+            deep-equal(//g:max/xs:decimal(.), (8.99, 11.00, 5.60, 12.10, 13.99, 14.20)) </assert>
       </result>
    </test-case>
 
@@ -1337,6 +1340,7 @@
          xsl:import-schema</keywords>
       <created by="Michael Kay" on="2012-11-07"/>
       <modified by="Michael Kay" on="2018-01-15" change="add xsl:source-document/@validation = 'strict': bug 30145"/>
+      <modified by="Michael Kay" on="2024-01-30" change="avoid decimal-to-double comparison in test assertions"/>
       <environment ref="grouped-transactions"/>
       <dependencies>
          <feature value="schema_aware"/>
@@ -1348,7 +1352,7 @@
       </test>
       <result>
          <assert xmlns:g="http://www.w3.org/xsl-tests/grouped-transactions">
-            deep-equal(//g:max/number(), (8.99, 11.00, 5.60, 12.10, 13.99, 14.20)) </assert>
+            deep-equal(//g:max/xs:decimal(.), (8.99, 11.00, 5.60, 12.10, 13.99, 14.20)) </assert>
       </result>
    </test-case>
 
@@ -1557,6 +1561,7 @@
          xsl:import-schema</keywords>
       <created by="Michael Kay" on="2012-11-07"/>
       <modified by="Michael Kay" on="2018-01-15" change="add xsl:source-document/@validation = 'strict': bug 30145"/>
+      <modified by="Michael Kay" on="2024-01-30" change="avoid decimal-to-double comparison in test assertions"/>
       <environment ref="grouped-transactions"/>
       <dependencies>
          <feature value="schema_aware"/>
@@ -1567,7 +1572,7 @@
          <initial-template name="main"/>
       </test>
       <result>
-         <assert>deep-equal(//@number/number(), (2,1,1,3,1,1,1,3,3,2,1))</assert>
+         <assert>deep-equal(//@number/xs:decimal(.), (2,1,1,3,1,1,1,3,3,2,1))</assert>
       </result>
    </test-case>
 
@@ -1615,6 +1620,7 @@
          on the context but which doesn't select streamed nodes</description>
       <keywords>fn:count crawling xsl:for-each</keywords>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2024-01-30" change="avoid decimal-to-double comparison in test assertions"/>
       <environment ref="loans"/>
       <dependencies>
          <feature value="schema_aware"/>
@@ -1627,15 +1633,15 @@
       <result>
          <all-of>
             <assert>deep-equal(for $t in tokenize(normalize-space(/out/loan[1]), ' ') return
-               number($t), 1 to 39)</assert>
+               xs:decimal($t), 1 to 39)</assert>
             <assert>deep-equal(for $t in tokenize(normalize-space(/out/loan[2]), ' ') return
-               number($t), 1 to 38)</assert>
+               xs:decimal($t), 1 to 38)</assert>
             <assert>deep-equal(for $t in tokenize(normalize-space(/out/loan[3]), ' ') return
-               number($t), 1 to 38)</assert>
+               xs:decimal($t), 1 to 38)</assert>
             <assert>deep-equal(for $t in tokenize(normalize-space(/out/loan[4]), ' ') return
-               number($t), 1 to 38)</assert>
+               xs:decimal($t), 1 to 38)</assert>
             <assert>deep-equal(for $t in tokenize(normalize-space(/out/loan[5]), ' ') return
-               number($t), 1 to 38)</assert>
+               xs:decimal($t), 1 to 38)</assert>
          </all-of>
       </result>
    </test-case>
@@ -2080,6 +2086,7 @@
       <keywords>fn:current-group fn:current-grouping-key AxisStep xsl:for-each-group
          group-adjacent-attribute</keywords>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2024-01-30" change="avoid decimal-to-double comparison in test assertions"/>
       <test>
          <stylesheet file="streamable-103.xsl"/>
          <initial-template name="main"/>
@@ -2087,17 +2094,17 @@
       <result>
          <all-of>
             <assert>deep-equal(/out/batch/count(transaction), (2,1,1,3,1,1,1,3,3,2,1))</assert>
-            <assert>deep-equal(/out/batch[@date='2006-02-13']/transaction/@value/number(), (13.24, 8.12))</assert>
-            <assert>deep-equal(/out/batch[@date='2006-02-15']/transaction/@value/number(), (-15.00))</assert>
-            <assert>deep-equal(/out/batch[@date='2006-02-16']/transaction/@value/number(), (6.00))</assert>
-            <assert>deep-equal(/out/batch[@date='2006-02-17']/transaction/@value/number(), (0.50, 2.33, 4.44))</assert>
-            <assert>deep-equal(/out/batch[@date='2006-02-20']/transaction/@value/number(), (-5.00))</assert>
-            <assert>deep-equal(/out/batch[@date='2006-02-21']/transaction/@value/number(), (8.99))</assert>
-            <assert>deep-equal(/out/batch[@date='2006-02-22']/transaction/@value/number(), (16.00))</assert>
-            <assert>deep-equal(/out/batch[@date='2006-02-23']/transaction/@value/number(), (-2.33, 5.60, 4.32))</assert>
-            <assert>deep-equal(/out/batch[@date='2006-02-24']/transaction/@value/number(), (6.78, 12.20, -248.05))</assert>
-            <assert>deep-equal(/out/batch[@date='2006-02-25']/transaction/@value/number(), (12.00, 13.99))</assert>
-            <assert>deep-equal(/out/batch[@date='2006-02-26']/transaction/@value/number(), (14.20))</assert>
+            <assert>deep-equal(/out/batch[@date='2006-02-13']/transaction/@value/xs:decimal(.), (13.24, 8.12))</assert>
+            <assert>deep-equal(/out/batch[@date='2006-02-15']/transaction/@value/xs:decimal(.), (-15.00))</assert>
+            <assert>deep-equal(/out/batch[@date='2006-02-16']/transaction/@value/xs:decimal(.), (6.00))</assert>
+            <assert>deep-equal(/out/batch[@date='2006-02-17']/transaction/@value/xs:decimal(.), (0.50, 2.33, 4.44))</assert>
+            <assert>deep-equal(/out/batch[@date='2006-02-20']/transaction/@value/xs:decimal(.), (-5.00))</assert>
+            <assert>deep-equal(/out/batch[@date='2006-02-21']/transaction/@value/xs:decimal(.), (8.99))</assert>
+            <assert>deep-equal(/out/batch[@date='2006-02-22']/transaction/@value/xs:decimal(.), (16.00))</assert>
+            <assert>deep-equal(/out/batch[@date='2006-02-23']/transaction/@value/xs:decimal(.), (-2.33, 5.60, 4.32))</assert>
+            <assert>deep-equal(/out/batch[@date='2006-02-24']/transaction/@value/xs:decimal(.), (6.78, 12.20, -248.05))</assert>
+            <assert>deep-equal(/out/batch[@date='2006-02-25']/transaction/@value/xs:decimal(.), (12.00, 13.99))</assert>
+            <assert>deep-equal(/out/batch[@date='2006-02-26']/transaction/@value/xs:decimal(.), (14.20))</assert>
          </all-of>
       </result>
    </test-case>
