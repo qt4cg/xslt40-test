@@ -1133,7 +1133,7 @@
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="type-01"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="type-0174.xsl"/>
@@ -1142,13 +1142,28 @@
          <error code="XTTE0570"/>
       </result>
    </test-case>
-
+   
+   <test-case name="type-0174a">
+      <description>Test that promotion from double to float is allowed in 4.0</description>
+      <created by="Michael Kay" on="2012-11-07"/>
+      <environment ref="type-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-0174.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '10000'</assert>
+      </result>
+   </test-case>
+   
    <test-case name="type-0175">
       <description>Test that promotion from double to float is not allowed</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="type-01"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="type-0175.xsl"/>
@@ -1157,6 +1172,22 @@
          <error code="XTTE0570"/>
       </result>
    </test-case>
+   
+   <test-case name="type-0175a">
+      <description>Test that promotion from double to float is allowed in 4.0</description>
+      <created by="Michael Kay" on="2012-11-07"/>
+      <environment ref="type-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-0175.xsl"/>
+      </test>
+      <result>
+         <assert>/a = '10000'</assert>
+      </result>
+   </test-case>
+   
 
    <test-case name="type-0201">
       <description>Test "instance of" on node types. &lt;t&gt;&lt;xsl:value-of select=". instance of namespace()"/&gt;&lt;/t&gt;;</description>
