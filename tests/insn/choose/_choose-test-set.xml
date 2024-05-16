@@ -1054,6 +1054,7 @@ Joe Smith
    <test-case name="choose-4102">
       <description>Precedence of "otherwise" operator: higher than arithmetic operators</description>
       <created by="Michael Kay" on="2019-12-16"/>
+      <modified by="Michael Kay" on="2024-04-19" change="Spec change to operator precedence"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>

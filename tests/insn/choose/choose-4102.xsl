@@ -8,7 +8,7 @@
 >
 <xsl:param name="n" select="()"/>
 <xsl:template name="xsl:initial-template">
- <out>{12 * $n otherwise 2}</out>
+ <out>{(12 * $n) otherwise 2}</out>
 </xsl:template>
 
 
