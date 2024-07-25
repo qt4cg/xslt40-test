@@ -27,7 +27,7 @@
       </result>
    </test-case>
    
-   <test-case name="system-property-001a">
+   <test-case name="system-property-001a" covers-40="PR1243">
       <description>Test that xsl:version is the xs:string '4.0'.</description>
       <created by="Michael Kay" on="2024-05-26"/>
       <environment ref="systemprop001"/>
@@ -277,7 +277,7 @@
       </result>
    </test-case>
    
-   <test-case name="system-property-015a">
+   <test-case name="system-property-015a" covers-40="PR1243">
       <description>Test that xsl:xpath-version is 4.0</description>
       <created by="Michael Kay" on="2024-05-26"/>
       <environment ref="systemprop001"/>
