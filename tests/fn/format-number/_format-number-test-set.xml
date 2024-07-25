@@ -1170,4 +1170,80 @@ __26,931.4</out>]]></assert-xml>
       </result>
    </test-case>
    
+   <test-case name="format-number-401" covers-40="PR1250">
+      <description>multi-character decimal-separator</description>
+      <created by="Michael Kay" on="2024-06-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="format-number-401.xsl"/>
+      </test>
+      <result>
+         <assert>/out/a = "42 POINT 3"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="format-number-402" covers-40="PR1250">
+      <description>multi-character grouping-separator</description>
+      <created by="Michael Kay" on="2024-06-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="format-number-402.xsl"/>
+      </test>
+      <result>
+         <assert>/out/a = "1 | 267 | 942,311"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="format-number-403" covers-40="PR1250">
+      <description>multi-character percent sign</description>
+      <created by="Michael Kay" on="2024-06-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="format-number-403.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a = "5pc"</assert>
+            <assert>/out/b = "93pc"</assert>
+         </all-of>        
+      </result>
+   </test-case>
+   
+   <test-case name="format-number-404" covers-40="PR1250">
+      <description>multi-character per-mille sign</description>
+      <created by="Michael Kay" on="2024-06-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="format-number-404.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a = "5 per mil"</assert>
+            <assert>/out/b = "93 per mil"</assert>
+         </all-of>        
+      </result>
+   </test-case>
+   
+   <test-case name="format-number-405" covers-40="PR1250">
+      <description>multi-character exponent separator</description>
+      <created by="Michael Kay" on="2024-06-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="format-number-405.xsl"/>
+      </test>
+      <result>
+        <assert>/out/a = "5.432×10^-03"</assert>
+      </result>
+   </test-case>
+   
 </test-set>
