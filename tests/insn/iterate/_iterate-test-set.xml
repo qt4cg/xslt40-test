@@ -625,7 +625,7 @@
     </result>
   </test-case>
   
-  <test-case name="iterate-401">
+  <test-case name="iterate-401" covers-40="PR921">
     <description>Test of xsl:iterate instruction, xsl:break within xsl:switch branch.</description>
     <created by="Michael Kay" on="2024-01-01"/>
     <environment ref="iterate005"/>
@@ -640,7 +640,7 @@
     </result>
   </test-case>
   
-  <test-case name="iterate-402">
+  <test-case name="iterate-402" covers-40="PR921">
     <description>Test of xsl:iterate instruction, xsl:next-iteration within xsl:switch branch.</description>
     <created by="Michael Kay" on="2024-01-01"/>
     <environment ref="iterate005"/>
@@ -652,6 +652,30 @@
     </test>
     <result>
       <assert>count(/out/p) = 10</assert>
+    </result>
+  </test-case>
+  
+  <test-case name="iterate-403" covers-40="PR921">
+    <description>Test of xsl:iterate; xsl:next-iteration within xsl:switch branch</description>
+    <created by="Michael Kay" on="2012-11-07"/>
+    <environment ref="iterate005"/>
+    <dependencies>
+      <spec value="XSLT40+"/>
+    </dependencies>
+    <test>
+      <stylesheet file="iterate-403.xsl"/>
+    </test>
+    <result>
+      <all-of>
+        <assert>/out/loop[1][@n='5']</assert>
+        <assert>/out/loop[1]/z[3][@c="7" and @p="3"]</assert>
+        <assert>/out/loop[1]/z[12][@c="16" and @p="12"]</assert>
+        <assert>/out/loop[1]/exit[@at="12" and @of="76"]</assert>
+        <assert>/out/loop[2][@n='6']</assert>
+        <assert>/out/loop[2]/z[1][@c="6" and @p="2"]</assert>
+        <assert>/out/loop[2]/exit[@at="12" and @of="76"]</assert>
+        <assert>/out/loop[3]/exit[@at="12" and @of="76"]</assert>
+      </all-of>
     </result>
   </test-case>
 
