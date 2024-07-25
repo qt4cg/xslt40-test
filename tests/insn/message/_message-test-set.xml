@@ -897,5 +897,22 @@
       </result>
    </test-case>
    
+   <test-case name="message-0502">
+      <description>xsl:message error during lazy evaluation of variable - test recovery.</description>
+      <created by="Michael Kay" on="2024-05-26"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="message-0502.xsl"/>
+      </test>
+      <result>
+         <any-of>
+            <error code="XTDE0640"/>
+            <assert>/A = 4</assert>
+         </any-of>
+      </result>
+   </test-case>
+   
    
 </test-set>
