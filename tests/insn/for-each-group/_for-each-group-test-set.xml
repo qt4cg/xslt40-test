@@ -1641,6 +1641,20 @@ while you are in the cinema.</p></o>]]></assert-xml>
       </result>
    </test-case>
    
+   <test-case name="for-each-group-093">
+      <description>Sort order different on different invocations. Saxon bug 6472.</description>
+      <created by="Michael Kay after Adrian Bird" on="2024-07-17"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="for-each-group-093.xsl"/>
+      </test>
+      <result>
+           <assert>deep-equal(/root/t/string(), ("ddd", "ccc", "bbb", "aaa", "aaa", "bbb", "ccc", "ddd")</assert>
+      </result>
+   </test-case>
+   
    
    <test-case name="for-each-group-401">
       <description>XSLT 4.0 split-when attribute using $group</description>
