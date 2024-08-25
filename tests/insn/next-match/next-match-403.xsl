@@ -17,9 +17,9 @@
    
    <xsl:template match="type(xs:int)[. lt 20]">2t:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="union(xs:short, xs:int)">u:<xsl:next-match/></xsl:template>
+   <xsl:template match="type(xs:short | xs:int)">u:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="union(xs:short, xs:int)[. lt 20]">ut:<xsl:next-match/></xsl:template>
+   <xsl:template match="type(xs:short | xs:int)[. lt 20]">ut:<xsl:next-match/></xsl:template>
    
    <xsl:template match="type(xs:anyAtomicType)">5:<xsl:next-match/></xsl:template>
    

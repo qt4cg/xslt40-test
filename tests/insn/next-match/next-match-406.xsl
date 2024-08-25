@@ -13,13 +13,13 @@
    
    <xsl:template match="type(xs:short)">1:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="union(xs:boolean, xs:int, xs:short, xs:string)">5:<xsl:next-match/></xsl:template>
+   <xsl:template match="type(xs:boolean | xs:int | xs:short | xs:string)">5:<xsl:next-match/></xsl:template>
    
    <xsl:template match="type(xs:int)">2:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="union(xs:short, xs:int)">3:<xsl:next-match/></xsl:template>
+   <xsl:template match="type(xs:short | xs:int)">3:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="union(xs:int, xs:short, xs:string)">4:<xsl:next-match/></xsl:template>  
+   <xsl:template match="type(xs:int | xs:short | xs:string)">4:<xsl:next-match/></xsl:template>  
    
    <xsl:template match="type(item())">6:<xsl:next-match/></xsl:template>
    
