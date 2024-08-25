@@ -3090,6 +3090,21 @@
       </result>
    </test-case>
    
+   <test-case name="mode-1906">
+      <description>value returned by built-in template must match xsl:template/@as</description>
+      <created by="Michael Kay" on="2024-08-12"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-1906.xsl"/>
+      </test>
+      <result>
+         <assert>/out/Q{http://bookworm.ns/}chap</assert>
+      </result>
+   </test-case>
+   
+   
    
    <test-case name="mode-4001">
       <description>on-no-match=shallow-copy-all, processing an array</description>
@@ -3172,7 +3187,7 @@
       </result>
    </test-case>
    
-   <test-case name="mode-4006">
+   <test-case name="mode-4006" covers-40="PR751">
       <description>mode/@as (note: ignored in forwards compatibility mode)</description>
       <created by="Michael Kay" on="2022-07-17"/>
       <modified by="Michael Kay" on="2024-01-25" change="expect no error, @as is ignored"/>
@@ -3193,7 +3208,7 @@
       </result>
    </test-case>
    
-   <test-case name="mode-4007">
+   <test-case name="mode-4007" covers-40="PR751">
       <description>mode/@as error because result not satisfied</description>
       <created by="Michael Kay" on="2022-07-17"/>
       <modified by="Michael Kay" on="2024-01-25" change="expect a type error"/>
@@ -3224,6 +3239,104 @@
             <assert>/out/@ok2 = 'true'</assert>
             <assert>/out/@ok3 = 'true'</assert>
          </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4009" covers-40="PR751">
+      <description>mode/@as must be consistent with template/@as</description>
+      <created by="Michael Kay" on="2024-08-12"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4009.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "true true false false"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4010" covers-40="PR751 PR1386">
+      <description>mode/@as must be consistent with template/@as</description>
+      <created by="Michael Kay" on="2024-08-12"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4010.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE4040"/>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4011" covers-40="PR751 PR1386">
+      <description>mode/@as must be consistent with template/@as</description>
+      <created by="Michael Kay" on="2024-08-12"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4011.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "1 1 1 2 1 2"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4012" covers-40="PR751">
+      <description>value returned by template must match mode/@as after coercion</description>
+      <created by="Michael Kay" on="2024-08-12"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4012.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "1 1 1 2 1 2"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4013" covers-40="PR751">
+      <description>value returned by template must match mode/@as after coercion</description>
+      <created by="Michael Kay" on="2024-08-12"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4013.xsl"/>
+      </test>
+      <result>
+         <error code="XPTY0004"/>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4014" covers-40="PR751">
+      <description>value returned by built-in template must match mode/@as after coercion</description>
+      <created by="Michael Kay" on="2024-08-12"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4014.xsl"/>
+      </test>
+      <result>
+         <error code="XPTY0004"/>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4015" covers-40="PR751">
+      <description>value returned by built-in template must match mode/@as after coercion</description>
+      <created by="Michael Kay" on="2024-08-12"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4015.xsl"/>
+      </test>
+      <result>
+         <assert>/out/Q{http://bookworm.ns/}chap</assert>
       </result>
    </test-case>
    
