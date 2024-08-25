@@ -27,7 +27,7 @@
       <!-- Ordinary user function -->
       <d><xsl:value-of select="local:increment('42', ?)(1)"/></d>
       <!-- Ordinary user function -->
-      <d><xsl:value-of select="local:increment(?, 1)(42)"/></d>
+      <e><xsl:value-of select="local:increment(?, 1)(42)"/></e>
       <xsl:for-each select="$doc/e">
         <!-- Context-dependent fn function, arity 0 -->
         <p><xsl:value-of select="lang(?)('en')"/></p>

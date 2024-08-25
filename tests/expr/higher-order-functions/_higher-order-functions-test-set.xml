@@ -1124,8 +1124,8 @@
             <assert>/out/c='42'</assert>
             <assert>/out/d='43'</assert>
             <assert>/out/e='43'</assert>
-            <assert>/out/p='e'</assert>
-            <assert>/out/r='23'</assert>
+            <assert>/out/p='true'</assert>
+            <assert>/out/r='64'</assert>
          </all-of>
       </result>
    </test-case>
