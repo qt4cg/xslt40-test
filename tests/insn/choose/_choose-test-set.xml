@@ -1055,6 +1055,7 @@ Joe Smith
       <description>Precedence of "otherwise" operator: higher than arithmetic operators</description>
       <created by="Michael Kay" on="2019-12-16"/>
       <modified by="Michael Kay" on="2024-04-19" change="Spec change to operator precedence"/>
+      <modified by="Michael Kay" on="2024-08-09" change="Change test to do something useful, change expected result"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -1062,7 +1063,7 @@ Joe Smith
          <stylesheet file="choose-4102.xsl"/>
       </test>
       <result>
-         <assert>/out = '24'</assert>
+         <assert>/out = '2'</assert>
       </result>
    </test-case>
    
