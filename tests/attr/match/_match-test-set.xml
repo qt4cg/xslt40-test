@@ -5192,6 +5192,20 @@
       </result>
    </test-case>
    
+   <test-case name="match-286">
+      <description>Detect errors in a variety of invalid patterns</description>
+      <created by="Michael Kay" on="2024-08-11"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="match-286.xsl"/>
+      </test>
+      <result>
+         <assert>empty(/out/fail)</assert>
+      </result>
+   </test-case>
+   
    <test-case name="match-401">
       <description>Pattern with UnionNodeTest</description>
       <created by="Michael Kay" on="2022-12-13"/>

@@ -1,0 +1,48 @@
+root($v)//a
+(:every line in this file, including this one, is an invalid XSLT pattern:)
+//
+/a/
+/+/
++
+12
+'fred'
+a!b
+?b
+?[.=3]
+[]
+{}
+[1]
+{1:2}
+..[x]
+ancestor::x
+@@x
+for $x in 1 to 10 return a
+undeclared:x
+$undeclared//x
+(x|y))
+$v/12
+a/12
+$v/name()
+doc()
+doc(())
+doc($v || 'a.xml')
+doc(true())
+doc(a/b)
+doc(/b)
+doc(href := 'a.xml')
+doc(('a/xml'))
+doc('a.xml')/id('x')
+doc('a'||'.xml')
+doc(?)
+doc#1('a.xml')
+document('a.xml')//a
+key('k', true())
+key(('k'), 'a')
+key('k', `a`)
+key('k', -1)
+key('k', 0x123.4)
+$v/id('aa')
+$v/$v
+key('k', key('k', 'z'))
+root($v)//a
+root(.)//a
