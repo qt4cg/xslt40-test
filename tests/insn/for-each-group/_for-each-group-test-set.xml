@@ -1292,12 +1292,12 @@ while you are in the cinema.</p></o>]]></assert-xml>
       </result>
    </test-case>
    
-   <test-case name="for-each-group-078b">
-      <description>A dynamic call on current-group() is a dynamic error</description>
+   <test-case name="for-each-group-078b30">
+      <description>A dynamic call on current-group() is a dynamic error in 3.0</description>
       <created by="Michael Kay" on="2015-02-07"/>
       <environment ref="group020"/>
       <dependencies>
-         <spec value="XSLT30+"/>       
+         <spec value="XSLT30"/>       
       </dependencies>
       <test>
          <stylesheet file="for-each-group-078.xsl"/>
@@ -1305,6 +1305,27 @@ while you are in the cinema.</p></o>]]></assert-xml>
       </test>
       <result>
          <error code="XTDE1061"/>
+      </result>
+   </test-case>
+   
+   <test-case name="for-each-group-078b">
+      <description>A dynamic call on current-group() is OK in 4.0</description>
+      <created by="Michael Kay" on="2015-02-07"/>
+      <environment ref="group020"/>
+      <dependencies>
+         <spec value="XSLT40+"/>       
+      </dependencies>
+      <test>
+         <stylesheet file="for-each-group-078.xsl"/>
+         <initial-template name="two"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/two/zaq[1]/a[1]/@value = "1 3 5 7 9"</assert>
+            <assert>/two/zaq[1]/a[2]/@value = "1 3 5 7 9"</assert>
+            <assert>/two/zaq[2]/a[1]/@value = "2 4 6 8 10"</assert>
+            <assert>/two/zaq[2]/a[2]/@value = "2 4 6 8 10"</assert>
+         </all-of>
       </result>
    </test-case>
    
@@ -1651,7 +1672,7 @@ while you are in the cinema.</p></o>]]></assert-xml>
          <stylesheet file="for-each-group-093.xsl"/>
       </test>
       <result>
-           <assert>deep-equal(/root/t/string(), ("ddd", "ccc", "bbb", "aaa", "aaa", "bbb", "ccc", "ddd")</assert>
+           <assert>deep-equal(/root/t/string(), ("ddd", "ccc", "bbb", "aaa", "aaa", "bbb", "ccc", "ddd"))</assert>
       </result>
    </test-case>
    
