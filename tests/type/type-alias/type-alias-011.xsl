@@ -9,8 +9,8 @@
 >
  
 
-  <xsl:item-type name="dt:instant" as="union(xs:date, xs:time, xs:dateTime, xs:string)"/>
-  
+  <xsl:item-type name="dt:instant" as="(xs:date | xs:time | xs:dateTime | xs:string)"/>
+ 
   <xsl:function name="dt:format" as="xs:string">
     <xsl:param name="in" as="dt:instant"/>
     <xsl:param name="fmt" as="xs:string"/>
@@ -25,7 +25,7 @@
         <xsl:sequence select="format-time($in, $fmt)"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:sequence select="dt:format($in cast as union(xs:date, xs:time, xs:dateTime), $fmt)"/>
+        <xsl:sequence select="dt:format($in cast as (xs:date | xs:time | xs:dateTime), $fmt)"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:function>
