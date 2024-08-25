@@ -39,6 +39,7 @@
       </description>
       <keywords>xsl:variable xsl:value-of _static _select static-variable</keywords>
       <created by="Michael Kay" on="2014-05-15"/>
+      <modified by="Michael Kay" on="2024-08-10" change="Change test so it works with XSLT 4.0+"/>
       <environment ref="shadow-A"/>
       <dependencies>
          <spec value="XSLT30+"/>

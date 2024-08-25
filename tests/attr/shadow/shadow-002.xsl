@@ -3,7 +3,7 @@
 
    <!-- shadow attribute (static AVT) on xsl:variable/@static -->
    
-   <xsl:variable name="N" _static="{if (system-property('xsl:version') = '3.0') then 'yes' else 'no'}" select="'x'"/>
+   <xsl:variable name="N" _static="{if (system-property('xsl:version') ge '3.0') then 'yes' else 'no'}" select="'x'"/>
    
    <xsl:template name="main">
       <xsl:variable name="x" select="3"/>
