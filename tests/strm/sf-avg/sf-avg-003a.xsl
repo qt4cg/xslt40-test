@@ -12,7 +12,7 @@
     <xsl:template name="s-003">
       <xsl:source-document streamable="yes" href="../docs/books.xml">
         <out>
-          <xsl:value-of select="avg(BOOKLIST/BOOKS/ITEM/PRICE!xs:decimal(.) )"/>
+          <xsl:value-of select="round(avg(BOOKLIST/BOOKS/ITEM/PRICE!xs:decimal(.)), 2)"/>
         </out>
       </xsl:source-document>
     </xsl:template>
