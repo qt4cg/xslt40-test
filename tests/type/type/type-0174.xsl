@@ -7,7 +7,7 @@
   <xsl:template name="test">    
     <xsl:param name="num1"/> 
     <xsl:variable name="num2" select="$num1" as="xs:float" /> 
-    <xsl:value-of select="$num2" />
+    <out><xsl:value-of select="$num2" /></out>
   </xsl:template>
   
   <xsl:template name="main" match="/">

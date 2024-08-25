@@ -1145,7 +1145,7 @@
    
    <test-case name="type-0174a">
       <description>Test that promotion from double to float is allowed in 4.0</description>
-      <created by="Michael Kay" on="2012-11-07"/>
+      <created by="Michael Kay" on="2024-08-10"/>
       <environment ref="type-01"/>
       <dependencies>
          <spec value="XSLT40+"/>

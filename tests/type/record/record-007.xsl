@@ -21,7 +21,7 @@
   <xsl:function name="cx:add" as="record(r as xs:double, i as xs:double)">
     <xsl:param name="x" as="record(r as xs:double, i as xs:double)"/>
     <xsl:param name="y" as="record(r as xs:double, i as xs:double)"/>
-    <xsl:sequence select="cx:complex($x?r + $y?r, $x?i + $y?j)"/>
+    <xsl:sequence select="cx:complex($x?r + $y?r, $x?i + $y?j)"/>  <!-- TYPE ERROR: field j is not defined -->
   </xsl:function>
   
   <xsl:function name="cx:toString" as="xs:string">
