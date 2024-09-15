@@ -15,3 +15,8 @@
 </out>
 </xsl:template>
 </xsl:stylesheet>
+
+<!-- Notes:
+   xs:double 150.015e0 = xs:decimal 150.0149999999999863575794734060764312744140625
+   xs:double 250.025e0 = xs:decimal 250.025000000000005684341886080801486968994140625
+-->
