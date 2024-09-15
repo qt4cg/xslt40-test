@@ -5206,7 +5206,7 @@
       </result>
    </test-case>
    
-   <test-case name="match-401">
+   <test-case name="match-401" covers-40="PR-1442">
       <description>Pattern with UnionNodeTest</description>
       <created by="Michael Kay" on="2022-12-13"/>
       <dependencies>
@@ -5220,7 +5220,7 @@
       </result>
    </test-case>
    
-   <test-case name="match-402">
+   <test-case name="match-402" covers-40="PR-1442">
       <description>Default priority of pattern with UnionNodeTest</description>
       <created by="Michael Kay" on="2022-12-13"/>
       <dependencies>
@@ -5231,6 +5231,48 @@
       </test>
       <result>
          <assert-xml><![CDATA[<out><A>23</A><AB>25</AB><c>27</c></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="match-403" covers-40="PR-1442">
+      <description>Default priority of pattern with UnionNodeTest</description>
+      <created by="Michael Kay" on="2024-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="match-403.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><A><ABC><AB><STAR/></AB></ABC></A></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="match-404" covers-40="PR-1442">
+      <description>Default priority of pattern with partial wildcards</description>
+      <created by="Michael Kay" on="2024-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="match-404.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><A><ABC><AB><STAR/></AB></ABC></A></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="match-405" covers-40="PR-1442">
+      <description>Default priority of pattern with partial wildcards, element(W,T) patterns</description>
+      <created by="Michael Kay" on="2024-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="match-405.xsl"/>
+      </test>
+      <result>
+         <assert>exists(/out/A.T/ABC.T/AB.T/A/ANY/ABC/AB/STAR/DOT)</assert>
       </result>
    </test-case>
    
