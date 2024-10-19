@@ -209,7 +209,7 @@
         </result>
     </test-case>
     
-    <!--<test-case name="json-to-xml-013">
+    <test-case name="json-to-xml-013">
         <description>City List</description>
         <created by="Michael Kay" on="2015-09-09"/>
         <test>
@@ -220,7 +220,7 @@
         <result>
             <assert>true()</assert>
         </result>
-    </test-case>-->
+    </test-case>
     
 
     <!-- Escaping tests -->

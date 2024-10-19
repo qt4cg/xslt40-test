@@ -2097,6 +2097,9 @@
       <description>Test of xml-to-json: valid numbers</description>
       <created by="Michael Kay" on="2016-04-25"/>
       <environment ref="xml-to-json-D"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies>
       <test>
          <initial-template name="t202"/>
       </test>
@@ -2105,10 +2108,28 @@
       </result>
    </test-case>
    
+   <test-case name="xml-to-json-D202-40" covers-40="PR1476">
+      <description>Test of xml-to-json: valid numbers</description>
+      <created by="Michael Kay" on="2024-10-10"/>
+      <environment ref="xml-to-json-D"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t202"/>
+      </test>
+      <result>
+         <assert>/t eq '-0e0'</assert>
+      </result>
+   </test-case>
+   
    <test-case name="xml-to-json-D203">
       <description>Test of xml-to-json: valid numbers</description>
       <created by="Michael Kay" on="2016-04-25"/>
       <environment ref="xml-to-json-D"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies>
       <test>
          <initial-template name="t203"/>
       </test>
@@ -2117,15 +2138,48 @@
       </result>
    </test-case>
    
+   <test-case name="xml-to-json-D203-40" covers-40="PR1476">
+      <description>Test of xml-to-json: valid numbers</description>
+      <created by="Michael Kay" on="2024-10-10"/>
+      <environment ref="xml-to-json-D"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t203"/>
+      </test>
+      <result>
+         <assert>/t eq '1E6'</assert>
+      </result>
+   </test-case>
+   
    <test-case name="xml-to-json-D204">
       <description>Test of xml-to-json: valid numbers</description>
       <created by="Michael Kay" on="2016-04-25"/>
       <environment ref="xml-to-json-D"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies>
       <test>
          <initial-template name="t204"/>
       </test>
       <result>
          <assert>/t eq '-0.000001'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xml-to-json-D204-40" covers-40="PR1476">
+      <description>Test of xml-to-json: valid numbers</description>
+      <created by="Michael Kay" on="2024-10-10"/>
+      <environment ref="xml-to-json-D"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t204"/>
+      </test>
+      <result>
+         <assert>/t eq '-1E-6'</assert>
       </result>
    </test-case>
    
@@ -2145,11 +2199,29 @@
       <description>Test of xml-to-json: valid numbers</description>
       <created by="Michael Kay" on="2016-04-25"/>
       <environment ref="xml-to-json-D"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies>
       <test>
          <initial-template name="t206"/>
       </test>
       <result>
          <assert>/t eq '23'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="xml-to-json-D206-40" covers-40="PR1476">
+      <description>Test of xml-to-json: valid numbers</description>
+      <created by="Michael Kay" on="2024-10-10"/>
+      <environment ref="xml-to-json-D"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t206"/>
+      </test>
+      <result>
+         <assert>/t eq '23.0'</assert>
       </result>
    </test-case>
    

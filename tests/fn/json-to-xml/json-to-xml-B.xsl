@@ -16,6 +16,7 @@
             </array>
         </xsl:variable>
         <xsl:for-each-group select="$input-as-xml/j:array/*" group-by="j:string[@key='country']">
+            <xsl:sort select="current-grouping-key"/>
             <xsl:result-document href="cities-{current-grouping-key()}.xml">
                 <city-list>
                     <xsl:apply-templates select="current-group()">
