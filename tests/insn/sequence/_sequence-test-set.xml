@@ -1574,7 +1574,7 @@
          <stylesheet file="sequence-2500.xsl"/>
       </test>
       <result>
-         <assert>/out = "1 2 3 4 5 6 7 8 9 10</assert>
+         <assert>/out = "1 2 3 4 5 6 7 8 9 10"</assert>
       </result>
    </test-case>
    
@@ -1623,6 +1623,22 @@
       </test>
       <result>
          <assert>/out = 'true'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="sequence-2504">
+      <description>
+         Purpose: xsl:sequence with @as attribute, ignored in forwards compatibility mode
+      </description>
+      <created by="Michael Kay" on="2024-10-08"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="sequence-2504.xsl"/>
+      </test>
+      <result>
+         <assert>/out = 'false'</assert>
       </result>
    </test-case>
 </test-set>
