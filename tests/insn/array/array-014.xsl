@@ -10,15 +10,24 @@
       <xsl:variable name="input" as="array(array(xs:integer))">
         <xsl:array>
           <xsl:for-each select="0 to 9">
-            <xsl:array select="10*. to 10*. + 9"/>
+            <xsl:array-member>
+              <xsl:array select="10*. to 10*. + 9"/>
+            </xsl:array-member>
           </xsl:for-each>
         </xsl:array>
       </xsl:variable>
       <xsl:variable name="inverted" as="array(array(xs:integer))">
         <xsl:array>
           <xsl:for-each select="1 to array:size($input)">
-            <xsl:variable name="index" select="."/>
-            <xsl:array select="array:members($input)?value?($index)"/>
+            <xsl:variable name="row" select="."/>
+            <xsl:array-member>
+              <xsl:array>
+                <xsl:for-each select="1 to 10">
+                  <xsl:variable name="col" select="."/>
+                  <xsl:array-member select="$input?$col?$row"/>
+                </xsl:for-each>
+              </xsl:array>
+            </xsl:array-member>
           </xsl:for-each>
         </xsl:array>
       </xsl:variable>

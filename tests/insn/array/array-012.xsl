@@ -7,9 +7,9 @@
   
     
     <xsl:template name="xsl:initial-template">
-      <xsl:array use="?*">
+      <xsl:array>
         <xsl:for-each-group select="0 to 19" group-adjacent=". idiv 4">
-          <xsl:array select="current-group()"/>
+          <xsl:array-member select="current-group()"/>
         </xsl:for-each-group>
       </xsl:array>  
     </xsl:template>

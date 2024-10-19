@@ -7,10 +7,9 @@
   
     
     <xsl:template name="xsl:initial-template">
-      <xsl:variable name="lookup" select="[10, 20, 30, 40, 50]"/>
       <xsl:variable name="input-1" select="[1, 2, 3]"/>
       <xsl:variable name="input-2" select="[3, 4, 5]"/>
-      <xsl:array use="$lookup(current()?value)">
+      <xsl:array>
         <xsl:perform-sort select="array:members($input-1), array:members($input-2)">
           <xsl:sort select="format-integer(?value, 'W')"/>
         </xsl:perform-sort>

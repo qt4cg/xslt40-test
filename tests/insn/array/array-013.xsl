@@ -9,7 +9,7 @@
     <xsl:template name="xsl:initial-template">
       <xsl:variable name="input-1" select="[1, (1,2), (1,2,3)]"/>
       <xsl:variable name="input-2" select="[3, (3,4), (3,4,5)]"/>
-      <xsl:array use="?value">
+      <xsl:array>
         <xsl:perform-sort select="array:members($input-1), array:members($input-2)">
           <xsl:sort select="count(?value)"/>
         </xsl:perform-sort>

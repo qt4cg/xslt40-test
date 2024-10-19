@@ -8,7 +8,7 @@
 
 <xsl:template name="xsl:initial-template">
   <xsl:variable name="a" as="array(*)">
-    <xsl:array use="?value">
+    <xsl:array>
       <xsl:for-each select="1 to 10">
         <xsl:sequence select="map:entry('value', . to .+1)"/>
       </xsl:for-each>
