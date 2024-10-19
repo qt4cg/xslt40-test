@@ -21,8 +21,7 @@
     <xsl:array>
       <xsl:fork>
         <xsl:for-each-group select="city" group-by="@country">
-          <xsl:sequence
-            select=" 
+          <xsl:array-member select=" 
             map {
             'country': current-grouping-key(),
             'sum-pop': sum(current-group()/@pop),
