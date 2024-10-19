@@ -33,7 +33,7 @@
         </xsl:for-each>
       </xsl:for-each>
     </xsl:variable>
-    <xsl:array composite="yes">
+    <xsl:array>
       <xsl:for-each-group select="$students" group-by="?email">
         <xsl:sort select="?last"/>
         <xsl:sort select="?first"/>

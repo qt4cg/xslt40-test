@@ -79,7 +79,7 @@
    </test-case>
    
    <test-case name="type-alias-005">
-      <description>xsl:item-type with tuple types</description>
+      <description>xsl:item-type with record types</description>
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
@@ -94,7 +94,7 @@
    </test-case>
    
    <test-case name="type-alias-006">
-      <description>xsl:item-type with instance-of testing against tuple types</description>
+      <description>xsl:item-type with instance-of testing against record types</description>
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
@@ -114,7 +114,7 @@
    </test-case>
    
    <test-case name="type-alias-007">
-      <description>Static type checking against tuple types</description>
+      <description>Static type checking against record types</description>
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
@@ -148,7 +148,7 @@
    </test-case>
    
    <test-case name="type-alias-009">
-      <description>Tuple type as a match pattern (without using type alias)</description>
+      <description>Record type as a match pattern (without using type alias)</description>
       <created by="Michael Kay" on="2017-11-13"/>
       <dependencies>
          <spec value="XSLT40+"/>
@@ -210,7 +210,7 @@
    </test-case>
    
    <test-case name="type-alias-012">
-      <description>Tuple type with optional fields</description>
+      <description>Record type with optional fields</description>
       <created by="Michael Kay" on="2018-09-20"/>
       <dependencies>
          <spec value="XSLT40+"/>
@@ -232,7 +232,7 @@
    </test-case>
    
    <test-case name="type-alias-013">
-      <description>Tuple type with non-NCName field names</description>
+      <description>Record type with non-NCName field names</description>
       <created by="Michael Kay" on="2020-01-19"/>
       <dependencies>
          <spec value="XSLT40+"/>
@@ -251,7 +251,7 @@
    </test-case>
    
    <test-case name="type-alias-014">
-      <description>Tuple type with duplicate field names</description>
+      <description>Record type with duplicate field names</description>
       <created by="Michael Kay" on="2020-01-19"/>
       <dependencies>
          <spec value="XSLT40+"/>

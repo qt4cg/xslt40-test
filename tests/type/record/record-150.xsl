@@ -7,7 +7,7 @@
    exclude-result-prefixes="#all"
    expand-text="yes"
 >
-  <!-- Tuple type as subtype of map type -->
+  <!-- Record type as subtype of map type -->
   
   <!-- Tests whether a function returning T is acceptable as an argument where the expected type is a function returning M.
        This will only be true if T is a subtype of M

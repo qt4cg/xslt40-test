@@ -6,7 +6,7 @@
    exclude-result-prefixes="#all"
    expand-text="yes"
 >
-  <!-- Tuple type with duplicate field names-->
+  <!-- Record type with duplicate field names-->
   
   <xsl:variable name="in" expand-text="no">
     { "name": "Michael Kay",
