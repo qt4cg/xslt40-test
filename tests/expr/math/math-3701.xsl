@@ -7,7 +7,7 @@
     <out><xsl:value-of select="round(12.0e0, 1)"/></out>
     <out><xsl:value-of select="round(1.154E1, 1)"/></out>
     <out><xsl:value-of select="round(1.365e1, 1)"/></out>
-    <out><xsl:value-of select="round(-1.365e1, 1)"/></out>
+    <out><xsl:value-of select="round(-1.365e1, 1)"/></out>  <!-- xs:decimal(-1.365e1) = -13.65000000000000035... -->
     <out><xsl:value-of select="round(-2.5e0,0)"/></out>
     <out><xsl:value-of select="round(2.5e0,0)"/></out>
     <out><xsl:value-of select="round(2.4999e2,0)"/></out>
