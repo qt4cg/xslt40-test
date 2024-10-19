@@ -146,6 +146,40 @@
       </result>
    </test-case>
    
+   <test-case name="transform-010">
+      <description>fn:transform() using enable-asssertions</description>
+      <created by="Michael Kay" on="2024-10-01"/>
+      <test>
+         <stylesheet file="transform-010.xsl"/>
+      </test>
+      <result>
+         <error code="XTMM9001"/>
+      </result>
+   </test-case>
+   
+   <test-case name="transform-011">
+      <description>fn:transform() using enable-messages</description>
+      <created by="Michael Kay" on="2024-10-01"/>
+      <test>
+         <stylesheet file="transform-011.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert-message>
+               <assert-string-value>first-message</assert-string-value>
+            </assert-message>
+            <not>
+               <assert-message>
+                  <assert-string-value>second-message</assert-string-value>
+               </assert-message>
+            </not>
+            <assert-message>
+               <assert-string-value>third-message</assert-string-value>
+            </assert-message>
+         </all-of>
+      </result>
+   </test-case>
+   
    <test-case name="transform-401">
       <description>fn:transform() calling an XSLT 4.0 transformation</description>
       <created by="Michael Kay" on="2021-10-20"/>
