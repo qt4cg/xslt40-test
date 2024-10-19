@@ -754,4 +754,79 @@
          <assert>out = '3.14159'</assert>
       </result>
    </test-case>
+   
+   <test-case name="try-044" covers-40="PR1505">
+      <description>Test of err:stack-trace</description>
+      <created by="Michael Kay" on="2024-10-19"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="try-044.xsl"/>
+      </test>
+      <result>
+         <any-of xmlns:err="http://www.w3.org/2005/xqt-errors">
+            <all-of>
+               <assert>/o/@vendor = 'Saxonica'</assert>
+               <assert>contains(/o/stack-trace, "f:four on line 43 column 66")</assert>
+               <assert>contains(/o/stack-trace, "f:three on line 37 column 67")</assert>
+               <assert>contains(/o/stack-trace, "f:two on line 31 column 65")</assert>
+               <assert>contains(/o/stack-trace, "f:one on line 25 column 65")</assert>
+               <assert>contains(/o/stack-trace, "In template xsl:initial-template on line 17 column 45")</assert>
+            </all-of>
+            <all-of>
+               <assert>not(/o/@vendor = 'Saxonica')</assert>
+               <assert>exists(/o/stack-trace)</assert>
+            </all-of>
+         </any-of>
+      </result>
+   </test-case>
+   
+   <test-case name="try-045" covers-40="PR1505">
+      <description>Test of err:map</description>
+      <created by="Michael Kay" on="2024-10-19"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="try-045.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <all-of xmlns:err="http://www.w3.org/2005/xqt-errors">
+            <assert>/o/err:error/@code = "err:FOAR0001"</assert>
+            <assert>/o/err:error/message[contains(lower-case(.), 'divi')]</assert>
+            <assert>/o/err:error/message[contains(lower-case(.), 'by zero')]</assert>
+            <assert>/o/err:error/@line = ("16", "")</assert>
+            <assert>/o/err:error/@module[. = "" or contains(., "try-045.xsl")]</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="try-046" covers-40="PR1505">
+      <description>Test of err:map?stack-trace()</description>
+      <created by="Michael Kay" on="2024-10-19"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="try-046.xsl"/>
+      </test>
+      <result>
+         <any-of xmlns:err="http://www.w3.org/2005/xqt-errors">
+            <all-of>
+               <assert>/o/@vendor = 'Saxonica'</assert>
+               <assert>contains(/o/stack-trace, "f:four on line 43 column 66")</assert>
+               <assert>contains(/o/stack-trace, "f:three on line 37 column 67")</assert>
+               <assert>contains(/o/stack-trace, "f:two on line 31 column 65")</assert>
+               <assert>contains(/o/stack-trace, "f:one on line 25 column 65")</assert>
+               <assert>contains(/o/stack-trace, "In template xsl:initial-template on line 17 column 45")</assert>
+            </all-of>
+            <all-of>
+               <assert>not(/o/@vendor = 'Saxonica')</assert>
+               <assert>exists(/o/stack-trace)</assert>
+            </all-of>
+         </any-of>
+      </result>
+   </test-case>
 </test-set>
