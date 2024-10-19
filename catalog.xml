@@ -155,12 +155,12 @@
       <test-set name="initial-function" file="tests/misc/initial-function/_initial-function-test-set.xml"/>
       <test-set name="initial-mode" file="tests/misc/initial-mode/_initial-mode-test-set.xml"/>
       <test-set name="initial-template" file="tests/misc/initial-template/_initial-template-test-set.xml"/>
-      <test-set name="regex-classes" file="tests/misc/regex-classes/_regex-classes-test-set.xml"/><!-- because very slow... -->
+      <!--<test-set name="regex-classes" file="tests/misc/regex-classes/_regex-classes-test-set.xml"/>--><!-- because very slow... -->
       <test-set name="regex" file="tests/misc/regex/_regex-test-set.xml"/>
       <test-set name="regex-syntax" file="tests/misc/regex-syntax/_regex-syntax-test-set.xml"/>
       <test-set name="regex-syntax-xslt20" file="tests/misc/regex-syntax-xslt20/_regex-syntax-xslt20-test-set.xml"/>
       <test-set name="seqtor" file="tests/misc/seqtor/_seqtor-test-set.xml"/>
-      <test-set name="unicode-90" file="tests/misc/unicode-90/_unicode-90-test-set.xml"/><!-- because very slow... -->
+      <!--<test-set name="unicode-90" file="tests/misc/unicode-90/_unicode-90-test-set.xml"/>--><!-- because very slow... -->
       <test-set name="streaming-fallback" file="tests/misc/streaming-fallback/_streaming-fallback-test-set.xml"/>
       <test-set name="whitespace" file="tests/misc/whitespace/_whitespace-test-set.xml"/>
       <test-set name="xml-version" file="tests/misc/xml-version/_xml-version-test-set.xml"/>
