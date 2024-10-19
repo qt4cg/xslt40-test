@@ -453,7 +453,7 @@
    </test-case>
    
    <test-case name="function-0118">
-      <description>simple xsl:function, test @identity-sensitive="Yes" (not allowed)</description>
+      <description>simple xsl:function, test @new-each-time="Yes" (not allowed)</description>
       <created by="Debbie Lockett" on="2014-08-15"/>
       <environment ref="function-01"/>
       <dependencies>
