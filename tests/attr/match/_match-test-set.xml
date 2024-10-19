@@ -5276,5 +5276,19 @@
       </result>
    </test-case>
    
+   <test-case name="match-406" covers-40="PR-1442">
+      <description>Default priority of pattern with partial wildcards, element(a|b) patterns</description>
+      <created by="Michael Kay" on="2024-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="match-406.xsl"/>
+      </test>
+      <result>
+         <assert>exists(/out/A/A/WILD/WILD/STAR/STAR/DOT)</assert>
+      </result>
+   </test-case>
+   
  
 </test-set>
