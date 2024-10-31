@@ -581,7 +581,69 @@
          <serialization-matches>&lt;out att=['"]ab#&#231;#&#99;&#807;de['"]>ab#&#231;#&#99;&#807;de&lt;/out></serialization-matches>
       </result>
    </test-case>
-<test-case name="character-map-901">
+   
+   <test-case name="character-map-401" covers-40="PR1530">
+      <description>test simple use of 4.0 character-map() function</description>
+      <created by="Michael Kay" on="2024-10-30"/>
+      <environment ref="charmap001"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="character-map-401.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out c="[C]" x="[X]"/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="character-map-402" covers-40="PR1530">
+      <description>test simple use of 4.0 character-map() function</description>
+      <created by="Michael Kay" on="2024-10-30"/>
+      <environment ref="charmap001"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="character-map-402.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out c="[C]" y="[Y]"/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="character-map-403" covers-40="PR1530">
+      <description>test simple use of 4.0 character-map() function</description>
+      <created by="Michael Kay" on="2024-10-30"/>
+      <environment ref="charmap001"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="character-map-403.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out c="false"/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="character-map-404" covers-40="PR1530">
+      <description>test use of 4.0 character-map() function as input to fn:serialize</description>
+      <created by="Michael Kay" on="2024-10-30"/>
+      <environment ref="charmap001"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="character-map-404.xsl"/>
+      </test>
+      <result>
+         <assert>/out => contains('"3":"[C]"')</assert>
+      </result>
+   </test-case>
+   
+   
+   <test-case name="character-map-901">
       <description>Error - "character" attribute misspelt "char" (Saxon bug 5570)</description>
       <keywords>single-character-map xml-output-method</keywords>
       <created by="Michael Kay" on="2022-06-19"/>
