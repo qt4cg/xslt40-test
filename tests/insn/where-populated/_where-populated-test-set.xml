@@ -351,5 +351,16 @@
          </all-of>
       </result>
    </test-case>
+   
+   <test-case name="coco-104">
+      <description>Namespace fixup (Saxon bug 6577)</description>
+      <created by="Michael Kay" on="2024-11-08"/>  
+      <test>
+         <stylesheet file="where-populated-104.xsl"/>
+      </test>
+      <result>
+         <assert>namespace-uri(//*:trains) = "http://www.infrabel.be/Artemis/Timetable/20080711"</assert>
+      </result>
+   </test-case>
 
 </test-set>

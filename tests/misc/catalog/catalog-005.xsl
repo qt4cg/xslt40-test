@@ -27,12 +27,13 @@
                              ($doc//@xsl:version/number() > 4) or
                              ($doc//@use-when) or ($doc//@xsl:use-when) or
                              ($doc//@Q{http://www.w3.org/2001/XMLSchema-instance}type) or
+                             ($doc//xsl:note) or
                              $doc//xs:*[not(ancestor::xsl:import-schema)] or
                              $doc//fn:* or
                              exists(preceding::*/(cat:stylesheet|cat:package)/@file[. = current()])">
                  <!-- don't attempt to validate documents rooted at an LRE, or those in forwards compatibility mode, 
                       or using use-when, or using xsi:type, or creating elements in the schema or fn namespace,
-                      or duplicates -->
+                      or using xsl:note, or duplicates -->
                 <!-- <skip file="{.}"/>-->
               </xsl:when>
               <xsl:otherwise>

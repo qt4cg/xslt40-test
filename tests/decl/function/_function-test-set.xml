@@ -2150,45 +2150,7 @@
       </result>
    </test-case>
    
-   <test-case name="function-40-014">
-      <description>Variadic Function</description>
-      <created by="Michael Kay" on="2024-04-30"/>
-      <dependencies>
-         <spec value="XSLT40+"/>
-      </dependencies>
-      <test>
-         <stylesheet file="function-40-014.xsl"/>
-      </test>
-      <result>
-         <all-of>
-            <assert>/out/a = '24'</assert>
-            <assert>/out/b = '24'</assert>
-            <assert>/out/c = '24'</assert>
-            <assert>/out/d = '24'</assert>
-            <assert>/out/e = '24'</assert>
-         </all-of>
-      </result>
-   </test-case>
-   
-   <test-case name="function-40-015">
-      <description>Variadic Function with multiple parameters</description>
-      <created by="Michael Kay" on="2024-04-30"/>
-      <dependencies>
-         <spec value="XSLT40+"/>
-      </dependencies>
-      <test>
-         <stylesheet file="function-40-015.xsl"/>
-      </test>
-      <result>
-         <all-of>
-            <assert>/out/a = '24'</assert>
-            <assert>/out/b = '24'</assert>
-            <assert>/out/c = '24'</assert>
-            <assert>/out/d = '24'</assert>
-            <assert>/out/e = '24'</assert>
-         </all-of>
-      </result>
-   </test-case>
+  
    
    <test-case name="function-40-901">
       <description>Two functions with overlapping arity range</description>
