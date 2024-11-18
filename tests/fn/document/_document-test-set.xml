@@ -1493,5 +1493,21 @@
          </all-of>
       </result>
    </test-case>
+   
+   <test-case name="document-2501" covers-40="PR1581">
+      <description>
+         In 4.0 the second argument to document() can be an empty sequence
+      </description>
+      <created by="Michael Kay" on="2024-11-18"/>     
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="document-2501.xsl" role="principal"/>
+      </test>
+      <result>
+         <assert>/out/doc/str1 = 'File one'</assert>
+      </result>
+   </test-case>
 
 </test-set>

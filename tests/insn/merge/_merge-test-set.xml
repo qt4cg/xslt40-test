@@ -79,6 +79,34 @@
             ><event timestamp="2009-08-20T12:01:17Z">Transaction T1237 ended</event></events>]]></assert-xml>
       </result>
    </test-case>
+   
+   <test-case name="merge-001a" covers-40="PR1581">
+      <description>current-merge-group() in 4.0 allows () as argument.</description>
+      <created by="Michael Kay" on="2024-11-17"/>
+      <environment>
+         <collection uri="log-files">
+            <source file="log-files/log-file1.xml" uri="log-files/log-file1.xml"/>
+            <source file="log-files/log-file2.xml" uri="log-files/log-file2.xml"/>
+         </collection>
+      </environment>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="merge-001a.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<events><event timestamp="2009-08-20T12:01:01Z">Transaction T1234 started</event
+            ><event timestamp="2009-08-20T12:01:05Z">Transaction T1236 started</event
+            ><event timestamp="2009-08-20T12:01:08Z">Transaction T1235 started</event
+            ><event timestamp="2009-08-20T12:01:09Z">Transaction T1236 ended</event
+            ><event timestamp="2009-08-20T12:01:11Z">Transaction T1237 started</event
+            ><event timestamp="2009-08-20T12:01:12Z">Transaction T1235 ended</event
+            ><event timestamp="2009-08-20T12:01:15Z">Transaction T1234 ended</event
+            ><event timestamp="2009-08-20T12:01:17Z">Transaction T1237 ended</event></events>]]></assert-xml>
+      </result>
+   </test-case>
 
    <test-case name="merge-002">
       <description>xsl:merge test on two heterogeneous files.</description>

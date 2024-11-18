@@ -272,5 +272,21 @@
          <assert>every $n in /out/* satisfies $n = 'true'</assert>
       </result>
    </test-case>
+   
+   <test-case name="function-available-1019" covers-40="PR1581">
+      <description>In 4.0, second argument can be ()</description>
+      <keywords>fn:function-available maps</keywords>
+      <created by="Michael Kay" on="2024-11-17"/>
+      <environment ref="function-available-10"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-available-1019.xsl"/>
+      </test>
+      <result>
+         <assert>every $n in /out/* satisfies $n = 'true'</assert>
+      </result>
+   </test-case>
 
 </test-set>
