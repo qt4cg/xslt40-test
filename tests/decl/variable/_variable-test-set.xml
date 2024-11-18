@@ -382,9 +382,10 @@
    <test-case name="variable-0118">
       <description>Variable is out of scope within its own definition</description>
       <created by="Michael Kay" on="2013-02-23"/>
+      <modified by="Michael Kay" on="2024-11-14" change="N/A to 4.0 - the rule no longer applies"/>
       <environment ref="variable-01"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="variable-0118.xsl"/>
@@ -1911,7 +1912,8 @@ nNode: neither</out>]]></assert-xml>
          <assert-xml><![CDATA[<out><e>id3</e><e>id6</e><e>id7</e><e>id12</e><e>id15</e><e>id19</e></out>]]></assert-xml>
       </result>
    </test-case>
-<test-case name="variable-4802">
+   
+   <test-case name="variable-4802">
       <description>Saxon bug 5495 (Pattern using variables and position()=last()</description>
       <created by="Michael Kay after Rohit Gaikwad" on="2022-05-18"/>
       <environment>
@@ -1925,6 +1927,51 @@ nNode: neither</out>]]></assert-xml>
       </test>
       <result>
          <assert>out = "/servlet/MyServlet/*"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="variable-4901" covers-40="PR1544">
+      <description>In 4.0 a variable is in scope within its own declaration</description>
+      <created by="Michael Kay" on="2024-11-14"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="variable-4901.xsl"/>
+      </test>
+      <result>
+         <assert>/out/@result = "15"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="variable-4901a">
+      <description>In 3.0 a variable is NOT in scope within its own declaration</description>
+      <created by="Michael Kay" on="2024-11-14"/>
+      <dependencies>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="variable-4901.xsl"/>
+      </test>
+      <result>
+         <error code="XTDE0640"/>
+      </result>
+   </test-case>
+   
+   <test-case name="variable-4902" covers-40="PR1544">
+      <description>Circularity caused by self-reference</description>
+      <created by="Michael Kay" on="2024-11-14"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="variable-4902.xsl"/>
+      </test>
+      <result>
+         <any-of>
+            <error code="XTDE0640"/> <!-- 4.0 -->
+            <error code="XTST0008"/> <!-- 3.0 -->
+         </any-of>
       </result>
    </test-case>
 </test-set>
