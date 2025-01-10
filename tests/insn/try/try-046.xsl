@@ -45,7 +45,7 @@
     <xsl:try>
       <result p="{$p}">{year-from-dateTime($p) div $a}</result>
       <xsl:catch errors="*">
-        <stack-trace>{$err:map?stack-trace()}</stack-trace>
+        <stack-trace>{$err:map?stack-trace}</stack-trace>
       </xsl:catch>
     </xsl:try>
     <xsl:sequence select="$a[99]"/>
