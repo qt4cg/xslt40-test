@@ -1821,5 +1821,90 @@
          </all-of>
       </result>
    </test-case>
+   
+   <test-case name="merge-201" covers-40="PR1689">
+      <description>
+         Composite merge keys
+      </description>
+      <created by="Michael Kay" on="2025-01-10"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="merge-201.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/entry[1]/@keys=""</assert>
+            <assert>/out/entry[2]/@keys="a"</assert>
+            <assert>/out/entry[3]/@keys="a b c"</assert>
+            <assert>/out/entry[4]/@keys="a b d"</assert>
+            <assert>/out/entry[5]/@keys="a f"</assert>
+            <assert>/out/entry[6]/@keys="a g"</assert>
+            <assert>/out/entry[7]/@keys="b"</assert>
+            <assert>/out/entry[8]/@keys="b x"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="merge-202" covers-40="PR1689">
+      <description>
+         Composite merge keys; current-group-key-array()
+      </description>
+      <created by="Michael Kay" on="2025-01-10"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="merge-202.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/entry[1]/@keys=""</assert>
+            <assert>/out/entry[2]/@keys="a"</assert>
+            <assert>/out/entry[3]/@keys="a b c"</assert>
+            <assert>/out/entry[4]/@keys="a b d"</assert>
+            <assert>/out/entry[5]/@keys="a f"</assert>
+            <assert>/out/entry[6]/@keys="a g"</assert>
+            <assert>/out/entry[7]/@keys="b"</assert>
+            <assert>/out/entry[8]/@keys="b x"</assert>
+            <assert>every $e in /out/entry satisfies $e/@size='1'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="merge-203" covers-40="PR1689">
+      <description>
+         Multiple composite merge keys; current-group-key-array()
+      </description>
+      <created by="Michael Kay" on="2025-01-10"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="merge-203.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/entry[1]/@keys1=""</assert>
+            <assert>/out/entry[2]/@keys1="a"</assert>
+            <assert>/out/entry[3]/@keys1="a"</assert>
+            <assert>/out/entry[4]/@keys1="a b d"</assert>
+            <assert>/out/entry[5]/@keys1="a f"</assert>
+            <assert>/out/entry[6]/@keys1="a g"</assert>
+            <assert>/out/entry[7]/@keys1="b"</assert>
+            <assert>/out/entry[8]/@keys1="b x"</assert>
+            <assert>/out/entry[1]/@keys2=""</assert>
+            <assert>/out/entry[2]/@keys2="p q"</assert>
+            <assert>/out/entry[3]/@keys2="p q r"</assert>
+            <assert>/out/entry[4]/@keys2=""</assert>
+            <assert>/out/entry[5]/@keys2=""</assert>
+            <assert>/out/entry[6]/@keys2=""</assert>
+            <assert>/out/entry[7]/@keys2=""</assert>
+            <assert>/out/entry[8]/@keys2=""</assert>
+            <assert>every $e in /out/entry satisfies $e/@size='2'</assert>
+         </all-of>
+      </result>
+   </test-case>
 
 </test-set>
