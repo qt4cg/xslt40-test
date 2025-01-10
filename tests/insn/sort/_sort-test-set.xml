@@ -1494,4 +1494,39 @@
       </result>
    </test-case>
    
+   <test-case name="sort-081a" covers-40="PR1674">
+      <description>Composite sort keys not allowed in 3.0</description>
+      <created by="Michael Kay" on="2025-01-08"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="sort-081.xsl"/>
+      </test>
+      <result>
+         <error code="XTTE1020"/>
+      </result>
+   </test-case>
+   
+   <test-case name="sort-081b" covers-40="PR1674">
+      <description>Composite sort keys allowed in 4.0</description>
+      <created by="Michael Kay" on="2025-01-08"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="sort-081.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/item[1] = ""</assert>
+            <assert>/out/item[2] = "A nice cup of tea"</assert>
+            <assert>/out/item[3] = "A walk in the park"</assert>
+            <assert>/out/item[4] = "The end"</assert>
+            <assert>/out/item[5] = "The  end of civilization"</assert>
+            <assert>/out/item[6] = "The last of the summer wine"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
 </test-set>
