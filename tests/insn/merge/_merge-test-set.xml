@@ -1743,5 +1743,83 @@
          <error code="XTDE3510"/>
       </result>
    </test-case>
+   
+   <test-case name="merge-102">
+      <description>merge key may be empty</description>
+      <created by="Michael Kay" on="2025-01-08"/>
+      <environment ref="merge002"/>
+      <test>
+         <stylesheet file="merge-102.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/entry[1][@size=1][@key-size=0][.='']</assert>
+            <assert>/out/entry[2][@size=2][@key-size=1][.='a']</assert>
+            <assert>/out/entry[3][@size=1][@key-size=1][.='b']</assert>
+            <assert>/out/entry[4][@size=1][@key-size=1][.='c']</assert>
+            <assert>/out/entry[5][@size=2][@key-size=1][.='d']</assert>
+            <assert>/out/entry[6][@size=1][@key-size=1][.='e']</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="merge-103">
+      <description>merge key may be empty, with multiple keys</description>
+      <created by="Michael Kay" on="2025-01-10"/>
+      <environment ref="merge002"/>
+      <test>
+         <stylesheet file="merge-103.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/entry[1][@size=1][@key-size=1][.='foo']</assert>
+            <assert>/out/entry[2][@size=2][@key-size=2][.='foo a']</assert>
+            <assert>/out/entry[3][@size=1][@key-size=2][.='foo b']</assert>
+            <assert>/out/entry[4][@size=1][@key-size=2][.='foo c']</assert>
+            <assert>/out/entry[5][@size=2][@key-size=2][.='foo d']</assert>
+            <assert>/out/entry[6][@size=1][@key-size=2][.='foo e']</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="merge-104">
+      <description>merge key may be empty, with multiple keys</description>
+      <created by="Michael Kay" on="2025-01-10"/>
+      <environment ref="merge002"/>
+      <test>
+         <stylesheet file="merge-104.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/entry[1][@size=2][@key-size=1][.='foo']</assert>
+            <assert>/out/entry[2][@size=2][@key-size=2][.='a foo']</assert>
+            <assert>/out/entry[3][@size=1][@key-size=2][.='b foo']</assert>
+            <assert>/out/entry[4][@size=1][@key-size=2][.='c foo']</assert>
+            <assert>/out/entry[5][@size=2][@key-size=2][.='d foo']</assert>
+            <assert>/out/entry[6][@size=1][@key-size=2][.='e foo']</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="merge-105">
+      <description>merge key may be empty: relative ordering of (null, Z) and (A, null)</description>
+      <created by="Michael Kay" on="2025-01-10"/>
+      <environment ref="merge002"/>
+      <test>
+         <stylesheet file="merge-105.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/entry[1][@size=1][@key-size=0][.='']</assert>
+            <assert>/out/entry[2][@size=1][@key-size=1][.='z']</assert>
+            <assert>/out/entry[3][@size=1][@key-size=1][.='a']</assert>
+            <assert>/out/entry[4][@size=1][@key-size=2][.='a z']</assert>
+            <assert>/out/entry[5][@size=1][@key-size=2][.='b z']</assert>
+            <assert>/out/entry[6][@size=1][@key-size=2][.='c z']</assert>
+            <assert>/out/entry[7][@size=2][@key-size=2][.='d z']</assert>
+            <assert>/out/entry[8][@size=1][@key-size=2][.='e z']</assert>
+         </all-of>
+      </result>
+   </test-case>
 
 </test-set>
