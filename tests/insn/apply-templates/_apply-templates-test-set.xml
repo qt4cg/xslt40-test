@@ -130,6 +130,20 @@
          <error code="XTTE0510"/>
       </result>
    </test-case>
+   
+   <test-case name="apply-templates-003">
+      <description>Optimization of template rule with a union pattern: Saxon bug 6598</description>
+      <created by="Michael Kay" on="2024-11-28"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="apply-templates-003.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><A/><B/><C/></out>]]></assert-xml>
+      </result>
+   </test-case>
 
 
    <test-case name="conflict-resolution-0101">
