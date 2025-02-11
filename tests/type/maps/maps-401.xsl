@@ -5,7 +5,7 @@
     exclude-result-prefixes="xs map mf" version="4.0">
 
     <xsl:variable name="map" as="map(*)">
-        <xsl:map on-duplicates="fn($a, $b){$a}">
+        <xsl:map duplicates="fn($a, $b){$a}">
             <xsl:map-entry key="'x'" select="1"/>
             <xsl:map-entry key="'y'" select="2"/>
             <xsl:map-entry key="'z'" select="3"/>

@@ -5,7 +5,7 @@
     exclude-result-prefixes="xs map mf" version="3.0">
 
     <xsl:variable name="map" as="map(*)">
-        <xsl:map duplicates="error(QName('http://example.com/', 'err:dupe'), 'map-duplicates')">
+        <xsl:map duplicates="'combine'">
             <xsl:map-entry key="'x'" select="1"/>
             <xsl:map-entry key="'y'" select="2"/>
             <xsl:map-entry key="'z'" select="3"/>

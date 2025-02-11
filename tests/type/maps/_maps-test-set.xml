@@ -302,7 +302,7 @@
    </test-case>
    
    <test-case name="maps-401">
-      <description>xsl:map with on-duplicates (select first)</description>
+      <description>xsl:map with @duplicates (select first)</description>
       <created by="Michael Kay" on="2023-11-28"/>
       <dependencies>
          <spec value="XSLT40+"/>
@@ -316,7 +316,7 @@
    </test-case>
    
    <test-case name="maps-402">
-      <description>xsl:map with on-duplicates (select last)</description>
+      <description>xsl:map with @duplicates (select last)</description>
       <created by="Michael Kay" on="2023-11-28"/>
       <dependencies>
          <spec value="XSLT40+"/>
@@ -330,7 +330,7 @@
    </test-case>
    
    <test-case name="maps-403">
-      <description>xsl:map with on-duplicates (select sequence concatenation)</description>
+      <description>xsl:map with @duplicates (select sequence concatenation)</description>
       <created by="Michael Kay" on="2023-11-28"/>
       <dependencies>
          <spec value="XSLT40+"/>
@@ -365,6 +365,77 @@
       </dependencies>
       <test>
          <stylesheet file="maps-405.xsl"/>
+      </test>
+      <result>
+         <error code="Q{http://example.com/}dupe"/>
+      </result>
+   </test-case>
+   
+   <test-case name="maps-406" covers-40="PR1694">
+      <description>Test of XSLT 4.0 xsl:map/@select</description>
+      <created by="Michael Kay" on="2025-01-14"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="maps-406.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<json>[{"CA":[{"kitchen":{"broiler":"20","toaster":"150"}},{"clothes":{"socks":"510"}}]},{"MA":[{"kitchen":{"blender":"250","toaster":"50"}},{"clothes":{"shirt":"10"}}]}]</json>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="maps-407" covers-40="PR1740">
+      <description>xsl:map with @duplicates (select first)</description>
+      <created by="Michael Kay" on="2025-02-04"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="maps-407.xsl"/>
+      </test>
+      <result>
+         <assert>/out/@result = '1'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="maps-408" covers-40="PR1740">
+      <description>xsl:map with @duplicates (select last)</description>
+      <created by="Michael Kay" on="2025-02-04"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="maps-408.xsl"/>
+      </test>
+      <result>
+         <assert>/out/@result = '5'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="maps-409" covers-40="PR1740">
+      <description>xsl:map with duplicates=combine</description>
+      <created by="Michael Kay" on="2025-02-04"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="maps-409.xsl"/>
+      </test>
+      <result>
+         <assert>/out/@result = '1 4 5'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="maps-410" covers-40="PR1740">
+      <description>xsl:map with duplicates=reject</description>
+      <created by="Michael Kay" on="2025-02-04"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="maps-410.xsl"/>
       </test>
       <result>
          <error code="Q{http://example.com/}dupe"/>
@@ -810,6 +881,21 @@
       </test>
       <result>
          <assert>every $e in /out/* satisfies $e = 'false'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="maps-910">
+      <description>xsl:map/@select and sequence constructor are mutually exclusive</description>
+      <created by="Michael Kay" on="2025-01-14"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="maps-910.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <error code="XTSE3185"/>
       </result>
    </test-case>
    
