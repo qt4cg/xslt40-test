@@ -5052,4 +5052,24 @@
          <serialization-matches>^\{"a":1,"b":2,"c":\{"d":4\}\}$</serialization-matches>
       </result>
    </test-case>
+   
+   <test-case name="output-0729">
+      <description>XML serialization, mixed content elements not indented (Saxon bug 6669)</description>
+      <created by="Michael Kay" on="2025-01-25"/>
+      <dependencies>
+         <spec value="XSLT20+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="output-0729.xsl"/>
+         <feature value="schema_aware"/>
+         <output serialize="yes" tree="no"/>
+      </test>
+      <result>
+         <all-of>
+            <serialization-matches><![CDATA[<letterBody><salutation>]]></serialization-matches>
+            <serialization-matches><![CDATA[</salutation> Your order]]></serialization-matches>
+            <serialization-matches><![CDATA[</shipDate>.</letterBody>]]></serialization-matches>
+         </all-of>
+      </result>
+   </test-case>
 </test-set>
