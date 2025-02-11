@@ -206,6 +206,7 @@
       <test-set name="sf-current" file="tests/strm/sf-current/_sf-current-test-set.xml"/>
       <test-set name="sf-deep-equal" file="tests/strm/sf-deep-equal/_sf-deep-equal-test-set.xml"/>
       <test-set name="sf-distinct-values" file="tests/strm/sf-distinct-values/_sf-distinct-values-test-set.xml"/>
+      <test-set name="sf-distinct-ordered-nodes" file="tests/strm/sf-distinct-ordered-nodes/_sf-distinct-ordered-nodes-test-set.xml"/>
       <test-set name="sf-empty" file="tests/strm/sf-empty/_sf-empty-test-set.xml"/>      
       <test-set name="sf-exists" file="tests/strm/sf-exists/_sf-exists-test-set.xml"/>
       <test-set name="sf-exactly-one" file="tests/strm/sf-exactly-one/_sf-exactly-one-test-set.xml"/>
