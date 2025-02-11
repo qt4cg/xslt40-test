@@ -25,6 +25,7 @@
          by $A/descendant::a but not by $A/child::a - which means it matches any 'a' element that has
          a grandparent. (Complicating this further, child::a means child-or-top::a, but that doesn't
          affect this test.) -->
+    <!-- Result changes in 4.0 - see PR1773 --> 
     <AA>
       <xsl:apply-templates/>
     </AA>

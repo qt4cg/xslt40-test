@@ -5009,11 +5009,11 @@
       </result>
    </test-case>
  
-<test-case name="match-273">
+   <test-case name="match-273">
       <description>Pattern with 'except' on RHS of "/", mixed axes in Except expression.</description>
       <created by="Michael Kay" on="2022-03-03"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="match-273.xsl"/>
@@ -5041,13 +5041,27 @@
       <description>Semantics of a pattern using "except"</description>
       <created by="Michael Kay" on="2022-03-03"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="match-275.xsl"/>
       </test>
       <result>
          <assert-xml><![CDATA[<x><aa>23</aa><x><AA>25</AA></x></x>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="match-275" covers-40="PR1773">
+      <description>Semantics of a pattern using "except" - changes in 4.0</description>
+      <created by="Michael Kay" on="2022-03-03"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="match-275.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<x><aa>23</aa><x><aa>25</aa></x></x>]]></assert-xml>
       </result>
    </test-case>
    
@@ -5083,13 +5097,27 @@
       <description>An intersect pattern that doesn't do what you think</description>
       <created by="Michael Kay" on="2022-03-03"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="match-278.xsl"/>
       </test>
       <result>
          <assert>not(//wrong)</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="match-278a" covers-40="PR1773">
+      <description>An intersect pattern that does do what you think in 4.0</description>
+      <created by="Michael Kay" on="2022-03-03"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="match-278.xsl"/>
+      </test>
+      <result>
+         <assert>//wrong</assert>
       </result>
    </test-case>
    
