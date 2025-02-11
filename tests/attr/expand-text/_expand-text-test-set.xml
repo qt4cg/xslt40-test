@@ -1015,6 +1015,20 @@
          <assert>/out = "((5))"</assert>
       </result>
    </test-case>
+   
+   <test-case name="cvt-050">
+      <description>Text value template referencing a preceding-sibling xsl:variable</description>
+      <created by="Michael Kay" on="2025-01-17"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="cvt-050.xsl"/>
+      </test>
+      <result>
+         <assert>contains(/out, "true")</assert>
+      </result>
+   </test-case>
 
 
 
