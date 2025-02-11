@@ -5,7 +5,7 @@
 
    <t:output method="xml" encoding="UTF-8" indent="no"/>
 
-   <t:template match="doc">
+   <t:template match="doc" priority="10">
       <out>
          <t:apply-templates select="x"/>
       </out>

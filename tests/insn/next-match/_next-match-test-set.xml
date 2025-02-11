@@ -332,7 +332,9 @@
    </test-case>
 
    <test-case name="next-match-017">
-      <description>Test of xsl:next-match where the same stylesheet is both imported and included. Verifies that imported template is executed last even if it's priority is higher than the primary template, while included and primary templates are compared based on priorities.</description>
+      <description>Test of xsl:next-match where the same stylesheet is both imported and included. 
+         Verifies that imported template is executed last even if it's priority is higher 
+         than the primary template, while included and primary templates are compared based on priorities.</description>
       <created by="Michael Kay" on="2012-10-30"/>
       <modified by="Tim Mills" on="2012-12-07" change="Added role attributes"/>
       <environment ref="next-match022"/>
@@ -407,17 +409,36 @@ Example of apply-imports</div>
    </test-case>
 
    <test-case name="next-match-021">
-      <description>Test of xsl:next-match in a template where the pattern has a union operator with Name Test and element() that match one and the same node.</description>
+      <description>Test of xsl:next-match in a template where the pattern has 
+         a union operator with Name Test and element() that match 
+         one and the same node.</description>
       <created by="Michael Kay" on="2012-10-30"/>
       <environment ref="next-match031"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="next-match-021.xsl"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out><one>one time</one><one>one time</one><two>finally</two></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="next-match-021a" covers-40="PR1772">
+      <description>Test of xsl:next-match in a template where the pattern has 
+         a union operator with Name Test and element() that match 
+         one and the same node. Result changes in 4.0</description>
+      <created by="Michael Kay" on="2025-02-11"/>
+      <environment ref="next-match031"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="next-match-021.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><one>one time</one><two>finally</two></out>]]></assert-xml>
       </result>
    </test-case>
 
@@ -439,11 +460,13 @@ Example of apply-imports</div>
    </test-case>
 
    <test-case name="next-match-023">
-      <description>Test of xsl:next-match in a template where the pattern has a union operator with *:NCName Name Test and element(QName) that match one and the same node.</description>
+      <description>
+         Test of xsl:next-match in a template where the pattern has a union operator 
+         with *:NCName Name Test and element(QName) that match one and the same node.</description>
       <created by="Michael Kay" on="2012-10-30"/>
       <environment ref="next-match046"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="next-match-023.xsl"/>
@@ -452,9 +475,29 @@ Example of apply-imports</div>
          <assert-xml><![CDATA[<out><foo/><foo/><bar/></out>]]></assert-xml>
       </result>
    </test-case>
+   
+   <test-case name="next-match-023a" covers-40="PR1772">
+      <description>
+         Test of xsl:next-match in a template where the pattern has a union operator 
+         with *:NCName Name Test and element(QName) that match one and the same node.</description>
+      <created by="Michael Kay" on="2025-02-11"/>
+      <environment ref="next-match046"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="next-match-023.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><foo/><bar/></out>]]></assert-xml>
+      </result>
+   </test-case>
+
 
    <test-case name="next-match-024">
-      <description>Test of xsl:next-match in a template where the pattern has a union operator with *:NCName Name Test and element(QName) that match one and the same node. Template has assigned priority of 1.</description>
+      <description>Test of xsl:next-match in a template where the pattern has a union 
+         operator with *:NCName Name Test and element(QName) that match one and the 
+         same node. Template has assigned priority of 1.</description>
       <created by="Michael Kay" on="2012-10-30"/>
       <environment ref="next-match046"/>
       <dependencies>
@@ -469,11 +512,13 @@ Example of apply-imports</div>
    </test-case>
 
    <test-case name="next-match-025">
-      <description>Test of xsl:next-match in a template where the pattern has a union operator with node() and element(QName) that match one and the same node. A separate template with *:NCName Name Test calls xsl:next-match as well.</description>
+      <description>Test of xsl:next-match in a template where the pattern has a union 
+         operator with node() and element(QName) that match one and the same node. 
+         A separate template with *:NCName Name Test calls xsl:next-match as well.</description>
       <created by="Michael Kay" on="2012-10-30"/>
       <environment ref="next-match046"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="next-match-025.xsl"/>
@@ -482,13 +527,47 @@ Example of apply-imports</div>
          <assert-xml><![CDATA[<out><foo/><bar/><foo/></out>]]></assert-xml>
       </result>
    </test-case>
+   
+   <test-case name="next-match-025a" covers-40="PR1772">
+      <description>Test of xsl:next-match in a template where the pattern has a union 
+         operator with node() and element(QName) that match one and the same node. 
+         A separate template with *:NCName Name Test calls xsl:next-match as well.</description>
+      <created by="Michael Kay" on="2025-02-11"/>
+      <environment ref="next-match046"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="next-match-025.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><foo/><bar/></out>]]></assert-xml>
+      </result>
+   </test-case>
 
    <test-case name="next-match-026">
-      <description>Test of xsl:next-match in a template where the pattern has a union operator with node() and element(QName) that match one and the same node.</description>
+      <description>Test of xsl:next-match in a template where the pattern has a union 
+         operator with node() and element(QName) that match one and the same node.</description>
       <created by="Michael Kay" on="2012-10-30"/>
       <environment ref="next-match046"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="next-match-026.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><foo/><bar/></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="next-match-026a" covers-40="PR1772">
+      <description>Test of xsl:next-match in a template where the pattern has a union 
+         operator with node() and element(QName) that match one and the same node.</description>
+      <created by="Michael Kay" on="2025-02-11"/>
+      <environment ref="next-match046"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
       </dependencies>
       <test>
          <stylesheet file="next-match-026.xsl"/>
@@ -689,11 +768,12 @@ Example of apply-imports</div>
    </test-case>
    
    <test-case name="next-match-039">
-      <description>Test of xsl:next-match in a template where the pattern has a union operator; both branches match the same node and both have the same priority.</description>
+      <description>Test of xsl:next-match in a template where the pattern has a union operator; 
+         both branches match the same node and both have the same priority.</description>
       <created by="Michael Kay" on="2019-02-27"/>
       <environment ref="next-match031"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="next-match-039.xsl"/>
@@ -703,12 +783,28 @@ Example of apply-imports</div>
       </result>
    </test-case>
    
+   <test-case name="next-match-039a" covers-40="PR1772">
+      <description>Test of xsl:next-match in a template where the pattern has a union operator; 
+         both branches match the same node and both have the same priority.</description>
+      <created by="Michael Kay" on="2025-02-11"/>
+      <environment ref="next-match031"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="next-match-039.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><one>one time</one><two>finally</two></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
    <test-case name="next-match-040">
       <description>Test of xsl:next-match across package boundaries. Variant of -036 in which the mode is accepted as final rather than public</description>
       <created by="Michael Kay" on="2019-03-07"/>
       <environment ref="next-match022"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT40+"/>
       </dependencies>
       <test>
          <package name="http://xslt-tests/next-match-036-lib" uri="http://xslt-tests/next-match-036-lib" file="next-match-036-lib.xsl" role="secondary"/>

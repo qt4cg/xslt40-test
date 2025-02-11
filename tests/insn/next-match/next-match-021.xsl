@@ -5,6 +5,8 @@
                 version="2.0">
 <!-- Purpose: Test of xsl:next-match in a template where the pattern has a union 
   				operator with Name Test and element(E,T) that match one and the same node. -->
+   
+<!-- The rules change in 4.0, see PR 1772 -->   
 
    <xslt:output method="xml" encoding="UTF-8" indent="no"/>
 
