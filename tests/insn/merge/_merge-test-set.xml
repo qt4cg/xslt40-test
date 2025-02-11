@@ -598,9 +598,13 @@
    <test-case name="merge-038">
       <description>Testing a sequence of more than one item is not allowed as the @select attr of merge-key</description>
       <created by="O'Neil Delpratt" on="2012-11-07"/>
-      <modified by="Abel Braaksma" on="2018-12-22" change="XTTE1020 is no longer the correct error here, when a merge-key cannot be compared, the errors should be XTTE2230"/>
+      <modified by="Abel Braaksma" on="2018-12-22" 
+         change="XTTE1020 is no longer the correct error here, when a merge-key cannot be compared, the errors should be XTTE2230"/>
       <modified by="Michael Kay" on="2023-03-06" change="I beg to differ. Allow both error codes"/>
-      <environment ref="merge917err"/>   
+      <environment ref="merge917err"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies>
       <test>
          <stylesheet file="merge-038.xsl"/>
       </test>
@@ -1904,6 +1908,81 @@
             <assert>/out/entry[8]/@keys2=""</assert>
             <assert>every $e in /out/entry satisfies $e/@size='2'</assert>
          </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="merge-204" covers-40="PR1689">
+      <description>
+         xsl:merge: current-merge-key-array() used within a pattern.
+      </description>
+      <created by="Michael Kay" on="2025-01-11"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <environment ref="merge002"/>
+      <test>
+         <stylesheet file="merge-204.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE3500"/>
+      </result>
+   </test-case>
+   
+   <test-case name="merge-205" covers-40="PR1689">
+      <description>
+         xsl:merge: current-merge-key-array() not available in called template.
+      </description>
+      <created by="Michael Kay" on="2025-01-11"/>
+      <environment ref="merge002"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="merge-205.xsl"/>
+      </test>
+      <result>
+         <error code="XTDE3510"/>
+      </result>
+   </test-case>
+   
+   <test-case name="merge-206" covers-40="PR1689">
+      <description>
+         Multiple composite merge keys; with current-group-key()
+      </description>
+      <created by="Michael Kay" on="2025-01-10"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="merge-206.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/entry[1]/@keys=""</assert>
+            <assert>/out/entry[2]/@keys="a p q"</assert>
+            <assert>/out/entry[3]/@keys="a p q r"</assert>
+            <assert>/out/entry[4]/@keys="a b d"</assert>
+            <assert>/out/entry[5]/@keys="a f"</assert>
+            <assert>/out/entry[6]/@keys="a g"</assert>
+            <assert>/out/entry[7]/@keys="b"</assert>
+            <assert>/out/entry[8]/@keys="b x"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="merge-207" covers-40="PR1689">
+      <description>
+         Multiple composite merge keys; mixed incompatible types
+      </description>
+      <created by="Michael Kay" on="2025-01-10"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="merge-207.xsl"/>
+      </test>
+      <result>
+         <error code="XTTE2230"/>
       </result>
    </test-case>
 
