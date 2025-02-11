@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns="http://www.w3.org/2012/10/xslt-test-catalog" xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+   name="sf-distinct-ordered-nodes" covers-40="PR1695">
+   <description>distinct-ordered-nodes function with streaming</description>
+   
+   <environment name="sf-distinct-ordered-nodes-A">
+     <stylesheet file="sx-distinct-ordered-nodes-A.xsl"/>
+   </environment>
+   
+   
+   <dependencies>
+      <spec value="XSLT40+"/>
+      <feature value="streaming"/>
+   </dependencies>
+   
+   <test-case name="sf-distinct-ordered-nodes-002">
+      <description>Streaming distinct-ordered-nodes  - grounded operand</description>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-002"/>
+      </test>
+      <result>
+        <any-of>
+         <assert-xml><![CDATA[<out><PRICE>4.95</PRICE><PRICE>6.58</PRICE><PRICE>4.95</PRICE><PRICE>4.95</PRICE><PRICE>16.47</PRICE><PRICE>16.47</PRICE><a>A</a><b>B</b></out>]]></assert-xml>
+         <assert-xml><![CDATA[<out><a>A</a><b>B</b><PRICE>4.95</PRICE><PRICE>6.58</PRICE><PRICE>4.95</PRICE><PRICE>4.95</PRICE><PRICE>16.47</PRICE><PRICE>16.47</PRICE></out>]]></assert-xml>
+        </any-of>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-010">
+      <description>Streaming distinct-ordered-nodes  - striding operand, inspection usage</description>
+      <keywords>ParenthesizedExpr mixed-posture striding leading-lone-slash PathExpr fn:count</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-010"/>
+      </test>
+      <result>
+         <assert>/out = "8"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-011">
+      <description>Streaming distinct-ordered-nodes  - striding operand, absorption usage</description>
+      <keywords>ParenthesizedExpr mixed-posture striding leading-lone-slash PathExpr fn:sum</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-011"/>
+      </test>
+      <result>
+         <assert>/out = "87.37"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-012">
+      <description>Streaming distinct-ordered-nodes  - striding operand, transmission usage</description>
+      <keywords>ParenthesizedExpr mixed-posture leading-lone-slash striding motionless-predicate fn:position PathExpr</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-012"/>
+      </test>
+      <result>
+         <assert>/out = "6.58 4.95 16.47 B"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-013">
+      <description>Streaming distinct-ordered-nodes  - striding operand, focus-setting usage</description>
+      <keywords>ParenthesizedExpr mixed-posture AdditiveExpr ContextItemExpr striding leading-lone-slash PathExpr SimpleMapExpr</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-013"/>
+      </test>
+      <result>
+         <any-of>
+           <assert>/out = "5.95 7.58 5.95 5.95 17.47 17.47 12 23"</assert>
+           <assert>/out = "12 23 5.95 7.58 5.95 5.95 17.47 17.47"</assert>
+         </any-of>
+      </result>
+   </test-case> 
+   
+   <test-case name="sf-distinct-ordered-nodes-014">
+      <description>Streaming distinct-ordered-nodes  - striding operand, focus-controlled usage</description>
+      <keywords>ParenthesizedExpr mixed-posture leading-lone-slash AxisStep striding PathExpr positional-predicate SimpleMapExpr</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-014"/>
+      </test>
+      <result>
+         <any-of>
+            <assert-xml><![CDATA[<out><TITLE>Pride and Prejudice</TITLE><AUTHOR>Jane Austen</AUTHOR><PUBLISHER>Modern Library</PUBLISHER><PUB-DATE>2002-12-31</PUB-DATE><LANGUAGE>English</LANGUAGE><PRICE>4.95</PRICE><QUANTITY>187</QUANTITY><ISBN>0679601686</ISBN><PAGES>352</PAGES><DIMENSIONS UNIT="in">8.3 5.7 1.1</DIMENSIONS><WEIGHT UNIT="oz">6.1</WEIGHT><a>A</a><b>B</b></out>]]></assert-xml>
+            <assert-xml><![CDATA[<out><a>A</a><b>B</b><TITLE>Pride and Prejudice</TITLE><AUTHOR>Jane Austen</AUTHOR><PUBLISHER>Modern Library</PUBLISHER><PUB-DATE>2002-12-31</PUB-DATE><LANGUAGE>English</LANGUAGE><PRICE>4.95</PRICE><QUANTITY>187</QUANTITY><ISBN>0679601686</ISBN><PAGES>352</PAGES><DIMENSIONS UNIT="in">8.3 5.7 1.1</DIMENSIONS><WEIGHT UNIT="oz">6.1</WEIGHT></out>]]></assert-xml>
+         </any-of>
+      </result>
+   </test-case> 
+   
+   <test-case name="sf-distinct-ordered-nodes-015">
+      <description>Streaming distinct-ordered-nodes  - striding operand, focus-setting usage</description>
+      <keywords>ParenthesizedExpr mixed-posture leading-lone-slash striding PathExpr AdditiveExpr</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-015"/>
+      </test>
+      <result>
+        <any-of>
+         <assert>/out = "5.95 7.58 5.95 5.95 17.47 17.47 12 23 "</assert>
+         <assert>/out = "12 23 5.95 7.58 5.95 5.95 17.47 17.47 "</assert>
+        </any-of> 
+      </result>
+   </test-case> 
+   
+   <test-case name="sf-distinct-ordered-nodes-016">
+      <description>Streaming distinct-ordered-nodes  - striding operand, focus-controlled usage</description>
+      <keywords>ParenthesizedExpr mixed-posture xsl:for-each striding AxisStep PathExpr positional-predicate leading-lone-slash</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-016"/>
+      </test>
+      <result>
+         <any-of>
+            <assert-xml><![CDATA[<out><TITLE>Pride and Prejudice</TITLE><AUTHOR>Jane Austen</AUTHOR><PUBLISHER>Modern Library</PUBLISHER><PUB-DATE>2002-12-31</PUB-DATE><LANGUAGE>English</LANGUAGE><PRICE>4.95</PRICE><QUANTITY>187</QUANTITY><ISBN>0679601686</ISBN><PAGES>352</PAGES><DIMENSIONS UNIT="in">8.3 5.7 1.1</DIMENSIONS><WEIGHT UNIT="oz">6.1</WEIGHT><a>A</a><b>B</b></out>]]></assert-xml>
+            <assert-xml><![CDATA[<out><a>A</a><b>B</b><TITLE>Pride and Prejudice</TITLE><AUTHOR>Jane Austen</AUTHOR><PUBLISHER>Modern Library</PUBLISHER><PUB-DATE>2002-12-31</PUB-DATE><LANGUAGE>English</LANGUAGE><PRICE>4.95</PRICE><QUANTITY>187</QUANTITY><ISBN>0679601686</ISBN><PAGES>352</PAGES><DIMENSIONS UNIT="in">8.3 5.7 1.1</DIMENSIONS><WEIGHT UNIT="oz">6.1</WEIGHT></out>]]></assert-xml>
+         </any-of>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-017">
+      <description>Streaming distinct-ordered-nodes  - striding operand, focus-setting usage for inspection action</description>
+      <keywords>ParenthesizedExpr mixed-posture leading-lone-slash striding PathExpr positional-predicate SimpleMapExpr fn:name</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-017"/>
+      </test>
+      <result>
+         <assert>/out = "true false true true true true false false true true true false false"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-018">
+      <description>Streaming distinct-ordered-nodes  - striding operand, apply-templates usage</description>
+      <keywords>ParenthesizedExpr mixed-posture leading-lone-slash striding xsl:apply-templates PathExpr positional-predicate</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-018"/>
+      </test>
+      <result>
+         <assert>/out = "Pride and PrejudiceJane AustenModern Library2002-12-31English4.9518706796016863528.3 5.7 1.16.1"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-020">
+      <description>Streaming distinct-ordered-nodes  - crawling operand, inspection usage</description>
+      <keywords>ParenthesizedExpr mixed-posture xsl:copy-of fn:count crawling PathExpr leading-double-slash</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-020"/>
+      </test>
+      <result>
+         <assert>/out = "8"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-021">
+      <description>Streaming distinct-ordered-nodes  - crawling operand, absorption usage</description>
+      <keywords>ParenthesizedExpr mixed-posture leading-lone-slash text-nodes childless-nodes striding-then-crawling fn:count PathExpr positional-predicate</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-021"/>
+      </test>
+      <result>
+         <assert>/out = "13"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-022">
+      <description>Streaming distinct-ordered-nodes  - crawling operand, transmission usage</description>
+      <keywords>ParenthesizedExpr mixed-posture striding-then-crawling leading-lone-slash fn:position PathExpr positional-predicate</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-022"/>
+      </test>
+      <result>
+         <assert>/out = "Pride and PrejudiceJane AustenModern Library"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-023">
+      <description>Streaming distinct-ordered-nodes  - crawling operand, focus-setting usage</description>
+      <keywords>ParenthesizedExpr mixed-posture leading-double-slash childless-nodes text-nodes AdditiveExpr PathExpr crawling SimpleMapExpr</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-023"/>
+      </test>
+      <result>
+         <any-of>
+           <assert>/out = "5.95 7.58 5.95 5.95 17.47 17.47 12 23"</assert>
+           <assert>/out = "12 23 5.95 7.58 5.95 5.95 17.47 17.47"</assert>
+         </any-of>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-030">
+      <description>Streaming distinct-ordered-nodes  - climbing operand, inspection usage</description>
+      <keywords>ParenthesizedExpr mixed-posture striding-then-climbing fn:name leading-lone-slash PathExpr positional-predicate SimpleMapExpr ancestor-axis</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-030"/>
+      </test>
+      <result>
+         <any-of>
+           <assert>/out = "BOOKLIST BOOKS ITEM a b"</assert>
+           <assert>/out = "a b BOOKLIST BOOKS ITEM"</assert>
+         </any-of>        
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-031">
+      <description>Streaming distinct-ordered-nodes  - climbing operand, inspection usage, removal of duplicates</description>
+      <keywords>ParenthesizedExpr mixed-posture leading-lone-slash striding-then-climbing fn:name PathExpr SimpleMapExpr ancestor-axis</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-031"/>
+      </test>
+      <result>
+         <any-of>
+           <assert>/out = "BOOKLIST BOOKS ITEM ITEM ITEM ITEM ITEM ITEM a b"</assert>
+           <assert>/out = "a b BOOKLIST BOOKS ITEM ITEM ITEM ITEM ITEM ITEM"</assert>
+         </any-of>
+      </result>   
+   </test-case> 
+   
+   <test-case name="sf-distinct-ordered-nodes-032">
+      <description>Streaming distinct-ordered-nodes  - climbing operand, absorption usage</description>
+      <keywords>ParenthesizedExpr mixed-posture climbing-then-climbing attribute-axis PathExpr positional-predicate ancestor-axis leading-lone-slash</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-032"/>
+      </test>
+      <result>
+         <any-of>
+            <assert>/out = "MHK|MMP|A|B"</assert>
+            <assert>/out = "A|B|MHK|MMP"</assert>
+         </any-of>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-033">
+      <description>Streaming distinct-ordered-nodes  - climbing operand, absorption usage, removal of duplicates</description>
+      <keywords>ParenthesizedExpr mixed-posture climbing-then-climbing leading-lone-slash PathExpr ancestor-or-self-axis climbing</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-033"/>
+      </test>
+      <result>
+         <any-of>
+            <assert>/out = "MMP|P|P|P|H|P|A|B"</assert>
+            <assert>/out = "A|B|MMP|P|P|P|H|P"</assert>
+         </any-of>
+      </result>
+   </test-case> 
+   
+   <test-case name="sf-distinct-ordered-nodes-034">
+      <description>Streaming distinct-ordered-nodes  - climbing operand, absorption usage, removal of duplicates</description>
+      <keywords>ParenthesizedExpr mixed-posture climbing-then-climbing leading-lone-slash PathExpr ancestor-or-self-axis climbing</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-034"/>
+      </test>
+      <result>
+         <any-of>
+            <assert>/out = "MMP|P|P|P|H|P|A|B"</assert>
+            <assert>/out = "A|B|MMP|P|P|P|H|P"</assert>
+         </any-of>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-035">
+      <description>Streaming distinct-ordered-nodes  - climbing operand, absorption usage, removal of duplicates</description>
+      <keywords>ParenthesizedExpr mixed-posture crawling-then-climbing leading-double-slash attribute-axis PathExpr ancestor-or-self-axis</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-035"/>
+      </test>
+      <result>
+         <assert>/out = "MHK|MMP|P|P|P|H|P|A|B"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-036">
+      <description>Streaming distinct-ordered-nodes  - two potentially consuming operands (bug 27668)</description>
+      <keywords>ParenthesizedExpr mixed-posture crawling-then-climbing leading-double-slash attribute-axis PathExpr ancestor-or-self-axis</keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-036"/>
+      </test>
+      <result>
+         <all-of>
+           <assert>/out/v[1] = 'P Paperback'</assert>
+           <assert>/out/v[2] = 'MMP Mass-market Paperback'</assert>
+           <assert>/out/v[3] = 'H Hard Cover'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-040">
+      <description>Streaming distinct-ordered-nodes  - bug 29507</description>
+      <keywords>ParenthesizedExpr mixed-posture </keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-040"/>
+      </test>
+      <result>
+         <any-of>
+            <assert>deep-equal(/out/PRICE/xs:decimal(.), (18.90, 4.95, 6.58, 4.95, 4.95, 16.47, 16.47))</assert>
+            <assert>deep-equal(/out/PRICE/xs:decimal(.), (4.95, 6.58, 4.95, 4.95, 16.47, 16.47, 18.90))</assert>          
+         </any-of>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-041">
+      <description>Streaming distinct-ordered-nodes  - bug 29507</description>
+      <keywords>ParenthesizedExpr mixed-posture </keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-041"/>
+      </test>
+      <result>
+         <any-of>
+            <assert>deep-equal(/out/PRICE/xs:decimal(.), (18.90, 4.95, 6.58, 4.95, 4.95, 16.47, 16.47))</assert>
+            <assert>deep-equal(/out/PRICE/xs:decimal(.), (4.95, 6.58, 4.95, 4.95, 16.47, 16.47, 18.90))</assert>          
+         </any-of>        
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-042">
+      <description>Streaming distinct-ordered-nodes  - bug 29507</description>
+      <keywords>ParenthesizedExpr mixed-posture </keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-042"/>
+      </test>
+      <result>
+         <any-of>
+            <assert>/out = "18.90 4.95 6.58 4.95 4.95 16.47 16.47"</assert>
+            <assert>/out = "4.95 6.58 4.95 4.95 16.47 16.47 18.90"</assert>
+         </any-of>
+      </result>
+   </test-case>
+   
+   <test-case name="sf-distinct-ordered-nodes-043">
+      <description>Streaming distinct-ordered-nodes  - bug 29507</description>
+      <keywords>ParenthesizedExpr mixed-posture </keywords>
+      <created by="Michael Kay" on="2025-01-15"/>
+      <environment ref="sf-distinct-ordered-nodes-A"/>
+      <test>
+         <initial-template name="r-043"/>
+      </test>
+      <result>
+         <any-of>
+            <assert>/out = "18.90 4.95 6.58 4.95 4.95 16.47 16.47"</assert>
+            <assert>/out = "4.95 6.58 4.95 4.95 16.47 16.47 18.90"</assert>
+         </any-of>
+      </result>
+   </test-case>
+
+
+ 
+
+</test-set>
