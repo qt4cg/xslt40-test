@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns="http://www.w3.org/2012/10/xslt-test-catalog" name="xsl-record">
+    <description>Tests xsl:record</description>
+    <dependencies>
+        <spec value="XSLT40+"/>
+    </dependencies>
+
+    <environment name="maps-012">
+        <stylesheet file="maps-012.xsl"/>
+        <source role=".">
+            <content><![CDATA[<doc><e ref='1'/></doc>]]></content>
+        </source>
+    </environment>
+
+    <test-case name="xsl-record-001">
+        <description>Basic test of xsl:record in an XSLT 4.0 context</description>
+        <created by="John Lumley" on="2025-04-07"/>
+        <!--<modified by="Michael Kay" on="2014-06-03" change="align with current spec, make results predictable"/>
+      <modified by="Abel Braaksma" on="2014-10-20" change="Since Oct 2014 LCWD, map:new is no longer among us, replaced it with map:merge" />-->
+        <test>
+            <stylesheet file="xsl-record-001.xsl"/>
+            <initial-template name="main"/>
+        </test>
+        <result>
+            <assert-xml><![CDATA[<json>[{"CA":[{"kitchen":{"broiler":"20","toaster":"150"}},{"clothes":{"socks":"510"}}]},{"MA":[{"kitchen":{"blender":"250","toaster":"50"}},{"clothes":{"shirt":"10"}}]}]</json>]]></assert-xml>
+        </result>
+    </test-case>
+
+    <test-case name="xsl-record-002">
+        <description>Test of XSLT 4.0 xsl:record/xsl:map-entry combination</description>
+        <created by="John Lumley" on="2025-04-07"/>
+        <!--<created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2014-06-03" change="align with current spec, make results predictable"/>
+      <modified by="Abel Braaksma" on="2014-10-20" change="Since Oct 2014 LCWD, map:new is no longer among us, replaced it with map:merge" />-->
+        <test>
+            <stylesheet file="xsl-record-002.xsl"/>
+            <initial-template name="main"/>
+        </test>
+        <result>
+            <assert-xml><![CDATA[<json>[{"CA":[{"kitchen":{"broiler":"20","toaster":"150"}},{"clothes":{"socks":"510"}}]},{"MA":[{"kitchen":{"blender":"250","toaster":"50"}},{"clothes":{"shirt":"10"}}]}]</json>]]></assert-xml>
+        </result>
+    </test-case>
+
+
+    <test-case name="xsl-record-003">
+        <description>Error if xsl:record used in the content of an element constructor</description>
+        <created by="John Lumley" on="2025-04-08"/>
+        <!-- <created by="Michael Kay" on="2012-11-07"/>
+        <modified by="Michael Kay" on="2017-02-18" change="correct expected error code"/>-->
+        <test>
+            <stylesheet file="xsl-record-003.xsl"/>
+            <initial-template name="main"/>
+        </test>
+        <result>
+            <error code="XTDE0450"/>
+        </result>
+    </test-case>
+
+    <test-case name="xsl-record-004">
+        <description>Error if a non-map used in the content of xsl:record</description>
+        <created by="John Lumley" on="2025-04-08"/>
+        <!--<created by="Michael Kay" on="2012-11-07"/>
+        <modified by="Abel Braaksma" on="2014-10-20" change="Error changed, the spec requires this to yield error XTTE3375, not XPTY0004"></modified>-->
+        <test>
+            <stylesheet file="xsl-record-004.xsl"/>
+            <initial-template name="main"/>
+        </test>
+        <result>
+            <error code="XTTE3375"/>
+        </result>
+    </test-case>
+
+    <test-case name="xsl-record-005">
+        <description>Test for an 'empty' xsl:record</description>
+        <created by="John Lumley" on="2025-04-18"/>
+        <test>
+            <stylesheet file="xsl-record-005.xsl"/>
+            <initial-template name="main"/>
+        </test>
+        <result>
+            <assert>/out/@size = '0'</assert>
+        </result>
+    </test-case>
+
+    <test-case name="xsl-record-006">
+        <description>Test unprefixed standard attributes on xsl:record</description>
+        <created by="John Lumley" on="2025-04-18"/>
+        <test>
+            <stylesheet file="xsl-record-005.xsl"/>
+            <initial-template name="main"/>
+        </test>
+        <result>
+            <assert-xml><![CDATA[<json>[{"default-collation":"http://www.w3.org/2005/xpath-functions/collation/codepoint","default-mode":"b","default-validation":"preserve","exclude-result-prefixes":"c d e","expand-text":true,"extension-element-prefixes":"f g h","schema-role":"i","use-when":true,"version":3.1,"xpath-default-namespace":"b"}]</json>]]></assert-xml>
+        </result>
+    </test-case>
+
+    <test-case name="xsl-record-007">
+        <description>Test xsl prefixed standard attributes on xsl:record</description>
+        <created by="John Lumley" on="2025-04-18"/>
+        <test>
+            <stylesheet file="xsl-record-005.xsl"/>
+            <initial-template name="main"/>
+        </test>
+        <result>
+            <assert-xml><![CDATA[<json>[{"data":"Some data"}]]]></assert-xml>
+        </result>
+    </test-case>
+
+    <test-case name="xsl-record-008">
+        <description>Potential shadow attributes ignored on xsl:record</description>
+        <created by="John Lumley" on="2025-04-18"/>
+        <test>
+            <stylesheet file="xsl-record-008.xsl"/>
+            <initial-template name="main"/>
+        </test>
+        <result>
+            <all-of>
+                <assert>/out/@a = 'red'</assert>
+                <assert>/out/@b = 'underscored'</assert>
+            </all-of>
+        </result>
+    </test-case>
+
+
+    <test-case name="xsl-record-401">
+        <description>xsl:record with @duplicates (select first)</description>
+        <created by="John Lumley" on="2025-04-18"/>
+        <dependencies>
+            <spec value="XSLT40+"/>
+        </dependencies>
+        <test>
+            <stylesheet file="xsl-record-401.xsl"/>
+        </test>
+        <result>
+            <assert>/out/@result = '1'</assert>
+        </result>
+    </test-case>
+
+    <test-case name="xsl-record-402">
+        <description>xsl:record with @duplicates (select last)</description>
+        <created by="John Lumley" on="2025-04-18"/>
+        <dependencies>
+            <spec value="XSLT40+"/>
+        </dependencies>
+        <test>
+            <stylesheet file="xsl-record-402.xsl"/>
+        </test>
+        <result>
+            <assert>/out/@result = '5'</assert>
+        </result>
+    </test-case>
+
+    <test-case name="xsl-record-403">
+        <description>xsl:record with @duplicates (select sequence concatenation)</description>
+        <created by="John Lumley" on="2025-04-18"/>
+        <dependencies>
+            <spec value="XSLT40+"/>
+        </dependencies>
+        <test>
+            <stylesheet file="xsl-record-403.xsl"/>
+        </test>
+        <result>
+            <assert>/out/@result = '1 4 5'</assert>
+        </result>
+    </test-case>
+
+    <test-case name="xsl-record-404">
+        <description>xsl:record with on-duplicates (select string-join)</description>
+        <created by="John Lumley" on="2025-04-18"/>
+        <dependencies>
+            <spec value="XSLT40+"/>
+        </dependencies>
+        <test>
+            <stylesheet file="xsl-record-404.xsl"/>
+        </test>
+        <result>
+            <assert>/out/@result = '1-4-5'</assert>
+        </result>
+    </test-case>
+
+    <test-case name="xsl-record-405">
+        <description>xsl:record with on-duplicates (select error())</description>
+        <created by="John Lumley" on="2025-04-18"/>
+        <dependencies>
+            <spec value="XSLT40+"/>
+        </dependencies>
+        <test>
+            <stylesheet file="xsl-record-405.xsl"/>
+        </test>
+        <result>
+            <error code="Q{http://example.com/}dupe"/>
+        </result>
+    </test-case>
+
+    <test-case name="xsl-record-407" covers-40="PR1740">
+        <description>xsl:record with @duplicates (select first)</description>
+        <created by="John Lumley" on="2025-04-18"/>
+        <dependencies>
+            <spec value="XSLT40+"/>
+        </dependencies>
+        <test>
+            <stylesheet file="xsl-record-407.xsl"/>
+        </test>
+        <result>
+            <assert>/out/@result = '1'</assert>
+        </result>
+    </test-case>
+
+    <test-case name="xsl-record-408" covers-40="PR1740">
+        <description>xsl:record with @duplicates (select last)</description>
+        <created by="John Lumley" on="2025-04-18"/>
+        <dependencies>
+            <spec value="XSLT40+"/>
+        </dependencies>
+        <test>
+            <stylesheet file="xsl-record-408.xsl"/>
+        </test>
+        <result>
+            <assert>/out/@result = '5'</assert>
+        </result>
+    </test-case>
+
+    <test-case name="xsl-record-409" covers-40="PR1740">
+        <description>xsl:record with duplicates=combine</description>
+        <created by="John Lumley" on="2025-04-18"/>
+        <dependencies>
+            <spec value="XSLT40+"/>
+        </dependencies>
+        <test>
+            <stylesheet file="xsl-record-409.xsl"/>
+        </test>
+        <result>
+            <assert>/out/@result = '1 4 5'</assert>
+        </result>
+    </test-case>
+
+    <test-case name="xsl-record-410" covers-40="PR1740">
+        <description>xsl:record with duplicates=reject</description>
+        <created by="John Lumley" on="2025-04-18"/>
+        <dependencies>
+            <spec value="XSLT40+"/>
+        </dependencies>
+        <test>
+            <stylesheet file="xsl-record-410.xsl"/>
+        </test>
+        <result>
+            <error code="Q{http://example.com/}dupe"/>
+        </result>
+    </test-case>
+
+
+</test-set>
