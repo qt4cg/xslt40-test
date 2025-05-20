@@ -3755,7 +3755,8 @@
       </all-of> 
     </result>
   </test-case>
-<test-case name="import-schema-203">
+   
+  <test-case name="import-schema-203">
       <description>Saxon bug 6151: import-schema refers to schema document with wrong target namespace</description>
       <created by="Michael Kay" on="2023-08-06"/>
       <environment>
@@ -3773,4 +3774,114 @@
          <error code="XTSE0220"/>
       </result>
    </test-case>
+   
+   <test-case name="import-schema-204">
+      <description>Import the schema for the FN namespace</description>
+      <created by="Michael Kay" on="2025-03-21"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="import-schema-204.xsl"/>
+      </test>
+      <result>
+         <assert>/ok[@num = '42'][@numeric='true']</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="import-schema-205">
+      <description>Import the schema for the FN namespace</description>
+      <created by="Michael Kay" on="2025-03-21"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="import-schema-205.xsl"/>
+      </test>
+      <result>
+         <assert>/ok[@num = '42'][@numeric='true']</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="import-schema-206">
+      <description>4.0 allows multiple schemas</description>
+      <created by="Michael Kay" on="2025-03-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="import-schema-206.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/*:a/text() = "10"</assert>
+            <assert>/out/*:b/text() = "2025-03-23"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="import-schema-207">
+      <description>4.0 allows multiple schemas: error, unknown element in local schema</description>
+      <created by="Michael Kay" on="2025-03-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="import-schema-207.xsl"/>
+      </test>
+      <result>
+         <error code="XTTE1512"/>
+      </result>
+   </test-case>
+   
+   <test-case name="import-schema-208">
+      <description>4.0 allows multiple schemas: error, schemas are incompatible</description>
+      <created by="Michael Kay" on="2025-03-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="import-schema-208.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0220"/>
+      </result>
+   </test-case>
+   
+   <test-case name="import-schema-209">
+      <description>4.0 allows multiple schemas: error, role name must be an NCName </description>
+      <created by="Michael Kay" on="2025-03-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="import-schema-209.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0020"/>
+      </result>
+   </test-case>
+   
+   <test-case name="import-schema-210">
+      <description>4.0 allows multiple schemas: error, role name must be declared in an import-schema </description>
+      <created by="Michael Kay" on="2025-03-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="import-schema-210.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE4045"/>
+      </result>
+   </test-case>
+   
+   
 </test-set>
