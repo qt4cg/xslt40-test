@@ -5058,10 +5058,10 @@
       <created by="Michael Kay" on="2025-01-25"/>
       <dependencies>
          <spec value="XSLT20+"/>
+         <feature value="schema_aware"/>
       </dependencies>
       <test>
          <stylesheet file="output-0729.xsl"/>
-         <feature value="schema_aware"/>
          <output serialize="yes" tree="no"/>
       </test>
       <result>
@@ -5070,6 +5070,21 @@
             <serialization-matches><![CDATA[</salutation> Your order]]></serialization-matches>
             <serialization-matches><![CDATA[</shipDate>.</letterBody>]]></serialization-matches>
          </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="output-0730" covers-40="PR1546">
+      <description>JSON serialization with json-lines=yes</description>
+      <created by="Michael Kay" on="2025-02-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="output-0730.xsl"/>
+         <output serialize="yes" tree="no"/>
+      </test>
+      <result>
+         <serialization-matches>^\{"a":"x","b":"y","c":\["z"\]\}\n\{"a":"p","b":"q","c":\["r"\]\}$</serialization-matches>
       </result>
    </test-case>
 </test-set>
