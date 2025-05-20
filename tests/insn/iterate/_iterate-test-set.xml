@@ -625,6 +625,60 @@
     </result>
   </test-case>
   
+  <test-case name="iterate-044">
+    <description>xsl:iterate accessing local variables. Inspired by Saxon bug 6679</description>
+    <created by="Michael Kay" on="2025-02-25"/>
+    <environment ref="iterate005"/>
+    <test>
+      <stylesheet file="iterate-044.xsl"/>
+    </test>
+    <result>
+      <assert-xml><![CDATA[<out more="1001">X C S T T T<page-break
+        />S A A<page-break/>U T C T A<page-break/>E L T<page-break
+        />G S<page-break/>T A T<page-break/>T T T A<page-break
+        />A A T T<page-break/>A A S<page-break/>T T O A T<page-break
+        />A T A<page-break/>A A A N<page-break/>N S I<page-break
+        />E A T T T<page-break/>T T N N A T A<page-break
+        />T E<page-break/>E N T S I<page-break/>T A " A T<page-break/>W</out>]]></assert-xml>
+    </result>
+  </test-case>
+  
+  <test-case name="iterate-045">
+    <description>xsl:iterate within xsl:function. Inspired by Saxon bug 6679</description>
+    <created by="Michael Kay" on="2025-02-25"/>
+    <environment ref="iterate005"/>
+    <test>
+      <stylesheet file="iterate-045.xsl"/>
+    </test>
+    <result>
+      <assert-xml><![CDATA[<out more="1001">X C S T T T<page-break
+        />S A A<page-break/>U T C T A<page-break/>E L T<page-break
+        />G S<page-break/>T A T<page-break/>T T T A<page-break
+        />A A T T<page-break/>A A S<page-break/>T T O A T<page-break
+        />A T A<page-break/>A A A N<page-break/>N S I<page-break
+        />E A T T T<page-break/>T T N N A T A<page-break
+        />T E<page-break/>E N T S I<page-break/>T A " A T<page-break/>W</out>]]></assert-xml>
+    </result>
+  </test-case>
+  
+  <test-case name="iterate-046">
+    <description>xsl:iterate within xsl:accumulator. Inspired by Saxon bug 6679</description>
+    <created by="Michael Kay" on="2025-02-25"/>
+    <environment ref="iterate005"/>
+    <test>
+      <stylesheet file="iterate-046.xsl"/>
+    </test>
+    <result>
+      <assert-xml><![CDATA[<out more="1001">X C S T T T<page-break
+        />S A A<page-break/>U T C T A<page-break/>E L T<page-break
+        />G S<page-break/>T A T<page-break/>T T T A<page-break
+        />A A T T<page-break/>A A S<page-break/>T T O A T<page-break
+        />A T A<page-break/>A A A N<page-break/>N S I<page-break
+        />E A T T T<page-break/>T T N N A T A<page-break
+        />T E<page-break/>E N T S I<page-break/>T A " A T<page-break/>W</out>]]></assert-xml>
+    </result>
+  </test-case>
+  
   <test-case name="iterate-401" covers-40="PR921">
     <description>Test of xsl:iterate instruction, xsl:break within xsl:switch branch.</description>
     <created by="Michael Kay" on="2024-01-01"/>
