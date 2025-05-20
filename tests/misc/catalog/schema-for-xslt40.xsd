@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--* <!DOCTYPE xs:schema PUBLIC "-//W3C//DTD XMLSCHEMA 200105//EN"
-       "http://www.w3.org/2001/XMLSchema.dtd" [
-<!ENTITY % schemaAttrs "
-  xmlns:xs   CDATA #IMPLIED
-  xmlns:xsl  CDATA #IMPLIED
-  xmlns:xsd  CDATA #IMPLIED"
->
-<!ENTITY % p "xs:">
-<!ENTITY % s ":xs">
-]> *-->
-<!--<?xml-stylesheet href="http://www.w3.org/2008/09/xsd.xsl" type=" t e x t / x s l"?>-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
@@ -235,6 +224,12 @@ of problems processing the schema using various tools
     <xs:attribute name="_use-when" type="xs:string"/>
     <xs:attribute name="_xpath-default-namespace" type="xs:string"/>
     <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  
+  <xs:complexType name="element-only-generic-element-type" mixed="false">
+    <xs:complexContent>
+      <xs:restriction base="xsl:generic-element-type"/>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="versioned-element-type" mixed="true">
@@ -983,7 +978,6 @@ of problems processing the schema using various tools
           <xs:attribute name="override-extension-function" type="xsl:yes-or-no"/>
           <xs:attribute name="new-each-time" type="xsl:yes-or-no-or-maybe"/>
           <xs:attribute name="cache" type="xsl:yes-or-no"/>
-          <xs:attribute name="variadic" type="xsl:yes-or-no"/>
           <xs:attribute name="_name" type="xs:string"/>
           <xs:attribute name="_override" type="xs:string"/>
           <xs:attribute name="_as" type="xs:string"/>
@@ -992,7 +986,6 @@ of problems processing the schema using various tools
           <xs:attribute name="_override-extension-function" type="xs:string"/>
           <xs:attribute name="_new-each-time" type="xs:string"/>
           <xs:attribute name="_cache" type="xs:string"/>
-          <xs:attribute name="_variadic" type="xs:string"/>
           <xs:assert test="exists(@name | @_name)"/>
           <xs:assert test="every $e in xsl:param satisfies empty($e/(@visibility | @_visibility))">
             <xs:annotation>
@@ -1066,8 +1059,10 @@ of problems processing the schema using various tools
             <xs:element ref="xs:schema" minOccurs="0" maxOccurs="1"/>
           </xs:sequence>
           <xs:attribute name="namespace" type="xs:anyURI"/>
+          <xs:attribute name="role" type="xs:NCName"/>
           <xs:attribute name="schema-location" type="xs:anyURI"/>
           <xs:attribute name="_namespace" type="xs:string"/>
+          <xs:attribute name="_role" type="xs:string"/>
           <xs:attribute name="_schema-location" type="xs:string"/>
           <xs:assert test="not(exists(@schema-location | @_schema-location) and exists(xs:schema))">
             <xs:annotation>
@@ -1141,9 +1136,9 @@ of problems processing the schema using various tools
               substitutionGroup="xsl:instruction">
     <xs:complexType>
       <xs:complexContent mixed="true">
-        <xs:extension base="xsl:sequence-constructor">
-          <xs:attribute name="on-duplicates" type="xsl:expression"/>
-          <xs:attribute name="_on-duplicates" type="xs:string"/>
+        <xs:extension base="xsl:sequence-constructor-and-select">
+          <xs:attribute name="duplicates" type="xsl:expression"/>
+          <xs:attribute name="_duplicates" type="xs:string"/>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
@@ -1270,6 +1265,7 @@ of problems processing the schema using various tools
           <xs:attribute name="warning-on-no-match" type="xsl:yes-or-no"/>
           <xs:attribute name="warning-on-multiple-match" type="xsl:yes-or-no"/>
           <xs:attribute name="typed" type="xsl:typed-type"/>
+          <xs:attribute name="copy-namespaces" type="xsl:yes-or-no"/>
           <xs:attribute name="visibility">
             <xs:simpleType>
               <xs:restriction base="xsl:visibility-type">
@@ -1288,6 +1284,7 @@ of problems processing the schema using various tools
           <xs:attribute name="_warning-on-no-match" type="xs:string"/>
           <xs:attribute name="_warning-on-multiple-match" type="xs:string"/>
           <xs:attribute name="_typed" type="xs:string"/>
+          <xs:attribute name="_copy_namespaces" type="xs:string"/>
           <xs:attribute name="_visibility" type="xs:string"/>
         </xs:extension>
       </xs:complexContent>
@@ -1417,8 +1414,8 @@ of problems processing the schema using various tools
 
   <xs:element name="output" substitutionGroup="xsl:declaration">
     <xs:complexType>
-      <xs:complexContent mixed="true">
-        <xs:extension base="xsl:generic-element-type">
+      <xs:complexContent>
+        <xs:extension base="xsl:element-only-generic-element-type">
           <xs:attribute name="name" type="xsl:EQName"/>
           <xs:attribute name="method" type="xsl:method"/>
           <xs:attribute name="allow-duplicate-names" type="xsl:yes-or-no"/>
@@ -1434,6 +1431,7 @@ of problems processing the schema using various tools
           <xs:attribute name="include-content-type" type="xsl:yes-or-no"/>
           <xs:attribute name="indent" type="xsl:yes-or-no"/>
           <xs:attribute name="item-separator" type="xs:string"/>
+          <xs:attribute name="json-lines" type="xsl:yes-or-no"/>
           <xs:attribute name="json-node-output-method" type="xsl:method"/>
           <xs:attribute name="media-type" type="xs:string"/>
           <xs:attribute name="normalization-form" type="xs:NMTOKEN"/>
@@ -1466,6 +1464,7 @@ of problems processing the schema using various tools
           <xs:attribute name="_undeclare-prefixes" type="xs:string"/>
           <xs:attribute name="_use-character-maps" type="xs:string"/>
           <xs:attribute name="_version" type="xs:string"/>
+          <xs:anyAttribute namespace="##other" processContents="lax"/>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
@@ -1635,6 +1634,7 @@ of problems processing the schema using various tools
       <xs:complexContent mixed="true">
         <xs:extension base="xsl:sequence-constructor">
           <xs:attribute name="format" type="xsl:avt"/>
+          <xs:attribute name="select" type="xsl:expression"/>
           <xs:attribute name="href" type="xsl:avt"/>
           <xs:attribute name="type" type="xsl:EQName"/>
           <xs:attribute name="validation" type="xsl:validation-type"/>
@@ -1652,6 +1652,7 @@ of problems processing the schema using various tools
           <xs:attribute name="include-content-type" type="xsl:avt"/>
           <xs:attribute name="indent" type="xsl:avt"/>
           <xs:attribute name="item-separator" type="xsl:avt"/>
+          <xs:attribute name="json-lines" type="xsl:avt"/>
           <xs:attribute name="json-node-output-method" type="xsl:avt"/>
           <xs:attribute name="media-type" type="xsl:avt"/>
           <xs:attribute name="normalization-form" type="xsl:avt"/>
@@ -1663,6 +1664,7 @@ of problems processing the schema using various tools
           <xs:attribute name="use-character-maps" type="xsl:EQNames"/>
           <xs:attribute name="output-version" type="xsl:avt"/>
           <xs:attribute name="_format" type="xs:string"/>
+          <xs:attribute name="_select" type="xs:string"/>
           <xs:attribute name="_href" type="xs:string"/>
           <xs:attribute name="_type" type="xs:string"/>
           <xs:attribute name="_validation" type="xs:string"/>
