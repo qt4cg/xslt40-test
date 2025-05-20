@@ -1029,6 +1029,22 @@
          <assert>contains(/out, "true")</assert>
       </result>
    </test-case>
+   
+   <test-case name="cvt-051">
+      <description>xsl:expand-text on a literal result element</description>
+      <keywords>expand-text-attribute xsl:stylesheet variable-reference lre</keywords>
+      <created by="Michael Kay" on="2025-04-17"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="cvt-001.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert>/out = "Goodbye Mars!"</assert>
+      </result>
+   </test-case>
 
 
 
