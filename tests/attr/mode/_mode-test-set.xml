@@ -2061,6 +2061,28 @@
          <error code="XTSE0020"/>
       </result>
    </test-case>
+   
+   <test-case name="mode-1448">
+      <description>Test xsl:default-mode attribute on literal result element</description>
+      <keywords> mode-#current</keywords>
+      <created by="Michael Kay" on="2025-04-17"/>
+      <environment ref="mode-14"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-1448.xsl"/>
+         <initial-mode name="dm"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<root>
+ The First Book of Moses, Called GENESIS.
+ <book><QED>Genesis</QED></book>
+ Chapter 1
+ Chapter 2
+</root>]]></assert-xml>
+      </result>
+   </test-case>
       
    <test-case name="mode-1501">
       <description>Test for mode="#all" with match="node()"</description>
