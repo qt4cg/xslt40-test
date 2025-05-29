@@ -1974,4 +1974,18 @@ nNode: neither</out>]]></assert-xml>
          </any-of>
       </result>
    </test-case>
+   
+   <test-case name="variable-4903" covers-40="PR2015">
+      <description>No document node created when xsl:variable contains xsl:map</description>
+      <created by="Michael Kay" on="2025-05-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="variable-4903.xsl"/>
+      </test>
+      <result>
+         <assert>out/@result = 'true'</assert>
+      </result>
+   </test-case>
 </test-set>
