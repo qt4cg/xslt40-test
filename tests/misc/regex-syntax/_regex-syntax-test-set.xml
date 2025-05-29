@@ -10233,6 +10233,9 @@
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'\b@foo'"/>
          <initial-template name="go"/>
@@ -10241,11 +10244,32 @@
          <error code="FORX0002"/>
       </result>
    </test-case>
+   
+   <test-case name="regex-syntax-0649a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'\b@foo'"/>
+         <param name="match" as="xs:string" select="''"/>
+         <param name="nonmatch" as="xs:string" select="'@flop'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
+      </result>
+   </test-case>
 
    <test-case name="regex-syntax-0650">
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'\b,foo'"/>
          <initial-template name="go"/>
@@ -10254,11 +10278,32 @@
          <error code="FORX0002"/>
       </result>
    </test-case>
+   
+   <test-case name="regex-syntax-0650a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'\b,foo'"/>
+         <param name="match" as="xs:string" select="''"/>
+         <param name="nonmatch" as="xs:string" select="'@flop'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
+      </result>
+   </test-case>
 
    <test-case name="regex-syntax-0651">
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'\b\[foo'"/>
          <initial-template name="go"/>
@@ -10267,11 +10312,32 @@
          <error code="FORX0002"/>
       </result>
    </test-case>
+   
+   <test-case name="regex-syntax-0651a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'\b\[foo'"/>
+         <param name="match" as="xs:string" select="''"/>
+         <param name="nonmatch" as="xs:string" select="'@flop'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
+      </result>
+   </test-case>
 
    <test-case name="regex-syntax-0652">
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'\B@foo'"/>
          <initial-template name="go"/>
@@ -10280,11 +10346,32 @@
          <error code="FORX0002"/>
       </result>
    </test-case>
+   
+   <test-case name="regex-syntax-0652a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'\B@foo'"/>
+         <param name="match" as="xs:string" select="'@foo'"/>
+         <param name="nonmatch" as="xs:string" select="'@flop'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
+      </result>
+   </test-case>
 
    <test-case name="regex-syntax-0653">
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'\B,foo'"/>
          <initial-template name="go"/>
@@ -10293,17 +10380,56 @@
          <error code="FORX0002"/>
       </result>
    </test-case>
+   
+   <test-case name="regex-syntax-0653a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'\B,foo'"/>
+         <param name="match" as="xs:string" select="''"/>
+         <param name="nonmatch" as="xs:string" select="'@flop'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
+      </result>
+   </test-case>
 
    <test-case name="regex-syntax-0654">
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'\B\[foo'"/>
          <initial-template name="go"/>
       </test>
       <result>
          <error code="FORX0002"/>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-syntax-0654a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'\B\[foo'"/>
+         <param name="match" as="xs:string" select="'[foo'"/>
+         <param name="nonmatch" as="xs:string" select="'@flop'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
       </result>
    </test-case>
 
@@ -12008,6 +12134,9 @@
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'abc(?=XXX)\w+'"/>
          <initial-template name="go"/>
@@ -12016,17 +12145,54 @@
          <error code="FORX0002"/>
       </result>
    </test-case>
+   
+   <test-case name="regex-syntax-0767a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'abc(?=XXX)\w+'"/>
+         <param name="match" as="xs:string" select="'abcXXX'"/>
+         <param name="nonmatch" as="xs:string" select="'abcXX'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
+      </result>
+   </test-case>
 
    <test-case name="regex-syntax-0768">
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'abc(?!XXX)\w+'"/>
          <initial-template name="go"/>
       </test>
       <result>
          <error code="FORX0002"/>
+      </result>
+   </test-case>
+
+   <test-case name="regex-syntax-0768a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40a"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'abc(?!XXX)\w+'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
       </result>
    </test-case>
 
@@ -12271,12 +12437,33 @@
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'.*\B(SUCCESS)\B.*'"/>
          <initial-template name="go"/>
       </test>
       <result>
          <error code="FORX0002"/>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-syntax-0784a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'.*\B(SUCCESS)\B.*'"/>
+         <param name="match" as="xs:string" select="'AASUCCESSAA'"/>
+         <param name="nonmatch" as="xs:string" select="'flop'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
       </result>
    </test-case>
 
@@ -12384,12 +12571,33 @@
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'.*\b(\w+)\b'"/>
          <initial-template name="go"/>
       </test>
       <result>
          <error code="FORX0002"/>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-syntax-0792a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'.*\b(\w+)\b'"/>
+         <param name="match" as="xs:string" select="'flop'"/>
+         <param name="nonmatch" as="xs:string" select="'///'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
       </result>
    </test-case>
 
@@ -12603,6 +12811,9 @@
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'\ba\b'"/>
          <initial-template name="go"/>
@@ -12611,11 +12822,32 @@
          <error code="FORX0002"/>
       </result>
    </test-case>
+   
+   <test-case name="regex-syntax-0807a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'\ba\b'"/>
+         <param name="match" as="xs:string" select="'a'"/>
+         <param name="nonmatch" as="xs:string" select="'~z~'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
+      </result>
+   </test-case>
 
    <test-case name="regex-syntax-0808">
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'\by\b'"/>
          <initial-template name="go"/>
@@ -12624,11 +12856,32 @@
          <error code="FORX0002"/>
       </result>
    </test-case>
+   
+   <test-case name="regex-syntax-0808a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'\by\b'"/>
+         <param name="match" as="xs:string" select="'y'"/>
+         <param name="nonmatch" as="xs:string" select="'~y~'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
+      </result>
+   </test-case>
 
    <test-case name="regex-syntax-0809">
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'\Ba\B'"/>
          <initial-template name="go"/>
@@ -12637,11 +12890,32 @@
          <error code="FORX0002"/>
       </result>
    </test-case>
+   
+   <test-case name="regex-syntax-0809a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'\Ba\B'"/>
+         <param name="match" as="xs:string" select="''"/>
+         <param name="nonmatch" as="xs:string" select="'a'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
+      </result>
+   </test-case>
 
    <test-case name="regex-syntax-0810">
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'\By\b'"/>
          <initial-template name="go"/>
@@ -12650,11 +12924,32 @@
          <error code="FORX0002"/>
       </result>
    </test-case>
+   
+   <test-case name="regex-syntax-0810a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'\By\b'"/>
+         <param name="match" as="xs:string" select="''"/>
+         <param name="nonmatch" as="xs:string" select="'~z~'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
+      </result>
+   </test-case>
 
    <test-case name="regex-syntax-0811">
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'\by\B'"/>
          <initial-template name="go"/>
@@ -12663,17 +12958,56 @@
          <error code="FORX0002"/>
       </result>
    </test-case>
+   
+   <test-case name="regex-syntax-0811a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'\by\B'"/>
+         <param name="match" as="xs:string" select="''"/>
+         <param name="nonmatch" as="xs:string" select="'~z~'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
+      </result>
+   </test-case>
 
    <test-case name="regex-syntax-0812">
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'\By\B'"/>
          <initial-template name="go"/>
       </test>
       <result>
          <error code="FORX0002"/>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-syntax-0812a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'\By\B'"/>
+         <param name="match" as="xs:string" select="''"/>
+         <param name="nonmatch" as="xs:string" select="'~z~'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
       </result>
    </test-case>
 
@@ -14451,6 +14785,9 @@
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'a(?!b).'"/>
          <initial-template name="go"/>
@@ -14459,11 +14796,32 @@
          <error code="FORX0002"/>
       </result>
    </test-case>
+   
+   <test-case name="regex-syntax-0939a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'a(?!b).'"/>
+         <param name="match" as="xs:string" select="'ax'"/>
+         <param name="nonmatch" as="xs:string" select="'ab'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
+      </result>
+   </test-case>
 
    <test-case name="regex-syntax-0940">
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'a(?=d).'"/>
          <initial-template name="go"/>
@@ -14472,17 +14830,56 @@
          <error code="FORX0002"/>
       </result>
    </test-case>
+   
+   <test-case name="regex-syntax-0940a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'a(?=d).'"/>
+         <param name="match" as="xs:string" select="'ad'"/>
+         <param name="nonmatch" as="xs:string" select="'ae'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
+      </result>
+   </test-case>
 
    <test-case name="regex-syntax-0941">
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'a(?=c|d).'"/>
          <initial-template name="go"/>
       </test>
       <result>
          <error code="FORX0002"/>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-syntax-0941a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'a(?=c|d).'"/>
+         <param name="match" as="xs:string" select="'ad'"/>
+         <param name="nonmatch" as="xs:string" select="'ae'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
       </result>
    </test-case>
 
@@ -15018,12 +15415,33 @@
       <description>see regex-syntax-0001</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT30"/>
+      </dependencies>  
       <test>
          <param name="regex" as="xs:string" select="'(\w(?=aa)aa)'"/>
          <initial-template name="go"/>
       </test>
       <result>
          <error code="FORX0002"/>
+      </result>
+   </test-case>
+   
+   <test-case name="regex-syntax-0978a">
+      <description>see regex-syntax-0001</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="regex-syntax"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>  
+      <test>
+         <param name="regex" as="xs:string" select="'(\w(?=aa)aa)'"/>
+         <param name="match" as="xs:string" select="'xaa'"/>
+         <param name="nonmatch" as="xs:string" select="'xab'"/>
+         <initial-template name="go"/>
+      </test>
+      <result>
+         <assert>/true</assert>
       </result>
    </test-case>
 
