@@ -4,7 +4,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     exclude-result-prefixes="map xs">
     
-    <xsl:variable name="RUN" select="true()" static="yes"/>
+    <xsl:variable name="RUN" select="false()" static="yes"/>
     <xsl:strip-space elements="*"/>
     
     <xsl:variable name="insertion" as="element()*">
@@ -65,7 +65,7 @@
     
     <!-- Streaming distinct-ordered-nodes function: striding operand, transmission usage -->
     
-    <xsl:template name="r-012" use-when="$RUN">
+    <xsl:template name="r-012" use-when="true() or $RUN">
       <xsl:source-document streamable="yes" href="../docs/books.xml">
         <out>
           <xsl:value-of select="distinct-ordered-nodes(/BOOKLIST/BOOKS/ITEM/PRICE union  $insertion)[position() mod 2 = 0]"/>
