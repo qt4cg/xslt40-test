@@ -138,6 +138,20 @@
       </result>
    </test-case>
    
+   <test-case name="sf-copy-of-101">
+      <description>Saxon bug 6805 - copy-of including a comment node</description>
+      <created by="Michael Kay" on="2025-05-21"/>
+      <environment>
+         <source role="." file="sf-copy-of-101.xml"/>
+      </environment>
+      <test>
+         <stylesheet file="sf-copy-of-101.xsl"/>
+      </test>
+      <result>
+         <assert>/Cc/Dok/Kopf/comment() = " some unneeded comment "</assert>
+      </result>
+   </test-case>
+   
    
   
    
