@@ -1381,6 +1381,25 @@
       </result>
    </test-case>
    
+   <test-case name="validation-1709">
+      <description>
+         Valid xsi:type attribute - strict validation - unknown element name
+      </description>
+      <created by="Michael Kay" on="2025-05-28"/>
+      <environment ref="validation-16"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="validation-1709.xsl"/>
+         <param name="VALIDATION" static="yes" select="'strict'"/>
+      </test>
+      <result>
+         <assert>/* instance of element(Q{http://ns.example.com/val16/}alternative-doc, Q{http://ns.example.com/val16/}docType)</assert>
+      </result>
+   </test-case>
+   
    <test-case name="validation-2001">
       <description>show patterns matching against nilled and unnilled elements in the source</description>
       <created by="Michael Kay" on="2012-11-07"/>
