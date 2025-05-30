@@ -7,13 +7,6 @@
         <spec value="XSLT40+"/>
     </dependencies>
 
-    <environment name="maps-012">
-        <stylesheet file="maps-012.xsl"/>
-        <source role=".">
-            <content><![CDATA[<doc><e ref='1'/></doc>]]></content>
-        </source>
-    </environment>
-
     <test-case name="xsl-record-001">
         <description>Basic test of xsl:record in an XSLT 4.0 context</description>
         <created by="John Lumley" on="2025-04-07"/>
