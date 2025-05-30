@@ -4,8 +4,6 @@
 
 <!-- xsl:iterate within xsl:function -->
 
-<xsl:output indent="yes"/>
-
 <xsl:template match="/">
     <xsl:apply-templates select="//page">
        <xsl:with-param name="max" select="1000"/>

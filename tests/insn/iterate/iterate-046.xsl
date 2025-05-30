@@ -3,8 +3,6 @@
   xmlns:local="urn:local">
 
 <!-- xsl:iterate within xsl:accumulator -->
-
-  <xsl:output indent="yes"/>
   
   <xsl:template match="/">
       <out more="1001">

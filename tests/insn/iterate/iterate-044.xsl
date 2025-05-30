@@ -3,8 +3,6 @@
 
 <!-- Basic test of xsl:iterate; local variables declared outside the xsl:iterate instruction -->
 
-<xsl:output indent="yes"/>
-
 <xsl:template match="/">
     <xsl:apply-templates select="//page">
        <xsl:with-param name="max" select="1000"/>
