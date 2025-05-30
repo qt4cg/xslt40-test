@@ -3362,6 +3362,7 @@
    <test-case name="import-schema-185a">
       <description>Test for importing several schemas with different @namespace and @schema-location. No xs:schema content.</description>
       <created by="Michael Kay" on="2012-10-30"/>
+      <modified by="Michael Kay" on="2025-05-30" change="corrected schema location in stylesheet"/>
       <environment ref="import-schema-185"/>
       <dependencies>
          <spec value="XSLT20+"/>

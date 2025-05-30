@@ -12,7 +12,7 @@
    <xsl:import-schema namespace="http://ns.example.com/sch002"
                       schema-location="schema002.xsd"/>
    <xsl:import-schema namespace="http://ns.example.com/sch004"
-                      schema-location="variousTypesSchemaInline.xsd"/>
+                      schema-location="schema004.xsd"/>
    <xsl:import-schema namespace="http://ns.example.com/sch185"
                       schema-location="schema185.xsd"/>
 
