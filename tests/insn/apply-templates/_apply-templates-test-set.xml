@@ -988,13 +988,28 @@
       <created by="Michael Kay" on="2023-08-10"/>
       <environment ref="conflict-resolution-18"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="conflict-resolution-1901.xsl"/>
       </test>
       <result>
          <assert>/out/two</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="conflict-resolution-1901a" covers-40="PR1772">
+      <description>The rules for union patterns have changed in 4.0</description>
+      <created by="Michael Kay" on="2025-05-29"/>
+      <environment ref="conflict-resolution-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="conflict-resolution-1901.xsl"/>
+      </test>
+      <result>
+         <error code="XTDE0540"/>
       </result>
    </test-case>
 
