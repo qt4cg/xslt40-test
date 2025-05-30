@@ -1628,6 +1628,17 @@ of problems processing the schema using various tools
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
+  
+  <xs:element name="record" substitutionGroup="xsl:instruction">
+    <!-- TODO: needs further work -->
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xsl:sequence-constructor">
+          <xs:anyAttribute processContents="skip"/>
+        </xs:extension>
+      </xs:complexContent>     
+    </xs:complexType>
+  </xs:element>
 
   <xs:element name="result-document" substitutionGroup="xsl:instruction">
     <xs:complexType>
@@ -1697,6 +1708,18 @@ of problems processing the schema using various tools
               </xs:documentation>
             </xs:annotation>
           </xs:assert>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="select"
+              substitutionGroup="xsl:instruction">
+    <xs:complexType>
+      <xs:complexContent mixed="true">
+        <xs:extension base="xsl:sequence-constructor">
+          <xs:attribute name="as" type="xsl:sequence-type"/>
+          <xs:attribute name="_as" type="xs:string"/>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
