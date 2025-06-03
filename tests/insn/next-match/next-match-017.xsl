@@ -11,13 +11,11 @@
 
    <t:template match="doc">
       <out>
-         <t:text>
-</t:text>
+         <t:text>&#x0a;</t:text>
          <t:apply-templates select="*">
             <t:with-param name="p1" select="'top'"/>
          </t:apply-templates>
-         <t:text>
-</t:text>
+         <t:text>&#x0a;</t:text>
       </out>
    </t:template>
 
@@ -26,8 +24,7 @@
       <main-t xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
          <t:value-of select="$p1"/>
       </main-t>
-      <t:text>
-</t:text>
+      <t:text>&#x0a;</t:text>
       <div xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
          <t:next-match>
     	       <t:with-param name="p1" select="'primary template'"/>
@@ -36,8 +33,7 @@
    </t:template>
 
    <t:template match="bag">
-      <t:text>
-</t:text>
+      <t:text>&#x0a;</t:text>
 	     <bag xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
    </t:template>
 </t:transform>
