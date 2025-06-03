@@ -2571,14 +2571,13 @@ An xsl:include element must be a
 
    <test-case name="error-0180a">
       <description>Error: xsl:include - self-referential.
-Was error-code-094.
-It is a static error if a
-                        stylesheet module directly or indirectly includes itself.</description>
+          It is a static error if a stylesheet module directly or indirectly includes itself.</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <modified by="Michael Kay" on="2012-12-11" change="see bug 20179"/>
+      <modified by="Michael Kay" on="2025-06-03" change="No longer an error in 4.0"/>
       <environment ref="error001"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="error-0180a.xsl"/>
@@ -2590,13 +2589,12 @@ It is a static error if a
 
    <test-case name="error-0180b">
       <description>Error: xsl:include - circular reference.
-Was error-code-095.
-It is a static error if a
-                        stylesheet module directly or indirectly includes itself.</description>
+          It is a static error if a stylesheet module directly or indirectly includes itself.</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2025-06-03" change="No longer an error in 4.0"/>
       <environment ref="error001"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="error-0180b.xsl"/>
@@ -2608,13 +2606,12 @@ It is a static error if a
 
    <test-case name="error-0180c">
       <description>Error: xsl:include - circular reference.
-Was error-code-096.
-It is a static error if a
-                        stylesheet module directly or indirectly includes itself.</description>
+         It is a static error if a stylesheet module directly or indirectly includes itself.</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2025-06-03" change="No longer an error in 4.0"/>
       <environment ref="error001"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="error-0180c.xsl"/>
@@ -2626,13 +2623,12 @@ It is a static error if a
 
    <test-case name="error-0180d">
       <description>Generate error XTSE0180.
-Was error-code-217.
-It is a static error if a
-                        stylesheet module directly or indirectly includes itself.</description>
+         It is a static error if a stylesheet module directly or indirectly includes itself.</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2025-06-03" change="No longer an error in 4.0"/>
       <environment ref="error001"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="error-0180d.xsl"/>
@@ -2645,13 +2641,12 @@ It is a static error if a
 
    <test-case name="error-0180e">
       <description>Generate error XTSE0180.
-Was error-code-218.
-It is a static error if a
-                        stylesheet module directly or indirectly includes itself.</description>
+         It is a static error if a stylesheet module directly or indirectly includes itself.</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2025-06-03" change="No longer an error in 4.0"/>
       <environment ref="error001"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="error-0180e.xsl"/>
@@ -2663,13 +2658,12 @@ It is a static error if a
 
    <test-case name="error-0180f">
       <description>Generate error XTSE0180.
-Was error-code-219.
-It is a static error if a
-                        stylesheet module directly or indirectly includes itself.</description>
+         It is a static error if a stylesheet module directly or indirectly includes itself.</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2025-06-03" change="No longer an error in 4.0"/>
       <environment ref="error001"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="error-0180f.xsl"/>
@@ -6488,7 +6482,7 @@ If any sort key value, after
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="error001"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="error-1020a.xsl"/>
@@ -6496,6 +6490,22 @@ If any sort key value, after
       </test>
       <result>
          <error code="XTTE1020"/>
+      </result>
+   </test-case>
+   
+   <test-case name="error-1020b" covers-40="PR1674">
+      <description>Composite sort key - allowed in 4.0</description>
+      <created by="Michael Kay" on="2025-06-03"/>
+      <environment ref="error001"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="error-1020a.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert>/out = "12345"</assert>
       </result>
    </test-case>
 
