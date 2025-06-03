@@ -155,6 +155,10 @@
       <description>No current-output-uri() from xsl:merge-key</description>
       <created by="Abel Braaksma" on="2019-01-31"/>   
       <modified by="Michael Kay" on="2019-07-25" change="The spec is unclear, see bug 30410. Allowing alternative result."/>
+      <modified by="Michael Kay" on="2025-06-03" change="4.0 allows sort key to be a sequence"/>
+      <dependencies>
+        <spec value="XSLT20 XSLT30"/>
+      </dependencies>  
       <test>
          <stylesheet file="current-output-uri-010.xsl"/>
          <output file="results/current-output-uri-010.xml"/>

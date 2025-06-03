@@ -386,14 +386,37 @@
    </test-case>
    
    <test-case name="stream-203">
-      <description>Extract two parts from a partwise MusicXML score: cannot put xs:untypedAtomic in map that expects xs:string</description>
+      <description>Extract two parts from a partwise MusicXML score: 
+         cannot put xs:untypedAtomic in map that expects xs:string</description>
       <created by="Michael Kay" on="2016-02-13"/>
       <modified by="Michael Kay" on="2016-09-12" change="move the call to accumulator-before() out of the pattern so the error is not masked"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies>
       <test>
          <stylesheet file="stream-203.xsl"/>
       </test>
       <result>
          <error code="XPTY0004"/>
+      </result>
+   </test-case>
+   
+   <test-case name="stream-203a" covers-40="PR1501">
+      <description>Extract two parts from a partwise MusicXML score: in 4.0, 
+         can put xs:untypedAtomic in map that expects xs:string</description>
+      <created by="Michael Kay" on="2025-06-03"/>
+      <dependencies>
+         <spec value="XSLT40"/>
+      </dependencies>
+      <test>
+         <stylesheet file="stream-203.xsl"/>
+      </test>
+      <result>
+         <assert>//score-part[@id='P1']
+                  [part-name = 'Cantus']
+                  [part-abbreviation = 'Tr.']
+                  [score-instrument/instrument-name = 'Voice']
+         </assert>
       </result>
    </test-case>
    
