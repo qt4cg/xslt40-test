@@ -277,6 +277,7 @@
       <description>In 4.0, second argument can be ()</description>
       <keywords>fn:function-available maps</keywords>
       <created by="Michael Kay" on="2024-11-17"/>
+      <modified by="Michael Kay" on="2025-06-03" change="fix typo in test expression"/>
       <environment ref="function-available-10"/>
       <dependencies>
          <spec value="XSLT40+"/>

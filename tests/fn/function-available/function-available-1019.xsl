@@ -13,7 +13,7 @@
   <xsl:template match="/">
     <out>
       <a><xsl:value-of select="function-available('contains', ())"/></a> 
-      <b><xsl:value-of select="function-available('count', $one[current-date() lt xs:date('1900-01-01')]"/></b> 
+      <b><xsl:value-of select="function-available('count', $one[current-date() lt xs:date('1900-01-01')])"/></b> 
     </out>
   </xsl:template>
   
