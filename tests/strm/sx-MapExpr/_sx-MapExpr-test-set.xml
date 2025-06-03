@@ -179,6 +179,23 @@
       </result>
    </test-case>
    
+   <test-case name="sx-MapExpr-050">
+      <description>Use MapExpr within xsl:stream (freestanding copy of -001 for diagnostics)</description>
+      <created by="Michael Kay" on="2014-01-22"/>
+      <test>
+         <stylesheet file="sx-MapExpr-050.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>count(out/book) = 6</assert>
+            <assert>out/book[1]/@author = "Jane Austen"</assert>
+            <assert>out/book[1]/@title = "Pride and Prejudice"</assert>
+            <assert>out/book[1]/@price = "4.95"</assert>
+            <assert>out/book[1]/@publisher = "Modern Library"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
    <test-case name="sx-MapExpr-101">
       <description>Saxon bug 2972: map expression within xsl:for-each-group</description>
       <created by="Michael Kay after Martin Honnen" on="2016-09-30"/>

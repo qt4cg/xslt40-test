@@ -42,7 +42,7 @@
   
   <!-- within xsl:stream, use map expression with computed key expressions -->
   
-  <xsl:template name="m-003" use-when="true() or $RUN">
+  <xsl:template name="m-003" use-when="$RUN">
     <out>
       <xsl:source-document streamable="yes" href="../docs/books.xml">
         <xsl:for-each select="BOOKLIST/BOOKS/ITEM">
