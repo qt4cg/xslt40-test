@@ -180,49 +180,23 @@
     </xsl:call-template>
   </xsl:template>
   
-  <!-- In 4.0, check that the order of map entries is correct -->
-  
-  <xsl:template name="m-010" use-when="$RUN" version="4.0">
+  <xsl:template name="m-013" use-when="$RUN">
     <out>
       <xsl:source-document streamable="yes" href="../docs/books.xml">
-        <xsl:for-each select="BOOKLIST/BOOKS/ITEM">
           <xsl:variable name="m" as="map(*)">
-            <xsl:map duplicates="combine">
-              <xsl:map-entry key="'price'" select="number(PRICE)"/>
-              <xsl:map-entry key="'publisher'" select="string(PUBLISHER)"/>
-              <xsl:map-entry key="'author'" select="string(AUTHOR)"/>
-              <xsl:map-entry key="'title'" select="string(TITLE)"/>
-              <xsl:map-entry key="'price'" select="93.7"/>
+            <xsl:map>
+              <xsl:map-entry key="'authors'" select="/BOOKLIST/BOOKS/ITEM/AUTHOR/string()"/>
+              <xsl:map-entry key="'titles'" select="/BOOKLIST/BOOKS/ITEM/TITLE/string()"/>
+              <xsl:map-entry key="'prices'" select="13.95"/>
+              <xsl:map-entry key="'publishers'" select="/BOOKLIST/BOOKS/ITEM/PUBLISHER/string()"/>
             </xsl:map>
           </xsl:variable>
-          <xsl:sequence select="$m?price"/>
-        </xsl:for-each>
+          <books authors="{$m('authors')}" titles="{$m('titles')}" prices="{$m('prices')}" publishers="{$m('publishers')}"/>     
       </xsl:source-document>
     </out>
   </xsl:template>
   
-  <!-- In 4.0, check that duplicates are handled correctly -->
   
-  <xsl:template name="m-011" use-when="$RUN" version="4.0">
-    <out>
-      <xsl:source-document streamable="yes" href="../docs/books.xml">
-        <xsl:for-each select="BOOKLIST/BOOKS/ITEM">
-          <xsl:variable name="m" as="map(*)">
-            <xsl:map duplicates="combine">
-              <xsl:map-entry key="'price'" select="number(PRICE)"/>
-              <xsl:map-entry key="'publisher'" select="string(PUBLISHER)"/>
-              <xsl:map-entry key="'author'" select="string(AUTHOR)"/>
-              <xsl:map-entry key="'title'" select="string(TITLE)"/>
-              <xsl:map-entry key="'price'" select="93.7"/>
-            </xsl:map>
-          </xsl:variable>
-          <xsl:sequence select="$m?price"/>
-        </xsl:for-each>
-      </xsl:source-document>
-    </out>
-  </xsl:template>
-       
-  
-
+ 
   
 </xsl:transform>  
