@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns="http://www.w3.org/2012/10/xslt-test-catalog" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apply-templates-fn">
+    <description>Tests the fn:apply-templates() function</description>
+    
+    <environment name="fn-apply-templates-A">
+        <source role="." file="fn-apply-templates-A.xml"/>
+    </environment>
+    
+    <dependencies>
+        <spec value="XSLT40+"/>
+    </dependencies>
+    
+    <test-case name="fn-apply-templates-001">
+        <description>Basic test of apply-templates#1</description>
+        <created by="Michael Kay" on="2025-06-05"/>
+        <environment ref="fn-apply-templates-A"/>
+        <test>
+            <stylesheet file="fn-apply-templates-001.xsl"/>
+        </test>
+        <result>
+            <assert>/out/@val="Integer key, data is present"</assert>
+        </result>
+    </test-case>
+    
+    <test-case name="fn-apply-templates-002">
+        <description>Basic test of apply-templates#2 with unnamed mode</description>
+        <created by="Michael Kay" on="2025-06-05"/>
+        <environment ref="fn-apply-templates-A"/>
+        <test>
+            <stylesheet file="fn-apply-templates-002.xsl"/>
+        </test>
+        <result>
+            <assert>/out/@val="Integer key, data is present"</assert>
+        </result>
+    </test-case>
+    
+    <test-case name="fn-apply-templates-003">
+        <description>Test of apply-templates#2 with explicit named mode</description>
+        <created by="Michael Kay" on="2025-06-05"/>
+        <environment ref="fn-apply-templates-A"/>
+        <test>
+            <stylesheet file="fn-apply-templates-003.xsl"/>
+        </test>
+        <result>
+            <assert>/out/@val="++Integer key, data is present++"</assert>
+        </result>
+    </test-case>
+    
+    <test-case name="fn-apply-templates-004">
+        <description>Test of apply-templates#2 with #current mode</description>
+        <created by="Michael Kay" on="2025-06-05"/>
+        <environment ref="fn-apply-templates-A"/>
+        <test>
+            <stylesheet file="fn-apply-templates-004.xsl"/>
+        </test>
+        <result>
+            <assert>/out/@val="++Integer key, data is present++"</assert>
+        </result>
+    </test-case>
+    
+    <test-case name="fn-apply-templates-005">
+        <description>Test of apply-templates#2 with params and tunnel params</description>
+        <created by="Michael Kay" on="2025-06-05"/>
+        <environment ref="fn-apply-templates-A"/>
+        <test>
+            <stylesheet file="fn-apply-templates-005.xsl"/>
+        </test>
+        <result>
+            <all-of>
+                <assert>/out/a = 'a2'</assert>
+                <assert>/out/b = 'b1'</assert>
+                <assert>/out/c = 'c1'</assert>
+                <assert>/out/val = 'Integer key, data is present'</assert>
+            </all-of>
+        </result>
+    </test-case>
+    
+ 
+    
+</test-set>
+    

@@ -71,6 +71,7 @@
       <!-- Functions -->
       
       <test-set name="accessor" file="tests/fn/accessor/_accessor-test-set.xml"/>
+      <test-set name="apply-templates-fn" file="tests/fn/apply-templates-fn/_apply-templates-fn-test-set.xml"/>
       <test-set name="available-system-properties" file="tests/fn/available-system-properties/_available-system-properties-test-set.xml"/>
       <test-set name="base-uri" file="tests/fn/base-uri/_base-uri-test-set.xml"/>
       <test-set name="collection" file="tests/fn/collection/_collection-test-set.xml"/>
