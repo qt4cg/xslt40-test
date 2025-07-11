@@ -31,6 +31,48 @@
 ]]></content>
       </source>
    </environment>
+   
+      <environment name="snapshot-03">
+      <source uri="http://www.w3.org/fots/snapshot/doc1.xml">
+         <content><![CDATA[
+<a id="1">
+  <_>preamble</_>
+  <b id="2">
+    <pre-pivot/>
+    <pivot id="3">
+       <payload id="4">
+         <data id="10"><c/></data>
+         <data id="11"><z/>text<z/></data>
+         <data id="12"><z/><!--comment--><z/></data>
+         <data id="13"><z/><?pi?><z/></data>
+         <data id="14"><c/></data>
+       </payload>
+    </pivot>
+    <post-pivot/>
+  </b>
+  <_>postamble</_>
+</a>      
+]]></content>
+      </source>
+       <source uri="http://www.w3.org/fots/snapshot/doc2.xml">
+         <content><![CDATA[
+<a id="1">
+  <b id="2">
+    <pivot id="3">
+       <payload id="4">
+         <data id="10"><c/></data>
+         <data id="11"><z/>text<z/></data>
+         <data id="12"><z/><!--comment--><z/></data>
+         <data id="13"><z/><?pi?><z/></data>
+         <data id="14"><c/></data>
+       </payload>
+    </pivot>
+  </b>
+</a>      
+]]></content>
+      </source>
+   </environment>
+
 
 
    <dependencies>
@@ -341,6 +383,239 @@
       </test>
       <result>
          <assert>every $a in /out/a satisfies $a = 'true'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0301">
+      <description>Test content of axes starting at the root</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <test>
+         <param name="origin" static="yes" select="'/root()'"/>
+         <stylesheet file="snapshot-0301.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0302">
+      <description>Test content of axes starting at the outermost element of the snapshot</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <test>
+         <param name="origin" static="yes" select="'//a'"/>
+         <stylesheet file="snapshot-0301.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0303">
+      <description>Test content of axes starting at the parent of the pivot</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <test>
+         <param name="origin" static="yes" select="'//b'"/>
+         <stylesheet file="snapshot-0301.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0304">
+      <description>Test content of axes starting at the pivot</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <test>
+         <param name="origin" static="yes" select="'//b'"/>
+         <stylesheet file="snapshot-0301.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0305">
+      <description>Test content of axes starting at an element below the pivot</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <test>
+         <param name="origin" static="yes" select="'//*[@id=12]'"/>
+         <stylesheet file="snapshot-0301.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0306">
+      <description>Test content of axes starting at a text node below the pivot</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <test>
+         <param name="origin" static="yes" select="'//text()'"/>
+         <stylesheet file="snapshot-0301.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0307">
+      <description>Test content of axes starting at a comment node below the pivot</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <test>
+         <param name="origin" static="yes" select="'//comment()'"/>
+         <stylesheet file="snapshot-0301.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0308">
+      <description>Test content of axes starting at a PI node below the pivot</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <test>
+         <param name="origin" static="yes" select="'//processing-instruction()'"/>
+         <stylesheet file="snapshot-0301.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+     
+   <test-case name="snapshot-0401">
+      <description>Test content of axes starting at the root</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <param name="origin" static="yes" select="'/root()'"/>
+         <stylesheet file="snapshot-0401.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0402">
+      <description>Test content of axes starting at the outermost element of the snapshot</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <param name="origin" static="yes" select="'//a'"/>
+         <stylesheet file="snapshot-0401.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0403">
+      <description>Test content of axes starting at the parent of the pivot</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <param name="origin" static="yes" select="'//b'"/>
+         <stylesheet file="snapshot-0401.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0404">
+      <description>Test content of axes starting at the pivot</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <param name="origin" static="yes" select="'//b'"/>
+         <stylesheet file="snapshot-0401.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0405">
+      <description>Test content of axes starting at an element below the pivot</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <param name="origin" static="yes" select="'//*[@id=12]'"/>
+         <stylesheet file="snapshot-0401.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0406">
+      <description>Test content of axes starting at a text node below the pivot</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <param name="origin" static="yes" select="'//text()'"/>
+         <stylesheet file="snapshot-0401.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0407">
+      <description>Test content of axes starting at a comment node below the pivot</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <param name="origin" static="yes" select="'//comment()'"/>
+         <stylesheet file="snapshot-0401.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="snapshot-0408">
+      <description>Test content of axes starting at a PI node below the pivot</description>
+      <created by="Michael Kay" on="2025-07-10"/>
+      <environment ref="snapshot-03"/>
+      <dependencies>
+        <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <param name="origin" static="yes" select="'//processing-instruction()'"/>
+         <stylesheet file="snapshot-0401.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out/>]]></assert-xml>
       </result>
    </test-case>
    
