@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns="http://www.w3.org/2012/10/xslt-test-catalog" xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+   name="value-of" covers-40="PR2251">
+   <description>Tests xsl:value-of</description>
+
+   
+   <test-case name="value-of-001">
+      <description>
+         xsl:value-of with select attribute
+      </description>
+      <created by="Michael Kay" on="2025-10-21"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="value-of-001.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a = 'abc'</assert>
+            <assert>/out/b = '42'</assert>
+            <assert>/out/c = '2025-10-21'</assert>
+            <assert>/out/d = 'true'</assert>
+            <assert>/out/e = 'true'</assert>
+            <assert>/out/f = '23'</assert>
+            <assert>/out/g = 'true'</assert>
+            <assert>/out/h = ''</assert>
+            <assert>/out/i = 'true'</assert>
+            <assert>/out/j = '1'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="value-of-002">
+      <description>
+         xsl:value-of with sequence constructor
+      </description>
+      <created by="Michael Kay" on="2025-10-21"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="value-of-002.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a = 'abc'</assert>
+            <assert>/out/b = '42'</assert>
+            <assert>/out/c = '2025-10-21'</assert>
+            <assert>/out/d = 'true'</assert>
+            <assert>/out/e = 'true'</assert>
+            <assert>/out/f = '23'</assert>
+            <assert>/out/g = 'true'</assert>
+            <assert>/out/h = ''</assert>
+            <assert>/out/i = 'true'</assert>
+            <assert>/out/j = '1'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="value-of-003">
+      <description>
+         xsl:value-of selecting a sequence
+      </description>
+      <created by="Michael Kay" on="2025-10-21"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="value-of-003.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a = 'abc def'</assert>
+            <assert>/out/b = '42 19'</assert>
+            <assert>/out/c = '2025-10-21 '</assert>
+            <assert>/out/d = 'true'</assert>
+            <assert>/out/e = 'true'</assert>
+            <assert>/out/f = '1'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="value-of-004">
+      <description>
+         xsl:value-of with sequence constructor selecting a sequence
+      </description>
+      <created by="Michael Kay" on="2025-10-21"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="value-of-004.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a = 'abcdef'</assert>
+            <assert>/out/b = '4219'</assert>
+            <assert>/out/c = '2025-10-21'</assert>
+            <assert>/out/d = 'true'</assert>
+            <assert>/out/e = 'true'</assert>
+            <assert>/out/f = '1'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="value-of-005">
+      <description>
+         xsl:value-of selecting a sequence with separator
+      </description>
+      <created by="Michael Kay" on="2025-10-21"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="value-of-005.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a = 'abc|def'</assert>
+            <assert>/out/b = '42|19'</assert>
+            <assert>/out/c = '2025-10-21|'</assert>
+            <assert>/out/d = 'true'</assert>
+            <assert>/out/e = 'true'</assert>
+            <assert>/out/f = '1'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="value-of-006">
+      <description>
+         xsl:value-of selecting a sequence using sequence constructor with separator
+      </description>
+      <created by="Michael Kay" on="2025-10-21"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="value-of-006.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a = 'abc|def'</assert>
+            <assert>/out/b = '42|19'</assert>
+            <assert>/out/c = '2025-10-21|'</assert>
+            <assert>/out/d = 'true'</assert>
+            <assert>/out/e = 'true'</assert>
+            <assert>/out/f = '1'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="value-of-007">
+      <description>
+         xsl:value-of selecting a sequence: in 1.0 mode
+      </description>
+      <created by="Michael Kay" on="2025-10-21"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="value-of-007.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a = 'abc'</assert>
+            <assert>/out/b = '42'</assert>
+            <assert>/out/c = '2025-10-21'</assert>
+            <assert>/out/d = 'true'</assert>
+            <assert>/out/e = 'true'</assert>
+            <assert>/out/f = '1'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="value-of-008">
+      <description>
+         xsl:value-of selecting a sequence: in 1.0 mode
+      </description>
+      <created by="Michael Kay" on="2025-10-21"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="value-of-008.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a = 'abc|def'</assert>
+            <assert>/out/b = '42|19'</assert>
+            <assert>/out/c = '2025-10-21|'</assert>
+            <assert>/out/d = 'true'</assert>
+            <assert>/out/e = 'true'</assert>
+            <assert>/out/f = '1'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="value-of-009">
+      <description>
+         xsl:value-of with whitespace child
+      </description>
+      <created by="Michael Kay" on="2025-10-21"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="value-of-009.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a = ''</assert>
+            <assert>/out/b = ''</assert>
+            <assert>/out/c = ''</assert>
+            <assert>/out/d = '  42  '</assert>
+            <assert>/out/e = '42'</assert>
+            <assert>/out/f = '  '</assert>
+         </all-of>
+      </result>
+   </test-case>
+
+  
+   
+</test-set>
