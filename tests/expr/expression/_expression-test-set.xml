@@ -145,6 +145,36 @@
          <assert-xml><![CDATA[<out>en</out>]]></assert-xml>
       </result>
    </test-case>
+   
+   <test-case name="expression-0201">
+      <description>Test of node comparison operators</description>
+      <created by="Michael Kay" on="2025-10-10"/>
+      <dependencies>
+         <spec value="XSLT20+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="expression-0201.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert>every $e in /out/* satisfies $e/@result = $e/@expect</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="expression-0202">
+      <description>Test of node comparison operators (4.0 extensions</description>
+      <created by="Michael Kay" on="2025-10-10"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="expression-0202.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert>every $e in /out/* satisfies $e/@result = $e/@expect</assert>
+      </result>
+   </test-case>
 
    <test-case name="expression-0301">
       <description>Test of lang() function</description>
