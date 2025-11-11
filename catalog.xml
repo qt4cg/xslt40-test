@@ -138,7 +138,9 @@
       <test-set name="sort" file="tests/insn/sort/_sort-test-set.xml"/>
       <test-set name="source-document" file="tests/insn/source-document/_source-document-test-set.xml"/>
       <test-set name="switch" file="tests/insn/switch/_switch-test-set.xml"/>
+      <test-set name="text" file="tests/insn/text/_text-test-set.xml"/>
       <test-set name="try" file="tests/insn/try/_try-test-set.xml"/>
+      <test-set name="value-of" file="tests/insn/value-of/_value-of-test-set.xml"/>
       <test-set name="where-populated" file="tests/insn/where-populated/_where-populated-test-set.xml"/>
       <test-set name="xsl-document" file="tests/insn/xsl-document/_xsl-document-test-set.xml"/>
       <test-set name="xsl-record" file="tests/insn/xsl-record/_xsl-record-test-set.xml"/>
