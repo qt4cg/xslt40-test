@@ -19,8 +19,8 @@
       <out>
         <xsl:for-each select="$sales">
           <sale>
-            <xsl:iterate select="map:pairs(.)">
-              <xsl:attribute name="{translate(?key, ' ', '_')}" select="?value"/>
+            <xsl:iterate select="*">
+              <xsl:attribute name="{translate(jnode-selector(), ' ', '_')}" select="jnode-content()"/>
             </xsl:iterate>
           </sale>
         </xsl:for-each>

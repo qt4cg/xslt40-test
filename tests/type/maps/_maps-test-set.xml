@@ -250,6 +250,7 @@
       <description>xsl:for-each iterating over a map (4.0)</description>
       <created by="Michael Kay" on="2021-01-12"/>
       <modified by="Michael Kay" on="2023-07-01" change="Changed to use renamed map:pairs function"/>
+      <modified by="Michael Kay" on="2025-08-20" change="Changed to use JNodes"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -268,6 +269,7 @@
       <description>xsl:iterate iterating over a map (4.0)</description>
       <created by="Michael Kay" on="2021-01-12"/>
       <modified by="Michael Kay" on="2023-07-01" change="Changed to use renamed map:pairs function"/>
+      <modified by="Michael Kay" on="2025-08-20" change="Changed to use JNodes"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -286,6 +288,7 @@
       <description>xsl:for-each-group iterating over a map (4.0)</description>
       <created by="Michael Kay" on="2021-01-12"/>
       <modified by="Michael Kay" on="2023-07-01" change="Changed to use renamed map:pairs function"/>
+      <modified by="Michael Kay" on="2025-08-20" change="Changed to use JNodes"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
