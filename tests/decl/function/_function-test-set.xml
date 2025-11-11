@@ -2,7 +2,7 @@
 <test-set xmlns:xs="http://www.w3.org/2001/XMLSchema"
           xmlns="http://www.w3.org/2012/10/xslt-test-catalog"
           name="function">
-   <description>Tests function</description>
+   <description>Tests xsl:function declarations</description>
    <environment name="function-01">
       <source role="." file="function-01.xml"/>
    </environment>
@@ -548,7 +548,7 @@
       <created by="Michael Kay" on="2019-02-12"/>
       <environment ref="function-01"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="function-0122.xsl"/>
@@ -2150,6 +2150,119 @@
       </result>
    </test-case>
    
+   <test-case name="function-40-014" covers-40="PR2236">
+      <description>Allow functions in no namespace</description>
+      <created by="Michael Kay" on="2025-11-10"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-014.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '%blue'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-015" covers-40="PR2236">
+      <description>No-namespace function with arguments</description>
+      <created by="Michael Kay" on="2025-11-11"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-015.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '33'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-016" covers-40="PR2236">
+      <description>No-namespace function conflicting with system function</description>
+      <created by="Michael Kay" on="2025-11-11"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-016.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '33'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-017" covers-40="PR2236">
+      <description>No-namespace function using EQName syntax</description>
+      <created by="Michael Kay" on="2025-11-11"/>
+      <environment ref="function-21"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-017.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '1'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-018" covers-40="PR2236">
+      <description>No-namespace function call conflict</description>
+      <created by="Michael Kay" on="2025-11-11"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-018.xsl"/>
+      </test>
+      <result>
+         <assert>string-length(/out) = 10</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-019" covers-40="PR2236">
+      <description>No-namespace function call with keywords</description>
+      <created by="Michael Kay" on="2025-11-11"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-019.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '3'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-020" covers-40="PR2236">
+      <description>No-namespace function call with partial application</description>
+      <created by="Michael Kay" on="2025-11-11"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-020.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '3'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-021" covers-40="PR2236">
+      <description>No-namespace named function reference</description>
+      <created by="Michael Kay" on="2025-11-11"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-021.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '3'</assert>
+      </result>
+   </test-case>
+   
   
    
    <test-case name="function-40-901">
@@ -2319,6 +2432,20 @@
       </test>
       <result>
          <error code="XTSE0770"/>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-913" covers-40="PR2236">
+      <description>No-namespace function cannot be public</description>
+      <created by="Michael Kay" on="2025-11-11"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-913.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE0740"/>
       </result>
    </test-case>
 </test-set>
