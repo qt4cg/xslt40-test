@@ -915,4 +915,20 @@
          <assert>/out = '5'</assert>
       </result>
    </test-case>
+   
+   <test-case name="evaluate-403">
+      <description>Test imported schema types with multiple schemas</description>
+      <created by="Michael Kay" on="2025-10-07"/>
+      <dependencies>
+         <feature value="schema_aware"/>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="evaluate-403.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<Result><value pc="93">2020-03-16Z</value></Result>]]></assert-xml>
+      </result>
+   </test-case>
 </test-set>
