@@ -7,8 +7,8 @@
       <out>
          <xsl:variable name="inverse" as="map(*)">
             <xsl:map>
-               <xsl:for-each select="map:pairs($in)">
-                  <xsl:map-entry key="?value" select="?key"/>
+               <xsl:for-each select="$in/*">
+                  <xsl:map-entry key="jnode-content()" select="jnode-selector()"/>
                </xsl:for-each>
             </xsl:map>
          </xsl:variable>
