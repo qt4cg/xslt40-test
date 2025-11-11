@@ -3884,5 +3884,107 @@
       </result>
    </test-case>
    
+   <test-case name="import-schema-211">
+      <description>4.0 allows multiple schemas</description>
+      <created by="Michael Kay" on="2025-10-08"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="import-schema-211.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/*:a/text() = "10"</assert>
+            <assert>/out/*:b/text() = "2025-03-23"</assert>
+         </all-of>
+      </result>      
+   </test-case>
+   
+   <test-case name="import-schema-212">
+      <description>4.0 allows multiple schemas</description>
+      <created by="Michael Kay" on="2025-10-08"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="import-schema-212.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a/*:a/text() = "10"</assert>
+            <assert>/out/b/*:b/text() = "2025-03-23"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="import-schema-213">
+      <description>4.0 allows multiple schemas</description>
+      <created by="Michael Kay" on="2025-10-08"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="import-schema-213.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a/*:a/text() = "XYZ"</assert>
+            <assert>/out/b/*:b/text() = "xyz"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="import-schema-214">
+      <description>4.0 allows multiple schemas - invalid against @type</description>
+      <created by="Michael Kay" on="2025-10-08"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="import-schema-214.xsl"/>
+      </test>
+      <result>
+         <error code="XTTE1540"/>
+      </result>
+   </test-case>
+   
+   <test-case name="import-schema-215">
+      <description>4.0 allows multiple schemas - use constructor functions for types in schema</description>
+      <created by="Michael Kay" on="2025-10-08"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="import-schema-215.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a/@data = "XYZ"</assert>
+            <assert>/out/b/@data = "xyz"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="import-schema-216">
+      <description>4.0 allows multiple schemas - constructor function not in scope</description>
+      <created by="Michael Kay" on="2025-10-08"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="import-schema-216.xsl"/>
+      </test>
+      <result>
+         <error code="XPST0017"/>
+      </result>
+   </test-case>
+   
    
 </test-set>
