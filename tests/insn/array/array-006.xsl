@@ -8,14 +8,15 @@
 >
 
 <xsl:template name="xsl:initial-template">
-  <xsl:variable name="a" as="array(*)" select="array:of-members(( my:parcel((1,2)), my:parcel((3,4)) ))"/>
+  <xsl:variable name="a" as="array(*)">
+    <xsl:array>
+      <xsl:array-member select="1,2"/>
+      <xsl:array-member select="3,4"/>
+    </xsl:array>
+  </xsl:variable>
   <out ok="{deep-equal($a, [(1,2), (3,4)])}"/>
 </xsl:template>
   
-  <xsl:function name="my:parcel">
-    <xsl:param name="value"/>
-    <xsl:sequence select="map{'value':$value}"/>
-  </xsl:function>
 
 
 </xsl:stylesheet>

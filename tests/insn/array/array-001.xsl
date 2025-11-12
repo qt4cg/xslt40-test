@@ -6,10 +6,15 @@
    exclude-result-prefixes="#all"
 >
 
+<xsl:function name="member">
+  <xsl:param name="value"/>
+  <xsl:array-member select="$value"/>
+</xsl:function>
+
 <xsl:template name="xsl:initial-template">
   <xsl:variable name="a" as="array(*)">
     <xsl:array>
-      <xsl:sequence select="1 to 10"/>
+      <xsl:sequence select="for $i in 1 to 10 return member($i)"/>
     </xsl:array>
   </xsl:variable>
   <out count="{array:size($a)}" values="{$a?*}" last="{$a?10}"/>

@@ -4,17 +4,14 @@
   xmlns:array="http://www.w3.org/2005/xpath-functions/array"
   exclude-result-prefixes="xs array" version="4.0" expand-text="true">
   
-  
     
     <xsl:template name="xsl:initial-template">
-      <xsl:variable name="input-1" select="[1, 2, 3]"/>
-      <xsl:variable name="input-2" select="[3, 4, 5]"/>
-      <xsl:array>
-        <xsl:for-each select="array:members($input-1), array:members($input-2)">
-          <xsl:sort select="format-integer(?value, 'W')"/>
-          <xsl:array-member select="?value"/>
-        </xsl:for-each>
-      </xsl:array>  
+      <xsl:variable name="temp">
+        <xsl:array for-each="1 to 10">
+          <xsl:array-member select="(., -.)"/>
+        </xsl:array>
+      </xsl:variable>  
+      <out>{$temp?3}</out>
     </xsl:template>
     
 </xsl:stylesheet>

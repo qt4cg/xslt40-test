@@ -4,7 +4,7 @@
   xmlns:array="http://www.w3.org/2005/xpath-functions/array"
   exclude-result-prefixes="xs array" version="4.0" expand-text="true">
   
-  <!--The following code inverts a nested array (such as [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]) 
+  <!--The following code transposes a nested array (such as [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]) 
     so the result is organized by columns rather than rows ([ [ 1, 4, 7 ], [ 2, 5, 8 ], [ 3, 6, 9 ] ]):
 -->
   

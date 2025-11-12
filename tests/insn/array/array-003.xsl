@@ -8,13 +8,13 @@
   
   <xsl:output method="json" build-tree="no"/>
 
-<xsl:template match="/">
-  <xsl:array>
-    <xsl:for-each-group select=".//transaction" group-by="@date">
-      <xsl:array-member select="array{current-group()/@value ! string()}"/>
-    </xsl:for-each-group>
-  </xsl:array>
-</xsl:template>
+  <xsl:template match="/">
+    <xsl:array>
+      <xsl:for-each-group select=".//transaction" group-by="@date">
+        <xsl:array select="current-group()/@value ! string()"/>
+      </xsl:for-each-group>
+    </xsl:array>
+  </xsl:template>
 
 
 </xsl:stylesheet>

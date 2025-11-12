@@ -8,13 +8,11 @@
 
 <xsl:template name="xsl:initial-template">
   <xsl:variable name="a" as="array(*)">
-    <xsl:array>
-      <xsl:for-each select="1 to 10">
-        <xsl:sequence select="map:entry('value', . to .+1)"/>
-      </xsl:for-each>
+    <xsl:array for-each="1 to 10">
+        <xsl:array-member select=". to .+1"/>
     </xsl:array>
   </xsl:variable>
-  <out ok="{deep-equal($a, [(1,2), (2,3), (3,4), (4,5), (5,6), (6,7), (7,8), (8,9), (9,10), (10, 11)])}"/>
+  <out ok="{deep-equal($a, [(1,2), (2,3), (3,4), (4,5), (5,6), (6,7), (7,8), (8,9), (9,10), (10, 11)])}" actual="{$a}"/>
 </xsl:template>
 
 
