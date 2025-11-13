@@ -8,26 +8,16 @@
 
 <xsl:template match="doc">
   <out>
-      <xsl:value-of select="number(1.75)"/>
-      <xsl:text>|</xsl:text>
-      <xsl:value-of select="number(7 div 4)"/>
-      <xsl:text>|</xsl:text>
-      <xsl:value-of select="(number(1.75) = (7 div 4))"/>
-      <xsl:text>|&#10;</xsl:text>
-      <xsl:value-of select="number(0.109375 * 16)"/>
-      <xsl:text>|</xsl:text>
-      <xsl:value-of select="(number(1.75) = (0.109375 * 16))"/>
-      <xsl:text>|&#10;</xsl:text>
-      <xsl:value-of select="number(k)"/>
-      <xsl:text>|</xsl:text>
-      <xsl:value-of select="number(4 div 10000)"/>
-      <xsl:text>|</xsl:text>
-      <xsl:value-of select="(number(k) = (4 div 10000))"/>
-      <xsl:text>|&#10;</xsl:text>
-      <xsl:value-of select="number(0.0001 * 4)"/>
-      <xsl:text>|</xsl:text>
-      <xsl:value-of select="(number(k) = (0.0001 * 4))"/>
-      <xsl:text>|&#10;</xsl:text>
+      <a><xsl:value-of select="number(1.75)"/></a>
+      <b><xsl:value-of select="number(7 div 4)"/></b>
+      <c><xsl:value-of select="(number(1.75) = (7 div 4))"/></c>
+      <d><xsl:value-of select="number(0.109375 * 16)"/></d>
+      <e><xsl:value-of select="(number(1.75) = (0.109375 * 16))"/></e>
+      <f><xsl:value-of select="number(k)"/></f>
+      <g><xsl:value-of select="number(4 div 10000)"/></g>
+      <h><xsl:value-of select="(number(k) = (4.0e0 div 10000))"/></h>
+      <i><xsl:value-of select="number(0.0001 * 4)"/></i>
+      <j><xsl:value-of select="(number(k) = (0.0001 * 4.0e0))"/></j>
   </out>
 </xsl:template>
 

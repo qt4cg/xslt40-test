@@ -1003,19 +1003,27 @@
    <test-case name="math-1601">
       <description>Test of number() conversion function for small decimal numbers.</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2025-11-13" change="make results more structured; avoid double=decimal comparison"/>
       <environment ref="math-16"/>
       <dependencies>
-         <spec value="XSLT10+"/>
+         <spec value="XSLT20+"/>
       </dependencies>
       <test>
          <stylesheet file="math-1601.xsl"/>
       </test>
       <result>
-         <assert-xml><![CDATA[<out>1.75|1.75|true|
-1.75|true|
-0.0004|0.0004|true|
-0.0004|true|
-</out>]]></assert-xml>
+         <all-of>
+            <assert>/out/a = "1.75"</assert>
+            <assert>/out/b = "1.75"</assert>
+            <assert>/out/c = "true"</assert>
+            <assert>/out/d = "1.75"</assert>
+            <assert>/out/e = "true"</assert>
+            <assert>/out/f = "0.0004"</assert>
+            <assert>/out/g = "0.0004"</assert>
+            <assert>/out/h = "true"</assert>
+            <assert>/out/i = "0.0004"</assert>
+            <assert>/out/j = "true"</assert>
+         </all-of>
       </result>
    </test-case>
 
