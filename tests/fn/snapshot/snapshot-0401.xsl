@@ -16,7 +16,7 @@
   <xsl:variable name="doc1" 
     select="snapshot(doc('http://www.w3.org/fots/snapshot/doc1.xml')//pivot)/root()"/>
   <xsl:variable name="doc2" 
-    select="doc('http://www.w3.org/fots/snapshot/doc1.xml')"/>
+    select="doc('http://www.w3.org/fots/snapshot/doc2.xml')"/>
   
   <xsl:variable name="n1" _select="$doc1{$origin}"/>
   <xsl:variable name="n2" _select="$doc2{$origin}"/>
