@@ -19,12 +19,10 @@
             </xsl:record>
         </xsl:variable>
         <json>
-            <xsl:text>[</xsl:text>
             <xsl:for-each select="$m">
                 <xsl:if test="position() ne 1">,</xsl:if>
                 <xsl:apply-templates select="." mode="to-json"/>
             </xsl:for-each>
-            <xsl:text>]</xsl:text>
         </json>           
     </xsl:template>   
     

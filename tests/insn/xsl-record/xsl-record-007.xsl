@@ -7,7 +7,8 @@
     
     <!-- test xsl prefixed standard attributes on xsl:record-->
     
-    <xsl:include href="to-json.xsl"/> 
+    <xsl:include href="to-json.xsl"/>
+    <xsl:import-schema role="output" namespace="http://www.w3.org/2005/xpath-functions"/>
     <!-- TODO - add some parts that depend on some of the attributes -->
     <xsl:template name="main">
         <xsl:variable name="m" as="item()">

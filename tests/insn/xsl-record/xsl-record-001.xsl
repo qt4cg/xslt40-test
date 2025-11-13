@@ -7,30 +7,6 @@
     
     <xsl:include href="to-json.xsl"/> 
     
-   <!-- <xsl:variable name="sales" as="map(*)*" select='
-        map{ "product" : "broiler", "store number" : 1, "quantity" : 20  },
-        map{ "product" : "toaster", "store number" : 2, "quantity" : 100 },
-        map{ "product" : "toaster", "store number" : 2, "quantity" : 50 },
-        map{ "product" : "toaster", "store number" : 3, "quantity" : 50 },
-        map{ "product" : "blender", "store number" : 3, "quantity" : 100 },
-        map{ "product" : "blender", "store number" : 3, "quantity" : 150 },
-        map{ "product" : "socks", "store number" : 1, "quantity" : 500 },
-        map{ "product" : "socks", "store number" : 2, "quantity" : 10 },
-        map{ "product" : "shirt", "store number" : 3, "quantity" : 10 }'/>
-    
-    <xsl:variable name="products" as="map(*)*" select='
-        map{ "name" : "broiler", "category" : "kitchen", "price" : 100, "cost" : 70 },
-        map{ "name" : "toaster", "category" : "kitchen", "price" : 30, "cost" : 10 },
-        map{ "name" : "blender", "category" : "kitchen", "price" : 50, "cost" : 25 },
-        map{ "name" : "socks", "category" : "clothes", "price" : 5, "cost" : 2 },
-        map{ "name" : "shirt", "category" : "clothes", "price" : 10, "cost" : 3 }'/>
-    
-    <xsl:variable name="stores" as="map(*)*" select='
-        map{ "store number" : 1, "state" : "CA" },
-        map{ "store number" : 2, "state" : "CA" },
-        map{ "store number" : 3, "state" : "MA" },
-        map{ "store number" : 4, "state" : "MA" }'/>
-    -->
     <xsl:variable name="sales" as="map(*)*">
         <xsl:record product="'broiler'" store="1" quantity="20"/>     
         <xsl:record product="'toaster'" store="2" quantity="100"/>
