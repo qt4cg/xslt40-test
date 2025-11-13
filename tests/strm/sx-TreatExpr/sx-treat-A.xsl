@@ -266,13 +266,13 @@
     </xsl:source-document>
   </xsl:template>
   
-  <xsl:template name="c-105a" use-when="$RUN">
+  <!--<xsl:template name="c-105a" use-when="$RUN">
     <xsl:source-document streamable="yes" href="../docs/books.xml">
       <out>
         <xsl:value-of select="(outermost(//PRICE) ! parse-xml('&lt;p a=''3''>' || . || '&lt;/p>')//text()) treat as xs:string+"/>
       </out>
     </xsl:source-document>
-  </xsl:template>
+  </xsl:template>-->
   
   <!-- "treat as" applied to grounded attribute nodes -->
   
@@ -284,13 +284,13 @@
     </xsl:source-document>
   </xsl:template>
   
-  <xsl:template name="c-106a" use-when="$RUN">
+  <!--<xsl:template name="c-106a" use-when="$RUN">
     <xsl:source-document streamable="yes" href="../docs/books.xml">
       <out>
         <xsl:value-of select="(outermost(//PRICE) ! parse-xml('&lt;p a=''3''>' || . || '&lt;/p>')//@a) treat as element(a)*"/>
       </out>
     </xsl:source-document>
-  </xsl:template>
+  </xsl:template>-->
   
   <xsl:function name="Q{f}attribute" as="attribute()">
     <xsl:param name="name" as="xs:string"/>
@@ -322,13 +322,13 @@
     </xsl:source-document>
   </xsl:template>
   
-  <xsl:template name="c-107a" use-when="$RUN">
+  <!--<xsl:template name="c-107a" use-when="$RUN">
     <xsl:source-document streamable="yes" href="../docs/books.xml">
       <out>
         <xsl:value-of select="(outermost(//PRICE) ! Q{f}attribute('x', string(.))) treat as element(x)+"/>
       </out>
     </xsl:source-document>
-  </xsl:template>
+  </xsl:template>-->
   
   <!-- "treat as" applied to constructed element nodes -->
   
@@ -340,13 +340,13 @@
     </xsl:source-document>
   </xsl:template>
   
-  <xsl:template name="c-108a" use-when="$RUN">
+  <!--<xsl:template name="c-108a" use-when="$RUN">
     <xsl:source-document streamable="yes" href="../docs/books.xml">
       <out>
         <xsl:value-of select="(outermost(//PRICE) ! Q{f}element('x', string(.))) treat as attribute(x)+"/>
       </out>
     </xsl:source-document>
-  </xsl:template>
+  </xsl:template>-->
   
   <!-- "treat as" applied to constructed text nodes -->
   
@@ -358,13 +358,13 @@
     </xsl:source-document>
   </xsl:template>
   
-  <xsl:template name="c-109a" use-when="$RUN">
+  <!--<xsl:template name="c-109a" use-when="$RUN">
     <xsl:source-document streamable="yes" href="../docs/books.xml">
       <out>
         <xsl:value-of select="(outermost(//PRICE) ! Q{f}text(string(.))) treat as comment()+"/>
       </out>
     </xsl:source-document>
-  </xsl:template>
+  </xsl:template>-->
   
 
 </xsl:stylesheet>

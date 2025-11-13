@@ -2,7 +2,8 @@
 <test-set xmlns:xs="http://www.w3.org/2001/XMLSchema"
           xmlns="http://www.w3.org/2012/10/xslt-test-catalog"
           name="sx-TreatExpr">
-   <description>"treat as" expression with streaming</description>
+   <description>"treat as" expression with streaming. Tests modified in 4.0 because a "treat as"
+   error can now be raised statically, and this was causing the entire stylesheet to be rejected.</description>
    
    <environment name="sx-treat-A">
       <stylesheet file="sx-treat-A.xsl"/>
@@ -319,7 +320,10 @@
       </result>
    </test-case>
    
-   <test-case name="sx-treat-105a">
+   <!-- Test (and others like it) deleted because in 4.0 the "treat as" error is a static error
+        that causes the entire stylesheet to be rejected -->
+   
+   <!--<test-case name="sx-treat-105a">
       <description>"treat as" applied to grounded text nodes</description>
       <created by="Michael Kay" on="2019-05-03"/>
       <environment ref="sx-treat-A"/>
@@ -329,7 +333,7 @@
       <result>
          <error code="XPDY0050"/>
       </result>
-   </test-case>
+   </test-case>-->
    
    <test-case name="sx-treat-106">
       <description>"treat as" applied to grounded attribute nodes</description>
@@ -343,7 +347,7 @@
       </result>
    </test-case>
    
-   <test-case name="sx-treat-106a">
+   <!--<test-case name="sx-treat-106a">
       <description>"treat as" applied to grounded attribute nodes</description>
       <created by="Michael Kay" on="2019-05-03"/>
       <environment ref="sx-treat-A"/>
@@ -353,7 +357,7 @@
       <result>
          <error code="XPDY0050"/>
       </result>
-   </test-case>
+   </test-case>-->
    
    <test-case name="sx-treat-107">
       <description>"treat as" applied to constructed attribute nodes</description>
@@ -368,7 +372,7 @@
       </result>
    </test-case>
    
-   <test-case name="sx-treat-107a">
+   <!--<test-case name="sx-treat-107a">
       <description>"treat as" applied to constructed attribute nodes</description>
       <created by="Michael Kay" on="2019-05-03"/>
       <environment ref="sx-treat-A"/>
@@ -378,7 +382,7 @@
       <result>
          <error code="XPDY0050"/>
       </result>
-   </test-case>
+   </test-case>-->
    
    <test-case name="sx-treat-108">
       <description>"treat as" applied to constructed element nodes</description>
@@ -392,7 +396,7 @@
       </result>
    </test-case>
    
-   <test-case name="sx-treat-108a">
+   <!--<test-case name="sx-treat-108a">
       <description>"treat as" applied to constructed element nodes</description>
       <created by="Michael Kay" on="2019-05-03"/>
       <environment ref="sx-treat-A"/>
@@ -402,7 +406,7 @@
       <result>
          <error code="XPDY0050"/>
       </result>
-   </test-case>
+   </test-case>-->
    
    <test-case name="sx-treat-109">
       <description>"treat as" applied to constructed text nodes</description>
@@ -417,7 +421,7 @@
       </result>
    </test-case>
    
-   <test-case name="sx-treat-109a">
+   <!--<test-case name="sx-treat-109a">
       <description>"treat as" applied to constructed text nodes</description>
       <created by="Michael Kay" on="2019-05-03"/>
       <environment ref="sx-treat-A"/>
@@ -427,7 +431,7 @@
       <result>
          <error code="XPDY0050"/>
       </result>
-   </test-case>
+   </test-case>-->
    
    
    <test-case name="sx-treat-901">

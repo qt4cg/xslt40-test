@@ -124,8 +124,9 @@
     
     <xsl:template name="c-012" use-when="$RUN">
       <xsl:source-document streamable="yes" href="../docs/books.xml">
+        <!-- Modified for 4.0 to use 'cast as' rather than 'treat as', to prevent static errors -->
         <out>
-          <xsl:try><xsl:value-of select="(remove(data(//DIMENSIONS/text()), 3)) treat as text()+"/><xsl:catch errors="*" select="'caught'"/></xsl:try>
+          <xsl:try><xsl:value-of select="(remove(data(//DIMENSIONS/text()), 3)) cast as xs:integer"/><xsl:catch errors="*" select="'caught'"/></xsl:try>
         </out>
       </xsl:source-document>
     </xsl:template>
