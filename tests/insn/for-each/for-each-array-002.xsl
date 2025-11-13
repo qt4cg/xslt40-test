@@ -7,8 +7,8 @@
    <xsl:template name="xsl:initial-template">
       <out>
          <xsl:for-each select="array:members($in)" separator=" ">
-            <xsl:sort select="count(unparcel(.))"/>
-            <xsl:value-of select="sum(unparcel(.))"/>
+            <xsl:sort select="count(?value)"/>
+            <xsl:value-of select="sum(?value)"/>
          </xsl:for-each>
       </out>
    </xsl:template>
