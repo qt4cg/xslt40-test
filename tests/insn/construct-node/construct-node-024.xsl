@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<t:transform xmlns:t="http://www.w3.org/1999/XSL/Transform" version="2.0">
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
 <!-- Purpose: Test of instructions inside xsl:text -->
 
-   <t:output method="xml" encoding="UTF-8" indent="no"/>
+   <xsl:output method="xml" encoding="UTF-8" indent="no"/>
 
-   <t:template match="doc">
-  		  <out>
-         <t:text>
-            <t:if test="true()">Success</t:if>
-         </t:text>
+   <xsl:template match="doc">
+      <out>
+         <xsl:text>  <xsl:if test="true()">Success</xsl:if>  </xsl:text>
       </out>
-	  </t:template>
-</t:transform>
+	  </xsl:template>
+</xsl:transform>

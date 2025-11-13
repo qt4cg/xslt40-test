@@ -404,15 +404,32 @@ Old--est-att--rib-ute
    <test-case name="construct-node-024">
       <description>Test of instructions inside xsl:text</description>
       <created by="Michael Kay" on="2012-10-30"/>
+      <modified by="Michael Kay" on="2025-11-13" change="allowed in 4.0"/>
       <environment ref="nodeconstruct001"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="construct-node-024.xsl"/>
       </test>
       <result>
          <error code="XTSE0010"/>
+      </result>
+   </test-case>
+   
+   <test-case name="construct-node-024a" changes-40="PR2251">
+      <description>Test of instructions inside xsl:text</description>
+      <created by="Michael Kay" on="2012-10-30"/>
+      <modified by="Michael Kay" on="2025-11-13" change="allowed in 4.0"/>
+      <environment ref="nodeconstruct001"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="construct-node-024.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "  Success  "</assert>
       </result>
    </test-case>
 
