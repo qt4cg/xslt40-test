@@ -6,8 +6,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
   <!-- test for disabling output escaping in nested xsl:text -->
   
-  <!-- now an error, XSLT 2.0 no longer allows nested xsl:text -->
-  <?spec xslt#errors?><?error XTSE0010?>
+  <!-- XSLT 2.0 does not allow nested xsl:text, but XSLT 4.0 does -->
   
   
   <xsl:output method="xml"/>

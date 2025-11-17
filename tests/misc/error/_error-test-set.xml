@@ -1038,9 +1038,10 @@ It is a static error if an
                         required attribute is omitted, or if the content of the
                      element does not correspond to the content that is allowed for the element.</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2025-11-14" change="no longer an error in 4.0"/>
       <environment ref="error001"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
          <feature value="disabling_output_escaping"/>
       </dependencies>
       <test>
@@ -5315,9 +5316,10 @@ It is a static error if an
         Was error-code-273. It is a static error if a stylesheet function
         has a name that is in no namespace.</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2025-11-14" change="no longer an error in 4.0"/>
       <environment ref="error001"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="error-0740a.xsl"/>
@@ -5332,9 +5334,10 @@ It is a static error if an
          Was error-code-273. It is a static error if a stylesheet function
          has a name that is in no namespace.</description>
       <created by="Michael Kay" on="2015-10-25"/>
+      <modified by="Michael Kay" on="2025-11-14" change="no longer an error in 4.0"/>
       <environment ref="error001"/>
       <dependencies>
-         <spec value="XSLT30+"/>
+         <spec value="XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="error-0740b.xsl"/>
@@ -6480,6 +6483,7 @@ If any sort key value, after
                         sort key value is the first item in the sequence. In other cases, this is a
                            type error.</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2025-11-14" change="no longer an error in 4.0"/>
       <environment ref="error001"/>
       <dependencies>
          <spec value="XSLT20 XSLT30"/>
