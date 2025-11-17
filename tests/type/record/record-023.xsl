@@ -8,9 +8,12 @@
     expand-text="yes"
     >
   
+  <xsl:record-type name="person" 
+                   as="record(first as xs:string, last as xs:string, middle, father? as person, mother? as person)"/>
+  
    <!-- Self-reference in record types -->
     
-    <xsl:template match="record(first as xs:string, last as xs:string, middle, father? as .., mother? as ..)">
+    <xsl:template match="type(person)">
       <person first="{?first}" middle="{?middle}" last="{?last}">
         <mother><xsl:apply-templates select="?mother"/></mother>
         <father><xsl:apply-templates select="?father"/></father>
