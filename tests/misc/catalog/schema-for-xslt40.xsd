@@ -136,7 +136,8 @@ of problems processing the schema using various tools
                       xsl:element 
                       xsl:evaluate 
                       xsl:expose 
-                      xsl:fallback 
+                      xsl:fallback
+                      xsl:field 
                       xsl:for-each 
                       xsl:for-each-group 
                       xsl:fork 
@@ -174,8 +175,11 @@ of problems processing the schema using various tools
                       xsl:param 
                       xsl:perform-sort 
                       xsl:preserve-space 
-                      xsl:processing-instruction 
-                      xsl:result-document 
+                      xsl:processing-instruction
+                      xsl:record 
+                      xsl:record-type 
+                      xsl:result-document
+                      xsl:select
                       xsl:sequence 
                       xsl:sort 
                       xsl:source-document 
@@ -199,9 +203,9 @@ of problems processing the schema using various tools
     <xs:annotation>
       <xs:documentation>
         <p>
-           This complex type provides a generic supertype for all XSLT elements; it
-           contains the definitions of the standard attributes that may appear on
-           any element.
+           This complex type provides a generic supertype for all XSLT elements except 
+           <code>xsl:record</code>; it contains the definitions of the standard attributes 
+           that may appear on any element.
         </p>
       </xs:documentation>
     </xs:annotation>
@@ -213,6 +217,7 @@ of problems processing the schema using various tools
     <xs:attribute name="exclude-result-prefixes" type="xsl:prefix-list-or-all"/>
     <xs:attribute name="expand-text" type="xsl:yes-or-no"/>
     <xs:attribute name="extension-element-prefixes" type="xsl:prefix-list"/>
+    <xs:attribute name="schema-role" type="xs:NCName"/>
     <xs:attribute name="use-when" type="xsl:expression"/>
     <xs:attribute name="xpath-default-namespace" type="xs:anyURI"/>
     <xs:attribute name="_default-collation" type="xs:string"/>
@@ -221,6 +226,7 @@ of problems processing the schema using various tools
     <xs:attribute name="_exclude-result-prefixes" type="xs:string"/>
     <xs:attribute name="_expand-text" type="xs:string"/>
     <xs:attribute name="_extension-element-prefixes" type="xs:string"/>
+    <xs:attribute name="_schema-role" type="xs:string"/>
     <xs:attribute name="_use-when" type="xs:string"/>
     <xs:attribute name="_xpath-default-namespace" type="xs:string"/>
     <xs:anyAttribute namespace="##other" processContents="lax"/>
@@ -236,12 +242,14 @@ of problems processing the schema using various tools
     <xs:annotation>
       <xs:documentation>
         <p>This complex type provides a generic supertype for all XSLT elements with
-                the exception of <code>xsl:output</code>; it contains the
+                the exception of <code>xsl:output</code> and <code>xsl:record</code>; it contains the
                 definitions of the <code>version</code> attribute that may appear on any element.
                 </p>
         <p>The <code>xsl:output</code> element does not use this definition because, although it
              has a <code>version</code> attribute, the syntax and semantics of this attribute are
              unrelated to the standard <code>version</code> attribute allowed on other elements.</p>
+        <p>Similarly <code>xsl:record</code> does not use this definition because it expects
+        standard attributes (including [xsl:]version) to be in the XSLT namespace.</p>
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -326,6 +334,7 @@ of problems processing the schema using various tools
     </xs:annotation>
     <xs:choice>
       <xs:element ref="xsl:instruction"/>
+      <xs:element ref="xsl:record"/>
       <xs:group ref="xsl:result-elements"/>
     </xs:choice>
   </xs:group>
@@ -481,9 +490,17 @@ of problems processing the schema using various tools
     </xs:complexType>
   </xs:element>
   
-  <xs:element name="array"
-              substitutionGroup="xsl:instruction"
-              type="xsl:sequence-constructor-or-select"/>
+  <xs:element name="array" 
+              substitutionGroup="xsl:instruction">
+    <xs:complexType>
+      <xs:complexContent mixed="true">
+        <xs:extension base="xsl:sequence-constructor-or-select">
+          <xs:attribute name="for-each" type="xsl:expression"/>
+          <xs:attribute name="_for-each" type="xs:string"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
   
   <xs:element name="array-member"
               substitutionGroup="xsl:instruction"
@@ -543,7 +560,7 @@ of problems processing the schema using various tools
           <xs:attribute name="name" type="xsl:EQName"/>
           <xs:attribute name="streamable" type="xsl:yes-or-no"/>
           <xs:attribute name="use-attribute-sets" type="xsl:EQNames" default=""/>
-          <xs:attribute name="visibility" type="xsl:visibility-type"/>
+          <xs:attribute name="visibility" type="xsl:visibility-not-hidden-type"/>
           <xs:attribute name="_name" type="xs:string"/>
           <xs:attribute name="_streamable" type="xs:string"/>
           <xs:attribute name="_use-attribute-sets" type="xs:string"/>
@@ -577,7 +594,7 @@ of problems processing the schema using various tools
     <xs:complexType>
       <xs:complexContent mixed="true">
         <xs:extension base="xsl:sequence-constructor-or-select">
-          <xs:attribute name="errors" type="xs:token" use="optional"/>
+          <xs:attribute name="errors" type="xsl:nametests" use="optional"/>
           <xs:attribute name="_errors" type="xs:string"/>
         </xs:extension>
       </xs:complexContent>
@@ -729,7 +746,7 @@ of problems processing the schema using various tools
           <xs:attribute name="exponent-separator" type="xsl:char-optionally-expanded" default="e"/>
           <xs:attribute name="NaN" type="xs:string" default="NaN"/>
           <xs:attribute name="percent" type="xsl:char-optionally-expanded" default="%"/>
-          <xs:attribute name="per-mille" type="xsl:char-optionally-expanded" default="~"/>
+          <xs:attribute name="per-mille" type="xsl:char-optionally-expanded" default="‰"/>
           <xs:attribute name="zero-digit" type="xsl:zero-digit" default="0"/>
           <xs:attribute name="digit" type="xsl:char" default="#"/>
           <xs:attribute name="pattern-separator" type="xsl:char" default=";"/>
@@ -782,7 +799,7 @@ of problems processing the schema using various tools
 
   <xs:element name="evaluate" substitutionGroup="xsl:instruction">
     <xs:complexType>
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="xsl:element-only-versioned-element-type">
           <xs:choice minOccurs="0" maxOccurs="unbounded">
             <xs:element ref="xsl:with-param"/>
@@ -825,6 +842,9 @@ of problems processing the schema using various tools
           <xs:attribute name="_component" type="xs:string"/>
           <xs:attribute name="_names" type="xs:string"/>
           <xs:attribute name="_visibility" type="xs:string"/>
+          <xs:assert test="exists(@component | @_component)"/>
+          <xs:assert test="exists(@names | @_names)"/>
+          <xs:assert test="exists(@visibility | @_visibility)"/>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
@@ -833,6 +853,24 @@ of problems processing the schema using various tools
   <xs:element name="fallback"
               substitutionGroup="xsl:instruction"
               type="xsl:sequence-constructor"/>
+  
+  <xs:element name="field">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xsl:element-only-versioned-element-type">
+          <xs:attribute name="name" type="xs:NCName"/>
+          <xs:attribute name="as" type="xsl:sequence-type"/>
+          <xs:attribute name="required" type="xsl:yes-or-no"/>
+          <xs:attribute name="default" type="xsl:expression"/>
+          <xs:attribute name="_name" type="xs:string"/>
+          <xs:attribute name="_as" type="xs:string"/>
+          <xs:attribute name="_required" type="xs:string"/>
+          <xs:attribute name="_default" type="xs:string"/>
+          <xs:assert test="exists(@name | @_name)"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
 
   <xs:element name="for-each" substitutionGroup="xsl:instruction">
     <xs:complexType>
@@ -889,7 +927,7 @@ of problems processing the schema using various tools
           <xs:attribute name="_group-adjacent" type="xs:string"/>
           <xs:attribute name="_group-starting-with" type="xs:string"/>
           <xs:attribute name="_group-ending-with" type="xs:string"/>
-          <xs:attribute name="_split_when" type="xs:string"/>
+          <xs:attribute name="_split-when" type="xs:string"/>
           <xs:attribute name="_composite" type="xs:string"/>
           <xs:attribute name="_collation" type="xs:string"/>
           <xs:assert test="exists(@select | @_select)"/>
@@ -970,10 +1008,10 @@ of problems processing the schema using various tools
                       minOccurs="0"
                       maxOccurs="unbounded"/>
           </xs:sequence>
-          <xs:attribute name="name" type="xsl:EQName-in-namespace"/>
+          <xs:attribute name="name" type="xsl:EQName"/>
           <xs:attribute name="override" type="xsl:yes-or-no" default="yes"/>
           <xs:attribute name="as" type="xsl:sequence-type" default="item()*"/>
-          <xs:attribute name="visibility" type="xsl:visibility-type"/>
+          <xs:attribute name="visibility" type="xsl:visibility-not-hidden-type"/>
           <xs:attribute name="streamability" type="xsl:streamability-type"/>
           <xs:attribute name="override-extension-function" type="xsl:yes-or-no"/>
           <xs:attribute name="new-each-time" type="xsl:yes-or-no-or-maybe"/>
@@ -1186,7 +1224,7 @@ of problems processing the schema using various tools
           <xs:attribute name="select" type="xsl:expression"/>
           <xs:attribute name="lang" type="xsl:avt"/>
           <xs:attribute name="order" type="xsl:avt"/>
-          <xs:attribute name="collation" type="xs:anyURI"/>
+          <xs:attribute name="collation" type="xsl:avt"/>
           <xs:attribute name="case-order" type="xsl:avt"/>
           <xs:attribute name="data-type" type="xsl:avt"/>
           <xs:attribute name="_select" type="xs:string"/>
@@ -1255,17 +1293,17 @@ of problems processing the schema using various tools
             <xs:element ref="xsl:fallback"/> 
           </xs:choice>
           <xs:attribute name="as" type="xsl:sequence-type"/>
+          <xs:attribute name="copy-namespaces" type="xsl:yes-or-no" default="yes"/>
           <xs:attribute name="name" type="xsl:EQName"/>
           <xs:attribute name="streamable" type="xsl:yes-or-no" default="no"/>
           <xs:attribute name="use-accumulators" type="xsl:accumulator-names"/>
-          <xs:attribute name="on-no-match" type="xsl:on-no-match-type" default="shallow-skip"/>
+          <xs:attribute name="on-no-match" type="xsl:on-no-match-type" default="text-only-copy"/>
           <xs:attribute name="on-multiple-match"
                         type="xsl:on-multiple-match-type"
                         default="use-last"/>
           <xs:attribute name="warning-on-no-match" type="xsl:yes-or-no"/>
           <xs:attribute name="warning-on-multiple-match" type="xsl:yes-or-no"/>
           <xs:attribute name="typed" type="xsl:typed-type"/>
-          <xs:attribute name="copy-namespaces" type="xsl:yes-or-no"/>
           <xs:attribute name="visibility">
             <xs:simpleType>
               <xs:restriction base="xsl:visibility-type">
@@ -1276,6 +1314,7 @@ of problems processing the schema using various tools
             </xs:simpleType>
           </xs:attribute>
           <xs:attribute name="_as" type="xs:string"/>
+          <xs:attribute name="_copy-namespaces" type="xs:string"/>
           <xs:attribute name="_name" type="xs:string"/>
           <xs:attribute name="_streamable" type="xs:string"/>
           <xs:attribute name="_use-accumulators" type="xs:string"/>
@@ -1284,7 +1323,6 @@ of problems processing the schema using various tools
           <xs:attribute name="_warning-on-no-match" type="xs:string"/>
           <xs:attribute name="_warning-on-multiple-match" type="xs:string"/>
           <xs:attribute name="_typed" type="xs:string"/>
-          <xs:attribute name="_copy_namespaces" type="xs:string"/>
           <xs:attribute name="_visibility" type="xs:string"/>
         </xs:extension>
       </xs:complexContent>
@@ -1324,7 +1362,7 @@ of problems processing the schema using various tools
 
   <xs:element name="next-iteration" substitutionGroup="xsl:instruction">
     <xs:complexType>
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="xsl:element-only-versioned-element-type">
           <xs:sequence>
             <xs:element ref="xsl:with-param" minOccurs="0" maxOccurs="unbounded"/>
@@ -1414,7 +1452,7 @@ of problems processing the schema using various tools
 
   <xs:element name="output" substitutionGroup="xsl:declaration">
     <xs:complexType>
-      <xs:complexContent>
+      <xs:complexContent >
         <xs:extension base="xsl:element-only-generic-element-type">
           <xs:attribute name="name" type="xsl:EQName"/>
           <xs:attribute name="method" type="xsl:method"/>
@@ -1444,6 +1482,8 @@ of problems processing the schema using various tools
           <xs:attribute name="version" type="xs:NMTOKEN"/>
           <xs:attribute name="_name" type="xs:string"/>
           <xs:attribute name="_method" type="xs:string"/>
+          <xs:attribute name="_allow-duplicate-names" type="xs:string"/>
+          <xs:attribute name="_build-tree" type="xs:string"/>
           <xs:attribute name="_byte-order-mark" type="xs:string"/>
           <xs:attribute name="_cdata-section-elements" type="xs:string"/>
           <xs:attribute name="_doctype-public" type="xs:string"/>
@@ -1455,6 +1495,8 @@ of problems processing the schema using various tools
           <xs:attribute name="_include-content-type" type="xs:string"/>
           <xs:attribute name="_indent" type="xs:string"/>
           <xs:attribute name="_item-separator" type="xs:string"/>
+          <xs:attribute name="_json-lines" type="xs:string"/>
+          <xs:attribute name="_json-node-output-method" type="xs:string"/>
           <xs:attribute name="_media-type" type="xs:string"/>
           <xs:attribute name="_normalization-form" type="xs:string"/>
           <xs:attribute name="_omit-xml-declaration" type="xs:string"/>
@@ -1588,6 +1630,7 @@ of problems processing the schema using various tools
                       maxOccurs="unbounded"/>
           </xs:sequence>
           <xs:attribute name="select" type="xsl:expression"/>
+          <xs:attribute name="_select" type="xs:string"/>
           <xs:assert test="every $e in subsequence(xsl:sort, 2) 
                            satisfies empty($e/(@stable | @_stable))">
             <xs:annotation>
@@ -1629,14 +1672,37 @@ of problems processing the schema using various tools
     </xs:complexType>
   </xs:element>
   
-  <xs:element name="record" substitutionGroup="xsl:instruction">
-    <!-- TODO: needs further work -->
+  <xs:element name="record">
+    <xs:complexType>
+      <xs:complexContent mixed="true">
+        <xs:extension base="xsl:sequence-constructor">  
+          <xs:attribute name="as" form="qualified" type="xsl:sequence-type"/>
+          <xs:attribute name="duplicates" form="qualified" type="xsl:sequence-type"/>
+          <xs:attribute name="_as" form="qualified" type="xs:string"/>
+          <xs:attribute name="_duplicates" form="qualified" type="xs:string"/>
+          <xs:attributeGroup ref="xsl:literal-result-element-attributes"/>
+          <xs:anyAttribute namespace="##local" processContents="lax"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="record-type" substitutionGroup="xsl:declaration">
     <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="xsl:sequence-constructor">
-          <xs:anyAttribute processContents="skip"/>
+        <xs:extension base="xsl:element-only-versioned-element-type">
+          <xs:sequence>
+            <xs:element ref="xsl:field" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+          <xs:attribute name="name" type="xsl:EQName"/>
+          <xs:attribute name="extensible" type="xsl:yes-or-no"/>
+          <xs:attribute name="visibility" type="xsl:visibility-type"/>
+          <xs:attribute name="_name" type="xs:string"/>
+          <xs:attribute name="_extensible" type="xs:string"/>
+          <xs:attribute name="_visibility" type="xs:string"/>
+          <xs:assert test="exists(@name | @_name)"/>
         </xs:extension>
-      </xs:complexContent>     
+      </xs:complexContent>
     </xs:complexType>
   </xs:element>
 
@@ -1680,6 +1746,8 @@ of problems processing the schema using various tools
           <xs:attribute name="_type" type="xs:string"/>
           <xs:attribute name="_validation" type="xs:string"/>
           <xs:attribute name="_method" type="xs:string"/>
+          <xs:attribute name="_allow-duplicate-names" type="xs:string"/>
+          <xs:attribute name="_build-tree" type="xs:string"/>
           <xs:attribute name="_byte-order-mark" type="xs:string"/>
           <xs:attribute name="_cdata-section-elements" type="xs:string"/>
           <xs:attribute name="_doctype-public" type="xs:string"/>
@@ -1691,6 +1759,8 @@ of problems processing the schema using various tools
           <xs:attribute name="_include-content-type" type="xs:string"/>
           <xs:attribute name="_indent" type="xs:string"/>
           <xs:attribute name="_item-separator" type="xs:string"/>
+          <xs:attribute name="_json-lines" type="xs:string"/>
+          <xs:attribute name="_json-node-output-method" type="xs:string"/>
           <xs:attribute name="_media-type" type="xs:string"/>
           <xs:attribute name="_normalization-form" type="xs:string"/>
           <xs:attribute name="_omit-xml-declaration" type="xs:string"/>
@@ -1717,9 +1787,19 @@ of problems processing the schema using various tools
               substitutionGroup="xsl:instruction">
     <xs:complexType>
       <xs:complexContent mixed="true">
-        <xs:extension base="xsl:sequence-constructor">
+        <xs:extension base="xsl:versioned-element-type">
+          <xs:sequence>
+            <xs:element ref="xsl:fallback" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>  
           <xs:attribute name="as" type="xsl:sequence-type"/>
           <xs:attribute name="_as" type="xs:string"/>
+          <xs:assert test="empty(xsl:fallback/preceding-sibling::text()[normalize-space()])">
+            <xs:annotation>
+              <xs:documentation>
+                <p>An xsl:fallback child must not be preceded by a non-whitespace text node.</p>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:assert>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
@@ -1833,7 +1913,7 @@ of problems processing the schema using various tools
           <xs:attribute name="mode" type="xsl:modes"/>
           <xs:attribute name="name" type="xsl:EQName"/>
           <xs:attribute name="as" type="xsl:sequence-type" default="item()*"/>
-          <xs:attribute name="visibility" type="xsl:visibility-type"/>
+          <xs:attribute name="visibility" type="xsl:visibility-not-hidden-type"/>
           <xs:attribute name="_match" type="xs:string"/>
           <xs:attribute name="_priority" type="xs:string"/>
           <xs:attribute name="_mode" type="xs:string"/>
@@ -1908,30 +1988,18 @@ of problems processing the schema using various tools
     </xs:complexType>
   </xs:element>
 
-  <xs:complexType name="text-element-base-type">
-    <xs:simpleContent>
-      <xs:restriction base="xsl:versioned-element-type">
-        <xs:simpleType>
-          <xs:restriction base="xs:string"/>
-        </xs:simpleType>
-        <xs:anyAttribute namespace="##other" processContents="lax"/>
-      </xs:restriction>
-    </xs:simpleContent>
-  </xs:complexType>
-
-  <xs:complexType name="text-element-type">
-    <xs:simpleContent>
-      <xs:extension base="xsl:text-element-base-type">
-        <xs:attribute name="disable-output-escaping" type="xsl:yes-or-no" default="no"/>
-        <xs:attribute name="_disable-output-escaping" type="xs:string"/>
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-
-  <xs:element name="text"
-              substitutionGroup="xsl:instruction"
-              type="xsl:text-element-type"/>
-
+  <xs:element name="text" substitutionGroup="xsl:instruction">
+    <xs:complexType>
+      <xs:complexContent mixed="true">
+        <xs:extension base="xsl:sequence-constructor-or-select">
+          <xs:attribute name="separator" type="xsl:avt"/>
+          <xs:attribute name="disable-output-escaping" type="xsl:yes-or-no" default="no"/>
+          <xs:attribute name="_separator" type="xs:string"/>
+          <xs:attribute name="_disable-output-escaping" type="xs:string"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
 
   <xs:complexType name="transform-element-base-type">
     <xs:complexContent>
@@ -2055,6 +2123,7 @@ of problems processing the schema using various tools
           <xs:attribute name="package-version" type="xs:string"/>
           <xs:attribute name="_name" type="xs:string"/>
           <xs:attribute name="_package-version" type="xs:string"/>
+          <xs:assert test="exists(@name | @_name)"/>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
@@ -2091,7 +2160,7 @@ of problems processing the schema using various tools
         <xs:extension base="xsl:sequence-constructor-or-select">
           <xs:attribute name="name" type="xsl:EQName"/>
           <xs:attribute name="as" type="xsl:sequence-type"/>
-          <xs:attribute name="visibility" type="xsl:visibility-type"/>
+          <xs:attribute name="visibility" type="xsl:visibility-not-hidden-type"/>
           <xs:attribute name="static" type="xsl:yes-or-no"/>
           <xs:attribute name="_name" type="xs:string"/>
           <xs:attribute name="_as" type="xs:string"/>
@@ -2183,27 +2252,52 @@ of problems processing the schema using various tools
   <xs:element name="literal-result-element" abstract="true" type="xs:anyType"/>
 
   <xs:attributeGroup name="literal-result-element-attributes">
-    <xs:attribute name="default-collation" form="qualified" type="xsl:uri-list"/>
-    <xs:attribute name="default-mode" type="xsl:default-mode-type"/>
-    <xs:attribute name="default-validation"
+    <xs:attribute name="default-collation" 
+                  form="qualified" 
+                  type="xsl:uri-list"/>
+    <xs:attribute name="default-mode" 
+                  form="qualified"  
+                  type="xsl:default-mode-type"/>
+    <xs:attribute name="default-validation" 
+                  form="qualified" 
                   type="xsl:validation-strip-or-preserve"
                   default="strip"/>
-    <xs:attribute name="expand-text" type="xsl:yes-or-no"/>
-    <xs:attribute name="extension-element-prefixes" form="qualified" type="xsl:prefixes"/>
-    <xs:attribute name="exclude-result-prefixes" form="qualified" type="xsl:prefixes"/>
-    <xs:attribute name="xpath-default-namespace" form="qualified" type="xs:anyURI"/>
+    <xs:attribute name="expand-text" 
+                  form="qualified"  
+                  type="xsl:yes-or-no"/>
+    <xs:attribute name="extension-element-prefixes" 
+                  form="qualified" 
+                  type="xsl:prefix-list"/>
+    <xs:attribute name="exclude-result-prefixes" 
+                  form="qualified" 
+                  type="xsl:prefix-list-or-all"/>
     <xs:attribute name="inherit-namespaces"
                   form="qualified"
                   type="xsl:yes-or-no"
+                  default="yes"/>
+    <xs:attribute name="schema-role"
+                  form="qualified"
+                  type="xs:NCName"
                   default="yes"/>
     <xs:attribute name="use-attribute-sets"
                   form="qualified"
                   type="xsl:EQNames"
                   default=""/>
-    <xs:attribute name="use-when" form="qualified" type="xsl:expression"/>
-    <xs:attribute name="version" form="qualified" type="xs:decimal"/>
-    <xs:attribute name="type" form="qualified" type="xsl:EQName"/>
-    <xs:attribute name="validation" form="qualified" type="xsl:validation-type"/>
+    <xs:attribute name="use-when" 
+                  form="qualified" 
+                  type="xsl:expression"/>
+    <xs:attribute name="version" 
+                  form="qualified" 
+                  type="xs:decimal"/>
+    <xs:attribute name="type" 
+                  form="qualified" 
+                  type="xsl:EQName"/>
+    <xs:attribute name="validation" 
+                  form="qualified" 
+                  type="xsl:validation-type"/>
+    <xs:attribute name="xpath-default-namespace" 
+                  form="qualified" 
+                  type="xs:anyURI"/>
   </xs:attributeGroup>
 
   <xs:group name="result-elements">
@@ -2273,7 +2367,8 @@ of problems processing the schema using various tools
       <xs:length value="1"/>
     </xs:restriction>
   </xs:simpleType>
-  
+
+           
   <xs:simpleType name="char-optionally-expanded">
     <xs:annotation>
       <xs:documentation>
@@ -2286,9 +2381,10 @@ of problems processing the schema using various tools
     <xs:restriction base="xs:string">
       <xs:pattern value=".(:.*)?"/>
     </xs:restriction>
-  </xs:simpleType>
-  
-   <xs:simpleType name="component-kind-type">
+  </xs:simpleType> 
+
+           
+  <xs:simpleType name="component-kind-type">
     <xs:annotation>
       <xs:documentation>
         <p>
@@ -2366,15 +2462,15 @@ of problems processing the schema using various tools
     </xs:annotation>
     <xs:list>
       <xs:simpleType>
-        <xs:union memberTypes="xsl:fixed-namespaces-type-default xs:NCName xsl:fixed-namespaces-type-prefix-binding xs:anyURI"/>
+        <xs:union memberTypes="xsl:fixed-namespaces-type-standard xs:NCName xsl:fixed-namespaces-type-prefix-binding xs:anyURI"/>
       </xs:simpleType>
     </xs:list>
  
   </xs:simpleType>
   
-  <xs:simpleType name="fixed-namespaces-type-default">
-    <xs:restriction base="xs:string">
-       <xs:enumeration value="#default"/>
+  <xs:simpleType name="fixed-namespaces-type-standard">
+    <xs:restriction base="xs:token">
+       <xs:enumeration value="#standard"/>
     </xs:restriction>
   </xs:simpleType>
   
@@ -2577,10 +2673,6 @@ of problems processing the schema using various tools
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="prefixes">
-    <xs:list itemType="xs:NCName"/>
-  </xs:simpleType>
-
   <xs:simpleType name="prefix-list-or-all">
     <xs:union memberTypes="xsl:prefix-list">
       <xs:simpleType>
@@ -2601,11 +2693,11 @@ of problems processing the schema using various tools
         <p>
            The <code>method</code> attribute of <code>xsl:output</code>: Either one of the recognized names
            "xml", "xhtml", "html", "text", "json", or "adaptive",
-            or a QName that must include a prefix.
+            or an EQName that must include a prefix or namespace URI.
         </p>
       </xs:documentation>
     </xs:annotation>
-    <xs:union>
+    <xs:union memberTypes="xsl:EQName-in-namespace">
       <xs:simpleType>
         <xs:restriction base="xs:token">
           <xs:enumeration value="xml"/>
@@ -2614,11 +2706,6 @@ of problems processing the schema using various tools
           <xs:enumeration value="text"/>
           <xs:enumeration value="json"/>
           <xs:enumeration value="adaptive"/>
-        </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType>
-        <xs:restriction base="xsl:EQName">
-          <xs:pattern value="\c*:\c*"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:union>
@@ -2675,7 +2762,7 @@ of problems processing the schema using various tools
            An extended QName. This schema does not use the built-in type <code>xs:QName</code>,
            but rather defines its own QName type. This may be either a local name,
            or a prefixed QName, or a name written using the extended QName notation
-           <code>Q{uri}local</code>
+           <code>Q{uri}[prefix:]local</code>
         </p>
         <p>In XSLT 4.0, where a QName is used in the <code>name</code> attribute
         of (say) <code>xsl:template</code> or <code>xsl:call-template</code>, the prefix
@@ -2695,7 +2782,7 @@ of problems processing the schema using various tools
       </xs:simpleType>
       <xs:simpleType>
         <xs:restriction base="xs:token">
-          <xs:pattern value="Q\{[^{}]*\}[\i-[:]][\c-[:]]*"/>
+          <xs:pattern value="Q\{[^{}]*\}[\i-[:]][\c-[:]]*(:[\i-[:]][\c-[:]]*)?"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:union>
@@ -2752,6 +2839,10 @@ of problems processing the schema using various tools
     </xs:union>
   </xs:simpleType>
   
+  <xs:simpleType name="tokens">
+    <xs:list itemType="xs:token"/>
+  </xs:simpleType>
+
   <xs:simpleType name="typed-type">
     <xs:annotation>
       <xs:documentation>
