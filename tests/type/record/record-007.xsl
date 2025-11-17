@@ -32,7 +32,8 @@
   <xsl:template name="xsl:initial-template">
     <xsl:variable name="x" as="record(r as xs:double, i as xs:double)" select="cx:complex(1.0, 1.0)"/>
     <xsl:variable name="y" as="record(r as xs:double, i as xs:double)" select="cx:complex(-2.0, -2.0)"/>
-    <result>{cx:add($x, $y) instance of record(r as xs:double, i as xs:double)}</result>
+    <xsl:variable name="sum" select="cx:add($x, $y)"/>
+    <result total="{$sum?r} + {$sum?i}i">{$sum instance of record(r as xs:double, i as xs:double)}</result>
   </xsl:template>  
 
 </xsl:stylesheet>
