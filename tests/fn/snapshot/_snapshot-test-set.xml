@@ -391,8 +391,8 @@
       <created by="Michael Kay" on="2025-07-10"/>
       <environment ref="snapshot-03"/>
       <test>
-         <param name="origin" static="yes" select="'/root()'"/>
          <stylesheet file="snapshot-0301.xsl"/>
+         <param name="origin" static="yes" select="'/root()'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -404,8 +404,8 @@
       <created by="Michael Kay" on="2025-07-10"/>
       <environment ref="snapshot-03"/>
       <test>
-         <param name="origin" static="yes" select="'//a'"/>
          <stylesheet file="snapshot-0301.xsl"/>
+         <param name="origin" static="yes" select="'//a'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -417,8 +417,8 @@
       <created by="Michael Kay" on="2025-07-10"/>
       <environment ref="snapshot-03"/>
       <test>
-         <param name="origin" static="yes" select="'//b'"/>
          <stylesheet file="snapshot-0301.xsl"/>
+         <param name="origin" static="yes" select="'//b'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -430,8 +430,8 @@
       <created by="Michael Kay" on="2025-07-10"/>
       <environment ref="snapshot-03"/>
       <test>
-         <param name="origin" static="yes" select="'//b'"/>
          <stylesheet file="snapshot-0301.xsl"/>
+         <param name="origin" static="yes" select="'//b'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -443,8 +443,8 @@
       <created by="Michael Kay" on="2025-07-10"/>
       <environment ref="snapshot-03"/>
       <test>
-         <param name="origin" static="yes" select="'//*[@id=12]'"/>
          <stylesheet file="snapshot-0301.xsl"/>
+         <param name="origin" static="yes" select="'//*[@id=12]'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -456,8 +456,8 @@
       <created by="Michael Kay" on="2025-07-10"/>
       <environment ref="snapshot-03"/>
       <test>
-         <param name="origin" static="yes" select="'//text()'"/>
          <stylesheet file="snapshot-0301.xsl"/>
+         <param name="origin" static="yes" select="'//text()'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -469,8 +469,8 @@
       <created by="Michael Kay" on="2025-07-10"/>
       <environment ref="snapshot-03"/>
       <test>
-         <param name="origin" static="yes" select="'//comment()'"/>
          <stylesheet file="snapshot-0301.xsl"/>
+         <param name="origin" static="yes" select="'//comment()'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -482,8 +482,8 @@
       <created by="Michael Kay" on="2025-07-10"/>
       <environment ref="snapshot-03"/>
       <test>
-         <param name="origin" static="yes" select="'//processing-instruction()'"/>
          <stylesheet file="snapshot-0301.xsl"/>
+         <param name="origin" static="yes" select="'//processing-instruction()'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -499,8 +499,8 @@
         <spec value="XSLT40+"/>
       </dependencies>
       <test>
-         <param name="origin" static="yes" select="'/root()'"/>
          <stylesheet file="snapshot-0401.xsl"/>
+         <param name="origin" static="yes" select="'/root()'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -515,8 +515,8 @@
         <spec value="XSLT40+"/>
       </dependencies>
       <test>
-         <param name="origin" static="yes" select="'//a'"/>
          <stylesheet file="snapshot-0401.xsl"/>
+         <param name="origin" static="yes" select="'//a'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -531,8 +531,8 @@
         <spec value="XSLT40+"/>
       </dependencies>
       <test>
-         <param name="origin" static="yes" select="'//b'"/>
          <stylesheet file="snapshot-0401.xsl"/>
+         <param name="origin" static="yes" select="'//b'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -547,8 +547,8 @@
         <spec value="XSLT40+"/>
       </dependencies>
       <test>
-         <param name="origin" static="yes" select="'//b'"/>
          <stylesheet file="snapshot-0401.xsl"/>
+         <param name="origin" static="yes" select="'//b'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -563,8 +563,8 @@
         <spec value="XSLT40+"/>
       </dependencies>
       <test>
-         <param name="origin" static="yes" select="'//*[@id=12]'"/>
          <stylesheet file="snapshot-0401.xsl"/>
+         <param name="origin" static="yes" select="'//*[@id=12]'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -579,8 +579,8 @@
         <spec value="XSLT40+"/>
       </dependencies>
       <test>
-         <param name="origin" static="yes" select="'//text()'"/>
          <stylesheet file="snapshot-0401.xsl"/>
+         <param name="origin" static="yes" select="'//text()'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -595,8 +595,8 @@
         <spec value="XSLT40+"/>
       </dependencies>
       <test>
-         <param name="origin" static="yes" select="'//comment()'"/>
          <stylesheet file="snapshot-0401.xsl"/>
+         <param name="origin" static="yes" select="'//comment()'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>
@@ -611,8 +611,8 @@
         <spec value="XSLT40+"/>
       </dependencies>
       <test>
-         <param name="origin" static="yes" select="'//processing-instruction()'"/>
          <stylesheet file="snapshot-0401.xsl"/>
+         <param name="origin" static="yes" select="'//processing-instruction()'"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out/>]]></assert-xml>

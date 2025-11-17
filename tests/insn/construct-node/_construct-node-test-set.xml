@@ -417,7 +417,7 @@ Old--est-att--rib-ute
       </result>
    </test-case>
    
-   <test-case name="construct-node-024a" changes-40="PR2251">
+   <test-case name="construct-node-024a" covers-40="PR2251">
       <description>Test of instructions inside xsl:text</description>
       <created by="Michael Kay" on="2012-10-30"/>
       <modified by="Michael Kay" on="2025-11-13" change="allowed in 4.0"/>
