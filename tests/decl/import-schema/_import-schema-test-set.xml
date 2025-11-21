@@ -96,6 +96,13 @@
       <schema role="stylesheet-import" file="schema076.xsd" xsd-version="1.0"/>
    </environment>
    
+   <environment name="import-schema-e61">
+      <source role=".">
+         <content><![CDATA[<doc/>]]></content>
+      </source>
+      <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+   </environment>
+   
    <test-case name="import-schema-001">
       <description>Test annotating an ID attribute in a temporary tree.</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
@@ -561,7 +568,13 @@
    <test-case name="import-schema-029">
       <description>Test use of a used-defined list type: xsl:QNames</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema-for-xslt20.xsd" xsd-version="1.0"/>
+      </environment>  
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -577,7 +590,13 @@
    <test-case name="import-schema-030">
       <description>Test use of a used-defined list type: xsl:QNames</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema039.xsd" xsd-version="1.0"/>
+      </environment>  
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -593,7 +612,13 @@
    <test-case name="import-schema-031">
       <description>Test use of a used-defined enumeration type</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema040.xsd" xsd-version="1.0"/>
+      </environment> 
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -609,7 +634,13 @@
    <test-case name="import-schema-032">
       <description>Test use of facets controlling string length</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema041.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -625,7 +656,13 @@
    <test-case name="import-schema-033">
       <description>Test use of facets controlling length of lists</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema042.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -646,7 +683,13 @@
    <test-case name="import-schema-034">
       <description>Test use of facets controlling length of lists (with a different schema from previous test)</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema043.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -667,7 +710,13 @@
    <test-case name="import-schema-035">
       <description>Test use of union type</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema044.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -683,7 +732,13 @@
    <test-case name="import-schema-036">
       <description>Test use of union type with named types as the union members</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema045.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -699,7 +754,13 @@
    <test-case name="import-schema-037">
       <description>Test use of a list type whose members are a union type</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema046.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -715,7 +776,13 @@
    <test-case name="import-schema-038">
       <description>Test use type attribute on xsl:copy, with both element and attribute nodes</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema046.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -731,7 +798,13 @@
    <test-case name="import-schema-039">
       <description>Test use type attribute on literal result element, with a simple type</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema046.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -747,7 +820,13 @@
    <test-case name="import-schema-040">
       <description>Test a (rather simple) complex type</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema050.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -769,7 +848,13 @@
    <test-case name="import-schema-041">
       <description>Test a (rather simple) complex type involving a choice</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema051.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -791,7 +876,13 @@
    <test-case name="import-schema-042">
       <description>Test a complex type involving a repeatable choice</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema052.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -812,7 +903,13 @@
    <test-case name="import-schema-043">
       <description>Test a complex type involving an ##other wildcard</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema053.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -834,7 +931,13 @@
    <test-case name="import-schema-044">
       <description>Test a complex type involving an ##other wildcard</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema054.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -856,7 +959,13 @@
    <test-case name="import-schema-045">
       <description>Test a complex type involving a ##targetNamespace wildcard</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema055.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -875,7 +984,13 @@
    <test-case name="import-schema-046">
       <description>Test a complex type involving an xs:group</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema056.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -891,7 +1006,13 @@
    <test-case name="import-schema-047">
       <description>Test a complex type involving an xs:group</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema057.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -911,7 +1032,13 @@
    <test-case name="import-schema-048">
       <description>Test a complex type involving attributes</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema058.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -931,7 +1058,13 @@
    <test-case name="import-schema-049">
       <description>Test a complex type with empty content model</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema059.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -947,7 +1080,13 @@
    <test-case name="import-schema-050">
       <description>Test a complex type with empty content model</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema060.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -963,7 +1102,13 @@
    <test-case name="import-schema-051">
       <description>Test validation="strict", including nested validation of child elements and substitution groups</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -980,7 +1125,13 @@
    <test-case name="import-schema-052">
       <description>Test type annotations on validated elements with complex type</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -996,7 +1147,13 @@
    <test-case name="import-schema-053">
       <description>Test validation of dynamically constructed elements</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1012,7 +1169,13 @@
    <test-case name="import-schema-054">
       <description>Test validation when using xsl:copy</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1028,7 +1191,13 @@
    <test-case name="import-schema-055">
       <description>Test document-node(element(x,y)) node tests</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1044,7 +1213,13 @@
    <test-case name="import-schema-056">
       <description>Test use of a schema that includes another schema. This schema also mixes qualified and unqualified attribute forms</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e09"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema066.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1061,7 +1236,13 @@
    <test-case name="import-schema-057">
       <description>Test use of a schema that imports another schema. This schema also mixes qualified and unqualified attribute forms</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e10"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema067.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1078,7 +1259,13 @@
    <test-case name="import-schema-058">
       <description>Test use xs:all validation</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1103,7 +1290,13 @@
    <test-case name="import-schema-059">
       <description>Test validation of a final result tree</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1128,7 +1321,13 @@
    <test-case name="import-schema-060">
       <description>Test validation of attributes</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e11"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema070.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1145,7 +1344,13 @@
    <test-case name="import-schema-061">
       <description>Test validation on xsl:document instruction</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1170,7 +1375,13 @@
    <test-case name="import-schema-062">
       <description>Test template rules matching on content type</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1239,7 +1450,13 @@
    <test-case name="import-schema-066">
       <description>Test that string-length() and normalize-space with no arguments use the string value not the typed value</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e12"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema076.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1256,7 +1473,13 @@
    <test-case name="import-schema-067">
       <description>Test that string-length() with no arguments uses the string value not the typed value</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e12"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema076.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1273,7 +1496,13 @@
    <test-case name="import-schema-068">
       <description>Type-checking of constructed elements involving substitution groups</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1290,7 +1519,13 @@
    <test-case name="import-schema-069">
       <description>Type-checking of path expressions against a schema</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1339,7 +1574,13 @@
    <test-case name="import-schema-072">
       <description>Test validation on xsl:document instruction using the type attribute</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1364,7 +1605,13 @@
    <test-case name="import-schema-073">
       <description>Test validation on xsl:result-document instruction using the type attribute</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1389,7 +1636,13 @@
    <test-case name="import-schema-074">
       <description>Test validation at document level with xsl:copy-of instruction using the type attribute</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1414,7 +1667,13 @@
    <test-case name="import-schema-075">
       <description>Test validation at document level with xsl:copy instruction using the type attribute</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1439,7 +1698,13 @@
    <test-case name="import-schema-076">
       <description>Distinguish XS_ANY_TYPE from XDT_UNTYPED</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1462,7 +1727,13 @@
    <test-case name="import-schema-077">
       <description>Test that a subtype of xs:ID is recognized</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema087.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1511,7 +1782,13 @@
    <test-case name="import-schema-080">
       <description>Test "as" attributes on templates: simulate bug reported by Alan Painter</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1544,7 +1821,13 @@
    <test-case name="import-schema-082">
       <description>Test use of facets controlling length of lists should fail</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema042.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1560,7 +1843,13 @@
    <test-case name="import-schema-083">
       <description>Test use of facets controlling length of lists should fail</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema042.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1576,7 +1865,13 @@
    <test-case name="import-schema-084">
       <description>Test use of facets controlling length of lists should fail</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema042.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1592,7 +1887,13 @@
    <test-case name="import-schema-085">
       <description>Test validation error with union type</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema044.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1608,7 +1909,13 @@
    <test-case name="import-schema-086">
       <description>Test validation error with union type</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema044.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1624,7 +1931,13 @@
    <test-case name="import-schema-087">
       <description>Test use type attribute on xsl:copy, with both element and attribute nodes; error when copying an attribute and validating against a complex type. See spec bug 13001.</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema046.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1640,7 +1953,13 @@
    <test-case name="import-schema-088">
       <description>Test use type attribute on xsl:copy-of, with both element and attribute nodes; error when copying an attribute and validating against a complex type. See spec bug 13001.</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema046.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1656,7 +1975,13 @@
    <test-case name="import-schema-089">
       <description>Test a (rather simple) complex type</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema050.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1672,7 +1997,13 @@
    <test-case name="import-schema-090">
       <description>Test a (rather simple) complex type</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema050.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1688,7 +2019,13 @@
    <test-case name="import-schema-091">
       <description>Test a (rather simple) complex type</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema050.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1704,7 +2041,13 @@
    <test-case name="import-schema-092">
       <description>Test a (rather simple) complex type involving a choice</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema050.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1720,7 +2063,13 @@
    <test-case name="import-schema-093">
       <description>Test a (rather simple) complex type involving a choice</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema051.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1736,7 +2085,13 @@
    <test-case name="import-schema-094">
       <description>Test a (rather simple) complex type involving a choice</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema051.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1752,7 +2107,13 @@
    <test-case name="import-schema-095">
       <description>Test a complex type involving a repeatable choice</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema052.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1768,7 +2129,13 @@
    <test-case name="import-schema-096">
       <description>Test a complex type involving a repeatable choice</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema052.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1784,7 +2151,13 @@
    <test-case name="import-schema-097">
       <description>Test a complex type involving an ##other wildcard</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema053.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1800,7 +2173,13 @@
    <test-case name="import-schema-098">
       <description>Test a complex type involving an ##other wildcard</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema054.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1816,7 +2195,13 @@
    <test-case name="import-schema-099">
       <description>Test a complex type involving an ##target wildcard</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema055.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1832,7 +2217,13 @@
    <test-case name="import-schema-100">
       <description>Test a complex type involving an xs:group</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema056.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1848,7 +2239,13 @@
    <test-case name="import-schema-101">
       <description>Test a complex type involving an xs:group</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema057.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1864,7 +2261,13 @@
    <test-case name="import-schema-102">
       <description>Test a complex type involving attributes</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema058.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1880,7 +2283,13 @@
    <test-case name="import-schema-103">
       <description>Test a complex type involving attributes</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema058.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1896,7 +2305,13 @@
    <test-case name="import-schema-104">
       <description>Test a complex type with empty content model</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema059.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1912,7 +2327,13 @@
    <test-case name="import-schema-105">
       <description>Test a complex type with empty content model</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema059.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1928,7 +2349,13 @@
    <test-case name="import-schema-106">
       <description>Test a complex type with empty content model</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema060.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1944,7 +2371,13 @@
    <test-case name="import-schema-107">
       <description>Test validation="strict", including nested validation of child elements error: missing attribute zip</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1960,7 +2393,13 @@
    <test-case name="import-schema-108">
       <description>Test validation="strict", including nested validation of child elements error: age is non-numeric</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1976,7 +2415,13 @@
    <test-case name="import-schema-109">
       <description>Test validation="strict", including nested validation of child elements error: middle name repeated</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -1992,7 +2437,13 @@
    <test-case name="import-schema-110">
       <description>Test validation="strict", including nested validation of child elements error: last name repeated</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2008,7 +2459,13 @@
    <test-case name="import-schema-111">
       <description>Test validation="strict", including nested validation of child elements error: middle initial too long</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2024,7 +2481,13 @@
    <test-case name="import-schema-112">
       <description>Test validation="strict", including nested validation of child elements error: no last name</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2040,7 +2503,13 @@
    <test-case name="import-schema-113">
       <description>Test validation="strict", including nested validation of child elements error: age is non-numeric: static validation via a conditional reports a type error if validated statically, but not if done dynamically with default param value</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2056,7 +2525,13 @@
    <test-case name="import-schema-114">
       <description>Test validation="strict", including nested validation of child elements error: age is non-numeric: static validation via a for-each reports a type error if validated statically, but not if done dynamically with default param value</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2072,7 +2547,13 @@
    <test-case name="import-schema-115">
       <description>Test use xs:all validation</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2088,7 +2569,13 @@
    <test-case name="import-schema-116">
       <description>Test use xs:all validation</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2104,7 +2591,13 @@
    <test-case name="import-schema-117">
       <description>Test use xs:all validation</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2121,7 +2614,13 @@
       <description>Test validation of a final result tree ERROR: non-unique id value</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
       <modified by="Michael Kay, Saxonica" on="2018-09-26" change="correct expected error code"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2137,7 +2636,13 @@
    <test-case name="import-schema-119">
       <description>Test validation of a final result tree ERROR: disallowed attribute</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2153,7 +2658,13 @@
    <test-case name="import-schema-120">
       <description>Test validation of uniqueness constraints when doing validation at element level. See erratum E12. Note: this is a "should" rather than a "must", so implementations may legitimately fail to report this error. ERROR: non-unique id value</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2169,7 +2680,13 @@
    <test-case name="import-schema-121">
       <description>Test validation of attributes</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e11"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema070.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2185,7 +2702,13 @@
    <test-case name="import-schema-122">
       <description>Test validation of attributes</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e11"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema070.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2201,7 +2724,13 @@
    <test-case name="import-schema-123">
       <description>Test validation of QName-valued elements and attributes This is now an error (XTTE1545)</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e07"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema071.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2217,7 +2746,13 @@
    <test-case name="import-schema-124">
       <description>Test validation of QName-valued elements and attributes</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e07"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema071.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2233,7 +2768,13 @@
    <test-case name="import-schema-125">
       <description>Test validation of QName-valued elements and attributes</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e07"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema071.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2249,7 +2790,13 @@
    <test-case name="import-schema-126">
       <description>error condition: element has two QName valued attributes using the same prefix to refer to different URIs</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e07"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema071.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2265,7 +2812,13 @@
    <test-case name="import-schema-127">
       <description>Test namespace fixup of QName-valued attributes. Now an error: parentless attributes of type QName no longer allowed</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e07"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema071.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2281,7 +2834,13 @@
    <test-case name="import-schema-128">
       <description>Test that a validated document must have a single element child</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2297,7 +2856,13 @@
    <test-case name="import-schema-129">
       <description>Test that a validated document must have a single element child</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2313,7 +2878,13 @@
    <test-case name="import-schema-130">
       <description>Test that a validated document must not have top-level text</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2329,7 +2900,13 @@
    <test-case name="import-schema-131">
       <description>Test that a validated document must not have top-level text</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2345,7 +2922,13 @@
    <test-case name="import-schema-132">
       <description>Test constructor for an xs:NOTATION subtype</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e05"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema075.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2361,7 +2944,13 @@
    <test-case name="import-schema-133">
       <description>Test that string-length(.) fails if typed value isn't a string</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e12"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema076.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2377,7 +2966,13 @@
    <test-case name="import-schema-134">
       <description>Test that normalize-space(.) fails if typed value isn't a string</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e12"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema076.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2393,7 +2988,13 @@
    <test-case name="import-schema-135">
       <description>Type-checking of constructed elements involving substitution groups fails because the output elements are not validated, therefore are untyped</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2409,7 +3010,13 @@
    <test-case name="import-schema-136">
       <description>Type-checking of constructed elements involving substitution groups</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2425,7 +3032,13 @@
    <test-case name="import-schema-137">
       <description>Type-checking of constructed elements involving substitution groups</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2441,7 +3054,13 @@
    <test-case name="import-schema-138">
       <description>Type-checking of constructed elements involving substitution groups</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2457,7 +3076,13 @@
    <test-case name="import-schema-139">
       <description>Static type-checking of content of simple-valued elements</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema061.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2473,7 +3098,7 @@
    <test-case name="import-schema-140">
       <description>Static type-checking of content of simple-valued elements</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <environment ref="import-schema-e61"/>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2489,7 +3114,7 @@
    <test-case name="import-schema-141">
       <description>Static type-checking of content of simple-valued elements</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <environment ref="import-schema-e61"/>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2505,7 +3130,7 @@
    <test-case name="import-schema-142">
       <description>Static type-checking of content of simple-valued elements</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <environment ref="import-schema-e61"/>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2521,7 +3146,7 @@
    <test-case name="import-schema-143">
       <description>Static type-checking of content of simple-valued elements</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <environment ref="import-schema-e61"/>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2537,7 +3162,7 @@
    <test-case name="import-schema-144">
       <description>Static type-checking of content of simple-valued elements</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <environment ref="import-schema-e61"/>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2553,7 +3178,7 @@
    <test-case name="import-schema-145">
       <description>Static type-checking of content of simple-valued elements</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <environment ref="import-schema-e61"/>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2569,7 +3194,7 @@
    <test-case name="import-schema-146">
       <description>Static type-checking of content of simple-valued elements</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <environment ref="import-schema-e61"/>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2585,7 +3210,7 @@
    <test-case name="import-schema-147">
       <description>Static type-checking of content of simple-valued elements</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <environment ref="import-schema-e61"/>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2601,7 +3226,7 @@
    <test-case name="import-schema-148">
       <description>Type-checking of path expressions against a schema. Note: this test contains a path expression that selects nothing. A schema-aware processor may report a warning about this condition, but it is not an error.</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <environment ref="import-schema-e61"/>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2618,7 +3243,7 @@
    <test-case name="import-schema-149">
       <description>Type-checking of path expressions against a schema. Note: this test contains a path expression that selects nothing. A schema-aware processor may report a warning about this condition, but it is not an error.</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <environment ref="import-schema-e61"/>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2635,7 +3260,7 @@
    <test-case name="import-schema-150">
       <description>Type-checking of path expressions against a schema. Note: this test contains a path expression that selects nothing. A schema-aware processor may report a warning about this condition, but it is not an error.</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <environment ref="import-schema-e61"/>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2652,7 +3277,7 @@
    <test-case name="import-schema-151">
       <description>Type-checking of arithmetic expressions against a schema</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <environment ref="import-schema-e61"/>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2668,7 +3293,7 @@
    <test-case name="import-schema-152">
       <description>Type-checking of function calls against a schema</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <environment ref="import-schema-e61"/>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2772,7 +3397,13 @@
    <test-case name="import-schema-158">
       <description>Test validation failure on xsl:document instruction using the type attribute wrong</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2788,7 +3419,13 @@
    <test-case name="import-schema-159">
       <description>Test validation failure on xsl:document instruction using the type attribute so is a comment wrong</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2804,7 +3441,13 @@
    <test-case name="import-schema-160">
       <description>Test validation failure on xsl:document instruction using the type attribute</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2820,7 +3463,13 @@
    <test-case name="import-schema-161">
       <description>Test validation failure on xsl:result-document instruction using the type attribute wrong</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2836,7 +3485,13 @@
    <test-case name="import-schema-162">
       <description>Test validation error at document level with xsl:copy-of instruction using the type attribute</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2852,7 +3507,13 @@
    <test-case name="import-schema-163">
       <description>Test validation at document level with xsl:copy instruction using the type attribute</description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e01"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema068.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2878,6 +3539,7 @@
          <source role=".">
             <content><![CDATA[<doc><e/><e xmlns:p="http://some.other.namespace/"/><e xmlns:q="http://p.com/"/></doc>]]></content>
          </source>
+         <schema role="stylesheet-import" file="schema092.xsd" xsd-version="1.0"/>
       </environment>
       <dependencies>
          <spec value="XSLT20+"/>
@@ -2903,7 +3565,13 @@
       	attribute with the same name (erratum E10)
       </description>
       <created by="Michael Kay, Saxonica" on="2012-11-09"/>
-      <environment ref="import-schema-e11"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema070.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2929,7 +3597,13 @@
    <test-case name="import-schema-166">
       <description>Simple test of xsl:import-schema with @namespace and @schema-location.Verify that top-level element and attribute declarations and defined types that are in @namespace are available for use in the stylesheet.</description>
       <created by="Michael Kay" on="2012-10-30"/>
-      <environment ref="import-schema-e02"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema002.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2950,7 +3624,13 @@
    <test-case name="import-schema-167">
       <description>Test where a schema is imported in an imported stylesheet but datatypes are used in the primary stylesheet.</description>
       <created by="Michael Kay" on="2012-10-30"/>
-      <environment ref="import-schema-e02"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema171a.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
@@ -2972,7 +3652,13 @@
    <test-case name="import-schema-168">
       <description>Test where a schema is imported in the primary stylesheet but datatypes are used in an imported stylesheet.</description>
       <created by="Michael Kay" on="2012-10-30"/>
-      <environment ref="import-schema-e02"/>
+      <modified by="Michael Kay, Saxonica" on="2025-11-21" change="align environment with imported schema"/>
+      <environment>
+         <source role=".">
+            <content><![CDATA[<doc/>]]></content>
+         </source>
+         <schema role="stylesheet-import" file="schema002.xsd" xsd-version="1.0"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="schema_aware"/>
