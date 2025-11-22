@@ -5262,6 +5262,40 @@
       </result>
    </test-case>
    
+   <test-case name="match-290">
+      <description>Default priority of schema-element(E) pattern.</description>
+      <keywords>xsl:import-schema SchemaElementTest</keywords>
+      <created by="Michael Kay" on="2025-11-22"/>
+      <environment ref="match3001"/>
+      <dependencies>
+         <spec value="XSLT20+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="match-290.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<one><two><three/></two></one>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="match-291">
+      <description>Default-priority of schema-attribute($name).</description>
+      <keywords>xsl:import-schema SchemaAttributeTest</keywords>
+      <created by="Michael Kay" on="2025-11-22"/>
+      <environment ref="match3002"/>
+      <dependencies>
+         <spec value="XSLT20+"/>
+         <feature value="schema_aware"/>
+      </dependencies>
+      <test>
+         <stylesheet file="match-291.xsl"/>
+      </test>
+      <result>
+         <assert>/out/A/B/C</assert>
+      </result>
+   </test-case>
+   
    <test-case name="match-401" covers-40="PR-1442">
       <description>Pattern with UnionNodeTest</description>
       <created by="Michael Kay" on="2022-12-13"/>
