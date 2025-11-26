@@ -220,6 +220,142 @@
          </all-of>
       </result>
    </test-case>
+   
+   <test-case name="text-010" covers-40="PR2301">
+      <description>
+         xsl:text with cdata attribute
+      </description>
+      <created by="Michael Kay" on="2025-11-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="text-010.xsl"/>
+         <output serialize="yes" tree="no"/>
+      </test>
+      <result>
+         <serialization-matches><![CDATA[<out><!\[CDATA\[===\]\]></out>]]></serialization-matches>
+      </result>
+   </test-case>
+   
+   <test-case name="text-011" covers-40="PR2301">
+      <description>
+         xsl:text with cdata attribute containing ] ] > 
+      </description>
+      <created by="Michael Kay" on="2025-11-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="text-011.xsl"/>
+         <output serialize="yes" tree="no"/>
+      </test>
+      <result>
+         <serialization-matches><![CDATA[<out><!\[CDATA\[===\]\]\]\]><!\[CDATA\[>===\]\]></out>]]></serialization-matches>
+      </result>
+   </test-case>
+   
+   <test-case name="text-012" covers-40="PR2301">
+      <description>
+         xsl:text with cdata attribute as AVT; adjacent CDATA and non-CDATA sections
+      </description>
+      <created by="Michael Kay" on="2025-11-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="text-012.xsl"/>
+         <output serialize="yes" tree="no"/>
+      </test>
+      <result>
+         <serialization-matches><![CDATA[<out><!\[CDATA\[===\]\]>###</out>]]></serialization-matches>
+      </result>
+   </test-case>
+   
+   <test-case name="text-013" covers-40="PR2301">
+      <description>
+         xsl:text with cdata and select attributes
+      </description>
+      <created by="Michael Kay" on="2025-11-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="text-013.xsl"/>
+         <output serialize="yes" tree="no"/>
+      </test>
+      <result>
+         <serialization-matches><![CDATA[<out><!\[CDATA\[===\]\]></out>]]></serialization-matches>
+      </result>
+   </test-case>
+   
+   <test-case name="text-014" covers-40="PR2301">
+      <description>
+         xsl:text with cdata, ignored when creating attribute node
+      </description>
+      <created by="Michael Kay" on="2025-11-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="text-014.xsl"/>
+         <output serialize="yes" tree="no"/>
+      </test>
+      <result>
+         <serialization-matches><![CDATA[<out x="#===#"/>]]></serialization-matches>
+      </result>
+   </test-case>
+   
+   <test-case name="text-015" covers-40="PR2301">
+      <description>
+         xsl:text with cdata, ignored when bound to variable
+      </description>
+      <created by="Michael Kay" on="2025-11-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="text-015.xsl"/>
+         <output serialize="yes" tree="no"/>
+      </test>
+      <result>
+         <serialization-matches><![CDATA[<out>#===#</out>]]></serialization-matches>
+      </result>
+   </test-case>
+   
+   <test-case name="text-016" covers-40="PR2301">
+      <description>
+         disable-output-escaping ignored when cdata=yes
+      </description>
+      <created by="Michael Kay" on="2025-11-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="text-016.xsl"/>
+         <output serialize="yes" tree="no"/>
+      </test>
+      <result>
+         <serialization-matches><![CDATA[<out><!\[CDATA\[<>\]\]></out>]]></serialization-matches>
+      </result>
+   </test-case>
+   
+   <test-case name="text-017" covers-40="PR2301">
+      <description>
+         disable-output-escaping ignored when cdata=no
+      </description>
+      <created by="Michael Kay" on="2025-11-26"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="text-017.xsl"/>
+         <output serialize="yes" tree="no"/>
+      </test>
+      <result>
+         <serialization-matches><![CDATA[<out>&lt;&gt;</out>]]></serialization-matches>
+      </result>
+   </test-case>
 
   
    
