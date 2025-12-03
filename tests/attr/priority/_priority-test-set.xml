@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns="http://www.w3.org/2012/10/xslt-test-catalog" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="priority">
+   <description>Tests default priority of patterns</description>
+ 
+
+   <test-case name="priority-001">
+      <description>
+         Test default priority of pattern .
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'.'"/>
+         <param static="true" name="select" select="'42'"/>
+         <param static="true" name="expected" select="-1"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-002">
+      <description>
+         Test default priority of pattern .[predicate]
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'.[2=2]'"/>
+         <param static="true" name="select" select="'42'"/>
+         <param static="true" name="expected" select="0.5"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-010">
+      <description>
+         Test default priority of type pattern item()
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'item()'"/>
+         <param static="true" name="select" select="'42'"/>
+         <param static="true" name="expected" select="-1"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-011">
+      <description>
+         Test default priority of type pattern item()
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(item())'"/>
+         <param static="true" name="select" select="'42'"/>
+         <param static="true" name="expected" select="-1"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-012">
+      <description>
+         Test default priority of type pattern node()
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(node())'"/>
+         <param static="true" name="select" select="'$e'"/>
+         <param static="true" name="expected" select="-0.5"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-013">
+      <description>
+         Test default priority of type pattern gnode()
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(gnode())'"/>
+         <param static="true" name="select" select="'$e'"/>
+         <param static="true" name="expected" select="-0.5"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-014">
+      <description>
+         Test default priority of type pattern jnode()
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(jnode())'"/>
+         <param static="true" name="select" select="'jtree([])'"/>
+         <param static="true" name="expected" select="-0.5"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-015">
+      <description>
+         Test default priority of type pattern function(*)
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(function(*))'"/>
+         <param static="true" name="select" select="'true#0'"/>
+         <param static="true" name="expected" select="-0.5"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-016">
+      <description>
+         Test default priority of type pattern xs:anyAtomicType
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(xs:anyAtomicType)'"/>
+         <param static="true" name="select" select="'42'"/>
+         <param static="true" name="expected" select="-0.5"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-017">
+      <description>
+         Test default priority of type pattern element(*)
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(element(*))'"/>
+         <param static="true" name="select" select="'$e'"/>
+         <param static="true" name="expected" select="-0.5"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-018">
+      <description>
+         Test default priority of type pattern array(*)
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(array(*))'"/>
+         <param static="true" name="select" select="'[]'"/>
+         <param static="true" name="expected" select="-0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-019">
+      <description>
+         Test default priority of type pattern array(*)
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'array(*)'"/>
+         <param static="true" name="select" select="'[]'"/>
+         <param static="true" name="expected" select="-0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-020">
+      <description>
+         Test default priority of type pattern map(*)
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(map(*))'"/>
+         <param static="true" name="select" select="'{}'"/>
+         <param static="true" name="expected" select="-0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-021">
+      <description>
+         Test default priority of type pattern map(*)
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'map(*)'"/>
+         <param static="true" name="select" select="'{}'"/>
+         <param static="true" name="expected" select="-0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-022">
+      <description>
+         Test default priority of type pattern record(*)
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(record(*))'"/>
+         <param static="true" name="select" select="'{}'"/>
+         <param static="true" name="expected" select="-0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-023">
+      <description>
+         Test default priority of type pattern record(*)
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(record(*))'"/>
+         <param static="true" name="select" select="'{}'"/>
+         <param static="true" name="expected" select="-0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-030">
+      <description>
+         Test default priority of type pattern item()[predicate]
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'item()[current-dateTime() gt unix-dateTime(0)]'"/>
+         <param static="true" name="select" select="'42'"/>
+         <param static="true" name="expected" select="0.5"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-031">
+      <description>
+         Test default priority of type pattern enum(...)
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'enum(''a'', ''b'', ''c'')'"/>
+         <param static="true" name="select" select="`'a'`"/>
+         <param static="true" name="expected" select="0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-032">
+      <description>
+         Test default priority of choice pattern
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'map(*) | type(xs:string)'"/>
+         <param static="true" name="select" select="`'a'`"/>
+         <param static="true" name="expected" select="0.0"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-033">
+      <description>
+         Test default priority of choice pattern
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(xs:string) | map(*)'"/>
+         <param static="true" name="select" select="`'a'`"/>
+         <param static="true" name="expected" select="0.0"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-034">
+      <description>
+         Test default priority of intersect pattern
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(map(xs:string, *) intersect type(map(xs:token, xs:integer)))'"/>
+         <param static="true" name="select" select="'{}'"/>
+         <param static="true" name="expected" select="0.0"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-035">
+      <description>
+         Test default priority of intersect pattern
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(map(xs:token, xs:integer)) intersect type(map(xs:string, *))'"/>
+         <param static="true" name="select" select="'{}'"/>
+         <param static="true" name="expected" select="0.0"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-036">
+      <description>
+         Test default priority of except pattern
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(map(xs:string, *)) except type(map(xs:token, xs:integer))'"/>
+         <param static="true" name="select" select="'{}'"/>
+         <param static="true" name="expected" select="0.0"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-037">
+      <description>
+         Test default priority of except pattern
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(map(xs:token, xs:integer)) except type(map(xs:string, *))'"/>
+         <param static="true" name="select" select="'{}'"/>
+         <param static="true" name="expected" select="0.0"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-100">
+      <description>
+         Test default priority of type pattern xs:decimal
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(xs:decimal)'"/>
+         <param static="true" name="select" select="'xs:byte(42)'"/>
+         <param static="true" name="expected" select="0.0"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-101">
+      <description>
+         Test default priority of type pattern xs:integer
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(xs:integer)'"/>
+         <param static="true" name="select" select="'xs:byte(42)'"/>
+         <param static="true" name="expected" select="0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-102">
+      <description>
+         Test default priority of type pattern xs:int
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(xs:int)'"/>
+         <param static="true" name="select" select="'xs:byte(42)'"/>
+         <param static="true" name="expected" select="0.4375"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-103">
+      <description>
+         Test default priority of type pattern xs:int
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(xs:int)'"/>
+         <param static="true" name="select" select="'xs:byte(42)'"/>
+         <param static="true" name="expected" select="0.4375"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-104">
+      <description>
+         Test default priority of type pattern xs:short
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(xs:short)'"/>
+         <param static="true" name="select" select="'xs:byte(42)'"/>
+         <param static="true" name="expected" select="0.46875"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-105">
+      <description>
+         Test default priority of type pattern xs:byte
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(xs:byte)'"/>
+         <param static="true" name="select" select="'xs:byte(42)'"/>
+         <param static="true" name="expected" select="0.484375"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-106">
+      <description>
+         Test default priority of type pattern xs:unsignedLong
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(xs:unsignedLong)'"/>
+         <param static="true" name="select" select="'xs:unsignedByte(42)'"/>
+         <param static="true" name="expected" select="0.4375"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-107">
+      <description>
+         Test default priority of type pattern xs:unsignedByte
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(xs:unsignedByte)'"/>
+         <param static="true" name="select" select="'xs:unsignedByte(42)'"/>
+         <param static="true" name="expected" select="0.4921875"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-108">
+      <description>
+         Test default priority of type pattern xs:byte[predicate]
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type(xs:byte)[. lt 0]'"/>
+         <param static="true" name="select" select="'xs:byte(-42)'"/>
+         <param static="true" name="expected" select="0.5"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-109">
+      <description>
+         Test default priority of choice type pattern
+      </description>
+      <created by="Michael Kay" on="2025-12-02"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="true" name="match" select="'type((xs:byte|xs:unsignedByte))'"/>
+         <param static="true" name="select" select="'xs:byte(-42)'"/>
+         <param static="true" name="expected" select="0.4921875"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+ 
+
+</test-set>
