@@ -470,6 +470,21 @@
          <assert>/out/@ok = 'true'</assert>
       </result>
    </test-case>
+   
+   <test-case name="variable-0124" covers-40="PR2272">
+      <description>test that EQNames with prefixes can be used as a variable name</description>
+      <created by="Michael Kay" on="2025-12-03"/>
+      <environment ref="variable-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="variable-0124.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out v="1"/>]]></assert-xml>
+      </result>
+   </test-case>
 
    <test-case name="variable-0201">
       <description>basic test of tunnel parameters</description>
