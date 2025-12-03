@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:f="http://local.functions/"
+               version="4.0"
+               exclude-result-prefixes="#all"
+               expand-text="yes">
+   
+   
+   <xsl:output method="xml" use-character-maps="m"/>
+   
+   <xsl:character-map name="m">
+      <xsl:output-character character="@" string="-at-"/>
+   </xsl:character-map>
+   
+   <xsl:template name="xsl:initial-template">
+      <out>
+         <xsl:text cdata="false">=@=</xsl:text>
+         <xsl:text cdata="true">=@=</xsl:text>
+         <xsl:text cdata="false">=@=</xsl:text>
+      </out>
+   </xsl:template>
+ 
+</xsl:transform>
