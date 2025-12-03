@@ -557,6 +557,21 @@
          <error code="XTSE0740"/>
       </result>
    </test-case>
+   
+   <test-case name="function-0123" covers-40="PR2272">
+      <description>Function declaration and call both use EQName syntax with optional prefix</description>
+      <created by="Michael Kay" on="2025-12-03"/>
+      <environment ref="function-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-0123.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>17</out>]]></assert-xml>
+      </result>
+   </test-case>
 
    <test-case name="function-0201">
       <description>simple function, 2 args, one atomized</description>
