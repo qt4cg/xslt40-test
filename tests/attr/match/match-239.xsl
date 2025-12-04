@@ -6,7 +6,7 @@
     version="3.0">
 
 <?spec xslt#patterns?>
-    <!-- Purpose: predicate pattern cannot be parenthesized.  -->
+    <!-- Purpose: predicate pattern cannot be parenthesized in 3.0.  -->
 
 <xsl:template name="main">
  <out>
