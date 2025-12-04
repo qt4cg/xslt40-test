@@ -393,7 +393,7 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(map(xs:string, *) intersect type(map(xs:token, xs:integer)))'"/>
+         <param static="true" name="match" select="'type(map(xs:string, item()*)) intersect type(map(xs:token, xs:integer))'"/>
          <param static="true" name="select" select="'{}'"/>
          <param static="true" name="expected" select="0.0"/>
       </test>
@@ -412,7 +412,7 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(map(xs:token, xs:integer)) intersect type(map(xs:string, *))'"/>
+         <param static="true" name="match" select="'type(map(xs:token, xs:integer)) intersect type(map(xs:string, item()*))'"/>
          <param static="true" name="select" select="'{}'"/>
          <param static="true" name="expected" select="0.0"/>
       </test>
@@ -431,8 +431,8 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(map(xs:string, *)) except type(map(xs:token, xs:integer))'"/>
-         <param static="true" name="select" select="'{}'"/>
+         <param static="true" name="match" select="'type(map(xs:string, item()*)) except type(map(xs:token, xs:integer))'"/>
+         <param static="true" name="select" select="'{`a`: 12}'"/>
          <param static="true" name="expected" select="0.0"/>
       </test>
       <result>
@@ -450,8 +450,8 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(map(xs:token, xs:integer)) except type(map(xs:string, *))'"/>
-         <param static="true" name="select" select="'{}'"/>
+         <param static="true" name="match" select="'type(map(xs:boolean, xs:integer)) except type(map(xs:string, xs:int))'"/>
+         <param static="true" name="select" select="'{true():1}'"/>
          <param static="true" name="expected" select="0.0"/>
       </test>
       <result>
