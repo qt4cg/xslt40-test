@@ -407,6 +407,7 @@
     <description>template matching array of atomic values</description>
     <created by="Michael Kay" on="2020-01-30"/>
     <modified by="Michael Kay" on="2023-03-23" change="reinstate with current syntax"/>
+    <modified by="Michael Kay" on="2025-12-05" change="spec change for default priorities"/>
     <dependencies>
       <spec value="XSLT40+"/>
     </dependencies>
@@ -414,7 +415,7 @@
       <stylesheet file="array-023.xsl"/>
     </test>
     <result>
-      <assert>/out/L/I/D = '42'</assert>
+      <assert>/out/D/I/L = '42'</assert>
     </result>
   </test-case>
    

@@ -6,7 +6,7 @@
   
   <!-- array matching in patterns -->
   
-  <xsl:template match="array(*)[array:size(.)=0]"/>
+    <xsl:template match="array(*)[array:size(.)=0]"/>
     
     <xsl:template match="array(xs:long)">
       <L><xsl:next-match/></L>

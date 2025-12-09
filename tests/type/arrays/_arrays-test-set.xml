@@ -1104,20 +1104,6 @@
       </result>
    </test-case>
   
-  <test-case name="arrays-023">
-    <description>template matching array of atomic values</description>
-    <created by="Michael Kay" on="2020-01-30"/>
-    <dependencies>
-      <spec value="XSLT40+"/>
-    </dependencies>
-    <test>
-      <stylesheet file="arrays-023.xsl"/>
-    </test>
-    <result>
-      <assert>/out/L/I/D = '42'</assert>
-    </result>
-  </test-case>
-   
    <test-case name="arrays-023b">
       <description>template matching array of atomic values, when not available</description>
       <created by="Debbie Lockett" on="2020-03-10"/>

@@ -8,6 +8,8 @@
    <xsl:import href="impwparam8.xsl"/>
 
    <xsl:include href="impwparam8.xsl"/>
+   
+   <xsl:mode saxon:trace="yes" xmlns:saxon="http://saxon.sf.net/"/>
 
    <xsl:template match="doc">
       <out>

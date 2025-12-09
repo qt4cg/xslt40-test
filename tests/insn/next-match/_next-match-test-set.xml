@@ -831,6 +831,7 @@ Example of apply-imports</div><bag/></out>]]></assert-xml>
    <test-case name="next-match-402">
       <description>Test of xsl:next-match with 4.0 atomic type patterns with and without predicates</description>
       <created by="Michael Kay" on="2023-03-30"/>
+      <modified by="Michael Kay" on="2025-12-05" change="Spec has changed"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -838,7 +839,7 @@ Example of apply-imports</div><bag/></out>]]></assert-xml>
          <stylesheet file="next-match-402.xsl"/>
       </test>
       <result>
-         <assert>/out = "1:1t:2:2t:2T:3:3t:4:4t:5:5t:6:6t:17"</assert>
+         <assert>/out = "0.5H:0.5G:0.5F:0.5E:0.5D:0.5C:0.5B:0.46875:0.4375:0.25:0:-0.5:-1:17"</assert>
       </result>
    </test-case>
    
@@ -846,6 +847,7 @@ Example of apply-imports</div><bag/></out>]]></assert-xml>
       <description>Test of xsl:next-match with 4.0 atomic and union type patterns</description>
       <created by="Michael Kay" on="2023-03-30"/>
       <modified by="Michael Kay" on="2024-08-09" change="spec change for union type syntax"/>
+      <modified by="Michael Kay" on="2025-12-05" change="Spec has changed for default priorities"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -853,7 +855,7 @@ Example of apply-imports</div><bag/></out>]]></assert-xml>
          <stylesheet file="next-match-403.xsl"/>
       </test>
       <result>
-         <assert>/out = "1:1t:2:2t:u:ut:3:3t:4:4t:5:5t:6:6t:17"</assert>
+         <assert>/out = "0.5H:0.5G:0.5F:0.5E:0.5D:0.5C:0.5B:0.5A:0.46875:0.46875:0.4375:0.25:0:-0.5:-1:17"</assert>
       </result>
    </test-case>
    
@@ -891,6 +893,7 @@ Example of apply-imports</div><bag/></out>]]></assert-xml>
       <description>Test of xsl:next-match with non-conflicting union type patterns</description>
       <created by="Michael Kay" on="2023-03-30"/>
       <modified by="Michael Kay" on="2024-08-09" change="spec change for union type syntax"/>
+      <modified by="Michael Kay" on="2025-12-05" change="Spec has changed for default priorities"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -898,13 +901,14 @@ Example of apply-imports</div><bag/></out>]]></assert-xml>
          <stylesheet file="next-match-406.xsl"/>
       </test>
       <result>
-         <assert>/out = "1:2:3:4:5:6:17"</assert>
+         <error code="XTDE0540"/>
       </result>
    </test-case>
    
    <test-case name="next-match-420">
       <description>Test of xsl:next-match with 4.0 record type patterns</description>
       <created by="Michael Kay" on="2023-03-29"/>
+      <modified by="Michael Kay" on="2025-12-05" change="Spec has changed for default priorities"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -912,7 +916,7 @@ Example of apply-imports</div><bag/></out>]]></assert-xml>
          <stylesheet file="next-match-420.xsl"/>
       </test>
       <result>
-         <assert>/out = "123456:17"</assert>
+         <assert>/out = "14:1:2:3:5:6:"</assert>
       </result>
    </test-case>
 </test-set>

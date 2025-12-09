@@ -7,6 +7,8 @@
 <!-- DESCRIPTION: The priorities of the components in a union pattern may be calculated incorrectly,
     for example in the pattern "text() | *" both components are given priority +0.5 instead
     of -0.5. -->
+  
+  <!-- Source doc: <nos><no>CBS 4230</no></nos> -->
 
 
 <xsl:template match="nos" >
