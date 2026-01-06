@@ -11,29 +11,29 @@
       <out><xsl:apply-templates select="$test"/></out>
    </xsl:template>
    
-   <xsl:template match="type(xs:short)">1:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:short)">1:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:short)[. lt 20]">1t:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:short)[. lt 20]">1t:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:int)">2:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:int)">2:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:int)[. lt 20]">2t:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:int)[. lt 20]">2t:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:int)[. lt 25]">2t:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:int)[. lt 25]">2t:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:short| xs:int)">u:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:short| xs:int)">u:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:short| xs:int)[. lt 20]">ut:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:short| xs:int)[. lt 20]">ut:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:anyAtomicType)">5:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:anyAtomicType)">5:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:anyAtomicType)[. lt 20]">5t:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:anyAtomicType)[. lt 20]">5t:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:decimal)">4:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:decimal)">4:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:decimal)[. lt 20]">4t:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:decimal)[. lt 20]">4t:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(item())">6:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(item())">6:<xsl:next-match/></xsl:template>
    
    <xsl:template match="type(item())[. lt 20]">6t:<xsl:next-match/></xsl:template>
    

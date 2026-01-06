@@ -14,7 +14,7 @@
     </out>
   </xsl:template>
   
-  <xsl:template match="array(xs:integer)">
+  <xsl:template match="~array(xs:integer)">
     <in>OK</in>
   </xsl:template>
   

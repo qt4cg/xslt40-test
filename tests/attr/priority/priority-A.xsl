@@ -9,7 +9,7 @@
    <xsl:param name="expected" as="xs:decimal" static="yes"/>
    <xsl:param name="select" as="xs:string" static="yes"/>
    
-   <xsl:template _match="{$match}" _priority="{$expected - xs:decimal(0.000_000_001)}">
+   <xsl:template _match="{$match}" _priority="{$expected - xs:decimal(0.000000001)}">
       <C><xsl:next-match/></C>
    </xsl:template>
    
@@ -17,7 +17,7 @@
       <B><xsl:next-match/></B>
    </xsl:template>
    
-   <xsl:template _match="{$match}" _priority="{$expected + xs:decimal(0.000_000_001)}">
+   <xsl:template _match="{$match}" _priority="{$expected + xs:decimal(0.000000001)}">
       <A><xsl:next-match/></A>
    </xsl:template>
    

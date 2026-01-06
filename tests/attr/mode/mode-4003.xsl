@@ -14,7 +14,7 @@
     <out><xsl:apply-templates select="[1, 2, 3, [4, 5, 6]]"/></out>
   </xsl:template>
   
-  <xsl:template match="record(value as array(*))">
+  <xsl:template match="~record(value as array(*))">
     <chunk>
       <xsl:apply-templates select="?value"/>
     </chunk>

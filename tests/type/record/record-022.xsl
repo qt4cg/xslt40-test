@@ -10,15 +10,15 @@
   
    <!-- Test default priorities for non-extensible record types -->
     
-    <xsl:template match="record(first as xs:string, last as xs:string, middle)">
+    <xsl:template match="~record(first as xs:string, last as xs:string, middle)">
       <a><xsl:next-match/></a>
     </xsl:template>
   
-  <xsl:template match="record(first as xs:string, last as xs:string, middle as xs:string)">
+  <xsl:template match="~record(first as xs:string, last as xs:string, middle as xs:string)">
     <b><xsl:next-match/></b>
   </xsl:template>
   
-  <xsl:template match="record(first as xs:NCName, last as xs:NCName, middle as xs:string)">
+  <xsl:template match="~record(first as xs:NCName, last as xs:NCName, middle as xs:string)">
     <c><xsl:next-match/></c>
   </xsl:template>
     

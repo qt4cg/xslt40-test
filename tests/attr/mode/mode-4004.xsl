@@ -16,12 +16,12 @@
   </xsl:template>
   
 
-  <xsl:template match="record(yellow)">
+  <xsl:template match="~record(yellow)">
     <orange>20</orange>
     <lilac>21</lilac>
   </xsl:template>
   
-  <xsl:template match="record(blue)">
+  <xsl:template match="~record(blue)">
     <blue>25</blue>
   </xsl:template>
   

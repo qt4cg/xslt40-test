@@ -6,21 +6,21 @@
   
   <!-- array matching in patterns -->
   
-    <xsl:template match="array(*)[array:size(.)=0]"/>
+    <xsl:template match="~array(*)[array:size(.)=0]"/>
     
-    <xsl:template match="array(xs:long)">
+    <xsl:template match="~array(xs:long)">
       <L><xsl:next-match/></L>
     </xsl:template>
     
-    <xsl:template match="array(xs:integer)">
+    <xsl:template match="~array(xs:integer)">
       <I><xsl:next-match/></I>
     </xsl:template>
     
-    <xsl:template match="array(xs:decimal)">
+    <xsl:template match="~array(xs:decimal)">
       <D><xsl:next-match/></D>
     </xsl:template>
     
-    <xsl:template match="array(record(first, last))">
+    <xsl:template match="~array(record(first, last))">
       <AT/>
     </xsl:template> 
     

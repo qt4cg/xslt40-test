@@ -14,7 +14,7 @@
     </foo>
   </xsl:variable>
   
-  <xsl:template match="record(bar as element(bar), *)">
+  <xsl:template match="~record(bar as element(bar), *)">
     <bar id="{?id}" baz="{?baz}"/>
   </xsl:template>
   

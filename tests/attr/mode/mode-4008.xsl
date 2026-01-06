@@ -58,11 +58,11 @@
                                         "Category":"Science"})}'/>
   </xsl:template>
   
-  <xsl:template match="record(Note)"/>
+  <xsl:template match="~record(Note)"/>
   
-  <xsl:template match="record(value as record(Note))"/>
+  <xsl:template match="~record(value as record(Note))"/>
   
-  <xsl:template match="type(xs:double)">
+  <xsl:template match="~xs:double">
     <xsl:sequence select="round(xs:decimal(.), 2)"/>
   </xsl:template>
  

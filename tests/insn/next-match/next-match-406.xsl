@@ -11,17 +11,17 @@
       <out><xsl:apply-templates select="$test"/></out>
    </xsl:template>
    
-   <xsl:template match="type(xs:short)">1:<xsl:next-match/></xsl:template>
+   <xsl:template match="~xs:short">1:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:boolean | xs:int | xs:short | xs:string)">5:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:boolean | xs:int | xs:short | xs:string)">5:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:int)">2:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:int)">2:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:short | xs:int)">3:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:short | xs:int)">3:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:int | xs:short | xs:string)">4:<xsl:next-match/></xsl:template>  
+   <xsl:template match="~(xs:int | xs:short | xs:string)">4:<xsl:next-match/></xsl:template>  
    
-   <xsl:template match="type(item())">6:<xsl:next-match/></xsl:template>
+   <xsl:template match="~item()">6:<xsl:next-match/></xsl:template>
    
  
    

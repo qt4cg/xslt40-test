@@ -32,7 +32,7 @@
     </WILD>
   </xsl:template>
   
-  <xsl:template match="element(a|a)" xmlns:p="http://x.ns/">
+  <xsl:template match="element(a|a)" xmlns:p="http://x.ns/" xpath-default-namespace="http://x.ns/">
     <A p="0">
       <xsl:next-match/>
     </A>

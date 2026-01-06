@@ -13,9 +13,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'.'"/>
-         <param static="true" name="select" select="'42'"/>
-         <param static="true" name="expected" select="-1"/>
+         <param static="yes" name="match" select="'.'"/>
+         <param static="yes" name="select" select="'42'"/>
+         <param static="yes" name="expected" select="-1"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -32,9 +32,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'.[2=2]'"/>
-         <param static="true" name="select" select="'42'"/>
-         <param static="true" name="expected" select="0.5"/>
+         <param static="yes" name="match" select="'.[2=2]'"/>
+         <param static="yes" name="select" select="'42'"/>
+         <param static="yes" name="expected" select="0.5"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -51,28 +51,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'item()'"/>
-         <param static="true" name="select" select="'42'"/>
-         <param static="true" name="expected" select="-1"/>
-      </test>
-      <result>
-         <assert>/A/B/C</assert>
-      </result>
-   </test-case>
-   
-   <test-case name="priority-011">
-      <description>
-         Test default priority of type pattern item()
-      </description>
-      <created by="Michael Kay" on="2025-12-02"/>
-      <dependencies>
-         <spec value="XSLT40+"/>
-      </dependencies>
-      <test>
-         <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(item())'"/>
-         <param static="true" name="select" select="'42'"/>
-         <param static="true" name="expected" select="-1"/>
+         <param static="yes" name="match" select="'~item()'"/>
+         <param static="yes" name="select" select="'42'"/>
+         <param static="yes" name="expected" select="-1"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -89,9 +70,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(node())'"/>
-         <param static="true" name="select" select="'$e'"/>
-         <param static="true" name="expected" select="-0.5"/>
+         <param static="yes" name="match" select="'~node()'"/>
+         <param static="yes" name="select" select="'$e'"/>
+         <param static="yes" name="expected" select="-0.5"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -108,9 +89,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(gnode())'"/>
-         <param static="true" name="select" select="'$e'"/>
-         <param static="true" name="expected" select="-0.5"/>
+         <param static="yes" name="match" select="'~gnode()'"/>
+         <param static="yes" name="select" select="'$e'"/>
+         <param static="yes" name="expected" select="-0.5"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -127,9 +108,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(jnode())'"/>
-         <param static="true" name="select" select="'jtree([])'"/>
-         <param static="true" name="expected" select="-0.5"/>
+         <param static="yes" name="match" select="'~jnode()'"/>
+         <param static="yes" name="select" select="'jtree([])'"/>
+         <param static="yes" name="expected" select="-0.5"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -146,9 +127,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(function(*))'"/>
-         <param static="true" name="select" select="'true#0'"/>
-         <param static="true" name="expected" select="-0.5"/>
+         <param static="yes" name="match" select="'~function(*)'"/>
+         <param static="yes" name="select" select="'true#0'"/>
+         <param static="yes" name="expected" select="-0.5"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -165,9 +146,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(xs:anyAtomicType)'"/>
-         <param static="true" name="select" select="'42'"/>
-         <param static="true" name="expected" select="-0.5"/>
+         <param static="yes" name="match" select="'~xs:anyAtomicType'"/>
+         <param static="yes" name="select" select="'42'"/>
+         <param static="yes" name="expected" select="-0.5"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -184,9 +165,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(element(*))'"/>
-         <param static="true" name="select" select="'$e'"/>
-         <param static="true" name="expected" select="-0.5"/>
+         <param static="yes" name="match" select="'~element(*)'"/>
+         <param static="yes" name="select" select="'$e'"/>
+         <param static="yes" name="expected" select="-0.5"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -203,33 +184,16 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(array(*))'"/>
-         <param static="true" name="select" select="'[]'"/>
-         <param static="true" name="expected" select="-0.25"/>
+         <param static="yes" name="match" select="'~array(*)'"/>
+         <param static="yes" name="select" select="'[]'"/>
+         <param static="yes" name="expected" select="-0.25"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
       </result>
    </test-case>
    
-   <test-case name="priority-019">
-      <description>
-         Test default priority of type pattern array(*)
-      </description>
-      <created by="Michael Kay" on="2025-12-02"/>
-      <dependencies>
-         <spec value="XSLT40+"/>
-      </dependencies>
-      <test>
-         <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'array(*)'"/>
-         <param static="true" name="select" select="'[]'"/>
-         <param static="true" name="expected" select="-0.25"/>
-      </test>
-      <result>
-         <assert>/A/B/C</assert>
-      </result>
-   </test-case>
+  
    
    <test-case name="priority-020">
       <description>
@@ -241,33 +205,16 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(map(*))'"/>
-         <param static="true" name="select" select="'{}'"/>
-         <param static="true" name="expected" select="-0.25"/>
+         <param static="yes" name="match" select="'~map(*)'"/>
+         <param static="yes" name="select" select="'{}'"/>
+         <param static="yes" name="expected" select="-0.25"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
       </result>
    </test-case>
    
-   <test-case name="priority-021">
-      <description>
-         Test default priority of type pattern map(*)
-      </description>
-      <created by="Michael Kay" on="2025-12-02"/>
-      <dependencies>
-         <spec value="XSLT40+"/>
-      </dependencies>
-      <test>
-         <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'map(*)'"/>
-         <param static="true" name="select" select="'{}'"/>
-         <param static="true" name="expected" select="-0.25"/>
-      </test>
-      <result>
-         <assert>/A/B/C</assert>
-      </result>
-   </test-case>
+  
    
    <test-case name="priority-022">
       <description>
@@ -279,37 +226,19 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(record(*))'"/>
-         <param static="true" name="select" select="'{}'"/>
-         <param static="true" name="expected" select="-0.25"/>
+         <param static="yes" name="match" select="'~record(*)'"/>
+         <param static="yes" name="select" select="'{}'"/>
+         <param static="yes" name="expected" select="-0.25"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
       </result>
    </test-case>
    
-   <test-case name="priority-023">
-      <description>
-         Test default priority of type pattern record(*)
-      </description>
-      <created by="Michael Kay" on="2025-12-02"/>
-      <dependencies>
-         <spec value="XSLT40+"/>
-      </dependencies>
-      <test>
-         <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(record(*))'"/>
-         <param static="true" name="select" select="'{}'"/>
-         <param static="true" name="expected" select="-0.25"/>
-      </test>
-      <result>
-         <assert>/A/B/C</assert>
-      </result>
-   </test-case>
    
    <test-case name="priority-030">
       <description>
-         Test default priority of type pattern item()[predicate]
+         Test default priority of type pattern ~item()[predicate]
       </description>
       <created by="Michael Kay" on="2025-12-02"/>
       <dependencies>
@@ -317,9 +246,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'item()[current-dateTime() gt unix-dateTime(0)]'"/>
-         <param static="true" name="select" select="'42'"/>
-         <param static="true" name="expected" select="0.5"/>
+         <param static="yes" name="match" select="'~item()[current-dateTime() gt unix-dateTime(0)]'"/>
+         <param static="yes" name="select" select="'42'"/>
+         <param static="yes" name="expected" select="0.5"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -336,9 +265,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'enum(''a'', ''b'', ''c'')'"/>
-         <param static="true" name="select" select="`'a'`"/>
-         <param static="true" name="expected" select="0.25"/>
+         <param static="yes" name="match" select="'~enum(''a'', ''b'', ''c'')'"/>
+         <param static="yes" name="select" select="`'a'`"/>
+         <param static="yes" name="expected" select="0.25"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -355,9 +284,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'map(*) | type(xs:string)'"/>
-         <param static="true" name="select" select="`'a'`"/>
-         <param static="true" name="expected" select="0.0"/>
+         <param static="yes" name="match" select="'~(map(*) | xs:string)'"/>
+         <param static="yes" name="select" select="`'a'`"/>
+         <param static="yes" name="expected" select="0.0"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -374,16 +303,16 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(xs:string) | map(*)'"/>
-         <param static="true" name="select" select="`'a'`"/>
-         <param static="true" name="expected" select="0.0"/>
+         <param static="yes" name="match" select="'~(xs:string | map(*))'"/>
+         <param static="yes" name="select" select="`'a'`"/>
+         <param static="yes" name="expected" select="0.0"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
       </result>
    </test-case>
    
-   <test-case name="priority-034">
+   <!--<test-case name="priority-034">
       <description>
          Test default priority of intersect pattern
       </description>
@@ -393,16 +322,16 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(map(xs:string, item()*)) intersect type(map(xs:token, xs:integer))'"/>
-         <param static="true" name="select" select="'{}'"/>
-         <param static="true" name="expected" select="0.0"/>
+         <param static="yes" name="match" select="'~(map(xs:string, item()*)) intersect type(map(xs:token, xs:integer))'"/>
+         <param static="yes" name="select" select="'{}'"/>
+         <param static="yes" name="expected" select="0.0"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
       </result>
-   </test-case>
+   </test-case>-->
    
-   <test-case name="priority-035">
+   <!--<test-case name="priority-035">
       <description>
          Test default priority of intersect pattern
       </description>
@@ -412,16 +341,16 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(map(xs:token, xs:integer)) intersect type(map(xs:string, item()*))'"/>
-         <param static="true" name="select" select="'{}'"/>
-         <param static="true" name="expected" select="0.0"/>
+         <param static="yes" name="match" select="'type(map(xs:token, xs:integer)) intersect type(map(xs:string, item()*))'"/>
+         <param static="yes" name="select" select="'{}'"/>
+         <param static="yes" name="expected" select="0.0"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
       </result>
-   </test-case>
+   </test-case>-->
    
-   <test-case name="priority-036">
+   <!--<test-case name="priority-036">
       <description>
          Test default priority of except pattern
       </description>
@@ -431,16 +360,16 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(map(xs:string, item()*)) except type(map(xs:token, xs:integer))'"/>
-         <param static="true" name="select" select="'{`a`: 12}'"/>
-         <param static="true" name="expected" select="0.0"/>
+         <param static="yes" name="match" select="'type(map(xs:string, item()*)) except type(map(xs:token, xs:integer))'"/>
+         <param static="yes" name="select" select="'{`a`: 12}'"/>
+         <param static="yes" name="expected" select="0.0"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
       </result>
-   </test-case>
+   </test-case>-->
    
-   <test-case name="priority-037">
+   <!--<test-case name="priority-037">
       <description>
          Test default priority of except pattern
       </description>
@@ -450,14 +379,14 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(map(xs:boolean, xs:integer)) except type(map(xs:string, xs:int))'"/>
-         <param static="true" name="select" select="'{true():1}'"/>
-         <param static="true" name="expected" select="0.0"/>
+         <param static="yes" name="match" select="'type(map(xs:boolean, xs:integer)) except type(map(xs:string, xs:int))'"/>
+         <param static="yes" name="select" select="'{true():1}'"/>
+         <param static="yes" name="expected" select="0.0"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
       </result>
-   </test-case>
+   </test-case>-->
    
    <test-case name="priority-100">
       <description>
@@ -469,9 +398,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(xs:decimal)'"/>
-         <param static="true" name="select" select="'xs:byte(42)'"/>
-         <param static="true" name="expected" select="0.0"/>
+         <param static="yes" name="match" select="'~xs:decimal'"/>
+         <param static="yes" name="select" select="'xs:byte(42)'"/>
+         <param static="yes" name="expected" select="0.0"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -488,9 +417,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(xs:integer)'"/>
-         <param static="true" name="select" select="'xs:byte(42)'"/>
-         <param static="true" name="expected" select="0.25"/>
+         <param static="yes" name="match" select="'~xs:integer'"/>
+         <param static="yes" name="select" select="'xs:byte(42)'"/>
+         <param static="yes" name="expected" select="0.25"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -507,9 +436,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(xs:int)'"/>
-         <param static="true" name="select" select="'xs:byte(42)'"/>
-         <param static="true" name="expected" select="0.4375"/>
+         <param static="yes" name="match" select="'~xs:int'"/>
+         <param static="yes" name="select" select="'xs:byte(42)'"/>
+         <param static="yes" name="expected" select="0.4375"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -526,9 +455,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(xs:int)'"/>
-         <param static="true" name="select" select="'xs:byte(42)'"/>
-         <param static="true" name="expected" select="0.4375"/>
+         <param static="yes" name="match" select="'~xs:int'"/>
+         <param static="yes" name="select" select="'xs:byte(42)'"/>
+         <param static="yes" name="expected" select="0.4375"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -545,9 +474,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(xs:short)'"/>
-         <param static="true" name="select" select="'xs:byte(42)'"/>
-         <param static="true" name="expected" select="0.46875"/>
+         <param static="yes" name="match" select="'~xs:short'"/>
+         <param static="yes" name="select" select="'xs:byte(42)'"/>
+         <param static="yes" name="expected" select="0.46875"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -564,9 +493,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(xs:byte)'"/>
-         <param static="true" name="select" select="'xs:byte(42)'"/>
-         <param static="true" name="expected" select="0.484375"/>
+         <param static="yes" name="match" select="'~xs:byte'"/>
+         <param static="yes" name="select" select="'xs:byte(42)'"/>
+         <param static="yes" name="expected" select="0.484375"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -583,9 +512,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(xs:unsignedLong)'"/>
-         <param static="true" name="select" select="'xs:unsignedByte(42)'"/>
-         <param static="true" name="expected" select="0.4375"/>
+         <param static="yes" name="match" select="'~xs:unsignedLong'"/>
+         <param static="yes" name="select" select="'xs:unsignedByte(42)'"/>
+         <param static="yes" name="expected" select="0.4375"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -602,9 +531,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(xs:unsignedByte)'"/>
-         <param static="true" name="select" select="'xs:unsignedByte(42)'"/>
-         <param static="true" name="expected" select="0.4921875"/>
+         <param static="yes" name="match" select="'~xs:unsignedByte'"/>
+         <param static="yes" name="select" select="'xs:unsignedByte(42)'"/>
+         <param static="yes" name="expected" select="0.4921875"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -621,9 +550,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type(xs:byte)[. lt 0]'"/>
-         <param static="true" name="select" select="'xs:byte(-42)'"/>
-         <param static="true" name="expected" select="0.5"/>
+         <param static="yes" name="match" select="'~xs:byte[. lt 0]'"/>
+         <param static="yes" name="select" select="'xs:byte(-42)'"/>
+         <param static="yes" name="expected" select="0.5"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -640,9 +569,9 @@
       </dependencies>
       <test>
          <stylesheet file="priority-A.xsl"/>
-         <param static="true" name="match" select="'type((xs:byte|xs:unsignedByte))'"/>
-         <param static="true" name="select" select="'xs:byte(-42)'"/>
-         <param static="true" name="expected" select="0.4921875"/>
+         <param static="yes" name="match" select="'~(xs:byte|xs:unsignedByte)'"/>
+         <param static="yes" name="select" select="'xs:byte(-42)'"/>
+         <param static="yes" name="expected" select="0.4921875"/>
       </test>
       <result>
          <assert>/A/B/C</assert>

@@ -14,16 +14,16 @@
     <xsl:apply-templates select="[1, 2, 3, [4, 5, 6]]"/>
   </xsl:template>
   
-  <xsl:template match="record(value as array(*))">
+  <xsl:template match="~record(value as array(*))">
     <xsl:array-member>
       <xsl:apply-templates select="?value"/>
     </xsl:array-member>
   </xsl:template>
   
   
-  <xsl:template match="record(value as xs:integer)[?value mod 2 = 0]"/>
+  <xsl:template match="~record(value as xs:integer)[?value mod 2 = 0]"/>
   
-  <xsl:template match="record(value as xs:integer)[?value mod 2 = 1]">
+  <xsl:template match="~record(value as xs:integer)[?value mod 2 = 1]">
     <xsl:array-member select="?value"/>
   </xsl:template>
 

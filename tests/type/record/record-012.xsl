@@ -16,7 +16,7 @@
   
   <xsl:mode on-no-match="deep-skip"/>
   
-  <xsl:template match="record(bar as element(bar), *)[?id = 1]">
+  <xsl:template match="~record(bar as element(bar), *)[?id = 1]">
     <bar id="{?id}" baz="{?baz}"/>
   </xsl:template>
   

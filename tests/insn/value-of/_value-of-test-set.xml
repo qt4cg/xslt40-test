@@ -262,7 +262,7 @@
       <created by="Michael Kay" on="2025-11-26"/>
       <dependencies>
          <spec value="XSLT40+"/>
-      </dependencies>z
+      </dependencies>
       <test>
          <stylesheet file="value-of-012.xsl"/>
          <output serialize="yes" tree="no"/>

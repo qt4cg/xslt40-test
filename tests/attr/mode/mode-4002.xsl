@@ -13,14 +13,14 @@
     <xsl:apply-templates select="map{'red':12, 'green':13, 'yellow':14, 'blue':15}"/>
   </xsl:template>
   
-  <xsl:template match="record(red)"/>
+  <xsl:template match="~record(red)"/>
 
-  <xsl:template match="record(yellow)">
+  <xsl:template match="~record(yellow)">
     <xsl:map-entry key="'orange'" select="20"/>
     <xsl:map-entry key="'lilac'" select="21"/>
   </xsl:template>
   
-  <xsl:template match="record(blue)">
+  <xsl:template match="~record(blue)">
     <xsl:map-entry key="'blue'" select="25"/>
   </xsl:template>
   

@@ -13,7 +13,7 @@
   
    <!-- Self-reference in record types -->
     
-    <xsl:template match="type(person)">
+    <xsl:template match="~person">
       <person first="{?first}" middle="{?middle}" last="{?last}">
         <mother><xsl:apply-templates select="?mother"/></mother>
         <father><xsl:apply-templates select="?father"/></father>

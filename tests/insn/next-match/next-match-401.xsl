@@ -9,17 +9,17 @@
       <out><xsl:apply-templates select="$test"/></out>
    </xsl:template>
    
-   <xsl:template match="type(xs:short)">1<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:short)">1<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:int)">2<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:int)">2<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:anyAtomicType)">5<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:anyAtomicType)">5<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:decimal)">4<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:decimal)">4<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(item())">6:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(item())">6:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:integer)">3<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:integer)">3<xsl:next-match/></xsl:template>
    
    
 </xsl:transform>
