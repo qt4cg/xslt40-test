@@ -330,6 +330,7 @@
    <test-case name="record-023">
       <description>Test matching of recursive record types</description>
       <created by="Michael Kay" on="2022-03-09"/>
+      <modified by="Michael Kay" on="2026-01-31" change="conform to current xsl:record-type syntax"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
