@@ -798,16 +798,32 @@ In ImpIncl: Hello</out>]]></assert-xml>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="import-22"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="import-2202.xsl"/>
-         <stylesheet file="import-2201a.xsl" role="secondary"/>
+         <stylesheet file="import-2202a.xsl" role="secondary"/>
       </test>
       <result>
          <assert-xml><![CDATA[<out>
   <wrap><wrap><wrap><wrap><wrap><wrap>Original content</wrap></wrap></wrap></wrap></wrap></wrap>
 </out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="import-2202a" covers-40="PR1454">
+      <description>See what happens to xsl:next-match when the same stylesheet module is included several times.</description>
+      <created by="Michael Kay" on="2026-02-04"/>
+      <environment ref="import-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="import-2202.xsl"/>
+         <stylesheet file="import-2202a.xsl" role="secondary"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><wrap>Original content</wrap></out>]]></assert-xml>
       </result>
    </test-case>
 
