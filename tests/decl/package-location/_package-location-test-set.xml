@@ -8,13 +8,15 @@
     <keywords>packages location</keywords>
     
     <environment name="package-location-env-001a">
-        <package file="package-location-base-001a.xsl" role="secondary"
-            uri="http://www.w3.org/xslt30tests/use-package-base-001" package-version="1.0.0"/>
+        <!-- MHK: commented out because it causes test catalog-005 to fail -->
+        <!--<package file="package-location-base-001a.xsl" role="secondary"
+            uri="http://www.w3.org/xslt30tests/use-package-base-001" package-version="1.0.0"/>-->
     </environment>
 
     <environment name="package-location-env-001b">
-        <package file="package-location-base-001b.xsl" role="secondary"
-            uri="http://www.w3.org/xslt30tests/use-package-base-001" package-version="1.0.0"/>
+        <!-- MHK: commented out because it causes test catalog-005 to fail -->
+        <!--<package file="package-location-base-001b.xsl" role="secondary"
+            uri="http://www.w3.org/xslt30tests/use-package-base-001" package-version="1.0.0"/>-->
     </environment>
 
     <environment name="package-location-env-004">
