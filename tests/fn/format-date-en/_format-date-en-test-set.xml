@@ -295,6 +295,7 @@
    <test-case name="format-date-en-017">
       <description>XSLT 2.0: test format-dateTime: English cardinal words 1-31 upper case</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2026-02-14" change="Numbers 21-99 should be hyphenated"/>
       <dependencies>
          <spec value="XSLT20+"/>
       </dependencies>
@@ -310,6 +311,7 @@
    <test-case name="format-date-en-018">
       <description>XSLT 2.0: test format-dateTime: English cardinal words 1-31 lower case</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2026-02-14" change="Numbers 21-99 should be hyphenated"/>
       <dependencies>
          <spec value="XSLT20+"/>
       </dependencies>
@@ -325,6 +327,7 @@
    <test-case name="format-date-en-019">
       <description>XSLT 2.0: test format-dateTime: English cardinal words 1-31 title case</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2026-02-14" change="Numbers 21-99 should be hyphenated"/>
       <dependencies>
          <spec value="XSLT20+"/>
       </dependencies>
@@ -340,6 +343,7 @@
    <test-case name="format-date-en-020">
       <description>XSLT 2.0: test format-dateTime: English words 1990-2020 upper case</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2026-02-14" change="Numbers 21-99 should be hyphenated"/>
       <dependencies>
          <spec value="XSLT20+"/>
       </dependencies>
@@ -355,6 +359,7 @@
    <test-case name="format-date-en-021">
       <description>XSLT 2.0: test format-dateTime: English words 1990-2020 lower case</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2026-02-14" change="Numbers 21-99 should be hyphenated; 'and' is optional"/>
       <dependencies>
          <spec value="XSLT20+"/>
       </dependencies>
@@ -370,6 +375,7 @@
    <test-case name="format-date-en-022">
       <description>XSLT 2.0: test format-dateTime: English words 1990-2020 title case</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2026-02-14" change="Numbers 21-99 should be hyphenated; 'and' is optional"/>
       <dependencies>
          <spec value="XSLT20+"/>
       </dependencies>
@@ -415,6 +421,7 @@
    <test-case name="format-date-en-025">
       <description>XSLT 2.0: test format-dateTime: English words 1-31 title case</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2026-02-14" change="Numbers 21-99 should be hyphenated; 'and' is optional"/>
       <dependencies>
          <spec value="XSLT20+"/>
       </dependencies>
@@ -430,6 +437,7 @@
    <test-case name="format-date-en-026">
       <description>XSLT 2.0: test format-dateTime: English ordinal words 1990-2020 upper case</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2026-02-14" change="Numbers 21-99 should be hyphenated; 'and' is optional"/>
       <dependencies>
          <spec value="XSLT20+"/>
       </dependencies>
@@ -460,6 +468,7 @@
    <test-case name="format-date-en-028">
       <description>XSLT 2.0: test format-dateTime: English ordinal words 1990-2020 title case</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2026-02-14" change="Numbers 21-99 should be hyphenated; 'and' is optional"/>
       <dependencies>
          <spec value="XSLT20+"/>
       </dependencies>
