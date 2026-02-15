@@ -2278,6 +2278,40 @@
       </result>
    </test-case>
    
+   <test-case name="function-40-022">
+      <description>Function with default parameter, accessed using named function reference</description>
+      <created by="Michael Kay" on="2026-01-08"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-022.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='7'</assert>
+            <assert>/out/b='4'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="function-40-023">
+      <description>Function with default parameter, accessed using function-lookup</description>
+      <created by="Michael Kay" on="2026-01-08"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="function-40-023.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a='7'</assert>
+            <assert>/out/b='4'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
   
    
    <test-case name="function-40-901">
