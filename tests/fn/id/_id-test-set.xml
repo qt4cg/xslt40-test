@@ -275,6 +275,7 @@
       </environment>
       <dependencies>
          <spec value="XSLT10+"/>
+         <feature value="dtd"/>
       </dependencies>
       <test>
          <stylesheet file="id-014.xsl"/>
@@ -300,6 +301,7 @@
       </environment>
       <dependencies>
          <spec value="XSLT10+"/>
+         <feature value="dtd"/>
       </dependencies>
       <test>
          <stylesheet file="id-015.xsl"/>
@@ -317,6 +319,7 @@
       </environment>
       <dependencies>
          <spec value="XSLT10+"/>
+         <feature value="dtd"/>
       </dependencies>
       <test>
          <stylesheet file="id-016.xsl"/>
@@ -350,6 +353,7 @@
       <environment ref="id130"/>
       <dependencies>
          <spec value="XSLT20+"/>
+         <feature value="dtd"/>
       </dependencies>
       <test>
          <stylesheet file="id-018.xsl"/>
@@ -365,6 +369,7 @@
       <environment ref="id130"/>
       <dependencies>
          <spec value="XSLT20+"/>
+         <feature value="dtd"/>
       </dependencies>
       <test>
          <stylesheet file="id-019.xsl"/>
@@ -655,6 +660,7 @@
       </environment>
       <dependencies>
          <spec value="XSLT10+"/>
+         <feature value="dtd"/>
       </dependencies>
       <test>
          <stylesheet file="id-034.xsl"/>
@@ -715,6 +721,7 @@
       <environment ref="id017"/>
       <dependencies>
          <spec value="XSLT20+"/>
+         <feature value="dtd"/>
       </dependencies>
       <test>
          <stylesheet file="id-037.xsl"/>
