@@ -12,12 +12,12 @@
   <xsl:item-type name="course" as="record(course, students)"/>
   <xsl:item-type name="student" as="record(first, last, email)"/>
   
-  <xsl:template match="type(faculty)">
+  <xsl:template match="~faculty">
     <h1>{?faculty} Faculty</h1>
     <xsl:apply-templates select="?courses?*"/>
   </xsl:template>
   
-  <xsl:template match="type(course)">
+  <xsl:template match="~course">
     <h2>{?course} Course</h2>
     <p>List of students:</p>
     <table>
@@ -36,7 +36,7 @@
     </table>
   </xsl:template>
   
-  <xsl:template match="type(student)">
+  <xsl:template match="~student">
     <tr>
       <td>{?first} {?last}</td>
       <td>{?email}</td>

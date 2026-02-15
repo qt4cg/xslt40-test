@@ -17,9 +17,9 @@
     <xsl:sequence select='map{"r":$r, "i":$i}'/>
   </xsl:function>
   
-  <xsl:template match="record(r as item()*, i as item()*)">{?r}{if (?i ge 0) then '+' else ''}{?i}i</xsl:template>
+  <xsl:template match="~record(r as item()*, i as item()*)">{?r}{if (?i ge 0) then '+' else ''}{?i}i</xsl:template>
   
-  <xsl:template match="record(r as xs:double, i as xs:double)[?i=0]">{?r}</xsl:template>
+  <xsl:template match="~record(r as xs:double, i as xs:double)[?i=0]">{?r}</xsl:template>
   
   <xsl:template name="xsl:initial-template">
     <xsl:variable name="x" as="cx:complex" select="cx:complex(1.0, 1.5)"/>
