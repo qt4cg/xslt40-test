@@ -10,7 +10,7 @@
         <xsl:param name="p"/>
         <xsl:select as="xs:integer">
             $p
-            <xsl:fallback select="$p"/>
+            <xsl:fallback><xsl:sequence select="$p"/></xsl:fallback>
         </xsl:select>
     </xsl:function>
     

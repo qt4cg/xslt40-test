@@ -1145,6 +1145,9 @@
    <test-case name="seqtor-133" covers-40="PR2008">
       <description>xsl:select containing xsl:fallback</description>
       <created by="Michael Kay" on="2025-11-14"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
       <test>
          <stylesheet file="seqtor-133.xsl"/>
       </test>
@@ -1156,6 +1159,9 @@
    <test-case name="seqtor-134" covers-40="PR2008">
       <description>xsl:select containing invalid xsl:fallback</description>
       <created by="Michael Kay" on="2025-11-14"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
       <test>
          <stylesheet file="seqtor-134.xsl"/>
       </test>

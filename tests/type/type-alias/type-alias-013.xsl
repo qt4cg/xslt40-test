@@ -17,7 +17,7 @@
   
   <xsl:item-type name="person" as="record('name', 'date of birth', 'place of birth')"/>
   
-  <xsl:template match="type(person)">
+  <xsl:template match="~person">
     <person>
       <name>{?name}</name>
       <dob>{?"date of birth"}</dob>

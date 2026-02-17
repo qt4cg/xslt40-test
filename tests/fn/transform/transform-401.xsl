@@ -14,7 +14,7 @@
         </out>
     </xsl:template>
     
-    <xsl:template match="record(x, y)">
+    <xsl:template match="~record(x, y)">
         <in>{?x + ?y}</in>
     </xsl:template>
     

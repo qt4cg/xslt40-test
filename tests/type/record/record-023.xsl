@@ -8,8 +8,13 @@
     expand-text="yes"
     >
   
-  <xsl:record-type name="person" 
-                   as="record(first as xs:string, last as xs:string, middle, father? as person, mother? as person)"/>
+    <xsl:record-type name="person">
+      <xsl:field name="first" as="xs:string"/>
+      <xsl:field name="last" as="xs:string"/>
+      <xsl:field name="middle"/>
+      <xsl:field name="father" as="person" required="no"/>
+      <xsl:field name="mother" as="person" required="no"/>   
+    </xsl:record-type>                   
   
    <!-- Self-reference in record types -->
     

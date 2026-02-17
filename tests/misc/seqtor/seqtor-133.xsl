@@ -9,7 +9,7 @@
     <xsl:function name="f:f">
         <xsl:param name="p"/>
         <xsl:select as="xs:integer">
-            <xsl:fallback select="$p"/>
+            <xsl:fallback><xsl:sequence select="$p"/></xsl:fallback>
             $p
         </xsl:select>
     </xsl:function>

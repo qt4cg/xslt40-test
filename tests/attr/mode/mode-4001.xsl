@@ -7,8 +7,7 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   exclude-result-prefixes="xs">
 
-  <xsl:mode on-no-match="shallow-copy-all"/> 
-
+  <xsl:mode on-no-match="shallow-copy-all"/>
   
   <xsl:template name="xsl:initial-template">
     <xsl:apply-templates select="[1, 2, 3, [4, 5, 6]]"/>

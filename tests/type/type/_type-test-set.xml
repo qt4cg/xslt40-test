@@ -994,13 +994,28 @@
       <created by="Michael Kay" on="2012-11-07"/>
       <environment ref="type-01"/>
       <dependencies>
-         <spec value="XSLT20+"/>
+         <spec value="XSLT20 XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="type-0166.xsl"/>
       </test>
       <result>
          <error code="XPTY0004"/>
+      </result>
+   </test-case>
+   
+   <test-case name="type-0166a">
+      <description>error: compare an type that is no longer unordered</description>
+      <created by="Michael Kay" on="2026-01-30"/>
+      <environment ref="type-01"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-0166.xsl"/>
+      </test>
+      <result>
+         <assert>/a = 'true'</assert>
       </result>
    </test-case>
 
