@@ -486,4 +486,56 @@
          <assert>/out/middle/in</assert>
       </result>
    </test-case>
+	
+	<test-case name="include-1001">
+		<description>Verify that when a fragment ID is included in the href for an xsl:include, either a) the URI reference is resolved to the expected valid xsl:stylesheet (implementation supports fragment IDs in xsl:include/@href) or b) a static error is raised (implementation doesn't support fragment IDs in xsl:include/@href).</description>
+		<created by="Sheila Thomson" on="2026-02-05"/>
+		<environment ref="include-01"/>
+		<dependencies>
+			<spec value="XSLT20+"/>
+		</dependencies>
+		<test>
+			<stylesheet file="include-1001.xsl"/>
+		</test>
+		<result>
+			<any-of>
+				<assert>/out/text() = 'Transformation completed successfully using stylesheet1.'</assert>
+				<error code="XTSE0165"/>
+			</any-of>
+		</result>
+	</test-case>
+	
+	<test-case name="include-1002">
+		<description>Verify that when a fragment ID is included in the href for an xsl:include, either a) the URI reference is resolved to the expected valid xsl:transform (implementation supports fragment IDs in xsl:include/@href) or b) a static error is raised (implementation doesn't support fragment IDs in xsl:include/@href).</description>
+		<created by="Sheila Thomson" on="2026-02-05"/>
+		<environment ref="include-01"/>
+		<dependencies>
+			<spec value="XSLT20+"/>
+		</dependencies>
+		<test>
+			<stylesheet file="include-1002.xsl"/>
+		</test>
+		<result>
+			<any-of>
+				<assert>/out/text() = 'Transformation completed successfully using stylesheet2.'</assert>
+				<error code="XTSE0165"/>
+			</any-of>
+		</result>
+	</test-case>
+	
+	<test-case name="include-1003">
+		<description>Verify that when a fragment ID is included in the href for an xsl:include but that ID doesn't exist in the referenced XML document, static error XTSE0165 is raised.</description>
+		<created by="Sheila Thomson" on="2026-02-05"/>
+		<environment ref="include-01"/>
+		<dependencies>
+			<spec value="XSLT20+"/>
+		</dependencies>
+		<test>
+			<stylesheet file="include-1003.xsl"/>
+		</test>
+		<result>
+			<error code="XTSE0165"/>
+		</result>
+	</test-case>	
+	
 </test-set>

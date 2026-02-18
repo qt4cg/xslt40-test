@@ -894,4 +894,56 @@ In ImpIncl: Hello</out>]]></assert-xml>
          </any-of>
       </result>
    </test-case>
+	
+	<test-case name="import-2501">
+		<description>Verify that when a fragment ID is included in the href for an xsl:import, either a) the URI reference is resolved to the expected valid xsl:stylesheet (implementation supports fragment IDs in xsl:import/@href) or b) a static error is raised (implementation doesn't support fragment IDs in xsl:import/@href).</description>
+		<created by="Sheila Thomson" on="2026-02-05"/>
+		<environment ref="import-07"/>
+		<dependencies>
+			<spec value="XSLT20+"/>
+		</dependencies>
+		<test>
+			<stylesheet file="import-2501.xsl"/>
+		</test>
+		<result>
+			<any-of>
+				<assert>/out/text() = 'Transformation completed successfully using stylesheet1.'</assert>
+				<error code="XTSE0165"/>
+			</any-of>
+		</result>
+	</test-case>
+	
+	<test-case name="import-2502">
+		<description>Verify that when a fragment ID is included in the href for an xsl:import, either a) the URI reference is resolved to the expected valid xsl:transform (implementation supports fragment IDs in xsl:import/@href) or b) a static error is raised (implementation doesn't support fragment IDs in xsl:import/@href).</description>
+		<created by="Sheila Thomson" on="2026-02-05"/>
+		<environment ref="import-07"/>
+		<dependencies>
+			<spec value="XSLT20+"/>
+		</dependencies>
+		<test>
+			<stylesheet file="import-2502.xsl"/>
+		</test>
+		<result>
+			<any-of>
+				<assert>/out/text() = 'Transformation completed successfully using stylesheet2.'</assert>
+				<error code="XTSE0165"/>
+			</any-of>
+		</result>
+	</test-case>
+	
+	<test-case name="import-2503">
+		<description>Verify that when a fragment ID is included in the href for an xsl:import but that ID doesn't exist in the referenced XML document, static error XTSE0165 is raised.</description>
+		<created by="Sheila Thomson" on="2026-02-05"/>
+		<environment ref="import-07"/>
+		<dependencies>
+			<spec value="XSLT20+"/>
+		</dependencies>
+		<test>
+			<stylesheet file="import-2503.xsl"/>
+		</test>
+		<result>
+			<error code="XTSE0165"/>
+		</result>
+	</test-case>
+	
 </test-set>
