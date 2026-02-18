@@ -31,10 +31,6 @@
    </environment>
    <environment name="match1008">
       <source role="." file="match1008.xml"/>
-   </environment>
-   
-   <environment name="match1011">
-      <source role="." file="match1011.xml"/>
    </environment>  
    
    <environment name="match1020">
@@ -375,7 +371,9 @@
       <description>Purpose: Test of id('literal') as match pattern.</description>
       <keywords> fn:id</keywords>
       <created by="Michael Kay" on="2012-11-07"/>
-      <environment ref="match1011"/>
+      <environment>
+        <source role="." file="match1011.xml" dtd="true"/>
+      </environment>
       <dependencies>
          <spec value="XSLT10+"/>
          <feature value="dtd"/>
@@ -392,7 +390,9 @@
       <description>Test use of id() in the branches of a union pattern</description>
       <keywords>fn:id UnionExpr</keywords>
       <created by="Michael Kay" on="2012-11-07"/>
-      <environment ref="match1011"/>
+      <environment>
+        <source role="." file="match1011.xml" dtd="true"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="dtd"/>
@@ -2083,7 +2083,7 @@
       <created by="Michael Kay" on="2012-11-07"/>
       <modified by="Michael Kay" on="2021-05-20" change="Add DTD dependency"/>
       <environment>
-         <source role="." file="match2016.xml"/>
+         <source role="." file="match2016.xml" dtd="true"/>
       </environment>
       <dependencies>
          <spec value="XSLT20+"/>

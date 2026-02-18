@@ -404,21 +404,6 @@
       </source>
    </environment>
    
-   <environment name="axes302">
-      <source role=".">
-         <content><![CDATA[<!DOCTYPE t04 [
-  <!ELEMENT t04 (a*)>
-  <!ELEMENT a EMPTY>
-  <!ATTLIST a  id ID #REQUIRED>
-]>
-<t04>
-  <a id="a"/>
-  <a id="b"/>
-  <a id="c"/>
-  <a id="d"/>
-</t04>]]></content>
-      </source>
-   </environment>
    <environment name="axes303">
       <source role=".">
          <content><![CDATA[<a xmlns:a="http://alpha/">
@@ -442,9 +427,6 @@
       <source role=".">
          <content><![CDATA[<doc xml:base="http://some.com/thing.uri"><e/></doc>     ]]></content>
       </source>
-   </environment>
-   <environment name="axes507">
-      <source role="." file="axes507.xml"/>
    </environment>
 
    <test-case name="axes-001">
@@ -3492,7 +3474,21 @@ doc/foo/baz/is not new
       <description>Test the id() function on a DTD-defined ID attribute</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <modified by="Michael Kay" on="2021-06-11" change="Add DTD dependency"/>
-      <environment ref="axes302"/>
+      <environment>
+         <source role="." dtd="true">
+            <content><![CDATA[<!DOCTYPE t04 [
+  <!ELEMENT t04 (a*)>
+  <!ELEMENT a EMPTY>
+  <!ATTLIST a  id ID #REQUIRED>
+]>
+<t04>
+  <a id="a"/>
+  <a id="b"/>
+  <a id="c"/>
+  <a id="d"/>
+</t04>]]></content>
+         </source>
+      </environment>
       <dependencies>
          <spec value="XSLT10+"/>
          <feature value="dtd"/>
@@ -3558,7 +3554,9 @@ doc/foo/baz/is not new
    <test-case name="axes-201">
       <description/>
       <created by="Michael Kay" on="2012-11-07"/>
-      <environment ref="axes507"/>
+      <environment>
+         <source role="." file="axes507.xml"/>
+      </environment>
       <dependencies>
          <spec value="XSLT20+"/>
          <feature value="dtd"/>
@@ -3582,7 +3580,7 @@ doc/foo/baz/is not new
       <description>Handle a comment occurring before the DOCTYPE declaration</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment>
-         <source role=".">
+         <source role="." dtd="true">
             <content><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <!--A comment-->
 <!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "axes-202.dtd">
