@@ -29,7 +29,6 @@
 <xsl:value-of select="format-number(1E30,'#####################')"/>;
 <xsl:value-of select="format-number(1E35,'#####################')"/>;
 <xsl:value-of select="format-number(1E100,'#####################')"/>;
-<xsl:value-of select="format-number(1E100 div 3,'#####################')"/>;
 </out>
 </xsl:template>
 

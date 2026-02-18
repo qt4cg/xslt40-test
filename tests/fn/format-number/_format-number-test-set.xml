@@ -687,9 +687,11 @@ __26,931.4</out>]]></assert-xml>
    </test-case>
 
    <test-case name="format-number-044">
-      <description>Test format-number() applied to large numbers (test how good the rounding is) Bug report from Pedro Christian against Saxon 7.8</description>
+      <description>Test format-number() applied to large numbers (test how good the rounding is) 
+         Bug report from Pedro Christian against Saxon 7.8</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <modified by="Michael Kay" on="2013-01-31" change="see bug 20460"/>
+      <modified by="Michael Kay" on="2026-02-16" change="split the test into two"/>
       <environment ref="numberformat01"/>
       <dependencies>
          <spec value="XSLT20+"/>
@@ -699,6 +701,28 @@ __26,931.4</out>]]></assert-xml>
       </test>
       <result>
          <assert-xml file="format-number-044.out"/>
+      </result>
+   </test-case>
+   
+   <test-case name="format-number-044a">
+      <description>Test format-number() applied to large numbers (test how good the rounding is) 
+         Bug report from Pedro Christian against Saxon 7.8</description>
+      <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2013-01-31" change="see bug 20460"/>
+      <modified by="Michael Kay" on="2026-02-16" change="split the test into two"/>
+      <environment ref="numberformat01"/>
+      <dependencies>
+         <spec value="XSLT20+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="format-number-044a.xsl"/>
+      </test>
+      <result>
+         <all-of> 
+            <assert>/out = "33333,33333,33333,30000,00000,00000,00000,00000,00000,00000,00000,00000,00000,00000,00000,00000,00000,00000,00000,00000"</assert>
+            <assert>/out/@bin = "5498623C321BAF51"</assert>
+            <assert>/out/@str = "3.333333333333333E99"</assert>
+         </all-of>
       </result>
    </test-case>
 
