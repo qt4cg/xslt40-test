@@ -759,6 +759,7 @@
       <description>Test of err:stack-trace</description>
       <created by="Michael Kay" on="2024-10-19"/>
       <modified by="Michael Kay" on="2024-11-26" change="err:stack-trace is now a string not a function"/>
+      <modified by="Michael Kay" on="2026-02-17" change="drop column numbers, too parser-dependent"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -769,11 +770,11 @@
          <any-of xmlns:err="http://www.w3.org/2005/xqt-errors">
             <all-of>
                <assert>/o/@vendor = 'Saxonica'</assert>
-               <assert>contains(/o/stack-trace, "f:four on line 43 column 66")</assert>
-               <assert>contains(/o/stack-trace, "f:three on line 37 column 67")</assert>
-               <assert>contains(/o/stack-trace, "f:two on line 31 column 65")</assert>
-               <assert>contains(/o/stack-trace, "f:one on line 25 column 65")</assert>
-               <assert>contains(/o/stack-trace, "In template xsl:initial-template on line 17 column 45")</assert>
+               <assert>contains(/o/stack-trace, "f:four on line 43")</assert>
+               <assert>contains(/o/stack-trace, "f:three on line 37")</assert>
+               <assert>contains(/o/stack-trace, "f:two on line 31")</assert>
+               <assert>contains(/o/stack-trace, "f:one on line 25")</assert>
+               <assert>contains(/o/stack-trace, "In template xsl:initial-template on line 17")</assert>
             </all-of>
             <all-of>
                <assert>not(/o/@vendor = 'Saxonica')</assert>
@@ -808,6 +809,7 @@
       <description>Test of err:map?stack-trace</description>
       <created by="Michael Kay" on="2024-10-19"/>
       <modified by="Michael Kay" on="2024-11-26" change="err:stack-trace is now a string not a function"/>
+      <modified by="Michael Kay" on="2026-02-17" change="drop column numbers, too parser-dependent"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -818,11 +820,11 @@
          <any-of xmlns:err="http://www.w3.org/2005/xqt-errors">
             <all-of>
                <assert>/o/@vendor = 'Saxonica'</assert>
-               <assert>contains(/o/stack-trace, "f:four on line 43 column 66")</assert>
-               <assert>contains(/o/stack-trace, "f:three on line 37 column 67")</assert>
-               <assert>contains(/o/stack-trace, "f:two on line 31 column 65")</assert>
-               <assert>contains(/o/stack-trace, "f:one on line 25 column 65")</assert>
-               <assert>contains(/o/stack-trace, "In template xsl:initial-template on line 17 column 45")</assert>
+               <assert>contains(/o/stack-trace, "f:four on line 43")</assert>
+               <assert>contains(/o/stack-trace, "f:three on line 37")</assert>
+               <assert>contains(/o/stack-trace, "f:two on line 31")</assert>
+               <assert>contains(/o/stack-trace, "f:one on line 25")</assert>
+               <assert>contains(/o/stack-trace, "In template xsl:initial-template on line 17")</assert>
             </all-of>
             <all-of>
                <assert>not(/o/@vendor = 'Saxonica')</assert>
