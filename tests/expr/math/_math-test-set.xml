@@ -2075,6 +2075,7 @@
    <test-case name="math-2611">
       <description>Test round(), floor(), ceiling() applied to a double</description>
       <created by="Michael Kay" on="2012-11-07"/>
+      <modified by="Michael Kay" on="2026-02-16" change="refactor test assertions"/>
       <environment ref="math-26"/>
       <dependencies>
          <spec value="XSLT20+"/>
@@ -2083,9 +2084,21 @@
          <stylesheet file="math-2611.xsl"/>
       </test>
       <result>
-         <assert-xml file="math-2611.out"/>
+         <all-of>
+            <assert>number(/r/out[1]/a[1]/@val)=1.2345678901234E13</assert>
+            <assert>number(/r/out[1]/a[2]/@val)=1.2345678901234E13</assert>
+            <assert>number(/r/out[1]/a[3]/@val)=1.2345678901235E13</assert>
+            <assert>/r/out[2]/a[1]/@val="18"</assert>
+            <assert>/r/out[2]/a[2]/@val="17"</assert>
+            <assert>/r/out[2]/a[3]/@val="18"</assert>
+            <assert>/r/out[3]/a[1]/@val="-17"</assert>
+            <assert>/r/out[3]/a[2]/@val="-18"</assert>
+            <assert>/r/out[3]/a[3]/@val="-17"</assert>
+            <assert>every $c in //@check satisfies $c eq 'true'</assert>
+         </all-of>
       </result>
    </test-case>
+
 
    <test-case name="math-2612">
       <description>Test round(), floor(), ceiling() applied to a float</description>
