@@ -107,7 +107,7 @@
       </source>
       <source file="doc09.xml" uri="doc09.xml"/>
       <source file="doc14.xml" uri="doc14.xml"/>
-      <source file="doc15.xml" uri="doc15.xml"/>
+      <source file="doc15.xml" uri="doc15.xml" dtd="true"/>
    </environment>
    
    <environment name="document-17">

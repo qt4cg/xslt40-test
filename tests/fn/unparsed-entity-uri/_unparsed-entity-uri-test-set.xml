@@ -5,7 +5,7 @@
    <description>Tests the unparsed-entity-uri and unparsed-entity-public-id functions</description>
    
    <environment name="unparsed-entity-A">
-      <source role="." file="unparsed-entity-A.xml"/>
+      <source role="." file="unparsed-entity-A.xml" dtd="true"/>
    </environment>
    
    
@@ -240,7 +240,7 @@
       <modified by="Michael Kay" on="2016-11-22" change="renamed from unparsed-entity-uri-050"/>
       <modified by="Michael Kay" on="2021-06-11" change="add DTD dependency"/>
       <environment>
-        <source role="." file="unparsed-entity-uri-050.xml"/>
+        <source role="." file="unparsed-entity-uri-050.xml" dtd="true"/>
       </environment>
       <dependencies>
          <spec value="XSLT20+"/>

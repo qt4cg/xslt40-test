@@ -5,7 +5,7 @@
    <description>Tests id</description>
      
    <environment name="id017">
-      <source role=".">
+      <source role="." dtd="true">
          <content><![CDATA[<!DOCTYPE t04 [
   <!ELEMENT t04 (a*)>
   <!ELEMENT a EMPTY>
@@ -21,7 +21,7 @@
    </environment>
    
    <environment name="id027">
-      <source role=".">
+      <source role="." dtd="true">
          <content><![CDATA[
 <!DOCTYPE doc [
 <!ELEMENT doc (baz*)>
@@ -36,11 +36,11 @@
    </environment>
    
    <environment name="id130">
-      <source role="." file="id130.xml"/>
+      <source role="." file="id130.xml" dtd="true"/>
    </environment>
    
    <environment name="id140">
-      <source role="." file="id140.xml"/>
+      <source role="." file="id140.xml" dtd="true"/>
    </environment>
    
 
@@ -66,7 +66,7 @@
       <description>test id() function with a node-set argument and multiple IDs</description>
       <created by="Michael Kay" on="2012-11-07"/>
       <environment>
-         <source role="." file="id011.xml"/>
+         <source role="." file="id011.xml" dtd="true"/>
       </environment>
       <dependencies>
          <spec value="XSLT20+"/>
