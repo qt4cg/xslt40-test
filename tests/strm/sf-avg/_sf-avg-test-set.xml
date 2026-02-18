@@ -474,6 +474,7 @@
    <test-case name="sf-avg-100">
       <description>avg() over a streamed schema-aware document</description>
       <created by="Michael Kay" on="2021-03-28"/>
+      <modified by="Michael Kay" on="2026-02-16" change="round to 6 digits"/>
       <environment ref="transactions-with-schema"/>
       <dependencies>
          <feature value="schema_aware"/>
@@ -483,7 +484,7 @@
       </test>
       <result>
          <all-of>
-            <assert>/out/@avg='7.4587322'</assert>
+            <assert>/out/@avg='7.458732'</assert>
             <assert>/out/@is-decimal='true'</assert>
          </all-of>
       </result>

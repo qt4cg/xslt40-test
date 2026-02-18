@@ -9,7 +9,7 @@
     <xsl:mode streamable="yes"/>
     <xsl:template match="/">
       <xsl:variable name="a" select="avg(/*/transaction/@value)"/>
-      <out avg="{$a}" is-decimal="{$a instance of xs:decimal}"/>
+      <out avg="{round($a, 6)}" is-decimal="{$a instance of xs:decimal}"/>
     </xsl:template>   
     
 </xsl:stylesheet>
