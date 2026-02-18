@@ -13,7 +13,7 @@
 
 <xsl:template match="iddata">
   <out>
-    <xsl:apply-templates/>
+    <xsl:apply-templates select="el"/>
   </out>
 </xsl:template>
 
