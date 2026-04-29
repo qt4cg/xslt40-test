@@ -27,6 +27,7 @@
          Test default priority of pattern .[predicate]
       </description>
       <created by="Michael Kay" on="2025-12-02"/>
+      <modified by="Michael Kay" on="2026-03-05" change="Issue 2499 PR 2501"/>
       <dependencies>
          <spec value="XSLT30+"/>
       </dependencies>
@@ -34,7 +35,7 @@
          <stylesheet file="priority-A.xsl"/>
          <param static="yes" name="match" select="'.[2=2]'"/>
          <param static="yes" name="select" select="'42'"/>
-         <param static="yes" name="expected" select="0.5"/>
+         <param static="yes" name="expected" select="1.0"/>
       </test>
       <result>
          <assert>/A/B/C</assert>
@@ -214,9 +215,9 @@
       </result>
    </test-case>
    
-  
+  <!-- Dropped because the syntax record(*) has been dropped [but it might be reinstated...]-->
    
-   <test-case name="priority-022">
+   <!--<test-case name="priority-022">
       <description>
          Test default priority of type pattern record(*)
       </description>
@@ -233,7 +234,7 @@
       <result>
          <assert>/A/B/C</assert>
       </result>
-   </test-case>
+   </test-case>-->
    
    
    <test-case name="priority-030">
