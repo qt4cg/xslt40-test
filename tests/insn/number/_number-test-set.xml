@@ -1740,7 +1740,7 @@ footnote</footnote> and a <citation/></p>
       </test>
       <result>
          <all-of>
-            <assert>/out/n[1] = "Eins"</assert>
+            <assert>/out/n[1] = ("Ein", "Eins")</assert>
             <assert>/out/n[2] = "Two"</assert>
             <assert>/out/n[3] = "Drei"</assert>
             <assert>/out/n[4] = "Four"</assert>
