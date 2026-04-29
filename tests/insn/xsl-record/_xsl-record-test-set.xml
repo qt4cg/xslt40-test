@@ -83,6 +83,9 @@
     <test-case name="xsl-record-007">
         <description>Test xsl prefixed standard attributes on xsl:record</description>
         <created by="John Lumley" on="2025-04-18"/>
+        <dependencies>
+            <feature value="schema_aware"/>
+        </dependencies>
         <test>
             <stylesheet file="xsl-record-007.xsl"/>
             <initial-template name="main"/>
