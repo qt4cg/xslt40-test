@@ -6,9 +6,9 @@
    <xsl:template name="xsl:initial-template">
       <out>
          <xsl:for-each select="$in/*">
-            <xsl:sort select="jnode-selector()"/>
+            <xsl:sort select="jkey()"/>
             <xsl:if test="position() ne 1">|</xsl:if>
-            <xsl:value-of select="jnode-content()"/>
+            <xsl:value-of select="jvalue()"/>
          </xsl:for-each>
       </out>
    </xsl:template>
