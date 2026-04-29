@@ -11,7 +11,7 @@
 
   <!-- Use extensible record type in as clause -->
   
-  <xsl:variable name="ZERO" as="record(r as xs:double, i as xs:double, *)" select="cx:complex(0, 0) => map:put('x', 0)"/>
+  <xsl:variable name="ZERO" as="record(r as xs:double, i as xs:double)" select="cx:complex(0, 0)"/>
   
   <xsl:function name="cx:complex" as="record(r as xs:double, i as xs:double)">
     <xsl:param name="r" as="xs:double"/>
@@ -31,7 +31,6 @@
   </xsl:function>
   
   <xsl:template name="xsl:initial-template">
-    <xsl:variable name="x" as="record(r as xs:double, i as xs:double)" select="cx:complex(1.0, 1.0)"/>
     <result>{cx:toString($ZERO => map:put(82, 83) treat as record(r as xs:double, i as xs:double))}</result>
   </xsl:template>  
 

@@ -37,6 +37,7 @@
    <test-case name="record-003">
       <description>Extensible record types; use in "as" attributes</description>
       <created by="Michael Kay" on="2020-01-27"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible record types now dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -65,6 +66,7 @@
    <test-case name="record-005">
       <description>Extensible record types; success if type is extensible</description>
       <created by="Michael Kay" on="2020-01-27"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible record types now dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -79,6 +81,7 @@
    <test-case name="record-006">
       <description>Extensible record types; instance of extensible record type</description>
       <created by="Michael Kay" on="2020-01-27"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible record types now dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -86,7 +89,7 @@
          <stylesheet file="record-006.xsl"/>
       </test>
       <result>
-         <assert>/result = "true"</assert>
+         <assert>/result = "false"</assert>
       </result>
    </test-case>
    
@@ -108,6 +111,7 @@
    <test-case name="record-008">
       <description>Instance-of fails if a field has the wrong type</description>
       <created by="Michael Kay" on="2020-01-27"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible record types now dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -123,6 +127,7 @@
       <description>Treat-as fails if a field has the wrong type</description>
       <created by="Michael Kay" on="2020-01-27"/>
       <modified by="Michael Kay" on="2023-03-06" change="correct expected error code"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible record types now dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -137,6 +142,7 @@
    <test-case name="record-010">
       <description>record type as pattern</description>
       <created by="Michael Kay" on="2020-01-27"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible record types now dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -154,6 +160,7 @@
    <test-case name="record-011">
       <description>record type as pattern with an element-valued field</description>
       <created by="Michael Kay" on="2020-01-27"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible record types now dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -171,6 +178,7 @@
    <test-case name="record-012">
       <description>record type as pattern with a predicate</description>
       <created by="Michael Kay" on="2020-01-27"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible record types now dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -378,6 +386,7 @@
    <test-case name="record-100">
       <description>record type - subtype relationships</description>
       <created by="Michael Kay" on="2020-01-25"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible record types now dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
          <feature value="xslt40-not-yet-agreed"/>
@@ -385,8 +394,8 @@
       <test>
          <stylesheet file="record-100.xsl"/>
          <!-- return true if T is a subtype of S -->
-         <param name="T" static="yes" select="'record(i as xs:integer, j as xs:integer)'"/>
-         <param name="S" static="yes" select="'record(i as xs:integer, *)'"/>
+         <param name="T" static="yes" select="'record(i as xs:integer, j as xs:integer, k)'"/>
+         <param name="S" static="yes" select="'record(i as xs:integer, j as xs:decimal, k)'"/>
       </test>
       <result>
          <assert>/out='true'</assert>
@@ -430,14 +439,15 @@
    <test-case name="record-103">
       <description>record type - subtype relationships</description>
       <created by="Michael Kay" on="2020-01-25"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible record types now dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
       <test>
          <stylesheet file="record-100.xsl"/>
          <!-- return true if T is a subtype of S -->
-         <param name="T" static="yes" select="'record(i as xs:decimal, *)'"/>
-         <param name="S" static="yes" select="'record(j as xs:string, *)'"/>
+         <param name="T" static="yes" select="'record(i as xs:decimal, x, y, z)'"/>
+         <param name="S" static="yes" select="'record(j as xs:string, x, y, z)'"/>
       </test>
       <result>
          <assert>/out='false'</assert>
@@ -447,14 +457,15 @@
    <test-case name="record-104">
       <description>record type - subtype relationships</description>
       <created by="Michael Kay" on="2020-01-25"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible record types now dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
       <test>
          <stylesheet file="record-100.xsl"/>
          <!-- return true if T is a subtype of S -->
-         <param name="T" static="yes" select="'record(i as xs:decimal, *)'"/>
-         <param name="S" static="yes" select="'record(i as xs:decimal+, *)'"/>
+         <param name="T" static="yes" select="'record(i as xs:decimal, x, y, z)'"/>
+         <param name="S" static="yes" select="'record(i as xs:decimal+, x, y, z)'"/>
       </test>
       <result>
          <assert>/out='true'</assert>
@@ -498,30 +509,32 @@
    <test-case name="record-111">
       <description>record type - subtype relationships</description>
       <created by="Michael Kay" on="2020-01-25"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible record types now dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
       <test>
          <stylesheet file="record-100.xsl"/>
          <!-- return true if T is a subtype of S -->
-         <param name="T" static="yes" select="'record(i as xs:decimal, j as xs:NCName, *)'"/>
+         <param name="T" static="yes" select="'record(i as xs:decimal, j as xs:NCName, k as xs:string)'"/>
          <param name="S" static="yes" select="'map(xs:string, xs:anyAtomicType)'"/>
       </test>
       <result>
-         <assert>/out='false'</assert>
+         <assert>/out='true'</assert>
       </result>
    </test-case>
    
    <test-case name="record-112">
       <description>record type - subtype relationships</description>
       <created by="Michael Kay" on="2020-01-25"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible record types now dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
       <test>
          <stylesheet file="record-100.xsl"/>
          <!-- return true if T is a subtype of S -->
-         <param name="T" static="yes" select="'record(i as xs:decimal, j as xs:NCName, *)'"/>
+         <param name="T" static="yes" select="'record(i as xs:decimal, j as xs:NCName, k)'"/>
          <param name="S" static="yes" select="'map(*)'"/>
       </test>
       <result>
