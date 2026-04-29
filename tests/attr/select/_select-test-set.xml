@@ -3082,7 +3082,7 @@ Node c has on-c in @x</list></out>]]></assert-xml>
   </test-case>
 
   <test-case name="select-7501">
-    <description>Tests xsl:for-each with missing the REQURED select attribute.</description>
+    <description>Tests xsl:for-each with missing the REQUIRED select attribute.</description>
     <created by="Michael Kay" on="2012-10-30"/>
     <environment ref="select-75"/>
     <dependencies>
