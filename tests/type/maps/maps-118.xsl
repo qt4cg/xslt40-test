@@ -20,7 +20,7 @@
         <xsl:for-each select="$sales">
           <sale>
             <xsl:iterate select="*">
-              <xsl:attribute name="{translate(jnode-selector(), ' ', '_')}" select="jnode-content()"/>
+              <xsl:attribute name="{translate(jkey(), ' ', '_')}" select="jvalue()"/>
             </xsl:iterate>
           </sale>
         </xsl:for-each>

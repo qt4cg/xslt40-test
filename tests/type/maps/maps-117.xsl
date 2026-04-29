@@ -20,8 +20,8 @@
         <xsl:for-each select="$sales">
           <sale>
             <xsl:for-each select="./*">
-              <xsl:sort select="jnode-selector()"/>
-              <xsl:attribute name="{translate(jnode-selector(), ' ', '_')}" select="jnode-content()"/>
+              <xsl:sort select="jkey()"/>
+              <xsl:attribute name="{translate(jkey(), ' ', '_')}" select="jvalue()"/>
             </xsl:for-each>
           </sale>
         </xsl:for-each>

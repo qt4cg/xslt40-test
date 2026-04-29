@@ -18,11 +18,11 @@
   
   <xsl:variable name="result" as="map(*)">
     <xsl:map>
-    <xsl:for-each-group select="parse-json($tz)/*" group-by="substring-before(jnode-selector(), '/')">
+    <xsl:for-each-group select="parse-json($tz)/*" group-by="substring-before(jkey(), '/')">
       <xsl:map-entry key="current-grouping-key()">
         <xsl:map>
           <xsl:for-each select="current-group()">
-            <xsl:map-entry key="substring-after(jnode-selector(), '/')" select="jnode-content()"/>
+            <xsl:map-entry key="substring-after(jkey(), '/')" select="jvalue()"/>
           </xsl:for-each>
         </xsl:map>
       </xsl:map-entry>
