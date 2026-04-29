@@ -251,6 +251,7 @@
       <created by="Michael Kay" on="2021-01-12"/>
       <modified by="Michael Kay" on="2023-07-01" change="Changed to use renamed map:pairs function"/>
       <modified by="Michael Kay" on="2025-08-20" change="Changed to use JNodes"/>
+      <modified by="Michael Kay" on="2026-03-03" change="JNode functions have been renamed"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -270,6 +271,7 @@
       <created by="Michael Kay" on="2021-01-12"/>
       <modified by="Michael Kay" on="2023-07-01" change="Changed to use renamed map:pairs function"/>
       <modified by="Michael Kay" on="2025-08-20" change="Changed to use JNodes"/>
+      <modified by="Michael Kay" on="2026-03-03" change="JNode functions have been renamed"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -289,6 +291,7 @@
       <created by="Michael Kay" on="2021-01-12"/>
       <modified by="Michael Kay" on="2023-07-01" change="Changed to use renamed map:pairs function"/>
       <modified by="Michael Kay" on="2025-08-20" change="Changed to use JNodes"/>
+      <modified by="Michael Kay" on="2026-03-03" change="JNode functions have been renamed"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
