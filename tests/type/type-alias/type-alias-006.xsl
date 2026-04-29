@@ -8,14 +8,14 @@
    expand-text="yes"
 >
 
-  <xsl:item-type name="cx:complex" as="record(r as xs:double, i as xs:double, *)"/>
+  <xsl:item-type name="cx:complex" as="record(r as xs:double?, i as xs:double?, x, z)"/>
   
   <xsl:template name="xsl:initial-template">
     <out>
-      <a>{map{"r":5.0e0, "i":0.0e0} instance of cx:complex}</a>
-      <b>{map{"r":5, "i":0.0e0} instance of cx:complex}</b>
-      <c>{map{"r":5.0e0, "x":0.0e0} instance of cx:complex}</c>
-      <d>{map{"r":5.0e0, "i":0.0e0, "z": current-date()} instance of cx:complex}</d>
+      <a>{map{"r":5.0e0, "i":0.0e0, "x":(), "z":()} instance of cx:complex}</a>
+      <b>{map{"r":5, "i":0.0e0, "x":(), "z":()} instance of cx:complex}</b>
+      <c>{map{"r":5.0e0, "x":0.0e0, "i":()} instance of cx:complex}</c>
+      <d>{map{"r":5.0e0, "i":0.0e0, "z": current-date(), "x": ()} instance of cx:complex}</d>
     </out>
   </xsl:template>  
 

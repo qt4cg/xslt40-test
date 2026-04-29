@@ -16,7 +16,7 @@
       <c>{ $m instance of record(a as xs:integer, b, c as xs:date?) }</c>
       <d>{ $m instance of record(a, b, c, d? as xs:date) }</d>
       <e>{ $m instance of record(a, b, c, d as xs:date) }</e>
-      <f>{ $m instance of record(c, *) }</f>
+      <f>{ $m instance of record(c) }</f>
     </out>
   </xsl:template>  
 

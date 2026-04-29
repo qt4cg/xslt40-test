@@ -96,6 +96,7 @@
    <test-case name="type-alias-006">
       <description>xsl:item-type with instance-of testing against record types</description>
       <created by="Michael Kay" on="2016-09-07"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible record types dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
          <feature value="xslt40-not-yet-agreed"/>
@@ -215,6 +216,7 @@
    <test-case name="type-alias-012">
       <description>Record type with optional fields</description>
       <created by="Michael Kay" on="2018-09-20"/>
+      <modified by="Michael Kay" on="2026-04-13" change="extensible records and optional fields now abolished"/>
       <dependencies>
          <spec value="XSLT40+"/>
          <feature value="xslt40-not-yet-agreed"/>
@@ -229,7 +231,7 @@
             <assert>/out/c = 'true'</assert>
             <assert>/out/d = 'true'</assert>
             <assert>/out/e = 'false'</assert>
-            <assert>/out/f = 'true'</assert>
+            <assert>/out/f = 'false'</assert>
          </all-of>
       </result>
    </test-case>
