@@ -468,6 +468,9 @@
    <test-case name="include-0906" covers-40="PR1454">
       <description>Circularity involving an xsl:import fails in both 3.0 and 4.0</description>
       <created by="Michael Kay" on="2024-11-13"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies>
       <test>
          <stylesheet file="include-0906.xsl"/>
       </test>
@@ -476,9 +479,26 @@
       </result>
    </test-case>
    
-   <test-case name="include-0907" covers-40="PR1454">
-      <description>With multiple includes of same module, first one wins</description>
+   <test-case name="include-0907">
+      <description>With multiple includes of same module in 3.0, all are used</description>
       <created by="Michael Kay" on="2024-11-13"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="include-0907.xsl"/>
+      </test>
+      <result>
+         <assert>/out/in/middle/in</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="include-0907a" covers-40="PR1454">
+      <description>With multiple includes of same module in 4.0, first one wins</description>
+      <created by="Michael Kay" on="2024-11-13"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
       <test>
          <stylesheet file="include-0907.xsl"/>
       </test>
