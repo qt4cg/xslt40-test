@@ -3,6 +3,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
 
   <!-- PURPOSE: test formatting of a number larger than an integer  -->
+  <!-- See also Saxon bug 7070 -->
   
   <xsl:template match="doc">
   <!--Results changed in 8.2.1, large numbers can now be formatted-->
