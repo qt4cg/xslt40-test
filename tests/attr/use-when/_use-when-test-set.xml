@@ -1849,4 +1849,32 @@
          <assert>/out/*:p = "The End"</assert>
       </result>
    </test-case>
+   
+   <test-case name="use-when-4002" covers-40="PR2181">
+      <description>Use XPath 4.0 "declare namespace" within use-when.</description>
+      <created by="Michael Kay" on="2026-05-08"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="use-when-4002.xsl"/>
+      </test>
+      <result>
+         <assert>/result/row = "42"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="use-when-4003" covers-40="PR2181">
+      <description>Use XPath 4.0 "declare namespace" to undeclare a namespace within use-when.</description>
+      <created by="Michael Kay" on="2026-05-08"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="use-when-4003.xsl"/>
+      </test>
+      <result>
+         <error code="XPST0017"/>
+      </result>
+   </test-case>
 </test-set>
