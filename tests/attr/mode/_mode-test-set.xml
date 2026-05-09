@@ -3018,9 +3018,13 @@
    <test-case name="mode-1803">
       <description>Default-mode refers to a mode that is otherwise unmentioned (not useful, but not an error either)</description>
       <created by="Michael Kay" on="2017-09-19"/>
+      <modified by="Erik Hetzner" on="2026-05-09" change="add dependency"/>
       <environment>
          <source role="." file="mode-14.xml"/>
       </environment>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
       <test>
          <stylesheet file="mode-1803.xsl" role="principal"/>
          <initial-mode name="a"/>
