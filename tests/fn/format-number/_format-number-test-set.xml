@@ -713,6 +713,7 @@ __26,931.4</out>]]></assert-xml>
       <environment ref="numberformat01"/>
       <dependencies>
          <spec value="XSLT20+"/>
+         <feature value="binary"/>
       </dependencies>
       <test>
          <stylesheet file="format-number-044a.xsl"/>
