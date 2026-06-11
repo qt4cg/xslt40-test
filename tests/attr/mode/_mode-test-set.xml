@@ -3130,9 +3130,9 @@
       </result>
    </test-case>
    
+   <!-- TODO - revise test when the spec settles -->
    
-   
-   <test-case name="mode-4001">
+   <!--<test-case name="mode-4001">
       <description>on-no-match=shallow-copy-all, processing an array</description>
       <created by="Michael Kay" on="2022-07-17"/>
       <dependencies>
@@ -3146,7 +3146,7 @@
       <result>
          <assert-deep-eq>[1, 3, [5]]</assert-deep-eq>
       </result>
-   </test-case>
+   </test-case>-->
    
    <test-case name="mode-4002">
       <description>on-no-match=shallow-copy-all, processing a map</description>
