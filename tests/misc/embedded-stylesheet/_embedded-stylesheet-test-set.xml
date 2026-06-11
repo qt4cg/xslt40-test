@@ -390,7 +390,7 @@
       </result>
    </test-case>
    
-   <test-case name="simplified-401">
+   <test-case name="simplified-401" covers-40="PR599">
       <description>
          In 4.0, no xsl:version attribute is needed if there are no XSLT instructions
       </description>
@@ -411,7 +411,7 @@
       </result>
    </test-case>
    
-   <test-case name="simplified-402">
+   <test-case name="simplified-402" covers-40="PR599">
       <description>
          In 4.0, simplified embedded stylesheet
       </description>
