@@ -1045,6 +1045,20 @@
          <assert>/out = "Goodbye Mars!"</assert>
       </result>
    </test-case>
+   
+   <test-case name="cvt-052">
+      <description>Saxon bug 7118</description>
+      <created by="Michael Kay" on="2026-06-08"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="cvt-052.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "lang"</assert>
+      </result>
+   </test-case>
 
 
 
