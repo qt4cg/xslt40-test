@@ -1,0 +1,126 @@
+<booklist>
+   <books>
+    <book>
+        <Title>Der Steppenwolf</Title>
+        <Author>Hermann Hesse</Author>
+        <Language>German</Language>
+        <Category>Fiction</Category>
+        <Format>Perfect Paperback</Format>
+        <Price currency="GBP">11.5</Price>
+        <PublicationDate>1981-08-01</PublicationDate>
+        <Dimensions>
+            <Dimension>10.8</Dimension>
+            <Dimension>1.91</Dimension>
+            <Dimension>17.15</Dimension>
+        </Dimensions>
+        <ISBN-13>978-3518366752</ISBN-13>
+    </book>
+    <book>
+        <Title>Steppenwolf</Title>
+        <Author>Hermann Hesse</Author>
+        <Translator>Walter Sorell</Translator>
+        <Translator>Basil Creighton</Translator>
+        <Language>English</Language>
+        <Category>Fiction</Category>
+        <Publisher>Penguin Essentials</Publisher>
+        <Format>Paperback</Format>
+        <PublicationDate>2011-04-07</PublicationDate>
+        <Price currency="GBP">7.40</Price>
+        <Note>out of print</Note>
+        <Pages>256</Pages>
+        <Dimensions>
+            <Dimension>11.3</Dimension>
+            <Dimension>1.6</Dimension>
+            <Dimension>18.1</Dimension>
+        </Dimensions>
+        <ISBN-13>978-0141192093</ISBN-13>
+    </book>
+    <book>
+        <Title>Steppenwolf</Title>
+        <Author>Hermann Hesse</Author>
+        <Translator>David Horrocks</Translator>
+        <Language>English</Language>
+        <Category>Fiction</Category>
+        <Publisher>Penguin Modern Classics</Publisher>
+        <Format>Paperback</Format>
+        <PublicationDate>2011-04-07</PublicationDate>
+        <Price currency="GBP">12.00</Price>
+        <Note>out of print</Note>
+        <Dimensions>
+            <Dimension>12.1</Dimension>
+            <Dimension>9.6</Dimension>
+            <Dimension>1.0</Dimension>
+        </Dimensions>
+        <ISBN-13>978-0241951521</ISBN-13>
+    </book>
+    <book>
+        <Title>The Glass Bead Game</Title>
+        <Author>Hermann Hesse</Author>
+        <Translator>Clara Winston</Translator>
+        <Translator>Richard Winston</Translator>
+        <Language>English</Language>
+        <Category>Fiction</Category>
+        <Publisher>Vintage Classics</Publisher>
+        <Format>Paperback</Format>
+        <PublicationDate>2000-07-06</PublicationDate>
+        <Price currency="GBP">9.96</Price>
+        <Pages>544</Pages>
+        <Dimensions>
+            <Dimension>12.8</Dimension>
+            <Dimension>3.3</Dimension>
+            <Dimension>19.7</Dimension>
+        </Dimensions>
+        <ISBN-13>978-0099283621</ISBN-13>
+    </book>
+    <book>
+        <Title>The Glass Bead Game: (Magister Ludi)</Title>
+        <Author>Hermann Hesse</Author>
+        <Translator>Clara Winston</Translator>
+        <Translator>Richard Winston</Translator>
+        <Language>English</Language>
+        <Category>Fiction</Category>
+        <Publisher>Picador</Publisher>
+        <Format>Paperback</Format>
+        <PublicationDate>2002-12-06</PublicationDate>
+        <Price currency="GBP">20.72</Price>
+        <Pages>576</Pages>
+        <Dimensions>
+            <Dimension>12.8</Dimension>
+            <Dimension>3.3</Dimension>
+            <Dimension>19.7</Dimension>
+        </Dimensions>
+        <ISBN-13>978-0312278496</ISBN-13>
+    </book>
+    <book>
+        <Title>Das Glasperlenspiel</Title>
+        <Author>Hesse, H.</Author>
+        <Language>German</Language>
+        <Category>Fiction</Category>
+        <Publisher>Suhrkamp Verlag</Publisher>
+        <Format>Soft Cover</Format>
+        <PublicationDate>1981-01-01</PublicationDate>
+        <Condition>Used: very good</Condition>
+        <Price currency="GBP">5.75</Price>
+        <ISBN-13>978-3518365793</ISBN-13>
+    </book>
+   </books>
+   <audiobooks>
+    <audiobook>
+        <Title>Steppenwolf</Title>
+        <Author>Hermann Hesse</Author>
+        <Translator>Basil Creighton</Translator>
+        <Reader>Peter Weller</Reader>
+        <Language>English</Language>
+        <Category>Fiction</Category>
+        <Publisher>BBC Audiobook America</Publisher>
+        <PublicationDate>2008-04-15</PublicationDate>
+        <Price currency="GBP">39.11</Price>
+        <Dimensions>
+            <Dimension>15.11</Dimension>
+            <Dimension>2.54</Dimension>
+            <Dimension>16.03</Dimension>
+        </Dimensions>
+        <ISBN-13>978-1602833517</ISBN-13>
+    </audiobook>
+   </audiobooks>
+</booklist>

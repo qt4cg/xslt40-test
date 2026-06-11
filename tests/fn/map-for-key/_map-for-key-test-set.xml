@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set xmlns="http://www.w3.org/2012/10/xslt-test-catalog" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="map-for-key" covers-40="PR1622">
+    <description>Tests the map-for-key() function</description>
+    
+    <environment name="books">
+        <source role="." file="books.xml"/>
+    </environment>
+    
+    <dependencies>
+        <spec value="XSLT40+"/>
+    </dependencies>
+    
+    <test-case name="map-for-key-001">
+        <description>Test of map-for-key(), get() on returned map</description>
+        <created by="Michael Kay" on="2026-06-10"/>
+        <environment ref="books"/>
+        <test>
+            <stylesheet file="map-for-key-001.xsl"/>
+        </test>
+        <result>
+            <assert>/out/Title = "Der Steppenwolf"</assert>
+        </result>
+    </test-case>
+    
+    <test-case name="map-for-key-002">
+        <description>Test of map-for-key(), failing get() on returned map</description>
+        <created by="Michael Kay" on="2026-06-10"/>
+        <environment ref="books"/>
+        <test>
+            <stylesheet file="map-for-key-002.xsl"/>
+        </test>
+        <result>
+            <assert>empty(/out/*)</assert>
+        </result>
+    </test-case>
+    
+    <test-case name="map-for-key-003">
+        <description>Test of map-for-key(), map:keys() on returned map</description>
+        <created by="Michael Kay" on="2026-06-10"/>
+        <environment ref="books"/>
+        <test>
+            <stylesheet file="map-for-key-003.xsl"/>
+        </test>
+        <result>
+            <assert>/out = "978-0099283621 978-0141192093 978-0241951521 978-0312278496 978-1602833517 978-3518365793 978-3518366752"</assert>
+        </result>
+    </test-case>
+    
+    <test-case name="map-for-key-004">
+        <description>Test of map-for-key#1, map:contains() on returned map</description>
+        <created by="Michael Kay" on="2026-06-10"/>
+        <environment ref="books"/>
+        <test>
+            <stylesheet file="map-for-key-004.xsl"/>
+        </test>
+        <result>
+            <assert>/out = "true"</assert>
+        </result>
+    </test-case>
+    
+    <test-case name="map-for-key-005">
+        <description>Test of map-for-key#1, map:remove() on returned map</description>
+        <created by="Michael Kay" on="2026-06-10"/>
+        <environment ref="books"/>
+        <test>
+            <stylesheet file="map-for-key-005.xsl"/>
+        </test>
+        <result>
+            <assert>/out = "false"</assert>
+        </result>
+    </test-case>
+    
+    <test-case name="map-for-key-006">
+        <description>Test of map-for-key, search within a subtree</description>
+        <created by="Michael Kay" on="2026-06-10"/>
+        <environment ref="books"/>
+        <test>
+            <stylesheet file="map-for-key-006.xsl"/>
+        </test>
+        <result>
+            <assert>/out = "false true"</assert>
+        </result>
+    </test-case>
+    
+    <test-case name="map-for-key-007">
+        <description>Test of map-for-key, non-string keys, multiple keys</description>
+        <created by="Michael Kay" on="2026-06-10"/>
+        <environment ref="books"/>
+        <test>
+            <stylesheet file="map-for-key-007.xsl"/>
+        </test>
+        <result>
+            <assert>/out = "The Glass Bead Game/The Glass Bead Game: (Magister Ludi)"</assert>
+        </result>
+    </test-case>
+    
+    <test-case name="map-for-key-008">
+        <description>Test of map-for-key, map:put on subtree index</description>
+        <created by="Michael Kay" on="2026-06-10"/>
+        <environment ref="books"/>
+        <test>
+            <stylesheet file="map-for-key-008.xsl"/>
+        </test>
+        <result>
+            <all-of>
+                <assert>/out/initial = "5"</assert>
+                <assert>/out/after-put = "6"</assert>
+                <assert>/out/after-remove = "4"</assert>
+            </all-of>
+        </result>
+    </test-case>
+    
+ 
+    
+</test-set>
+    
