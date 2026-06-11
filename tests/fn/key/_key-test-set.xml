@@ -1836,7 +1836,8 @@ Namespace "" used in 3
          </all-of>
       </result>
    </test-case>
-<test-case name="key-099">
+   
+   <test-case name="key-099">
       <description>Default namespaces in xsl:key use expression. Saxon bug 5230</description>
       <created by="Michael Kay" on="2022-01-25"/>
       <dependencies>
@@ -1849,6 +1850,83 @@ Namespace "" used in 3
          <all-of>
             <assert>report/@count = "1"</assert>
          </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="key-100" covers-40="PR2330">
+      <description>Negative numbers as argument to key() in a pattern</description>
+      <created by="Michael Kay" on="2026-06-09"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="key-100.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a[. = "minus two is negative"]</assert>
+            <assert>/out/a[. = "plus two is positive"]</assert>
+            <assert>/out/a[. = "zero is zero"]</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="key-101" covers-40="PR2330">
+      <description>QName literals as argument to key() in a pattern</description>
+      <created by="Michael Kay" on="2026-06-09"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="key-101.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/a[. = "'a' is a vowel"]</assert>
+            <assert>/out/a[. = "'b' is a consonant"]</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="key-102" covers-40="PR2330">
+      <description>QName literals as argument to key() in an expression</description>
+      <created by="Michael Kay" on="2026-06-09"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="key-102.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "3 4"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="key-103a" covers-40="PR1622">
+      <description>Handling of implicit timezone in keys changes between 3.0 and 4.0</description>
+      <created by="Michael Kay" on="2026-06-09"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="key-103.xsl"/>
+      </test>
+      <result>
+         <assert>matches(/out, '^[a-z]$')</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="key-103b" covers-40="PR1622">
+      <description>Handling of implicit timezone in keys changes between 3.0 and 4.0</description>
+      <created by="Michael Kay" on="2026-06-09"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="key-103.xsl"/>
+      </test>
+      <result>
+         <assert>/out = ""</assert>
       </result>
    </test-case>
 </test-set>
