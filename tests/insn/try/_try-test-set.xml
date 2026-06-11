@@ -849,4 +849,34 @@
          <assert-xml><![CDATA[<out>Infinity</out>]]></assert-xml>
       </result>
    </test-case>
+   
+   <test-case name="try-048">
+      <description>xsl:try element, catch error in content of element constructor</description>
+      <created by="Michael Kay" on="2026-05-30"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="try-048.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out>Cannot output $map</out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="try-049">
+      <description>xsl:try element, fail to catch a error in content</description>
+      <created by="Michael Kay" on="2026-05-30"/>
+      <dependencies>
+         <spec value="XSLT30+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="try-049.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <error code="XTDE0450"/>
+      </result>
+   </test-case>
 </test-set>
