@@ -93,6 +93,7 @@
       <test-set name="json-to-xml" file="tests/fn/json-to-xml/_json-to-xml-test-set.xml"/>
       <test-set name="key" file="tests/fn/key/_key-test-set.xml"/>
       <test-set name="load-xquery-module" file="tests/fn/load-xquery-module/_load-xquery-module-test-set.xml"/>
+      <test-set name="map-for-key" file="tests/fn/map-for-key/_map-for-key-test-set.xml"/>
       <test-set name="normalize-unicode" file="tests/fn/normalize-unicode/_normalize-unicode-test-set.xml"/> 
       <test-set name="outermost" file="tests/fn/outermost/_outermost-test-set.xml"/>
       <test-set name="position" file="tests/fn/position/_position-test-set.xml"/>
