@@ -1987,6 +1987,45 @@
          <error code="XPST0008"/>
       </result>
    </test-case>
+   
+   <test-case name="accumulator-101" covers-40="PR925">
+      <description>accumulator-before and -after accept xs:QName as first arg in 4.0</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="accumulator-002"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="accumulator-101.xsl"/>
+         <param name="streamable" static="yes" select="'false'"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<figures><pix><p>Figure 1 start</p><p>Figure 1 end</p></pix
+            ><pix><p>Figure 6 start</p><p>Figure 6 end</p></pix
+            ><pix><p>Figure 1 start</p><p>Figure 1 end</p></pix
+            ><pix><p>Figure 6 start</p><p>Figure 6 end</p></pix></figures>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="accumulator-102" covers-40="PR925">
+      <description>Accumulator functions accept xs:QName as first arg in 4.0</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="accumulator-002"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="accumulator-102.xsl"/>
+         <param name="streamable" static="yes" select="'0'"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<figures><pix><p>Figure 1 start</p><p>Figure 1.5 end</p></pix
+            ><pix><p>Figure 2.5 start</p><p>Figure 3 end</p></pix
+            ><pix><p>Figure 1 start</p><p>Figure 1.5 end</p></pix
+            ><pix><p>Figure 2.5 start</p><p>Figure 3 end</p></pix></figures>]]></assert-xml>
+      </result>
+   </test-case>
+   
      
  
 </test-set>
