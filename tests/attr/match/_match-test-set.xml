@@ -5441,5 +5441,69 @@
       </result>
    </test-case>
    
+   <test-case name="match-409" covers-40="PR-2678">
+      <description>Test array patterns</description>
+      <created by="Michael Kay" on="2026-06-21"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="match-409.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/one = '1'</assert>
+            <assert>/out/two = '2'</assert>
+            <assert>/out/three = '3'</assert>
+            <assert>/out/four = '4'</assert>
+            <assert>/out/five = '5'</assert>
+            <assert>/out/six = '6'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="match-410" covers-40="PR-2678">
+      <description>Test array patterns</description>
+      <created by="Michael Kay" on="2026-06-21"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="match-410.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/one = '1'</assert>
+            <assert>/out/two = '2'</assert>
+            <assert>/out/three = '3'</assert>
+            <assert>/out/four = '4'</assert>
+            <assert>/out/five = '5'</assert>
+            <assert>/out/six = '6'</assert>
+            <assert>/out/seven = '7'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="match-411" covers-40="PR-2678">
+      <description>Test JNode patterns</description>
+      <created by="Michael Kay" on="2026-06-21"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="match-411.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/one = '1'</assert>
+            <assert>/out/two = '2'</assert>
+            <assert>/out/three = '3'</assert>
+            <assert>/out/four = '4'</assert>
+            <assert>/out/five = '5'</assert>
+            <assert>/out/six = '6'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
  
 </test-set>
