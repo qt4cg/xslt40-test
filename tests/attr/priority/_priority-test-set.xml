@@ -579,6 +579,292 @@
       </result>
    </test-case>
    
+   <test-case name="priority-120" covers-40="PR-2678">
+      <description>
+         Test default priority of array pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'array(~xs:integer)'"/>
+         <param static="yes" name="select" select="'[42, 43]'"/>
+         <param static="yes" name="expected" select="0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-121" covers-40="PR-2678">
+      <description>
+         Test default priority of array pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'array(~xs:integer+)'"/>
+         <param static="yes" name="select" select="'[42, (43, 44)]'"/>
+         <param static="yes" name="expected" select="0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-122" covers-40="PR-2678">
+      <description>
+         Test default priority of array pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'array(~xs:decimal+)[?1 = 42]'"/>
+         <param static="yes" name="select" select="'[42, (43, 44)]'"/>
+         <param static="yes" name="expected" select="0.5"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-123" covers-40="PR-2678">
+      <description>
+         Test default priority of array pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'array(.+)'"/>
+         <param static="yes" name="select" select="'[42, (43, 44)]'"/>
+         <param static="yes" name="expected" select="-1"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-124" covers-40="PR-2678">
+      <description>
+         Test default priority of array pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'array({''x''})'"/>
+         <param static="yes" name="select" select="'[{''x'':12}]'"/>
+         <param static="yes" name="expected" select="0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-125" covers-40="PR-2678">
+      <description>
+         Test default priority of array pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'array(array(.))'"/>
+         <param static="yes" name="select" select="'[[42], [43, 44]]'"/>
+         <param static="yes" name="expected" select="-1"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-126" covers-40="PR-2678">
+      <description>
+         Test default priority of array pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'array(*?)'"/>
+         <param static="yes" name="select" select="'[(), (), ()]'"/>
+         <param static="yes" name="expected" select="-0.5"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-140" covers-40="PR-2678">
+      <description>
+         Test default priority of map pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'{42}[?42 = 43]'"/>
+         <param static="yes" name="select" select="'{42: 43}'"/>
+         <param static="yes" name="expected" select="0.5"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-141" covers-40="PR-2678">
+      <description>
+         Test default priority of map pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'{42}'"/>
+         <param static="yes" name="select" select="'{42: 43}'"/>
+         <param static="yes" name="expected" select="0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-142" covers-40="PR-2678">
+      <description>
+         Test default priority of map pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'{42: ~xs:integer}'"/>
+         <param static="yes" name="select" select="'{42: 43}'"/>
+         <param static="yes" name="expected" select="0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-143" covers-40="PR-2678">
+      <description>
+         Test default priority of map pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'{*}'"/>
+         <param static="yes" name="select" select="'{42: 43}'"/>
+         <param static="yes" name="expected" select="-0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-160" covers-40="PR-2678">
+      <description>
+         Test default priority of JNode pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'jnode(*, array(~xs:integer))[true()]'"/>
+         <param static="yes" name="select" select="'jtree([42])'"/>
+         <param static="yes" name="expected" select="0.5"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-161" covers-40="PR-2678">
+      <description>
+         Test default priority of JNode pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'jnode(*, array(~xs:integer))'"/>
+         <param static="yes" name="select" select="'jtree([42])'"/>
+         <param static="yes" name="expected" select="0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-162" covers-40="PR-2678">
+      <description>
+         Test default priority of JNode pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'jnode(42, ~xs:integer)'"/>
+         <param static="yes" name="select" select="'jtree({42:43})/child::*'"/>
+         <param static="yes" name="expected" select="0.25"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="priority-163" covers-40="PR-2678">
+      <description>
+         Test default priority of JNode pattern
+      </description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="priority-A.xsl"/>
+         <param static="yes" name="match" select="'jnode(42, {*})'"/>
+         <param static="yes" name="select" select="'jtree({42:{1:43}})/child::*'"/>
+         <param static="yes" name="expected" select="0"/>
+      </test>
+      <result>
+         <assert>/A/B/C</assert>
+      </result>
+   </test-case>
+   
+   
  
 
 </test-set>
