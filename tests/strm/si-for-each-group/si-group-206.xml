@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <item>
+        <name>item 1</name>
+        <category>cat1</category>
+        <value>value 1</value>
+    </item>
+    <item>
+        <name>item 2</name>
+        <category>cat2</category>
+        <value>value 2</value>
+    </item>
+    <item>
+        <name>item 3</name>
+        <category>cat1</category>
+        <value>value 3</value>
+    </item>
+    <item>
+        <name>item 4</name>
+        <category>cat3</category>
+        <value>value 4</value>
+    </item>
+    <item>
+        <name>item 5</name>
+        <category>cat2</category>
+        <value>value 5</value>
+    </item>
+    <item>
+        <name>item 6</name>
+        <category>cat1</category>
+        <value>value 6</value>
+    </item>
+    <item>
+        <name>item 7</name>
+        <category>cat3</category>
+        <value>value 7</value>
+    </item>
+    <item>
+        <name>item 8</name>
+        <category>cat2</category>
+        <value>value 8</value>
+    </item>
+    <item>
+        <name>item 9</name>
+        <category>cat3</category>
+        <value>value 9</value>
+    </item>
+    <item>
+        <name>item 10</name>
+        <category>cat1</category>
+        <value>value 10</value>
+    </item>
+</root>

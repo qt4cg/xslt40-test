@@ -1717,6 +1717,20 @@
       </result>
    </test-case>
    
+   <test-case name="si-group-206">
+      <description>Streamed grouping - Saxon bug 7139</description>
+      <created by="Michael Kay after Martin Honnen" on="2026-06-22"/>
+      <environment>
+         <source role="." file="si-group-206.xml" streaming="true"/>
+      </environment>
+      <test>
+         <stylesheet file="si-group-206.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<root/>]]></assert-xml>
+      </result>
+   </test-case>
+   
    <test-case name="si-group-901">
       <description>Streamed grouping - group-adjacent - grouping key is not motionless</description>
       <created by="Michael Kay" on="2014-01-31"/>
