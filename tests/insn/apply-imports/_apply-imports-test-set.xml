@@ -30,5 +30,79 @@
          <assert>/out = "R1R2BQ3BQ4AP5"</assert>
       </result>
    </test-case>
+  
+  <test-case name="apply-imports-040" covers-40="PR1875">
+    <description>apply-imports with implicit parameter passing.</description>
+    <created by="Michael Kay" on="2026-06-23"/>
+    <dependencies>
+      <spec value="XSLT40+"/>
+    </dependencies>
+    <test>
+      <stylesheet file="apply-imports-040.xsl" role="principal"/>
+      <stylesheet file="apply-imports-040a.xsl" role="secondary"/>
+      <param static="yes" name="version" select="'4.0'"/>
+      <initial-template name="main"/>
+    </test>
+    <result>
+      <assert-xml><![CDATA[<out P="101" Q="102" R="103"/>]]></assert-xml>
+    </result>
+  </test-case>
+  
+  <test-case name="apply-imports-041" covers-40="PR1875">
+    <description>apply-imports with implicit parameter passing inhibited by version param.</description>
+    <created by="Michael Kay" on="2026-06-23"/>
+    <dependencies>
+      <spec value="XSLT40+"/>
+    </dependencies>
+    <test>
+      <stylesheet file="apply-imports-040.xsl" role="principal"/>
+      <stylesheet file="apply-imports-040a.xsl" role="secondary"/>
+      <param static="yes" name="version" select="'3.0'"/>
+      <initial-template name="main"/>
+    </test>
+    <result>
+      <assert-xml><![CDATA[<out P="101" Q="" R=""/>]]></assert-xml>
+    </result>
+  </test-case>
+  
+  <test-case name="apply-imports-042" covers-40="PR1875">
+    <description>apply-imports, streamed, with implicit parameter passing.</description>
+    <created by="Michael Kay" on="2026-06-23"/>
+    <environment>
+      <source role="." file="../next-match/next-match-434.xml" streaming="true"/>
+    </environment>
+    <dependencies>
+      <spec value="XSLT40+"/>
+    </dependencies>
+    <test>
+      <stylesheet file="apply-imports-040.xsl" role="principal"/>
+      <stylesheet file="apply-imports-040a.xsl" role="secondary"/>
+      <param static="yes" name="streamable" select="'true'"/>
+      <param static="yes" name="version" select="'4.0'"/>
+    </test>
+    <result>
+      <assert-xml><![CDATA[<out P="101" Q="102" R="103"/>]]></assert-xml>
+    </result>
+  </test-case>
+  
+  <test-case name="apply-imports-043" covers-40="PR1875">
+    <description>apply-imports, streamed, with implicit parameter passing inhibited.</description>
+    <created by="Michael Kay" on="2026-06-23"/>
+    <environment>
+      <source role="." file="../next-match/next-match-434.xml" streaming="true"/>
+    </environment>
+    <dependencies>
+      <spec value="XSLT40+"/>
+    </dependencies>
+    <test>
+      <stylesheet file="apply-imports-040.xsl" role="principal"/>
+      <stylesheet file="apply-imports-040a.xsl" role="secondary"/>
+      <param static="yes" name="streamable" select="'true'"/>
+      <param static="yes" name="version" select="'3.0'"/>
+    </test>
+    <result>
+      <assert-xml><![CDATA[<out P="101" Q="" R=""/>]]></assert-xml>
+    </result>
+  </test-case>
 
 </test-set>

@@ -920,4 +920,95 @@ Example of apply-imports</div><bag/></out>]]></assert-xml>
          <assert>/out = "14:1:5:6:"</assert>
       </result>
    </test-case>
+   
+   <test-case name="next-match-430" covers-40="PR1875">
+      <description>Test of xsl:next-match with implicit parameter passing</description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="next-match-430.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><a P="42"><b Q="43"><c R="91"/></b></a></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="next-match-431" covers-40="PR1875">
+      <description>Test of xsl:next-match with implicit parameter passing inhibited by version attribute</description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <test>
+         <stylesheet file="next-match-431.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><a P="42"><b Q=""><c R=""/></b></a></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="next-match-432" covers-40="PR1875">
+      <description>Test of xsl:next-match with implicit parameter passing in tail calls</description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="next-match-432.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out P="42" Q="43" R="91"/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="next-match-433" covers-40="PR1875">
+      <description>xsl:next-match, implicit parameter passing inhibited, tail calls</description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="next-match-433.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out P="42" Q="" R=""/>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="next-match-434" covers-40="PR1875">
+      <description>xsl:next-match, implicit parameter passing, streamed</description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <environment>
+         <source role="." file="next-match-434.xml" streaming="true"/>
+      </environment>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="streaming"/>
+      </dependencies>
+      <test>
+         <stylesheet file="next-match-434.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><a P="42"><b Q="43"><c R="91"/></b></a></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="next-match-435" covers-40="PR1875">
+      <description>xsl:next-match, implicit parameter passing inhibited, streamed</description>
+      <created by="Michael Kay" on="2026-06-22"/>
+      <environment>
+         <source role="." file="next-match-434.xml" streaming="true"/>
+      </environment>
+      <dependencies>
+         <spec value="XSLT40+"/>
+         <feature value="streaming"/>
+      </dependencies>
+      <test>
+         <stylesheet file="next-match-435.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><a P="42"><b Q=""><c R=""/></b></a></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   
 </test-set>
