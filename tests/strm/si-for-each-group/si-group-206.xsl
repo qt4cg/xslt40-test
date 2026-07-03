@@ -7,7 +7,7 @@
     
     <xsl:mode on-no-match="shallow-copy" _streamable="{$streamable}"/>
     
-    <xsl:output indent="yes" method="xml"/>
+    <xsl:output method="xml"/>
     
     <xsl:template match="root">
         <xsl:copy>
