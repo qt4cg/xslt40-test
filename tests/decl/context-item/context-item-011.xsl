@@ -2,6 +2,9 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs">
 
     <!-- Test xsl:context-item with use="absent" (which really means "ignored").-->
+    <!-- In XSLT 3.0, this raises a dynamic error XPDY0002, which is not reported
+         because the offending expression is never executed. In 4.0, XPDY0002 becomes
+         a type error, which means it can be reported statically -->
   
     <xsl:template name="t">
       <xsl:context-item use="absent"/>

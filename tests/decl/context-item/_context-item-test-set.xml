@@ -448,6 +448,17 @@
          <error code="XTTE0590"/>
       </result>
    </test-case>
+   
+   <test-case name="context-item-913">
+      <description>xsl:context-item required to be absent, but isn't</description>
+      <created by="Michael Kay" on="2026-06-12"/>    
+      <test>
+         <stylesheet file="context-item-913.xsl"/>
+      </test>
+      <result>
+         <error code="XPDY0002"/>
+      </result>
+   </test-case>
 
 
 </test-set>   
