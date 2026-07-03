@@ -127,6 +127,22 @@
                 media-type="text/plain"/>
    </environment>
    
+   <environment name="document-40">
+      <source role="." file="document-01.xml"/>
+      <source file="doc02.xml" uri="doc02.xml"/>
+      <source file="doc03.xml" uri="doc03.xml"/>
+      <source file="doc04.xml" uri="doc04.xml"/>
+      <source file="doc01.xsl" uri="doc01.xsl"/>
+      <source file="bib-with-xinclude.xml" uri="bib-with-xinclude.xml"/>
+      <stylesheet file="document-4001.xsl"/>
+   </environment>
+   
+   <environment name="document-41">
+      <source file="bib-with-xinclude.xml" uri="bib-with-xinclude.xml"/>
+      <schema uri="bib.xsd" file="bib.xsd"/>
+      <stylesheet file="document-4061.xsl"/>
+   </environment>
+   
    
    
    
@@ -486,6 +502,8 @@
          </all-of>
       </result>
    </test-case>
+   
+   
    
 
    <test-case name="document-0201">
@@ -1509,5 +1527,490 @@
          <assert>/out/doc/str1 = 'File one'</assert>
       </result>
    </test-case>
+   
+   <test-case name="document-4001" covers-40="PR2419">
+      <description>Test document($uri-sequence, $base-node) function. Second argument uses a map to supply the base URI</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-01"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/a/body = "Shirt"</assert>
+            <assert>/a/body = "Tie"</assert>
+            <assert>/a/out/*:apply-templates/@select = "@test"</assert>
+            <assert>/a/body = "GoodBye"</assert>
+            <assert>count(/a/*) = 4</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4002" covers-40="PR2419">
+      <description>Test document($uri-sequence, $base-node) function. Second argument uses a map to supply the base URI</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-02"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/b/body = "Shirt"</assert>
+            <assert>/b/out/*:apply-templates/@select = "@test"</assert>
+            <assert>count(/b/*) = 2</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4003" covers-40="PR2419">
+      <description>Test document($uri-sequence, $base-node) function. Second argument uses a map to supply the base URI</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-03"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/c/body = "Shirt"</assert>
+            <assert>/c/body = "Tie"</assert>
+            <assert>/c/out/*:apply-templates/@select = "@test"</assert>
+            <assert>/c/body = "GoodBye"</assert>
+            <assert>count(/c/*) = 4</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4004" covers-40="PR2419">
+      <description>Test document($uri-sequence, $base-node) function. Second argument uses a map to supply the base URI</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-04"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/d/body = "Tie"</assert>
+            <assert>count(/d/*) = 1</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4010" covers-40="PR2419">
+      <description>Options on fn:document - dtd validation, document valid</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-10"/>
+      </test>
+      <result>
+         <assert>/out[@result='true']</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4011" covers-40="PR2419">
+      <description>Options on fn:document - dtd validation, document valid</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-11"/>
+      </test>
+      <result>
+         <any-of>
+            <error code="FODC0002"/>
+            <error code="FODC0007"/>
+         </any-of>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4012" covers-40="PR2419">
+      <description>Options on fn:document - dtd validation, document invalid</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-12"/>
+      </test>
+      <result>
+         <error code="FODC0016"/>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4012a" covers-40="PR2419">
+      <description>Options on fn:document - dtd validation, document invalid</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-12a"/>
+      </test>
+      <result>
+         <any-of>
+            <error code="FODC0002"/>
+            <error code="FODC0007"/>
+         </any-of>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4013" covers-40="PR2419">
+      <description>Options on fn:document - dtd validation, document invalid</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-13"/>
+      </test>
+      <result>
+         <assert>/out = 'true'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4014" covers-40="PR2419">
+      <description>Options on fn:document - dtd validation, document invalid</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-14"/>
+      </test>
+      <result>
+         <error code="FODC0016"/>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4030" covers-40="PR2419">
+      <description>Options on fn:document - strip-space</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-30"/>
+      </test>
+      <result>
+         <assert>/out='false'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4031" covers-40="PR2419">
+      <description>Options on fn:document - strip-space</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-31"/>
+      </test>
+      <result>
+         <assert>/out='true'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4032" covers-40="PR2419">
+      <description>Options on fn:document - strip-space with DTD validation</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-32"/>
+      </test>
+      <result>
+         <assert>/out='false'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4033" covers-40="PR2419">
+      <description>Options on fn:document - strip-space with DTD validation</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-33"/>
+      </test>
+      <result>
+         <assert>/out='false'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4040" covers-40="PR2419">
+      <description>Options on fn:document - stable</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-40"/>
+      </test>
+      <result>
+         <assert>/out='true'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4041" covers-40="PR2419">
+      <description>Options on fn:document - stable</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-41"/>
+      </test>
+      <result>
+         <assert>/out=('true','false')</assert> 
+      </result>
+   </test-case>
+   
+   <test-case name="document-4042" covers-40="PR2419">
+      <description>Options on fn:document - stable</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-42"/>
+      </test>
+      <result>
+         <assert>/out=('true','false')</assert> 
+      </result>
+   </test-case>
+   
+   <test-case name="document-4043" covers-40="PR2419">
+      <description>Options on fn:document - stable</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-43"/>
+      </test>
+      <result>
+         <assert>/out='false'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4044" covers-40="PR2419">
+      <description>Options on fn:document - stable with xinclude</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-44"/>
+      </test>
+      <result>
+         <any-of>
+            <assert>/out='false'</assert>
+            <error code="FODC0013"/>
+         </any-of>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4045" covers-40="PR2419">
+      <description>Options on fn:document - stable with schema validation</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-45"/>
+      </test>
+      <result>
+         <assert>.out = 'false'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4051" covers-40="PR2419">
+      <description>Options on fn:document - stable with xinclude</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-51"/>
+      </test>
+      <result>
+         <any-of>
+            <assert>/out = '5'</assert>
+            <error code="FODC0013"/>
+         </any-of>   
+      </result>
+   </test-case>
+   
+   <test-case name="document-4052" covers-40="PR2419">
+      <description>Options on fn:document - stable with xinclude</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-52"/>
+      </test>
+      <result>
+         <assert>/out = '4'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4053" covers-40="PR2419">
+      <description>Options on fn:document - xinclude</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-40"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-53"/>
+      </test>
+      <result>
+         <assert>/out = '4'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4061" covers-40="PR2419">
+      <description>Options on fn:document - schema-validation</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-41"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-61"/>
+      </test>
+      <result>
+         <assert>/out = '4'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4062" covers-40="PR2419">
+      <description>Options on fn:document - schema-validation</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-41"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-62"/>
+      </test>
+      <result>
+         <assert>/out = '4'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4063" covers-40="PR2419">
+      <description>Options on fn:document - schema-validation</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-41"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-63"/>
+      </test>
+      <result>
+         <assert>/out = '0'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4064" covers-40="PR2419">
+      <description>Options on fn:document - schema-validation</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-41"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-64"/>
+      </test>
+      <result>
+         <assert>/out = '4'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4065" covers-40="PR2419">
+      <description>Options on fn:document - schema-validation</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-41"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-65"/>
+      </test>
+      <result>
+         <assert>/out = 'bibType'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4066" covers-40="PR2419">
+      <description>Options on fn:document - schema-validation</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-41"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-66"/>
+      </test>
+      <result>
+         <error code="FODC0002"/>
+      </result>
+   </test-case>
+   
+   <test-case name="document-4067" covers-40="PR2419">
+      <description>Options on fn:document - schema-validation</description>
+      <created by="Michael Kay" on="2026-06-12"/>
+      <environment ref="document-41"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <initial-template name="t40-67"/>
+      </test>
+      <result>
+         <assert>/out = '4'</assert>
+      </result>
+   </test-case>
+   
+   
+ 
+   
 
 </test-set>
