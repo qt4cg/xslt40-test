@@ -303,6 +303,45 @@
       </result>
    </test-case>
    
+   <test-case name="type-alias-018" covers-40="PR1617">
+      <description>Access public item types in a used package</description>
+      <created by="Michael Kay" on="2026-07-03"/>
+      <environment>
+         <package file="type-alias-018a.xsl" role="secondary"
+            uri="http://www.w3.org/pack/type-alias-018-lib" package-version="1.0.0"/>
+      </environment>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <package file="type-alias-018.xsl" role="principal"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/@type = 'decimal'</assert>
+            <assert>/out/@value = '10'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-019" covers-40="PR1617">
+      <description>Fail to access private item types in a used package</description>
+      <created by="Michael Kay" on="2026-07-03"/>
+      <environment>
+         <package file="type-alias-019a.xsl" role="secondary"
+            uri="http://www.w3.org/pack/type-alias-019-lib" package-version="1.0.0"/>
+      </environment>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <package file="type-alias-019.xsl" role="principal"/>
+      </test>
+      <result>
+         <error code="XPST0051"/>
+      </result>
+   </test-case>
+   
    <test-case name="type-alias-050" covers-40="PR1617">
       <description>JSON inversion use case</description>
       <created by="Michael Kay" on="2020-01-28"/>
