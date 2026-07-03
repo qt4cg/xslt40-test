@@ -4,12 +4,11 @@
    name="type-alias">
    <description>Tests xsl:item-type (proposed 4.0 extension)</description>
    
-   <test-case name="type-alias-001">
+   <test-case name="type-alias-001" covers-40="PR1617">
       <description>Basic use case for xsl:item-type</description>
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-001.xsl"/>
@@ -19,7 +18,7 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-001b">
+   <test-case name="type-alias-001b" covers-40="PR1617">
       <description>Basic use case for xsl:item-type, when not available</description>
       <created by="Debbie Lockett" on="2020-03-10"/>
       <dependencies>
@@ -33,12 +32,11 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-002">
+   <test-case name="type-alias-002" covers-40="PR1617">
       <description>xsl:item-type referring to another type alias (forwards reference)</description>
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-002.xsl"/>
@@ -48,12 +46,11 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-003">
+   <test-case name="type-alias-003" covers-40="PR1617">
       <description>xsl:item-type referring to another type alias (unresolved reference)</description>
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-003.xsl"/>
@@ -63,12 +60,11 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-004">
+   <test-case name="type-alias-004" covers-40="PR1617">
       <description>xsl:item-type referring to another type alias (circular reference)</description>
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-004.xsl"/>
@@ -78,12 +74,11 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-005">
+   <test-case name="type-alias-005" covers-40="PR1617">
       <description>xsl:item-type with record types</description>
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-005.xsl"/>
@@ -93,13 +88,12 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-006">
+   <test-case name="type-alias-006" covers-40="PR1617">
       <description>xsl:item-type with instance-of testing against record types</description>
       <created by="Michael Kay" on="2016-09-07"/>
       <modified by="Michael Kay" on="2026-04-13" change="extensible record types dropped"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-006.xsl"/>
@@ -114,12 +108,11 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-007">
+   <test-case name="type-alias-007" covers-40="PR1617">
       <description>Static type checking against record types</description>
       <created by="Michael Kay" on="2016-09-07"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-007.xsl"/>
@@ -129,13 +122,12 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-008">
+   <test-case name="type-alias-008" covers-40="PR1617">
       <description>Type alias as a match pattern</description>
       <created by="Michael Kay" on="2017-11-13"/>
       <modified by="Michael Kay" on="2026-01-30" change="type(x) becomes ~x in 4.0 pattern syntax"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-008.xsl"/>
@@ -149,13 +141,12 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-009">
+   <test-case name="type-alias-009" covers-40="PR1617">
       <description>Record type as a match pattern (without using type alias)</description>
       <created by="Michael Kay" on="2017-11-13"/>
       <modified by="Michael Kay" on="2026-01-30" change="type(x) becomes ~x in 4.0 pattern syntax"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-009.xsl"/>
@@ -169,13 +160,12 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-010">
+   <test-case name="type-alias-010" covers-40="PR1617">
       <description>Recursive descent template rules applied to JSON</description>
       <created by="Michael Kay" on="2017-11-13"/>
       <modified by="Michael Kay" on="2026-01-30" change="type(x) becomes ~x in 4.0 pattern syntax"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-010.xsl"/>
@@ -193,12 +183,11 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-011">
+   <test-case name="type-alias-011" covers-40="PR1617">
       <description>Type alias for a union type</description>
       <created by="Michael Kay" on="2018-07-04"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-011.xsl"/>
@@ -213,13 +202,12 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-012">
+   <test-case name="type-alias-012" covers-40="PR1617">
       <description>Record type with optional fields</description>
       <created by="Michael Kay" on="2018-09-20"/>
       <modified by="Michael Kay" on="2026-04-13" change="extensible records and optional fields now abolished"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-012.xsl"/>
@@ -236,13 +224,12 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-013">
+   <test-case name="type-alias-013" covers-40="PR1617">
       <description>Record type with non-NCName field names</description>
       <created by="Michael Kay" on="2020-01-19"/>
       <modified by="Michael Kay" on="2026-01-30" change="type(x) becomes ~x in 4.0 pattern syntax"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-013.xsl"/>
@@ -256,12 +243,11 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-014">
+   <test-case name="type-alias-014" covers-40="PR1617">
       <description>Record type with duplicate field names</description>
       <created by="Michael Kay" on="2020-01-19"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-014.xsl"/>
@@ -271,12 +257,57 @@
       </result>
    </test-case>
    
-   <test-case name="type-alias-050">
+   <test-case name="type-alias-015" covers-40="PR1617">
+      <description>Two item types with the same name</description>
+      <created by="Michael Kay" on="2026-06-29"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-015.xsl"/>
+      </test>
+      <result>
+         <error code="XTSE4030"/>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-016" covers-40="PR1617">
+      <description>Type alias used within an inline function</description>
+      <created by="Michael Kay" on="2026-06-29"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-016.xsl"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><result name="Johann Schmidt" dob="1885-12-15" pob="Hannover"/></out>]]></assert-xml>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-017" covers-40="PR1617">
+      <description>Type aliases with different import precedences</description>
+      <created by="Michael Kay" on="2026-06-29"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="type-alias-017.xsl"/>
+         <stylesheet file="type-alias-017a.xsl" role="secondary"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/@type = 'double'</assert>
+            <assert>/out/@value = '10'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="type-alias-050" covers-40="PR1617">
       <description>JSON inversion use case</description>
       <created by="Michael Kay" on="2020-01-28"/>
       <dependencies>
          <spec value="XSLT40+"/>
-         <feature value="xslt40-not-yet-agreed"/>
       </dependencies>
       <test>
          <stylesheet file="type-alias-050.xsl"/>
