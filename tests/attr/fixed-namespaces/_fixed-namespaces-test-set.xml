@@ -141,6 +141,18 @@
       </result>
    </test-case>
    
+   <test-case name="fixed-namespaces-012">
+      <description>Namespaces declared using fixed-namespaces are excluded from LREs</description>
+      <created by="Michael Kay" on="2026-07-01"/>     
+      <test>
+         <stylesheet file="fixed-namespaces-012.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out xmlns:a="http://a.com/">a xml</out>]]></assert-xml>
+      </result>
+   </test-case>
+   
    
    
    
