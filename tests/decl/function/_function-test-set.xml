@@ -2155,6 +2155,7 @@
    <test-case name="function-40-012">
       <description>Function with default parameter, defaulting to a function of global variables</description>
       <created by="Michael Kay" on="2022-03-01"/>
+      <modified by="Michael Ennen" on="2026-09-10" change="Default the node parameter to the element"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
