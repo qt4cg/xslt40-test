@@ -958,8 +958,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`doc('eval003.xml')/doc/exp[1]`"/>
-         <param name="trusted" static="true" select="true()"/>
+         <param name="xpath" static="yes" select="`doc('eval003.xml')/doc/exp[1]`"/>
+         <param name="trusted" static="yes" select="true()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -975,8 +975,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`doc('eval003.xml')/doc/exp[1]`"/>
-         <param name="trusted" static="true" select="false()"/>
+         <param name="xpath" static="yes" select="`doc('eval003.xml')/doc/exp[1]`"/>
+         <param name="trusted" static="yes" select="false()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -992,8 +992,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`document('eval003.xml')/doc/exp[1]`"/>
-         <param name="trusted" static="true" select="true()"/>
+         <param name="xpath" static="yes" select="`document('eval003.xml')/doc/exp[1]`"/>
+         <param name="trusted" static="yes" select="true()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1009,8 +1009,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`document('eval003.xml')/doc/exp[1]`"/>
-         <param name="trusted" static="true" select="false()"/>
+         <param name="xpath" static="yes" select="`document('eval003.xml')/doc/exp[1]`"/>
+         <param name="trusted" static="yes" select="false()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1026,8 +1026,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`doc-available('eval003.xml')`"/>
-         <param name="trusted" static="true" select="true()"/>
+         <param name="xpath" static="yes" select="`doc-available('eval003.xml')`"/>
+         <param name="trusted" static="yes" select="true()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1043,8 +1043,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`doc-available('eval003.xml')`"/>
-         <param name="trusted" static="true" select="false()"/>
+         <param name="xpath" static="yes" select="`doc-available('eval003.xml')`"/>
+         <param name="trusted" static="yes" select="false()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1060,8 +1060,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`unparsed-text('eval003.xml') => contains('2+2')`"/>
-         <param name="trusted" static="true" select="true()"/>
+         <param name="xpath" static="yes" select="`unparsed-text('eval003.xml') => contains('2+2')`"/>
+         <param name="trusted" static="yes" select="true()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1077,8 +1077,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`unparsed-text('eval003.xml') => contains('2+2')`"/>
-         <param name="trusted" static="true" select="false()"/>
+         <param name="xpath" static="yes" select="`unparsed-text('eval003.xml') => contains('2+2')`"/>
+         <param name="trusted" static="yes" select="false()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1094,8 +1094,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`unparsed-text-available('eval003.xml')`"/>
-         <param name="trusted" static="true" select="true()"/>
+         <param name="xpath" static="yes" select="`unparsed-text-available('eval003.xml')`"/>
+         <param name="trusted" static="yes" select="true()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1111,8 +1111,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`unparsed-text-available('eval003.xml')`"/>
-         <param name="trusted" static="true" select="false()"/>
+         <param name="xpath" static="yes" select="`unparsed-text-available('eval003.xml')`"/>
+         <param name="trusted" static="yes" select="false()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1128,8 +1128,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`json-doc('eval450.json')?a`"/>
-         <param name="trusted" static="true" select="true()"/>
+         <param name="xpath" static="yes" select="`json-doc('eval450.json')?a`"/>
+         <param name="trusted" static="yes" select="true()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1145,8 +1145,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`json-doc('eval450.json')?a`"/>
-         <param name="trusted" static="true" select="false()"/>
+         <param name="xpath" static="yes" select="`json-doc('eval450.json')?a`"/>
+         <param name="trusted" static="yes" select="false()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1162,8 +1162,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`csv-doc('eval450.csv')?rows => count()`"/>
-         <param name="trusted" static="true" select="true()"/>
+         <param name="xpath" static="yes" select="`csv-doc('eval450.csv')?rows => count()`"/>
+         <param name="trusted" static="yes" select="true()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1179,8 +1179,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`csv-doc('eval450.csv')?rows => count()`"/>
-         <param name="trusted" static="true" select="false()"/>
+         <param name="xpath" static="yes" select="`csv-doc('eval450.csv')?rows => count()`"/>
+         <param name="trusted" static="yes" select="false()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1196,8 +1196,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`html-doc('eval450.html')//*:title`"/>
-         <param name="trusted" static="true" select="true()"/>
+         <param name="xpath" static="yes" select="`html-doc('eval450.html')//*:title`"/>
+         <param name="trusted" static="yes" select="true()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1213,8 +1213,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`html-doc('eval450.html')`"/>
-         <param name="trusted" static="true" select="false()"/>
+         <param name="xpath" static="yes" select="`html-doc('eval450.html')`"/>
+         <param name="trusted" static="yes" select="false()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1236,8 +1236,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`collection('catalog1.xml') => count()`"/>
-         <param name="trusted" static="true" select="true()"/>
+         <param name="xpath" static="yes" select="`collection('catalog1.xml') => count()`"/>
+         <param name="trusted" static="yes" select="true()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1253,8 +1253,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`collection('catalog1.xml') => count()`"/>
-         <param name="trusted" static="true" select="false()"/>
+         <param name="xpath" static="yes" select="`collection('catalog1.xml') => count()`"/>
+         <param name="trusted" static="yes" select="false()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1270,8 +1270,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`(unparsed-binary('eval450.html') => parse-html()) // *:title`"/>
-         <param name="trusted" static="true" select="true()"/>
+         <param name="xpath" static="yes" select="`(unparsed-binary('eval450.html') => parse-html()) // *:title`"/>
+         <param name="trusted" static="yes" select="true()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1287,8 +1287,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`(unparsed-binary('eval450.html') => parse-html()) // *:title`"/>
-         <param name="trusted" static="true" select="false()"/>
+         <param name="xpath" static="yes" select="`(unparsed-binary('eval450.html') => parse-html()) // *:title`"/>
+         <param name="trusted" static="yes" select="false()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1304,8 +1304,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`Q{{http://expath.org/ns/file}}read-text(resolve-uri('eval450.csv', static-base-uri())) => contains('a,b')`"/>
-         <param name="trusted" static="true" select="true()"/>
+         <param name="xpath" static="yes" select="`Q{{http://expath.org/ns/file}}read-text(resolve-uri('eval450.csv', static-base-uri())) => contains('a,b')`"/>
+         <param name="trusted" static="yes" select="true()"/>
          <initial-template name="main"/>
       </test>
       <result>
@@ -1321,8 +1321,8 @@
       </dependencies>
       <test>
          <stylesheet file="evaluate-450.xsl"/>
-         <param name="xpath" static="true" select="`Q{{http://expath.org/ns/file}}read-text('eval450.csv') => contains('a,b')`"/>
-         <param name="trusted" static="true" select="false()"/>
+         <param name="xpath" static="yes" select="`Q{{http://expath.org/ns/file}}read-text('eval450.csv') => contains('a,b')`"/>
+         <param name="trusted" static="yes" select="false()"/>
          <initial-template name="main"/>
       </test>
       <result>
