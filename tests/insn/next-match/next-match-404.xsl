@@ -35,11 +35,11 @@
    
    <xsl:template match="~(item())">6:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(item())[. lt 20]">6t:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(item())[. lt 20]">6t:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:integer)">3:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:integer)">3:<xsl:next-match/></xsl:template>
    
-   <xsl:template match="type(xs:integer)[. lt 20]">3t:<xsl:next-match/></xsl:template>
+   <xsl:template match="~(xs:integer)[. lt 20]">3t:<xsl:next-match/></xsl:template>
    
    
 </xsl:transform>
