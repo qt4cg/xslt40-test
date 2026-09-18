@@ -6,7 +6,7 @@
    <xsl:template name="xsl:initial-template">
       <out>
          <xsl:for-each select="array:members($in)" separator=" ">
-            <xsl:value-of select="count(?value)"/>
+            <xsl:value-of select="count(jvalue())"/>
          </xsl:for-each>
       </out>
    </xsl:template>

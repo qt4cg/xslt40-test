@@ -7,7 +7,7 @@
   <xsl:template name="xsl:initial-template">
     <out>
       <xsl:for-each select="array:members([1, (5,6), 10])">
-         <in>{sum(?value)}</in>
+         <in>{sum(jvalue())}</in>
       </xsl:for-each>
     </out>
   </xsl:template>

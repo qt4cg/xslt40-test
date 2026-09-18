@@ -11,8 +11,8 @@
       <xsl:variable name="input-2" select="[3, (3,4), (3,4,5)]"/>
       <xsl:array>
         <xsl:for-each select="array:members($input-1), array:members($input-2)">
-          <xsl:sort select="count(?value)"/>
-          <xsl:array-member select="?value"/>
+          <xsl:sort select="count(jvalue())"/>
+          <xsl:array-member select="jvalue()"/>
         </xsl:for-each>
       </xsl:array>  
     </xsl:template>
