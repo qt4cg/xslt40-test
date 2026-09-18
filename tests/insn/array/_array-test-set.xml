@@ -244,6 +244,7 @@
    <test-case name="array-013">
       <description>xsl:array used to sort and merge arrays</description>
       <created by="Michael Kay" on="2023-03-23"/>
+      <modified by="Michael Ennen" on="2026-09-17" change="use JNodes for array members"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -280,6 +281,7 @@
    <test-case name="array-015">
       <description>xsl:array/@use references local variable (and fn:current)</description>
       <created by="Michael Kay" on="2023-04-06"/>
+      <modified by="Michael Ennen" on="2026-09-17" change="use JNodes for array members"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -343,6 +345,7 @@
       <description>Iterate over an array</description>
       <created by="Michael Kay" on="2019-04-03"/>
       <modified by="Michael Kay" on="2023-03-23" change="reinstate with current syntax"/>
+      <modified by="Michael Ennen" on="2026-09-17" change="use JNodes for array members"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -392,6 +395,7 @@
       <description>Iteration over arrays; JSON example</description>
       <created by="Michael Kay" on="2019-04-03"/>
       <modified by="Michael Kay" on="2023-03-23" change="reinstate with current syntax"/>
+      <modified by="Michael Ennen" on="2026-09-17" change="use JNodes for array members"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
