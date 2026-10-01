@@ -447,6 +447,20 @@
          <error code="Q{http://example.com/}dupe"/>
       </result>
    </test-case>
+   
+   <test-case name="maps-411" covers-40="PR2912">
+      <description>xsl:map handling JNodes</description>
+      <created by="Michael Kay" on="2026-09-17"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="maps-411.xsl"/>
+      </test>
+      <result>
+         <assert>/out[@x = '5' and @a = '10']</assert>
+      </result>
+   </test-case>
       
    <test-case name="maps-901a">
       <description>map:new() (without args) should throw error (since Oct 2014 LCWD)</description>
