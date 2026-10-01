@@ -3383,11 +3383,46 @@
       </result>
    </test-case>
    
+   <test-case name="mode-4020a" covers-40="PR1929">
+      <description>on-no-match="shallow-copy" with copy-namespaces="no", running in 3.0 mode</description>
+      <created by="Michael Kay" on="2025-04-13"/>
+      <dependencies>
+         <spec value="XSLT30"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4020.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/Q{http://bookworm.ns/}chap</assert>
+            <assert>exists(/out/Q{http://bookworm.ns/}chap/namespace::other)</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   
    <test-case name="mode-4021" covers-40="PR1929">
       <description>on-no-match="shallow-copy" with copy-namespaces="yes"</description>
       <created by="Michael Kay" on="2025-04-13"/>
       <dependencies>
          <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4021.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/Q{http://bookworm.ns/}chap</assert>
+            <assert>exists(/out/Q{http://bookworm.ns/}chap/namespace::other)</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4021a" covers-40="PR1929">
+      <description>on-no-match="shallow-copy" with copy-namespaces="yes", running in 3.0 mode</description>
+      <created by="Michael Kay" on="2025-04-13"/>
+      <dependencies>
+         <spec value="XSLT30"/>
       </dependencies>
       <test>
          <stylesheet file="mode-4021.xsl"/>
@@ -3415,7 +3450,7 @@
    </test-case>
    
    <test-case name="mode-4023" covers-40="PR1929">
-      <description>on-no-match="shallow-copy-all" with copy-namespaces="no"</description>
+      <description>on-no-match="shallow-copy" with copy-namespaces="no"</description>
       <created by="Michael Kay" on="2025-04-13"/>
       <dependencies>
          <spec value="XSLT40+"/>
@@ -3432,7 +3467,7 @@
    </test-case>
    
    <test-case name="mode-4024" covers-40="PR1929">
-      <description>on-no-match="shallow-copy-all" with copy-namespaces="yes"</description>
+      <description>on-no-match="shallow-copy" with copy-namespaces="yes"</description>
       <created by="Michael Kay" on="2025-04-13"/>
       <dependencies>
          <spec value="XSLT40+"/>
@@ -3444,6 +3479,46 @@
          <all-of>
             <assert>/out/Q{http://bookworm.ns/}chap</assert>
             <assert>exists(/out/Q{http://bookworm.ns/}chap/namespace::other)</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4030" covers-40="PR2912">
+      <description>on-no-match="shallow-copy" applied to JSON trees: identity case</description>
+      <created by="Michael Kay" on="2026-09-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4030.xsl"/>
+         <output tree="no"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>$result instance of array(map(*))</assert>
+            <assert>$result?1?first = "John"</assert>
+            <assert>$result?1?last = "Lennon"</assert>
+            <assert>$result?2?last = "McCartney"</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="mode-4031" covers-40="PR2912">
+      <description>on-no-match="shallow-copy" applied to JSON trees: drop one entry</description>
+      <created by="Michael Kay" on="2026-09-18"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="mode-4031.xsl"/>
+         <output tree="no"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>$result instance of array(map(*))</assert>
+            <assert>$result?1?first = "John"</assert>
+            <assert>$result?1?last = "Lennon"</assert>
+            <assert>$result?2?last = "Harrison"</assert>
          </all-of>
       </result>
    </test-case>

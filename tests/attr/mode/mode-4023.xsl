@@ -8,7 +8,7 @@
   xmlns:book="http://bookworm.ns/"
   exclude-result-prefixes="xs">
 
-  <xsl:mode as="(element(book:*) | text())" on-no-match="shallow-copy-all" copy-namespaces="no"/> 
+  <xsl:mode as="(element(book:*) | text())" on-no-match="shallow-copy" copy-namespaces="no"/> 
   
   <xsl:variable name="book">
     <book:chap xmlns:other="http://other.com/">
