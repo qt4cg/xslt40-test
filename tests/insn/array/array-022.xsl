@@ -7,10 +7,10 @@
   <xsl:template name="xsl:initial-template">
     <xsl:variable name="cities" as="element(city)*">
       <xsl:for-each select="array:members(json-doc('../../strm/docs/city-list.json'))">
-         <xsl:variable name="city" select="?value"/>
-         <city id="{$city?_id}">
-           <name>{$city?name}</name>
-           <country>{$city?country}</country>
+         <xsl:variable name="city" select="."/>
+         <city id="{$city/_id}">
+           <name>{$city/name}</name>
+           <country>{$city/country}</country>
          </city>
       </xsl:for-each>
     </xsl:variable>
