@@ -2927,7 +2927,7 @@
    </test-case>
 
 
-<test-case name="copy-5201">
+   <test-case name="copy-5201">
       <description>xsl:copy-of copy-namespaces=no. Saxon bug 5616.</description>
       <created by="Michael Kay" on="2022-07-27"/>
       <environment>
@@ -2946,6 +2946,258 @@
          </all-of>
       </result>
    </test-case>
+   
+   <test-case name="copy-5301" covers-40="PR2912">
+      <description>xsl:copy-of applied to a JNode (XSLT 4.0).</description>
+      <created by="Michael Kay" on="2026-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5301.xsl"/>
+      </test>
+      <result>
+         <assert>/out/@same = "true"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5302" covers-40="PR2912">
+      <description>xsl:copy-of applied to a JNode (XSLT 4.0).</description>
+      <created by="Michael Kay" on="2026-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5302.xsl"/>
+      </test>
+      <result>
+         <assert>/out/@same = "true"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5303" covers-40="PR2912">
+      <description>xsl:copy applied to a JNode wrapping a map (XSLT 4.0).</description>
+      <created by="Michael Kay" on="2026-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5303.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '[{"a":2,"b":3},{"a":11,"b":21}]'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5304" covers-40="PR2912">
+      <description>xsl:copy applied to a JNode wrapping a map (XSLT 4.0). Duplicates = use-last</description>
+      <created by="Michael Kay" on="2026-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5304.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '[{"a":999,"b":3},{"a":999,"b":21}]'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5305" covers-40="PR2912">
+      <description>xsl:copy applied to a JNode wrapping a map (XSLT 4.0). Duplicates = use-last</description>
+      <created by="Michael Kay" on="2026-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5305.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '[{"a":999,"b":2},{"a":999,"b":20}]'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5306" covers-40="PR2912">
+      <description>xsl:copy applied to a JNode wrapping a map (XSLT 4.0). Duplicates = use-last</description>
+      <created by="Michael Kay" on="2026-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5306.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '[{"a":999,"b":2},{"a":999,"b":20}]'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5401" covers-40="PR2912">
+      <description>xsl:copy applied to a JNode wrapping an array (XSLT 4.0)</description>
+      <created by="Michael Kay" on="2026-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5401.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '[[165],[234]]'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5402" covers-40="PR2912">
+      <description>xsl:copy applied to a JNode wrapping an array (XSLT 4.0)</description>
+      <created by="Michael Kay" on="2026-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5402.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '[[165],[234]]'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5403" covers-40="PR2912">
+      <description>xsl:copy applied to a JNode wrapping an array (XSLT 4.0)</description>
+      <created by="Michael Kay" on="2026-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5403.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '[[44,55,66,0],[77,78,79,0]]'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5404" covers-40="PR2912">
+      <description>xsl:copy applied to a JNode wrapping an array (XSLT 4.0)</description>
+      <created by="Michael Kay" on="2026-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5404.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '[[0],[1]]'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5405" covers-40="PR2912">
+      <description>xsl:copy applied to a JNode wrapping a sequence of maps and arrays (XSLT 4.0)</description>
+      <created by="Michael Kay" on="2026-09-15"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5405.xsl"/>
+      </test>
+      <result>
+         <assert>/out = '[[44,55,66,0],[77,78,79,0]]'</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5501" covers-40="PR2912">
+      <description>xsl:copy applied to a JNode wrapping a sequence (XSLT 4.0)</description>
+      <created by="Michael Kay" on="2026-09-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5501.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/in[1]/@val = '1:'</assert>
+            <assert>/out/in[2]/@val = '2:a'</assert>
+            <assert>/out/in[3]/@val = '3:b-c'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5502" covers-40="PR2912">
+      <description>xsl:copy applied to a JNode wrapping a sequence (XSLT 4.0)</description>
+      <created by="Michael Kay" on="2026-09-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5502.xsl"/>
+      </test>
+      <result>
+         <all-of>
+            <assert>/out/in[1]/@val = '1:X'</assert>
+            <assert>/out/in[2]/@val = '2:Ya'</assert>
+            <assert>/out/in[3]/@val = '3:Zbc'</assert>
+         </all-of>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5503" covers-40="PR2912">
+      <description>Recursive xsl:copy applied to an arbitrary JSON tree (XSLT 4.0)</description>
+      <created by="Michael Kay" on="2026-09-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5503.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "OK"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5504" covers-40="PR2912">
+      <description>Built-in xsl:copy applied to an arbitrary JSON tree (XSLT 4.0)</description>
+      <created by="Michael Kay" on="2026-09-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5504.xsl"/>
+      </test>
+      <result>
+         <assert>/out = "OK"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5505" covers-40="PR2912">
+      <description>Recursive xsl:copy applied to an JTree containing sequences (XSLT 4.0)</description>
+      <created by="Michael Kay" on="2026-09-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5505.xsl"/>
+      </test>
+      <result>
+         <assert>every $t in /out/test satisfies $t!@result = "OK"</assert>
+      </result>
+   </test-case>
+   
+   <test-case name="copy-5506" covers-40="PR2912">
+      <description>Shallow copy templates applied to an JTree containing sequences (XSLT 4.0)</description>
+      <created by="Michael Kay" on="2026-09-23"/>
+      <dependencies>
+         <spec value="XSLT40+"/>
+      </dependencies>
+      <test>
+         <stylesheet file="copy-5506.xsl"/>
+      </test>
+      <result>
+         <assert>every $t in /out/test satisfies $t!@result = "OK"</assert>
+      </result>
+   </test-case>
+   
+   
+   
+   
+   
+
 
 
 </test-set>
