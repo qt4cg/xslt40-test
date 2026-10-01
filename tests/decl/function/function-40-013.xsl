@@ -4,7 +4,7 @@
   exclude-result-prefixes="#all">
   
   <xsl:function name="f:code" as="xs:string">
-    <xsl:param name="node" as="node()" required="no" select="."/>
+    <xsl:param name="node" as="node()" required="no" select="current()"/>
     <xsl:sequence select="$prefix || ($node ! @code)"/>
   </xsl:function>
   

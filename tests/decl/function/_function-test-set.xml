@@ -2138,9 +2138,10 @@
       </result>
    </test-case>
    
-   <test-case name="function-40-011">
+   <test-case name="function-40-011" covers-40="PR2858">
       <description>Function with default parameter, defaulting to context item</description>
       <created by="Michael Kay" on="2022-03-01"/>
+      <modified by="Michael Kay" on="2026-08-25" change="PR2858"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -2166,9 +2167,10 @@
       </result>
    </test-case>
    
-   <test-case name="function-40-013">
-      <description>Function with default parameter, defaulting to an expression referencing global variables</description>
+   <test-case name="function-40-013" covers-40="PR2858">
+      <description>Function with default parameter, defaulting to an expression referencing current()</description>
       <created by="Michael Kay" on="2022-03-01"/>
+      <modified by="Michael Kay" on="2026-08-25" change="PR2858"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -2180,9 +2182,10 @@
       </result>
    </test-case>
    
-   <test-case name="function-40-014" covers-40="PR2236">
+   <test-case name="function-40-014" covers-40="PR2236 PR2858">
       <description>Allow functions in no namespace</description>
       <created by="Michael Kay" on="2025-11-10"/>
+      <modified by="Michael Kay" on="2026-08-25" change="PR2858"/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>

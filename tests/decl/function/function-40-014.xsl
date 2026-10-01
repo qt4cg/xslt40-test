@@ -2,7 +2,7 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema">
   
   <xsl:function name="code" as="xs:string" visibility="private">
-    <xsl:param name="node" as="node()" required="no" select="."/>
+    <xsl:param name="node" as="node()" required="no" select="current()"/>
     <xsl:sequence select="$prefix || ($node ! @code)"/>
   </xsl:function>
   
