@@ -59,20 +59,20 @@
    <xsl:template name="t40-12a">
       <xsl:note>Options on fn:document - dtd validation requested, document is invalid</xsl:note>
       <out>
-         <xsl:select>exists(document("bib-invalid.xml", {'dtd-validation':true(), 'trusted':true()})/*)</xsl:select>
+         <xsl:select>exists(document("bib-invalid.xml", {'dtd-validation':true(), 'trust-external':true()})/*)</xsl:select>
       </out>
    </xsl:template>
    
    <xsl:template name="t40-13">
-      <xsl:note>Options on fn:document - dtd validation, document valid, external DTD, trusted</xsl:note>
+      <xsl:note>Options on fn:document - dtd validation, document valid, external DTD, trust-external</xsl:note>
       <out>
-         <xsl:select>exists(document("bib-with-external-dtd.xml", {'dtd-validation':true(), 'trusted': true()})/*)</xsl:select>
+         <xsl:select>exists(document("bib-with-external-dtd.xml", {'dtd-validation':true(), 'trust-external': true()})/*)</xsl:select>
       </out>
    </xsl:template>
    
    <xsl:template name="t40-14">
-      <xsl:note>Options on fn:document - dtd validation, document valid, external DTD, trusted=false</xsl:note>
-      <xsl:select>exists(document("bib-with-external-dtd.xml", {'dtd-validation':true(), 'trusted': false()})/*)</xsl:select>
+      <xsl:note>Options on fn:document - dtd validation, document valid, external DTD, trust-external=false</xsl:note>
+      <xsl:select>exists(document("bib-with-external-dtd.xml", {'dtd-validation':true(), 'trust-external': false()})/*)</xsl:select>
       <result>
          <error code="FODC0016"/>
       </result>
@@ -171,7 +171,7 @@
    <xsl:template name="t40-44">
       <xsl:note>Options on fn:document - stable with xinclude</xsl:note>
       <out>
-         <xsl:select>document("bib-with-xinclude.xml", {'stable':true(), 'xinclude':true(), 'trusted':true()})
+         <xsl:select>document("bib-with-xinclude.xml", {'stable':true(), 'xinclude':true(), 'trust-external':true()})
           is document("bib-with-xinclude.xml", {'stable':true(), 'xinclude':false()}) </xsl:select>
       </out>
    </xsl:template>
@@ -187,7 +187,7 @@
    <xsl:template name="t40-51">
       <xsl:note>Options on fn:document - xinclude</xsl:note>
       <out>
-         <xsl:select>document("bib-with-xinclude.xml", {'xinclude':true(), 'trusted':true()}) ! count(.//book)</xsl:select>
+         <xsl:select>document("bib-with-xinclude.xml", {'xinclude':true(), 'trust-external':true()}) ! count(.//book)</xsl:select>
       </out>
    </xsl:template>
    
