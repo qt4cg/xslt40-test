@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <test-set xmlns="http://www.w3.org/2012/10/xslt-test-catalog" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="seqtor">
    <description>Tests constructing content in sequence constructors</description>
    
@@ -1241,4 +1241,18 @@
    </test-case>
 
 
+   <test-case name="seqtor-145">
+      <description>CDATA map expression preserves a literal newline and both quote characters under expand-text.</description>
+      <created by="Charles Korthout" on="2026-10-12"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="seqtor-145.xsl"/></test>
+      <result><assert-xml><![CDATA[<out small="true" length="3" newline="10" quotes="2"/>]]></assert-xml></result>
+   </test-case>
+   <test-case name="seqtor-146">
+      <description>Sequence-valued select body evaluates with the current item, position and size.</description>
+      <created by="Charles Korthout" on="2026-10-12"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="seqtor-146.xsl"/></test>
+      <result><assert-xml><![CDATA[<out><row value="A|1|3"/><row value="B|2|3"/><row value="C|3|3"/></out>]]></assert-xml></result>
+   </test-case>
 </test-set>
