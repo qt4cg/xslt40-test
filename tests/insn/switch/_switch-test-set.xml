@@ -146,4 +146,18 @@
       </result>
    </test-case>
 
+   <test-case name="switch-008">
+      <description>Overlapping status alternatives select the first match and do not evaluate later tests.</description>
+      <created by="Charles Korthout" on="2026-10-12"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="switch-008.xsl"/></test>
+      <result><assert-xml><![CDATA[<out>first</out>]]></assert-xml></result>
+   </test-case>
+   <test-case name="switch-009">
+      <description>A matching empty-result branch ends selection instead of falling through.</description>
+      <created by="Charles Korthout" on="2026-10-12"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="switch-009.xsl"/></test>
+      <result><assert-xml><![CDATA[<out count="0"/>]]></assert-xml></result>
+   </test-case>
 </test-set>
