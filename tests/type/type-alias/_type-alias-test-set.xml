@@ -519,4 +519,18 @@
    
    
  
+   <test-case name="type-alias-023">
+      <description>An enumeration alias accepts status strings and rejects unknown strings and integers.</description>
+      <created by="Charles Korthout" on="2026-10-12"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="type-alias-023.xsl"/></test>
+      <result><assert-xml><![CDATA[<out ready="true" unknown="false" numeric="false"/>]]></assert-xml></result>
+   </test-case>
+   <test-case name="type-alias-024">
+      <description>Enumeration aliases with the same local name but distinct expanded names remain distinct.</description>
+      <created by="Charles Korthout" on="2026-10-12"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="type-alias-024.xsl"/></test>
+      <result><assert-xml><![CDATA[<out primary="true" other="true" crossed="false"/>]]></assert-xml></result>
+   </test-case>
 </test-set>
