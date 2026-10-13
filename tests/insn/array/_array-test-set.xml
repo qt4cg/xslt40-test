@@ -8,6 +8,10 @@
       <source role="." file="../../strm/docs/transactions.xml"/>
    </environment>
    
+   <environment name="array-member-orders">
+      <source role="." file="array-member-orders.xml"/>
+   </environment>
+
    <dependencies>
       <spec value="XSLT40+"/>
    </dependencies>
@@ -506,4 +510,54 @@
    
 
    
+   <test-case name="array-027">
+      <description>An explicit empty member occupies a slot, while an empty sequence emits no member.</description>
+      <created by="Charles Korthout" on="2026-10-12"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-027.xsl"/></test>
+      <result><assert-xml>&lt;out members="3" empty="true" last="B" emitted="2" second="B"/&gt;</assert-xml></result>
+   </test-case>
+
+   <test-case name="array-028">
+      <description>An array-member sequence constructor returning no items still creates an empty member.</description>
+      <created by="Charles Korthout" on="2026-10-12"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-028.xsl"/></test>
+      <result><assert-xml>&lt;out members="3" empty="true" grouped="2" values="after|tail"/&gt;</assert-xml></result>
+   </test-case>
+
+   <test-case name="array-029">
+      <description>Nested map and empty/nonempty array values remain singleton members without flattening.</description>
+      <created by="Charles Korthout" on="2026-10-12"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-029.xsl"/></test>
+      <result><assert-xml>&lt;out members="3" map="true" sku="A" lots="0" nested="true" nested-size="2" nested-second="C" empty-array="0" empty-array-is-item="1"/&gt;</assert-xml></result>
+   </test-case>
+
+   <test-case name="array-030">
+      <description>Order-export members retain original source-node identity and explicit non-document order.</description>
+      <created by="Charles Korthout" on="2026-10-12"/>
+      <environment ref="array-member-orders"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-030.xsl"/></test>
+      <result><assert-xml>&lt;out members="2" grouped="2" first-same="true" second-same="true" last-same="true" order="C|A"/&gt;</assert-xml></result>
+   </test-case>
+
+   <test-case name="array-031">
+      <description>The for-each form retains empty members and evaluates select with per-line focus.</description>
+      <created by="Charles Korthout" on="2026-10-12"/>
+      <environment ref="array-member-orders"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-031.xsl"/></test>
+      <result><assert-xml>&lt;out members="3" first="A|1|3" empty="true" last="C|3|3"/&gt;</assert-xml></result>
+   </test-case>
+
+   <test-case name="array-032">
+      <description>A for-each result mixing an array-member JNode with an atomic item raises XTTE4060.</description>
+      <created by="Charles Korthout" on="2026-10-12"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-032.xsl"/></test>
+      <result><error code="XTTE4060"/></result>
+   </test-case>
+
 </test-set>
