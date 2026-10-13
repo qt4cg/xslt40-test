@@ -741,4 +741,18 @@
    
    
  
+   <test-case name="record-026">
+      <description>Named record constructor uses declared field order and retains an explicit empty field.</description>
+      <created by="Charles Korthout" on="2026-10-12"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="record-026.xsl"/></test>
+      <result><assert-xml><![CDATA[<out sku="A" quantity="2" note="true" empty="true" typed="true"/>]]></assert-xml></result>
+   </test-case>
+   <test-case name="record-027">
+      <description>Static field initialization is excluded from constructor parameters and is retained in the record.</description>
+      <created by="Charles Korthout" on="2026-10-12"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="record-027.xsl"/></test>
+      <result><assert-xml><![CDATA[<out sku="B" kind="line" quantity="3" fields="3"/>]]></assert-xml></result>
+   </test-case>
 </test-set>
