@@ -157,6 +157,42 @@
    
    
    
+   <test-case name="fixed-namespaces-013">
+      <description>Explicit mode declaration and template membership use fixed bindings despite native prefix rebinding.</description>
+      <created by="Charles Korthout" on="2026-10-13"/>
+      <test>
+         <stylesheet file="fixed-namespaces-013.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><hit>fixed</hit></out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="fixed-namespaces-014">
+      <description>Root and scoped default-mode names resolve against fixed bindings and agree with EQName template modes.</description>
+      <created by="Charles Korthout" on="2026-10-13"/>
+      <test>
+         <stylesheet file="fixed-namespaces-014.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out><root/><scoped/></out>]]></assert-xml>
+      </result>
+   </test-case>
+
+   <test-case name="fixed-namespaces-015">
+      <description>Key declaration and string lookup use fixed bindings; QName lookup retains its own namespace identity.</description>
+      <created by="Charles Korthout" on="2026-10-13"/>
+      <test>
+         <stylesheet file="fixed-namespaces-015.xsl"/>
+         <initial-template name="main"/>
+      </test>
+      <result>
+         <assert-xml><![CDATA[<out string="1" qname="1"/>]]></assert-xml>
+      </result>
+   </test-case>
+
    <test-case name="fixed-namespaces-901">
       <description>xsl prefix used in xsl:initial-template but not declared</description>
       <created by="Michael Kay" on="2023-11-28"/>     
