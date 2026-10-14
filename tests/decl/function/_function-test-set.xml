@@ -2515,4 +2515,27 @@
          <error code="XTSE0740"/>
       </result>
    </test-case>
+   <test-case name="function-40-024">
+      <description>Keyword omissions use defaults while explicit empty arguments do not, including an arrow call.</description>
+      <created by="Charles Korthout" on="2026-10-14"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="function-40-024.xsl"/></test>
+      <result><assert-xml><![CDATA[<out omitted="A|B|Y" empty="A||Y" arrow="A|B|Y"/>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="function-40-025">
+      <description>Select and sequence-constructor defaults resolve a global whose name is shadowed by an earlier parameter and a caller local.</description>
+      <created by="Charles Korthout" on="2026-10-14"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="function-40-025.xsl"/></test>
+      <result><assert-xml><![CDATA[<out defaults="SUPPLIED|GLOBAL|GLOBAL" supplied="CALLER|B|C"/>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="function-40-026">
+      <description>Named references, function-lookup and partial application retain creation focus for select and sequence-constructor defaults.</description>
+      <created by="Charles Korthout" on="2026-10-14"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="function-40-026.xsl"/></test>
+      <result><assert-xml><![CDATA[<out><r named="X:1/2|X:1/2" lookup="X:1/2|X:1/2" partial="X:1/2|X:1/2"/><r named="Y:2/2|Y:2/2" lookup="Y:2/2|Y:2/2" partial="Y:2/2|Y:2/2"/></out>]]></assert-xml></result>
+   </test-case>
 </test-set>
