@@ -165,7 +165,10 @@
          <initial-template name="main"/>
       </test>
       <result>
-         <assert-xml><![CDATA[<out><hit>fixed</hit></out>]]></assert-xml>
+         <all-of>
+            <assert-xml><![CDATA[<out><hit xmlns:p="urn:other">fixed</hit></out>]]></assert-xml>
+            <assert>namespace-uri-for-prefix('p', /out/hit) eq 'urn:other'</assert>
+         </all-of>
       </result>
    </test-case>
 
@@ -189,7 +192,10 @@
          <initial-template name="main"/>
       </test>
       <result>
-         <assert-xml><![CDATA[<out string="1" qname="1"/>]]></assert-xml>
+         <all-of>
+            <assert-xml><![CDATA[<out xmlns:p="urn:local" string="1" qname="1"/>]]></assert-xml>
+            <assert>namespace-uri-for-prefix('p', /out) eq 'urn:local'</assert>
+         </all-of>
       </result>
    </test-case>
 
