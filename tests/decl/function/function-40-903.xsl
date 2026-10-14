@@ -8,7 +8,7 @@
   
   <xsl:function name="f:add" as="xs:integer">
     <xsl:param name="x" as="xs:integer*"/>
-    <xsl:param name="y" as="xs:integer*" required="no" select="1e7"/>
+    <xsl:param name="y" as="xs:integer*" required="no" select="QName('urn:invalid', 'invalid')"/>
     <xsl:sequence select="sum(($x, $y))"/>
   </xsl:function>
 
