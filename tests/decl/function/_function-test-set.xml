@@ -2156,6 +2156,7 @@
    <test-case name="function-40-012">
       <description>Function with default parameter, defaulting to a function of global variables</description>
       <created by="Michael Kay" on="2022-03-01"/>
+      <modified by="Charles Korthout" on="2026-10-14" change="Select the element whose code attribute the function returns."/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -2363,6 +2364,7 @@
    <test-case name="function-40-903">
       <description>Default value invalid for type</description>
       <created by="Michael Kay" on="2022-10-24"/>
+      <modified by="Charles Korthout" on="2026-10-14" change="Retain the invalid double-to-integer default and expect XPath argument conversion error XPTY0004."/>
       <dependencies>
          <spec value="XSLT40+"/>
       </dependencies>
@@ -2370,7 +2372,7 @@
          <stylesheet file="function-40-903.xsl"/>
       </test>
       <result>
-         <error code="XTTE0600"/>
+         <error code="XPTY0004"/>
       </result>
    </test-case>
    
