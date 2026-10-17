@@ -81,6 +81,7 @@
    <test-case name="extension-functions-0105">
       <description>A reserved namespace must not be used in the name of an extension instruction.</description>
       <created by="Michael Kay" on="2015-11-06"/>
+      <modified by="Michael Ennen" on="2026-09-12" change="Correct the reserved-namespace error code to XTSE0085."/>
       <environment ref="extension-functions-01"/>
       <dependencies>
          <spec value="XSLT30+"/>
@@ -89,7 +90,7 @@
          <stylesheet file="extension-functions-0105.xsl"/>
       </test>
       <result>
-         <error code="XTSE0800"/>
+         <error code="XTSE0085"/>
       </result>
    </test-case>
    
