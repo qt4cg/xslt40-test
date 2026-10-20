@@ -560,4 +560,84 @@
       <result><error code="XTTE4060"/></result>
    </test-case>
 
+
+   <test-case name="array-033">
+      <description>Empty for-each input does not evaluate a failing member constructor.</description>
+      <created by="Charles Korthout" on="2026-10-20"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-033.xsl"/></test>
+      <result><assert-xml><![CDATA[<out size="0"/>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="array-034">
+      <description>Array iteration restores the outer item, position and size.</description>
+      <created by="Charles Korthout" on="2026-10-20"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-034.xsl"/></test>
+      <result><assert-xml><![CDATA[<out restored="true"/>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="array-035">
+      <description>Array sequence-constructor form sees the complete iteration focus.</description>
+      <created by="Charles Korthout" on="2026-10-20"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-035.xsl"/></test>
+      <result><assert-xml><![CDATA[<out correct="true"/>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="array-036">
+      <description>An ordinary function item remains callable as an array member.</description>
+      <created by="Charles Korthout" on="2026-10-20"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-036.xsl"/></test>
+      <result><assert-xml><![CDATA[<out size="1" value="42"/>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="array-037">
+      <description>Nested array-member wrappers recursively unwrap grouped payload without copying nodes.</description>
+      <created by="Charles Korthout" on="2026-10-20"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-037.xsl"/></test>
+      <result><assert-xml><![CDATA[<out size="1" count="3" same="true" tail="true"/>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="array-038">
+      <description>Array select cannot be combined with nonempty sequence-constructor content.</description>
+      <created by="Charles Korthout" on="2026-10-20"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-038.xsl"/></test>
+      <result><error code="XTSE3185"/></result>
+   </test-case>
+
+   <test-case name="array-039">
+      <description>Array-member select cannot be combined with nonempty constructor content.</description>
+      <created by="Charles Korthout" on="2026-10-20"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-039.xsl"/></test>
+      <result><error code="XTSE3185"/></result>
+   </test-case>
+
+   <test-case name="array-040">
+      <description>Array select permits whitespace, comments and ignored fallback children.</description>
+      <created by="Charles Korthout" on="2026-10-20"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-040.xsl"/></test>
+      <result><assert-xml><![CDATA[<out correct="true"/>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="array-041">
+      <description>Array-member select permits whitespace, comments and ignored fallback children.</description>
+      <created by="Charles Korthout" on="2026-10-20"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-041.xsl"/></test>
+      <result><assert-xml><![CDATA[<out size="1" grouped="true"/>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="array-042">
+      <description>An empty array instruction creates no members, unlike an empty array-member.</description>
+      <created by="Charles Korthout" on="2026-10-20"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="array-042.xsl"/></test>
+      <result><assert-xml><![CDATA[<out size="0"/>]]></assert-xml></result>
+   </test-case>
 </test-set>
