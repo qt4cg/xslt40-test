@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="4.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="#all">
+<xsl:output omit-xml-declaration="yes"/>
+<xsl:template name="xsl:initial-template">
+<out><xsl:switch select="xs:double('NaN')"><xsl:when test="xs:double('NaN')" select="error()"/><xsl:otherwise select="42"/></xsl:switch></out>
+</xsl:template>
+</xsl:stylesheet>
