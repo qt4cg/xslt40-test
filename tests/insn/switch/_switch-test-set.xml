@@ -160,4 +160,100 @@
       <test><stylesheet file="switch-009.xsl"/></test>
       <result><assert-xml><![CDATA[<out count="0"/>]]></assert-xml></result>
    </test-case>
+
+   <test-case name="switch-010">
+      <description>A singleton selector node is atomized before numeric general comparison.</description>
+      <created by="Charles Korthout" on="2026-10-21"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="switch-010.xsl"/></test>
+      <result><assert-xml><![CDATA[<out>42</out>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="switch-011">
+      <description>An empty selector cannot satisfy the required single atomic item.</description>
+      <created by="Charles Korthout" on="2026-10-21"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="switch-011.xsl"/></test>
+      <result><error code="XPTY0004"/></result>
+   </test-case>
+
+   <test-case name="switch-012">
+      <description>Selector node atomization must still produce only one atomic item.</description>
+      <created by="Charles Korthout" on="2026-10-21"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="switch-012.xsl"/></test>
+      <result><error code="XPTY0004"/></result>
+   </test-case>
+
+   <test-case name="switch-013">
+      <description>A node-valued test sequence is atomized before general comparison.</description>
+      <created by="Charles Korthout" on="2026-10-21"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="switch-013.xsl"/></test>
+      <result><assert-xml><![CDATA[<out>42</out>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="switch-014">
+      <description>NaN does not equal NaN and the otherwise branch is selected.</description>
+      <created by="Charles Korthout" on="2026-10-21"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="switch-014.xsl"/></test>
+      <result><assert-xml><![CDATA[<out>42</out>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="switch-015">
+      <description>QName comparison uses expanded names rather than prefix spelling or local name alone.</description>
+      <created by="Charles Korthout" on="2026-10-21"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="switch-015.xsl"/></test>
+      <result><assert-xml><![CDATA[<out>42</out>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="switch-016">
+      <description>Switch collation governs branch comparison even with a different collation on when.</description>
+      <created by="Charles Korthout" on="2026-10-21"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="switch-016.xsl"/></test>
+      <result><assert-xml><![CDATA[<out>42</out>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="switch-017">
+      <description>Selector, test and result expressions retain the caller item, position and size.</description>
+      <created by="Charles Korthout" on="2026-10-21"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="switch-017.xsl"/></test>
+      <result><assert-xml><![CDATA[<out><v item="10" position="1" size="2"/><after item="10" position="1" size="2"/><v item="20" position="2" size="2"/><after item="20" position="2" size="2"/></out>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="switch-018">
+      <description>A selected node sequence retains identity and explicitly reversed order.</description>
+      <created by="Charles Korthout" on="2026-10-21"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="switch-018.xsl"/></test>
+      <result><assert-xml><![CDATA[<out count="2" first="B" same="true" last="A"/>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="switch-019">
+      <description>A selected function item is returned without atomization and remains callable.</description>
+      <created by="Charles Korthout" on="2026-10-21"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="switch-019.xsl"/></test>
+      <result><assert-xml><![CDATA[<out value="42"/>]]></assert-xml></result>
+   </test-case>
+
+   <test-case name="switch-020">
+      <description>An error in the selected result propagates without falling through to otherwise.</description>
+      <created by="Charles Korthout" on="2026-10-21"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="switch-020.xsl"/></test>
+      <result><error code="FOER0000"/></result>
+   </test-case>
+
+   <test-case name="switch-021">
+      <description>An earlier nonmatching result is not evaluated before the selected constructor.</description>
+      <created by="Charles Korthout" on="2026-10-21"/>
+      <dependencies><spec value="XSLT40+"/></dependencies>
+      <test><stylesheet file="switch-021.xsl"/></test>
+      <result><assert-xml><![CDATA[<out>42</out>]]></assert-xml></result>
+   </test-case>
 </test-set>
